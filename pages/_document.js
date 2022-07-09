@@ -2,10 +2,11 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 const Document = () => {
     return (
-        <Html>
+        <Html lang='en'>
             <Head>
                 <meta charset='utf-8' />
                 <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
+                <meta name='theme-color' content='#8a6e4b' />
                 <link rel='icon' type='image/png' sizes='32x32' href='/favicon.ico' />
                 <link rel='apple-touch-icon' href='/favicon.ico' />
                 <link rel='preconnect' href='https://fonts.googleapis.com' />

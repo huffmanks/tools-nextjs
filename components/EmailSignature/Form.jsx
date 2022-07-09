@@ -76,6 +76,7 @@ const Form = () => {
                     className={styles['form-btn']}
                     size='large'
                     variant='contained'
+                    aria-label='create email signature'
                     type='submit'
                     style={{ backgroundColor: `${!formIsValid() ? '#555' : 'var(--primary-main)'}` }}
                     disabled={!formIsValid()}>

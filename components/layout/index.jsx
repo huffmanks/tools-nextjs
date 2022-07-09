@@ -110,7 +110,9 @@ const Layout = ({ children }) => {
             </AppBar>
             <Drawer variant='permanent' open={open}>
                 <DrawerHeader>
-                    <IconButton onClick={handleDrawerOpen}>{theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}</IconButton>
+                    <IconButton aria-label='toggle menu' onClick={handleDrawerOpen}>
+                        {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                    </IconButton>
                 </DrawerHeader>
                 <Divider />
                 <List>

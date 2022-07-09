@@ -53,7 +53,7 @@ const Output = ({ values }) => {
                         {values.address} {values.cityState} {values.zipCode}
                     </div>
                 </div>
-                <IconButton className={styles.copy} style={{ position: 'absolute' }} onClick={handleClick}>
+                <IconButton className={styles.copy} style={{ position: 'absolute' }} aria-label='copy email signature' onClick={handleClick}>
                     <ContentCopyIcon color='primary' />
                 </IconButton>
             </div>

@@ -17,10 +17,10 @@ const ActionGroup = ({ values, saved, handleChange, handleReset, handleSave }) =
             </Grid>
             <Grid item lg={3} md={5} xs={12}>
                 <ButtonGroup fullWidth variant='outlined' sx={{ height: '100%' }}>
-                    <Button sx={{ height: '100%' }} onClick={handleSave} endIcon={<SaveIcon />}>
+                    <Button sx={{ height: '100%' }} onClick={handleSave} aria-label='save output' endIcon={<SaveIcon />}>
                         Save
                     </Button>
-                    <Button fullWidth variant='outlined' sx={{ height: '100%' }} onClick={handleReset} endIcon={<RestartAltIcon />}>
+                    <Button fullWidth variant='outlined' sx={{ height: '100%' }} onClick={handleReset} aria-label='reset form' endIcon={<RestartAltIcon />}>
                         Reset
                     </Button>
                 </ButtonGroup>
