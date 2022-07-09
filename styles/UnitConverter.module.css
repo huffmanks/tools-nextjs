@@ -1,0 +1,16 @@
+.stack-item {
+    width: fit-content;
+    padding: 10px 15px;
+    background-color: var(--dark-alt);
+    border-radius: 6px;
+}
+
+.stack-pipe {
+    margin: 0 10px;
+}
+
+@media (max-width: 899px) {
+    .stack-item {
+        width: 100%;
+    }
+}

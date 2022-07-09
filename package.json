@@ -9,8 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.7",
+    "change-case": "^4.1.2",
+    "colord": "^2.9.2",
+    "convert": "^4.5.0",
     "next": "12.2.2",
     "react": "18.2.0",
+    "react-colorful": "^5.5.1",
     "react-dom": "18.2.0"
   },
   "devDependencies": {

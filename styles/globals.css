@@ -1,16 +1,73 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+:root {
+    --primary-main: #8a6e4b;
+    --primary-alt: #8b5cf6;
+    --dark-main: #1e1e1e;
+    --dark-alt: #333333;
+    --dark-alt-2: #404040;
+    --light-main: #fefefe;
+    --light-alt: #eeeeee;
 }
 
-* {
-  box-sizing: border-box;
+p {
+    margin-bottom: 30px;
+}
+
+/* Custom inputs Unit Converter */
+
+.group.top .MuiOutlinedInput-root fieldset {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: transparent;
+}
+
+.group.bottom .MuiOutlinedInput-root fieldset {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.textarea .MuiInputBase-multiline textarea {
+    overflow: hidden;
+}
+
+/* Custom Colord layout */
+
+.custom-layout .react-colorful {
+    width: 100%;
+    min-height: 300px;
+    margin-bottom: 2rem;
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--dark-alt);
+    box-shadow: 0 0 2px 2px #444;
+}
+
+.custom-layout .react-colorful__saturation {
+    margin: 15px 0;
+    border-radius: 5px;
+    border-bottom: none;
+}
+
+.custom-layout .react-colorful__hue {
+    order: -1;
+}
+
+.custom-layout .react-colorful__hue,
+.custom-layout .react-colorful__alpha {
+    height: 35px;
+    border-radius: 5px;
+}
+
+.custom-layout .react-colorful__hue-pointer,
+.custom-layout .react-colorful__alpha-pointer {
+    width: 20px;
+    height: 20px;
 }
