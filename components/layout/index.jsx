@@ -60,8 +60,6 @@ const AppBar = styled(MuiAppBar)(({ theme, open }) => ({
     }),
 }))
 
-// AppBar.muiName = MuiAppBar.muiName
-
 const Drawer = styled(MuiDrawer)(({ theme, open }) => ({
     width: drawerWidth,
     flexShrink: 0,
@@ -76,8 +74,6 @@ const Drawer = styled(MuiDrawer)(({ theme, open }) => ({
         '& .MuiDrawer-paper': closedMixin(theme),
     }),
 }))
-
-// ListItem.MuiName = 'MuiListItem'
 
 const Layout = ({ children }) => {
     const theme = useTheme()
@@ -141,7 +137,7 @@ const Layout = ({ children }) => {
                 </List>
                 <Divider />
                 <List>
-                    {routes.slice(1, -1).map(({ key, path, name, icon }) => (
+                    {routes.slice(1, -2).map(({ key, path, name, icon }) => (
                         <ListItem key={key}>
                             <Link href={path} passHref={true} style={{ textDecoration: 'none' }}>
                                 <ListItemButton
@@ -166,7 +162,7 @@ const Layout = ({ children }) => {
                 </List>
                 <Divider />
                 <List>
-                    {routes.slice(-1).map(({ key, path, name, icon }) => (
+                    {routes.slice(-2).map(({ key, path, name, icon }) => (
                         <ListItem key={key}>
                             <Link href={path} passHref={true} style={{ textDecoration: 'none' }}>
                                 <ListItemButton

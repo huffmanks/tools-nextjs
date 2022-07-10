@@ -1,0 +1,23 @@
+{
+    "name": "Web Tools",
+    "short_name": "Web Tools",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#1e1e1e",
+    "theme_color": "#8a6e4b",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "/512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable any"
+        }
+    ]
+}

@@ -1,9 +1,10 @@
 import HomeIcon from '@mui/icons-material/Home'
 import AspectRatioIcon from '@mui/icons-material/AspectRatio'
-import TextFormatIcon from '@mui/icons-material/TextFormat'
 import ColorLensIcon from '@mui/icons-material/ColorLens'
-import DesignServicesIcon from '@mui/icons-material/DesignServices'
+import TextFormatIcon from '@mui/icons-material/TextFormat'
 import ScaleIcon from '@mui/icons-material/Scale'
+import DesignServicesIcon from '@mui/icons-material/DesignServices'
+import KeyIcon from '@mui/icons-material/Key'
 
 export const routes = [
     {
@@ -47,5 +48,12 @@ export const routes = [
         key: 'email-signature',
         icon: <DesignServicesIcon />,
         description: 'Create an email signature.',
+    },
+    {
+        path: '/password-generator',
+        name: 'Password Generator',
+        key: 'password-generator',
+        icon: <KeyIcon />,
+        description: 'Create a strong password.',
     },
 ]

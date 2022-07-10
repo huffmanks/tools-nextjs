@@ -1,34 +1,263 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div id="top"></div>
+<br />
+
+<div>
+    <h1>Web Tools</h1>
+    <p>
+        List of tools to help speed web development.
+        <br />
+        <br />
+        <a href="https://tools.huffmanks.com">View Demo</a>
+        ·
+        <a href="https://github.com/huffmanks/tools-react/issues">Report Bug</a>
+        ·
+        <a href="https://github.com/huffmanks/tools-react/issues">Request Feature</a>
+    </p>
+    <br />
+    <a href="https://tools.huffmanks.com">
+        <img src="https://github.com/huffmanks/tools-react/blob/main/public/images/tools-preview.png" alt="example screenshot">
+    </a>
+</div>
+
+<br />
+<br />
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#built-with">Built With</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#instructions">Instructions</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+<br />
+
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
+
+I wanted to build some tools that would help speed up my development process. A couple of these tools exist on Google but I wanted some extra or different features.
+\
+\
+\
+![Color Picker](https://github.com/huffmanks/tools-react/blob/main/public/images/color-picker-preview.png)
+\
+\
+\
+[Google Color Picker](https://www.google.com/search?q=color+picker)
+\
+[Web Tools Color Picker](https://tools.huffmanks.com/color-picker)
+
+-   Option to copy any code not just HEX.
+-   Similar shades displayed so I could pick lighter/darker versions.
+
+\
+\
+\
+![Unit Converter](https://github.com/huffmanks/tools-react/blob/main/public/images/unit-converter-preview.png)
+\
+\
+\
+[Google Unit Converter](https://www.google.com/search?q=unit+converter)
+\
+[Web Tools Unit Converter](https://tools.huffmanks.com/unit-converter)
+
+-   Wanted all the units to be displayed so I could see the differences.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- BUILT WITH -->
+
+## Built With
+
+-   [React.js](https://reactjs.org/)
+-   [MUI](https://mui.com/)
+-   [change-case](https://www.npmjs.com/package/change-case)
+-   [colord](https://www.npmjs.com/package/colord)
+-   [convert](https://www.npmjs.com/package/convert)
+-   [react-colorful](https://www.npmjs.com/package/react-colorful)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running follow these simple example steps.
 
-```bash
-npm run dev
-# or
-yarn dev
+1. Clone the repo
+    ```sh
+    git clone https://github.com/huffmanks/tools-react.git
+    ```
+2. Install NPM packages
+    ```sh
+    yarn
+    ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- INSTRUCTIONS -->
+
+## Instructions
+
+### Web Tools Unit Converter
+
+BASE_URL = https://tools.huffmanks.com/unit-converter
+
+```http
+GET /?m=length&left=in&right=km
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```http
+GET /?m=2&left=4&right=5
+```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<br />
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+| Parameter | Type                               | Description       | Example   |
+| :-------- | :--------------------------------- | :---------------- | :-------- |
+| `m`       | `string` &nbsp; OR &nbsp; `number` | Measurement types | length, 2 |
+| `left`    | `string` &nbsp; OR &nbsp; `number` | Left unit select  | in, 4     |
+| `right`   | `string` &nbsp; OR &nbsp; `number` | Right unit select | km, 5     |
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<br />
 
-## Learn More
+The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 
-To learn more about Next.js, take a look at the following resources:
+<br />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Digital Storage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+| Unit      | Short |
+| :-------- | :---- |
+| terabytes | TB    |
+| gigabytes | GB    |
+| megabytes | MB    |
+| kilobytes | KB    |
+| bytes     | B     |
 
-## Deploy on Vercel
+<br />
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Length
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| Unit        | Short |
+| :---------- | :---- |
+| miles       | mi    |
+| yards       | yd    |
+| feet        | ft    |
+| inches      | in    |
+| kilometers  | km    |
+| meters      | m     |
+| centimeters | cm    |
+| millimeters | mm    |
+
+<br />
+
+### Volume
+
+| Unit              | Short |
+| :---------------- | :---- |
+| US liquid gallons | gal   |
+| US liquid quarts  | qt    |
+| US liquid pints   | p     |
+| US legal cups     | c     |
+| US fluid ounces   | oz    |
+| US tablespoons    | tbsp  |
+| US teaspoons      | tsp   |
+| liters            | L     |
+| milliliters       | mL    |
+
+<br />
+
+### Temperature
+
+| Unit       | Short |
+| :--------- | :---- |
+| celsius    | C     |
+| fahrenheit | F     |
+| kelvin     | K     |
+
+<br />
+
+### Time
+
+| Unit         | Short |
+| :----------- | :---- |
+| years        | yr    |
+| months       | mo    |
+| weeks        | wk    |
+| days         | d     |
+| hours        | hr    |
+| minutes      | min   |
+| seconds      | s     |
+| milliseconds | ms    |
+
+<br />
+
+### Weight
+
+| Unit       | Short |
+| :--------- | :---- |
+| US tons    | ton   |
+| pounds     | lbs   |
+| ounces     | oz    |
+| kilograms  | kg    |
+| grams      | g     |
+| milligrams | mg    |
+
+<br />
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- ROADMAP -->
+
+## Roadmap
+
+-   [x] Aspect Ratio Calculator
+-   [x] Color Picker
+-   [x] Unit Converter
+-   [x] Email Signature
+-   [x] Text formatter
+-   [ ] Password generator
+-   [ ] Number picker
+    -   [ ] Get a random number
+    -   [ ] Get a random number from a list of numbers
+    -   [ ] Get multiple numbers from a list of numbers
+
+\
+\
+See the [open issues](https://github.com/huffmanks/tools-react/issues) for a full list of proposed features (and known issues).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- CONTACT -->
+
+## Contact
+
+Kevin Huffman - huff9121@gmail.com
+
+Project Link: [https://tools.huffmanks.com](https://tools.huffmanks.com)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
