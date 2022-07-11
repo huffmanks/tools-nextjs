@@ -70,7 +70,7 @@ export const emailInputs = [
     {
         name: 'companyName',
         label: 'Company Name',
-        placeholder: 'Web Tools',
+        placeholder: 'Stratools',
         required: false,
         gridSm: 6,
     },

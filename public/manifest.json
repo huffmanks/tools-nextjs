@@ -1,6 +1,6 @@
 {
-    "name": "Web Tools",
-    "short_name": "Web Tools",
+    "name": "Stratools",
+    "short_name": "Stratools",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#1e1e1e",
