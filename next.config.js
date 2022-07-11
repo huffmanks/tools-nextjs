@@ -15,10 +15,8 @@ module.exports = (phase, { defaultConfig }) => {
             },
             reactStrictMode: true,
             swcMinify: true,
-            experimental: {
-                images: {
-                    unoptimized: true,
-                },
+            images: {
+                loader: 'custom',
             },
         })
     }
