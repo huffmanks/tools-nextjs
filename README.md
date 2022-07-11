@@ -135,8 +135,8 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
     <thead>
         <tr>
             <th>Digital Storage</th>
-            <th>Length</th>
-            <th>Volume</th>
+            <th>Temperature</th>
+            <th>Weight</th>
         </tr>
     </thead>
     <tbody>
@@ -171,6 +171,78 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
                     </tbody>
                 </table>
             </td>
+            <td>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Unit</th>
+                            <th>Short</th>
+                        </tr>
+                        <tr>
+                            <td>celsius</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>fahrenheit</td>
+                            <td>F</td>
+                        </tr>
+                        <tr>
+                            <td>kelvin</td>
+                            <td>K</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Unit</th>
+                            <th>Short</th>
+                        </tr>
+                        <tr>
+                            <td>US tons</td>
+                            <td>ton</td>
+                        </tr>
+                        <tr>
+                            <td>pounds</td>
+                            <td>lbs</td>
+                        </tr>
+                        <tr>
+                            <td>ounces</td>
+                            <td>oz</td>
+                        </tr>
+                        <tr>
+                            <td>kilograms</td>
+                            <td>kg</td>
+                        </tr>
+                        <tr>
+                            <td>grams</td>
+                            <td>g</td>
+                        </tr>
+                        <tr>
+                            <td>milligrams</td>
+                            <td>mg</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+
+<table>
+    <thead>
+        <tr>
+            <th>Length</th>
+            <th>Volume</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
             <td>
                 <table>
                     <tbody>
@@ -259,44 +331,6 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
                     </tbody>
                 </table>
             </td>
-        </tr>
-    </tbody>
-</table>
-
-<br />
-
-<table>
-    <thead>
-        <tr>
-            <th>Temperature</th>
-            <th>Time</th>
-            <th>Weight</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Unit</th>
-                            <th>Short</th>
-                        </tr>
-                        <tr>
-                            <td>celsius</td>
-                            <td>C</td>
-                        </tr>
-                        <tr>
-                            <td>fahrenheit</td>
-                            <td>F</td>
-                        </tr>
-                        <tr>
-                            <td>kelvin</td>
-                            <td>K</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
             <td>
                 <table>
                     <tbody>
@@ -335,40 +369,6 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
                         <tr>
                             <td>milliseconds</td>
                             <td>ms</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-            <td>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Unit</th>
-                            <th>Short</th>
-                        </tr>
-                        <tr>
-                            <td>US tons</td>
-                            <td>ton</td>
-                        </tr>
-                        <tr>
-                            <td>pounds</td>
-                            <td>lbs</td>
-                        </tr>
-                        <tr>
-                            <td>ounces</td>
-                            <td>oz</td>
-                        </tr>
-                        <tr>
-                            <td>kilograms</td>
-                            <td>kg</td>
-                        </tr>
-                        <tr>
-                            <td>grams</td>
-                            <td>g</td>
-                        </tr>
-                        <tr>
-                            <td>milligrams</td>
-                            <td>mg</td>
                         </tr>
                     </tbody>
                 </table>
