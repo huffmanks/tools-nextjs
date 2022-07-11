@@ -134,9 +134,9 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 <table>
     <thead>
         <tr>
-            <th colspan="2">Digital Storage</th>
-            <th colspan="2">Length</th>
-            <th colspan="2">Volume</th>
+            <th>Digital Storage</th>
+            <th>Length</th>
+            <th>Volume</th>
         </tr>
     </thead>
     <tbody>
