@@ -29,7 +29,7 @@ const Document = () => {
                 <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin={true} />
                 <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap' rel='stylesheet' />
 
-                <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d78873af07d641f0bf0d5e18b105fcd0"}'></script>
+                <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "a73abd66387e4c5599a983e0ef8ab71d"}'></script>
             </Head>
             <body>
                 <Main />

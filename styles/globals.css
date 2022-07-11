@@ -16,6 +16,11 @@
     --light-alt: #eeeeee;
 }
 
+img {
+    max-width: 100%;
+    display: block;
+}
+
 p {
     margin-bottom: 30px;
 }

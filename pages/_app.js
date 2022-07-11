@@ -10,7 +10,7 @@ const App = ({ Component, pageProps }) => {
     return (
         <>
             <Head>
-                <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no, viewport-fit=cover' />
+                <meta name='viewport' content='initial-scale=1, width=device-width' />
             </Head>
             <ThemeProvider theme={theme}>
                 <Layout>
