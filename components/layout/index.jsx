@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-// import Image from 'next/image'
+import Image from 'next/image'
 
 import { styled, useTheme } from '@mui/material/styles'
 import { Box, Toolbar, List, CssBaseline, Typography, Divider, ListItem, ListItemIcon, ListItemText, ListItemButton, IconButton, Container } from '@mui/material'
@@ -15,8 +15,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 
 import { routes } from '../../constants/routes'
 
-// import { loader } from '../../utilities/loader'
-// const strata = '/stratools-long_logo-primary.png'
+import strata from '../../public/stratools-long_logo-primary.png'
 
 const drawerWidth = 240
 
@@ -120,7 +119,7 @@ const Layout = ({ children }) => {
                                 ...(open && { display: 'none' }),
                             },
                         }}>
-                        {/* <Image loader={loader} alt='Strata logo' src={strata} /> */}
+                        <Image alt='Strata logo' src={strata} />
                     </Box>
                 </Toolbar>
             </AppBar>
@@ -141,7 +140,7 @@ const Layout = ({ children }) => {
                                 display: 'none',
                             },
                         }}>
-                        {/* <Image loader={loader} alt='Strata logo' src={strata} /> */}
+                        <Image alt='Strata logo' src={strata} />
                     </Box>
                     <IconButton aria-label='toggle menu' onClick={handleDrawerOpen}>
                         {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
