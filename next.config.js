@@ -2,28 +2,12 @@
 const withPWA = require('next-pwa')
 
 module.exports = (phase, { defaultConfig }) => {
-    const devServerPhase = phase === 'phase-development-server' ?? false
-    const exportPhase = phase === 'phase-export' ?? false
-    const STAGING = process.env.STAGING
-    if (devServerPhase) {
+    if (phase === 'phase-development-server') {
         return {
             reactStrictMode: true,
             swcMinify: true,
         }
     } else {
-        console.log('phase__', exportPhase)
-        console.log('env__', STAGING)
-        async function customPaths(defaultPathMap, {}) {
-            return {
-                '/': { page: '/' },
-                '/aspect-ratio/index': { page: '/aspect-ratio' },
-                '/color-picker/index': { page: '/color-picker' },
-                '/email-signature/index': { page: '/email-signature' },
-                '/password-generator/index': { page: '/password-generator' },
-                '/text-formatter/index': { page: '/text-formatter' },
-                '/unit-converter/index': { page: '/unit-converter' },
-            }
-        }
         return withPWA({
             pwa: {
                 dest: 'public',
@@ -31,13 +15,26 @@ module.exports = (phase, { defaultConfig }) => {
             },
             reactStrictMode: true,
             swcMinify: true,
-            assetPrefix: exportPhase && STAGING ? '.' : '',
+            assetPrefix: phase === 'phase-export' && process.env.STAGING === 'true' ? '.' : '',
             experimental: {
                 images: {
                     unoptimized: true,
                 },
             },
-            exportPathMap: exportPhase && STAGING ? customPaths() : null,
+            ...(phase === 'phase-export' &&
+                process.env.STAGING === 'true' && {
+                    exportPathMap: async function (defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
+                        return {
+                            '/': { page: '/' },
+                            '/aspect-ratio/index': { page: '/aspect-ratio' },
+                            '/color-picker/index': { page: '/color-picker' },
+                            '/email-signature/index': { page: '/email-signature' },
+                            '/password-generator/index': { page: '/password-generator' },
+                            '/text-formatter/index': { page: '/text-formatter' },
+                            '/unit-converter/index': { page: '/unit-converter' },
+                        }
+                    },
+                }),
         })
     }
 }

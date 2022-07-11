@@ -75,7 +75,7 @@ I wanted to build some tools that would help speed up my development process. A 
 
 ## Built With
 
--   [React.js](https://reactjs.org/)
+-   [Next.js](https://nextjs.org/)
 -   [MUI](https://mui.com/)
 -   [change-case](https://www.npmjs.com/package/change-case)
 -   [colord](https://www.npmjs.com/package/colord)
@@ -219,8 +219,10 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 ## Roadmap
 
 -   [x] Aspect Ratio Calculator
+    -   [ ] Error validation
 -   [x] Color Picker
 -   [x] Unit Converter
+    -   [ ] Better layout
 -   [x] Email Signature
 -   [x] Text formatter
 -   [ ] Password generator

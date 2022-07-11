@@ -6,8 +6,7 @@
         "dev": "next dev -p 3001",
         "build": "next build",
         "postbuild": "next-sitemap",
-        "staging": "next build && STAGING=true next export",
-        "test": "STAGING=true next export",
+        "staging": "cross-env STAGING='true' next export",
         "start": "next start",
         "lint": "next lint"
     },
@@ -27,6 +26,7 @@
         "react-dom": "18.2.0"
     },
     "devDependencies": {
+        "cross-env": "^7.0.3",
         "eslint": "8.19.0",
         "eslint-config-next": "12.2.2"
     }
