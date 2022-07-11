@@ -2,20 +2,20 @@
 <br />
 
 <div>
-    <h1>Web Tools</h1>
+    <h1>Stratools</h1>
     <p>
         List of tools to help speed web development.
         <br />
         <br />
         <a href="https://tools.huffmanks.com">View Demo</a>
         ·
-        <a href="https://github.com/huffmanks/tools-react/issues">Report Bug</a>
+        <a href="https://github.com/huffmanks/tools-nextjs/issues">Report Bug</a>
         ·
-        <a href="https://github.com/huffmanks/tools-react/issues">Request Feature</a>
+        <a href="https://github.com/huffmanks/tools-nextjs/issues">Request Feature</a>
     </p>
     <br />
     <a href="https://tools.huffmanks.com">
-        <img src="https://github.com/huffmanks/tools-react/blob/main/public/images/tools-preview.png" alt="example screenshot">
+        <img src="https://github.com/huffmanks/tools-nextjs/blob/main/public/images/tools-preview.png" alt="example screenshot">
     </a>
 </div>
 
@@ -45,13 +45,13 @@ I wanted to build some tools that would help speed up my development process. A 
 \
 \
 \
-![Color Picker](https://github.com/huffmanks/tools-react/blob/main/public/images/color-picker-preview.png)
+![Color Picker](https://github.com/huffmanks/tools-nextjs/blob/main/public/images/color-picker-preview.png)
 \
 \
 \
 [Google Color Picker](https://www.google.com/search?q=color+picker)
 \
-[Web Tools Color Picker](https://tools.huffmanks.com/color-picker)
+[Stratools Color Picker](https://tools.huffmanks.com/color-picker)
 
 -   Option to copy any code not just HEX.
 -   Similar shades displayed so I could pick lighter/darker versions.
@@ -59,13 +59,13 @@ I wanted to build some tools that would help speed up my development process. A 
 \
 \
 \
-![Unit Converter](https://github.com/huffmanks/tools-react/blob/main/public/images/unit-converter-preview.png)
+![Unit Converter](https://github.com/huffmanks/tools-nextjs/blob/main/public/images/unit-converter-preview.png)
 \
 \
 \
 [Google Unit Converter](https://www.google.com/search?q=unit+converter)
 \
-[Web Tools Unit Converter](https://tools.huffmanks.com/unit-converter)
+[Stratools Unit Converter](https://tools.huffmanks.com/unit-converter)
 
 -   Wanted all the units to be displayed so I could see the differences.
 
@@ -92,7 +92,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
     ```sh
-    git clone https://github.com/huffmanks/tools-react.git
+    git clone https://github.com/huffmanks/tools-nextjs.git
     ```
 2. Install NPM packages
     ```sh
@@ -105,7 +105,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## Instructions
 
-### Web Tools Unit Converter
+### Stratools Unit Converter
 
 BASE_URL = https://tools.huffmanks.com/unit-converter
 
@@ -231,7 +231,7 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 
 \
 \
-See the [open issues](https://github.com/huffmanks/tools-react/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/huffmanks/tools-nextjs/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

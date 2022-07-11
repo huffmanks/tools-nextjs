@@ -15,6 +15,9 @@ module.exports = (phase, { defaultConfig }) => {
             },
             reactStrictMode: true,
             swcMinify: true,
+            images: {
+                unoptimized: true,
+            },
         })
     }
 }
