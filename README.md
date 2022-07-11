@@ -131,6 +131,26 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 
 <br />
 
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">Digital Storage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Unit</th>
+            <th>Short</th>
+        </tr>
+        <tr>
+            <td>terabytes</td>
+            <td>TB</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+
 ### Digital Storage
 
 | Unit      | Short |
