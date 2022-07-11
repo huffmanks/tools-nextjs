@@ -265,7 +265,14 @@ const Layout = ({ children }) => {
                         p: 3,
                     },
                 }}>
-                <DrawerHeader />
+                <DrawerHeader
+                    sx={{
+                        minHeight: 64,
+                        '@media (min-width:600px)': {
+                            minHeight: 80,
+                        },
+                    }}
+                />
                 <Container disableGutters={true}>
                     <>{children}</>
                 </Container>
