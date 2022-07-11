@@ -134,17 +134,39 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 <table>
     <thead>
         <tr>
-            <th colspan="2">Digital Storage</th>
+            <th colspan="4">Units</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <th>Unit</th>
-            <th>Short</th>
-        </tr>
-        <tr>
-            <td>terabytes</td>
-            <td>TB</td>
+            <td>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Unit</th>
+                            <th>Short</th>
+                        </tr>
+                        <tr>
+                            <td>terabytes</td>
+                            <td>TB</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Unit</th>
+                            <th>Short</th>
+                        </tr>
+                        <tr>
+                            <td>terabytes</td>
+                            <td>TB</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
         </tr>
     </tbody>
 </table>
