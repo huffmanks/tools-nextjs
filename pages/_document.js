@@ -15,13 +15,13 @@ const Document = () => {
                 <meta name='theme-color' content='#5b21b6' />
                 <meta name='apple-mobile-web-app-status-bar' content='#5b21b6' />
 
-                <link rel='shortcut icon' href='/favicon.ico' />
-                <link rel='icon' href='/favicon.ico' />
+                <link rel='shortcut icon' href='/logos/favicon.ico' />
+                <link rel='icon' href='/logos/favicon.ico' />
 
-                <link rel='icon' type='image/png' sizes='192x192' href='/logo-192x192.png' />
-                <link rel='icon' type='image/png' sizes='512x512' href='/logo-512x512.png' />
-                <link rel='apple-touch-icon' sizes='192x192' href='/logo-192x192.png' />
-                <link rel='apple-touch-icon' sizes='512x512' href='/logo-512x512.png' />
+                <link rel='icon' type='image/png' sizes='192x192' href='/logos/logo-192x192.png' />
+                <link rel='icon' type='image/png' sizes='512x512' href='/logos/logo-512x512.png' />
+                <link rel='apple-touch-icon' sizes='192x192' href='/logos/logo-192x192.png' />
+                <link rel='apple-touch-icon' sizes='512x512' href='/logos/logo-512x512.png' />
 
                 <link rel='manifest' href='/manifest.json' />
 

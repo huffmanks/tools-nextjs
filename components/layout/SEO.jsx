@@ -10,7 +10,7 @@ const SEO = ({ description, title, url }) => {
             <meta property='og:url' content={`https://tools.huffmanks.com${url}`} />
             <meta property='og:description' content={description} />
             <meta property='og:site_name' content='Stratools' />
-            <meta property='og:image' content='/logo-512x512.png' />
+            <meta property='og:image' content='/logos/logo-512x512.png' />
         </Head>
     )
 }

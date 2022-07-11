@@ -15,7 +15,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 
 import { routes } from '../../constants/routes'
 
-import strata from '../../public/stratools-long_logo-primary.png'
+import strata from '../../public/logos/stratools-long_logo-primary.png'
 
 const drawerWidth = 240
 

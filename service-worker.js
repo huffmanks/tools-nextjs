@@ -60,8 +60,8 @@ registerRoute(
 // )
 registerRoute(
     /\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,
-    // new StaleWhileRevalidate({
-    new NetworkOnly({
+    new StaleWhileRevalidate({
+        // new NetworkOnly({
         cacheName: 'static-image-assets',
         plugins: [
             new ExpirationPlugin({
@@ -161,7 +161,7 @@ setCatchHandler(({ event }) => {
             // return caches.match('/fallback')
             break
         case 'image':
-            return matchPrecache('/logo-512x512.png')
+            return matchPrecache('/logos/logo-512x512.png')
             // return caches.match('/static/images/fallback.png')
             break
         // case 'font':
