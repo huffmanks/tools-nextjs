@@ -265,41 +265,117 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 
 <br />
 
-### Temperature
-
-| Unit       | Short |
-| :--------- | :---- |
-| celsius    | C     |
-| fahrenheit | F     |
-| kelvin     | K     |
-
-<br />
-
-### Time
-
-| Unit         | Short |
-| :----------- | :---- |
-| years        | yr    |
-| months       | mo    |
-| weeks        | wk    |
-| days         | d     |
-| hours        | hr    |
-| minutes      | min   |
-| seconds      | s     |
-| milliseconds | ms    |
-
-<br />
-
-### Weight
-
-| Unit       | Short |
-| :--------- | :---- |
-| US tons    | ton   |
-| pounds     | lbs   |
-| ounces     | oz    |
-| kilograms  | kg    |
-| grams      | g     |
-| milligrams | mg    |
+<table>
+    <thead>
+        <tr>
+            <th>Temperature</th>
+            <th>Time</th>
+            <th>Weight</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Unit</th>
+                            <th>Short</th>
+                        </tr>
+                        <tr>
+                            <td>celsius</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>fahrenheit</td>
+                            <td>F</td>
+                        </tr>
+                        <tr>
+                            <td>kelvin</td>
+                            <td>K</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Unit</th>
+                            <th>Short</th>
+                        </tr>
+                        <tr>
+                            <td>years</td>
+                            <td>yr</td>
+                        </tr>
+                        <tr>
+                            <td>months</td>
+                            <td>mo</td>
+                        </tr>
+                        <tr>
+                            <td>weeks</td>
+                            <td>wk</td>
+                        </tr>
+                        <tr>
+                            <td>days</td>
+                            <td>d</td>
+                        </tr>
+                        <tr>
+                            <td>hours</td>
+                            <td>hr</td>
+                        </tr>
+                        <tr>
+                            <td>minutes</td>
+                            <td>min</td>
+                        </tr>
+                        <tr>
+                            <td>seconds</td>
+                            <td>s</td>
+                        </tr>
+                        <tr>
+                            <td>milliseconds</td>
+                            <td>ms</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Unit</th>
+                            <th>Short</th>
+                        </tr>
+                        <tr>
+                            <td>US tons</td>
+                            <td>ton</td>
+                        </tr>
+                        <tr>
+                            <td>pounds</td>
+                            <td>lbs</td>
+                        </tr>
+                        <tr>
+                            <td>ounces</td>
+                            <td>oz</td>
+                        </tr>
+                        <tr>
+                            <td>kilograms</td>
+                            <td>kg</td>
+                        </tr>
+                        <tr>
+                            <td>grams</td>
+                            <td>g</td>
+                        </tr>
+                        <tr>
+                            <td>milligrams</td>
+                            <td>mg</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 <br />
 
