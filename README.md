@@ -134,7 +134,9 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 <table>
     <thead>
         <tr>
-            <th colspan="4">Units</th>
+            <th colspan="2">Digital Storage</th>
+            <th colspan="2">Length</th>
+            <th colspan="2">Volume</th>
         </tr>
     </thead>
     <tbody>
@@ -150,6 +152,22 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
                             <td>terabytes</td>
                             <td>TB</td>
                         </tr>
+                        <tr>
+                            <td>gigabytes</td>
+                            <td>GB</td>
+                        </tr>
+                        <tr>
+                            <td>megabytes</td>
+                            <td>MB</td>
+                        </tr>
+                        <tr>
+                            <td>kilobytes</td>
+                            <td>KB</td>
+                        </tr>
+                        <tr>
+                            <td>bytes</td>
+                            <td>B</td>
+                        </tr>
                     </tbody>
                 </table>
             </td>
@@ -161,8 +179,82 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
                             <th>Short</th>
                         </tr>
                         <tr>
-                            <td>terabytes</td>
-                            <td>TB</td>
+                            <td>miles</td>
+                            <td>mi</td>
+                        </tr>
+                        <tr>
+                            <td>yards</td>
+                            <td>yd</td>
+                        </tr>
+                        <tr>
+                            <td>feet</td>
+                            <td>ft</td>
+                        </tr>
+                        <tr>
+                            <td>inches</td>
+                            <td>in</td>
+                        </tr>
+                        <tr>
+                            <td>kilometers</td>
+                            <td>km</td>
+                        </tr>
+                        <tr>
+                            <td>meters</td>
+                            <td>m</td>
+                        </tr>
+                        <tr>
+                            <td>centimeters</td>
+                            <td>cm</td>
+                        </tr>
+                        <tr>
+                            <td>millimeters</td>
+                            <td>mm</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Unit</th>
+                            <th>Short</th>
+                        </tr>
+                        <tr>
+                            <td>US liquid gallons</td>
+                            <td>gal</td>
+                        </tr>
+                        <tr>
+                            <td>US liquid quarts</td>
+                            <td>qt</td>
+                        </tr>
+                        <tr>
+                            <td>US liquid pints</td>
+                            <td>p</td>
+                        </tr>
+                        <tr>
+                            <td>US legal cups</td>
+                            <td>c</td>
+                        </tr>
+                        <tr>
+                            <td>US fluid ounces</td>
+                            <td>oz</td>
+                        </tr>
+                        <tr>
+                            <td>US tablespoons</td>
+                            <td>tbsp</td>
+                        </tr>
+                        <tr>
+                            <td>US teaspoons</td>
+                            <td>tsp</td>
+                        </tr>
+                        <tr>
+                            <td>liters</td>
+                            <td>L</td>
+                        </tr>
+                        <tr>
+                            <td>milliliters</td>
+                            <td>mL</td>
                         </tr>
                     </tbody>
                 </table>
@@ -170,49 +262,6 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
         </tr>
     </tbody>
 </table>
-
-<br />
-
-### Digital Storage
-
-| Unit      | Short |
-| :-------- | :---- |
-| terabytes | TB    |
-| gigabytes | GB    |
-| megabytes | MB    |
-| kilobytes | KB    |
-| bytes     | B     |
-
-<br />
-
-### Length
-
-| Unit        | Short |
-| :---------- | :---- |
-| miles       | mi    |
-| yards       | yd    |
-| feet        | ft    |
-| inches      | in    |
-| kilometers  | km    |
-| meters      | m     |
-| centimeters | cm    |
-| millimeters | mm    |
-
-<br />
-
-### Volume
-
-| Unit              | Short |
-| :---------------- | :---- |
-| US liquid gallons | gal   |
-| US liquid quarts  | qt    |
-| US liquid pints   | p     |
-| US legal cups     | c     |
-| US fluid ounces   | oz    |
-| US tablespoons    | tbsp  |
-| US teaspoons      | tsp   |
-| liters            | L     |
-| milliliters       | mL    |
 
 <br />
 
