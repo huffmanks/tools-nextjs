@@ -1,7 +1,7 @@
 import HomeIcon from '@mui/icons-material/Home'
 import AspectRatioIcon from '@mui/icons-material/AspectRatio'
 import ColorLensIcon from '@mui/icons-material/ColorLens'
-import TextFormatIcon from '@mui/icons-material/TextFormat'
+import TextFieldsIcon from '@mui/icons-material/TextFields'
 import ScaleIcon from '@mui/icons-material/Scale'
 import DesignServicesIcon from '@mui/icons-material/DesignServices'
 import KeyIcon from '@mui/icons-material/Key'
@@ -32,7 +32,7 @@ export const routes = [
         path: '/text-formatter',
         name: 'Text Formatter',
         key: 'text-formatter',
-        icon: <TextFormatIcon />,
+        icon: <TextFieldsIcon />,
         description: 'Format text to any case.',
     },
     {

@@ -16,11 +16,11 @@ const ActionGroup = ({ values, saved, handleChange, handleReset, handleSave }) =
                 </TextField>
             </Grid>
             <Grid item lg={3} md={5} xs={12}>
-                <ButtonGroup fullWidth variant='outlined' sx={{ height: '100%' }}>
+                <ButtonGroup fullWidth variant='contained' sx={{ height: '100%' }}>
                     <Button sx={{ height: '100%' }} onClick={handleSave} aria-label='save output' endIcon={<SaveIcon />}>
                         Save
                     </Button>
-                    <Button fullWidth variant='outlined' sx={{ height: '100%' }} onClick={handleReset} aria-label='reset form' endIcon={<RestartAltIcon />}>
+                    <Button fullWidth variant='contained' sx={{ height: '100%' }} onClick={handleReset} aria-label='reset form' endIcon={<RestartAltIcon />}>
                         Reset
                     </Button>
                 </ButtonGroup>

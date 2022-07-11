@@ -7,13 +7,23 @@ import { Button, Card, CardActions, CardContent, IconButton, Typography } from '
 
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+const Home = () => {
     return (
         <>
             <SEO description='List of tools to help speed web development.' title='Home' url='/' />
             <div className={styles['home-cards']}>
                 {routes.slice(1).map(({ key, path, name, icon, description }) => (
-                    <Card key={key} color='secondary' sx={{ flex: '0 0 325px', maxWidth: 345, padding: 3 }}>
+                    <Card
+                        key={key}
+                        color='secondary'
+                        sx={{
+                            flex: '0 0 100%',
+                            maxWidth: 345,
+                            padding: 3,
+                            '@media (min-width:450px)': {
+                                flex: '0 0 325px',
+                            },
+                        }}>
                         <div className={styles['home-card-icon']}>
                             <Link href={path} passHref={true}>
                                 <IconButton aria-label={name} color='primary'>
@@ -29,14 +39,7 @@ export default function Home() {
                         </CardContent>
                         <CardActions>
                             <Link href={path} passHref={true} style={{ width: '100%', textDecoration: 'none' }}>
-                                <Button
-                                    variant='contained'
-                                    sx={{
-                                        ':hover': {
-                                            backgroundColor: 'var(--dark-alt)',
-                                        },
-                                    }}
-                                    fullWidth>
+                                <Button variant='contained' fullWidth>
                                     View
                                 </Button>
                             </Link>
@@ -47,3 +50,5 @@ export default function Home() {
         </>
     )
 }
+
+export default Home

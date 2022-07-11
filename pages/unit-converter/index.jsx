@@ -2,7 +2,7 @@ import { useUnitQuery } from '../../hooks/useUnitQuery'
 import { formatConvertNumber } from '../../utilities/formatConvertNumber'
 import { measurements } from '../../constants/unitConvert'
 
-import { Grid, Stack, TextField, MenuItem } from '@mui/material'
+import { Stack, TextField, MenuItem, Box } from '@mui/material'
 
 import SEO from '../../components/layout/SEO'
 import PageTitle from '../../components/layout/PageTitle'
@@ -85,19 +85,32 @@ const UnitConverter = () => {
             <SEO description='Convert different unit types.' title='Convert Units' url='/unit-converter' />
             <PageTitle>Convert Units</PageTitle>
 
-            <Grid container spacing={5} style={{ marginBottom: '16px' }}>
-                <Grid item container spacing={2} md={6}>
-                    <Grid item xs={12}>
-                        <TextField fullWidth select label='Measurement' value={values.measurement} name='measurement' onChange={handleChange}>
-                            {measurements.map((option) => (
-                                <MenuItem key={option.id} value={option.type}>
-                                    {option.label}
-                                </MenuItem>
-                            ))}
-                        </TextField>
-                    </Grid>
+            <Box
+                sx={{
+                    display: 'flex',
+                    gap: 5,
+                    '@media (max-width: 899px)': {
+                        display: 'block',
+                    },
+                }}>
+                <Box sx={{ flex: '0 0 50%' }}>
+                    <TextField fullWidth select label='Measurement' value={values.measurement} name='measurement' onChange={handleChange}>
+                        {measurements.map((option) => (
+                            <MenuItem key={option.id} value={option.type}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
+                    </TextField>
 
-                    <Grid item xs={12} sm={6}>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            gap: 5,
+                            mt: 5,
+                            '@media (max-width: 500px)': {
+                                display: 'block',
+                            },
+                        }}>
                         <InputGroup
                             inputName='leftInput'
                             inputValue={values.leftInput}
@@ -108,8 +121,7 @@ const UnitConverter = () => {
                             changeHandler={handleChange}
                             unitList={currentUnits}
                         />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
+
                         <InputGroup
                             inputName='rightInput'
                             inputValue={values.rightInput}
@@ -120,28 +132,26 @@ const UnitConverter = () => {
                             changeHandler={handleChange}
                             unitList={currentUnits}
                         />
-                    </Grid>
-                </Grid>
-                <Grid item container spacing={2} md={6}>
-                    <Grid item xs={12}>
-                        <Stack spacing={2}>
-                            {currentUnits.map((option) => (
-                                <div className={styles['stack-item']} key={option.id}>
-                                    <span>{option.label}</span>
-                                    <span className={styles['stack-pipe']}>|</span>
-                                    {values.leftInput && values.rightInput && (
-                                        <>
-                                            <span>{formatConvertNumber(values.leftInput, values.leftSelection, option.unit)}</span>
-                                        </>
-                                    )}
+                    </Box>
+                </Box>
+                <Box>
+                    <Stack spacing={2}>
+                        {currentUnits.map((option) => (
+                            <div className={styles['stack-item']} key={option.id}>
+                                <span>{option.label}</span>
+                                <span className={styles['stack-pipe']}>|</span>
+                                {values.leftInput && values.rightInput && (
+                                    <>
+                                        <span>{formatConvertNumber(values.leftInput, values.leftSelection, option.unit)}</span>
+                                    </>
+                                )}
 
-                                    <span> {option.short}</span>
-                                </div>
-                            ))}
-                        </Stack>
-                    </Grid>
-                </Grid>
-            </Grid>
+                                <span> {option.short}</span>
+                            </div>
+                        ))}
+                    </Stack>
+                </Box>
+            </Box>
         </>
     )
 }

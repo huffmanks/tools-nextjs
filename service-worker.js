@@ -44,23 +44,23 @@ registerRoute(
     }),
     'GET'
 )
-registerRoute(
-    /\.(?:eot|otf|ttc|ttf|woff|woff2|font.css)$/i,
-    new StaleWhileRevalidate({
-        cacheName: 'static-font-assets',
-        plugins: [
-            new ExpirationPlugin({
-                maxEntries: 4,
-                maxAgeSeconds: 604800,
-                purgeOnQuotaError: !0,
-            }),
-        ],
-    }),
-    'GET'
-)
-
+// registerRoute(
+//     /\.(?:eot|otf|ttc|ttf|woff|woff2|font.css)$/i,
+//     new StaleWhileRevalidate({
+//         cacheName: 'static-font-assets',
+//         plugins: [
+//             new ExpirationPlugin({
+//                 maxEntries: 4,
+//                 maxAgeSeconds: 604800,
+//                 purgeOnQuotaError: !0,
+//             }),
+//         ],
+//     }),
+//     'GET'
+// )
 registerRoute(
     /\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,
+    // new StaleWhileRevalidate({
     new NetworkOnly({
         cacheName: 'static-image-assets',
         plugins: [
@@ -149,17 +149,22 @@ registerRoute(
 setDefaultHandler(new StaleWhileRevalidate())
 
 setCatchHandler(({ event }) => {
-    switch (event.request.destination) {
+    // https://medium.com/proximity-labs/building-a-next-js-pwa-using-next-pwa-and-service-worker-a7acb0ea54bc
+
+    // https://medium.com/dev-channel/service-worker-caching-strategies-based-on-request-types-57411dd7652c
+
+    const { destination } = event.request
+
+    switch (destination) {
         case 'document':
             return matchPrecache('/fallback')
             // return caches.match('/fallback')
             break
         case 'image':
-            return matchPrecache('/static/images/fallback.png')
+            return matchPrecache('/logo-512x512.png')
             // return caches.match('/static/images/fallback.png')
             break
-        case 'font':
-
+        // case 'font':
         // return matchPrecache(FALLBACK_FONT_URL);
         // return caches.match('/static/fonts/fallback.otf')
         // break

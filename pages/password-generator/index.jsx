@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { initialValues, passwordOptions } from '../../constants/passwordGenerator'
 
-import { Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, IconButton, InputAdornment, TextField } from '@mui/material'
+import { Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, IconButton, InputAdornment, Skeleton, Stack, TextField } from '@mui/material'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 
 import SEO from '../../components/layout/SEO'
@@ -39,7 +39,13 @@ const PasswordGenerator = () => {
             <SEO description='Create a strong password.' title='Password Generator' url='/password-generator' />
             <PageTitle>Password Generator</PageTitle>
 
-            <SliderInput values={values} handleSlider={handleSlider} />
+            <Stack maxWidth={'100%'} width={500} spacing={3}>
+                <Skeleton animation={false} variant='rectangular' height={40} />
+                <Skeleton animation={false} variant='rectangular' height={300} />
+                <Skeleton animation={false} variant='rectangular' height={40} />
+            </Stack>
+
+            {/* <SliderInput values={values} handleSlider={handleSlider} />
 
             <FormControl component='fieldset'>
                 <FormLabel component='legend'>Password Options</FormLabel>
@@ -69,7 +75,7 @@ const PasswordGenerator = () => {
                         </InputAdornment>
                     ),
                 }}
-            />
+            /> */}
         </>
     )
 }

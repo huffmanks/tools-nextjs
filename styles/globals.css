@@ -8,8 +8,7 @@
 }
 
 :root {
-    --primary-main: #8a6e4b;
-    --primary-alt: #8b5cf6;
+    --primary-main: #5b21b6;
     --dark-main: #1e1e1e;
     --dark-alt: #333333;
     --dark-alt-2: #404040;
@@ -19,6 +18,30 @@
 
 p {
     margin-bottom: 30px;
+}
+
+/* Appbar logo */
+.appbar-logo {
+    width: 140px;
+    height: 25px;
+}
+
+@media (min-width: 400px) {
+    .appbar-logo {
+        width: 156px;
+        height: 28px;
+    }
+}
+
+@media (min-width: 600px) {
+    .appbar-logo {
+        width: 210px;
+        height: 38px;
+    }
+}
+
+.MuiFormLabel-root.MuiInputLabel-root.Mui-focused {
+    color: var(--light-main);
 }
 
 /* Custom inputs Unit Converter */

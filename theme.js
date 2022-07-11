@@ -11,7 +11,7 @@ const theme = createTheme({
             primary: '#fefefe',
         },
         primary: {
-            main: '#8a6e4b;',
+            main: '#5b21b6',
         },
         secondary: {
             main: '#333333;',
@@ -19,13 +19,11 @@ const theme = createTheme({
     },
     typography: {
         fontFamily: `'Montserrat', sans-serif`,
-        h3: {
-            marginBottom: '2rem',
-            textTransform: 'uppercase',
+        h2: {
+            marginBottom: 32,
             fontSize: '1.5rem',
-            fontWeight: 700,
             '@media (min-width:600px)': {
-                fontSize: '2.5rem',
+                fontSize: '2.15rem',
             },
         },
     },

@@ -13,8 +13,8 @@ export const initialValues = {
     zipCode: '',
     colorType: 'hex',
     colorSymbol: '#',
-    themeColor: '8a6e4b',
-    placeholder: '8a6e4b',
+    themeColor: '5b21b6',
+    placeholder: '5b21b6',
 }
 
 export const emailInputs = [
@@ -108,20 +108,20 @@ export const themeColorOptions = [
     {
         name: 'hex',
         label: 'HEX',
-        defaultValue: '8a6e4b',
+        defaultValue: '5b21b6',
         colorSymbol: '#',
     },
     {
         name: 'rgb',
         label: 'RGB',
-        defaultValue: '138, 110, 75',
+        defaultValue: '91, 33, 182',
         colorSymbol: 'rgb(',
         hasEndSymbol: true,
     },
     {
         name: 'hsl',
         label: 'HSL',
-        defaultValue: '33, 30%, 42%',
+        defaultValue: '263, 69%, 42%',
         colorSymbol: 'hsl(',
         hasEndSymbol: true,
     },

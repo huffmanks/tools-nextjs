@@ -1,8 +1,8 @@
-import { MenuItem, TextField } from '@mui/material'
+import { Box, MenuItem, TextField } from '@mui/material'
 
 const InputGroup = ({ inputName, inputValue, selectName, selectValue, focusHandler, changeHandler, clearHandler, unitList }) => {
     return (
-        <>
+        <Box sx={{ mb: 5 }}>
             <TextField className='group top' fullWidth variant='outlined' value={inputValue} name={inputName} onFocus={focusHandler} onChange={changeHandler} autoComplete='none' />
 
             <TextField className='group bottom' fullWidth select value={selectValue} name={selectName} onFocus={clearHandler} onChange={changeHandler}>
@@ -12,7 +12,7 @@ const InputGroup = ({ inputName, inputValue, selectName, selectValue, focusHandl
                     </MenuItem>
                 ))}
             </TextField>
-        </>
+        </Box>
     )
 }
 

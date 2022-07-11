@@ -54,16 +54,16 @@ const Output = ({ values }) => {
                         minHeight: '50px',
                         maxHeight: '400px',
                         margin: '0 auto',
-                        aspectRatio: values.aspectMultiplier ?? 1920 / 1080,
+                        aspectRatio: values.aspectMultiplier !== '' ? values.aspectMultiplier : '1920 / 1080',
                         backgroundColor: 'secondary.main',
                         borderRadius: '4px',
                     }}>
-                    <Stack spacing={1}>
+                    <Stack spacing={1} justifyContent='center' alignItems='center'>
                         <Stack direction='row' justifyContent='center' alignItems='center' spacing={2}>
                             {dimensions}
                         </Stack>
                         <Stack direction='row' justifyContent='center' alignItems='center' spacing={2}>
-                            {values.aspectRatio ?? '16:9'}
+                            {values.aspectRatio !== '' ? values.aspectRatio : '16:9'}
                         </Stack>
                     </Stack>
                 </Box>

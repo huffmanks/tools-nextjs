@@ -14,11 +14,11 @@ import namesPlugin from 'colord/plugins/names'
 extend([namesPlugin])
 
 const ColorPicker = () => {
-    const [color, setColor] = useState('#8a6e4b')
-    const [hexColor, setHexColor] = useState('#8a6e4b')
-    const [rgbColor, setRgbColor] = useState('rgb(138, 110, 75)')
-    const [hslColor, setHslColor] = useState('hsl(33, 30%, 42%)')
-    const [nameColor, setNameColor] = useState('dimgray')
+    const [color, setColor] = useState('#5b21b6')
+    const [hexColor, setHexColor] = useState('#5b21b6')
+    const [rgbColor, setRgbColor] = useState('rgb(91, 33, 182)')
+    const [hslColor, setHslColor] = useState('hsl(263, 69%, 42%)')
+    const [nameColor, setNameColor] = useState('rebeccapurple')
 
     const handleColor = (e) => {
         setColor(e.target.value)
