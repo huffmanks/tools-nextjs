@@ -153,9 +153,7 @@ setCatchHandler(({ event }) => {
 
     // https://medium.com/dev-channel/service-worker-caching-strategies-based-on-request-types-57411dd7652c
 
-    const { destination } = event.request
-
-    switch (destination) {
+    switch (event.request.destination) {
         case 'document':
             return matchPrecache('/fallback')
             // return caches.match('/fallback')
@@ -164,7 +162,7 @@ setCatchHandler(({ event }) => {
             return matchPrecache('/logos/logo-512x512.png')
             // return caches.match('/static/images/fallback.png')
             break
-        // case 'font':
+        case 'font':
         // return matchPrecache(FALLBACK_FONT_URL);
         // return caches.match('/static/fonts/fallback.otf')
         // break
