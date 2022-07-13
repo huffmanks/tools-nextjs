@@ -110,7 +110,7 @@ const Layout = ({ children }) => {
                         <MenuIcon />
                     </IconButton>
 
-                    <AppBarLogo logoSize={40} textSize={34} open={open} />
+                    <AppBarLogo logoSize={40} textSize={30} open={open} />
                 </Toolbar>
             </AppBar>
             <Drawer variant='permanent' open={open}>
