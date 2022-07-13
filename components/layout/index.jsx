@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import Image from 'next/image'
+
+import { routes } from '../../constants/routes'
 
 import { styled, useTheme } from '@mui/material/styles'
 import { Box, Toolbar, List, CssBaseline, Typography, Divider, ListItem, ListItemIcon, ListItemText, ListItemButton, IconButton, Container } from '@mui/material'
@@ -13,9 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 
-import { routes } from '../../constants/routes'
-
-import strata from '../../public/logos/stratools-long_logo-primary.png'
+import AppBarLogo from './AppBarLogo'
 
 const drawerWidth = 240
 
@@ -111,16 +110,7 @@ const Layout = ({ children }) => {
                         <MenuIcon />
                     </IconButton>
 
-                    <Box
-                        component='div'
-                        className='appbar-logo'
-                        sx={{
-                            '@media (max-width:599px)': {
-                                ...(open && { display: 'none' }),
-                            },
-                        }}>
-                        <Image alt='Strata logo' src={strata} />
-                    </Box>
+                    <AppBarLogo logoSize={40} textSize={34} open={open} />
                 </Toolbar>
             </AppBar>
             <Drawer variant='permanent' open={open}>
@@ -131,17 +121,8 @@ const Layout = ({ children }) => {
                             minHeight: 80,
                         },
                     }}>
-                    <Box
-                        component='div'
-                        sx={{
-                            width: 140,
-                            height: 25,
-                            '@media (min-width:600px)': {
-                                display: 'none',
-                            },
-                        }}>
-                        <Image alt='Strata logo' src={strata} />
-                    </Box>
+                    <AppBarLogo logoSize={28} textSize={23} isForMobile={true} />
+
                     <IconButton aria-label='toggle menu' onClick={handleDrawerOpen}>
                         {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                     </IconButton>

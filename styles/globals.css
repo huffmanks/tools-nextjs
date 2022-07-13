@@ -25,26 +25,6 @@ p {
     margin-bottom: 30px;
 }
 
-/* Appbar logo */
-.appbar-logo {
-    width: 140px;
-    height: 25px;
-}
-
-@media (min-width: 400px) {
-    .appbar-logo {
-        width: 156px;
-        height: 28px;
-    }
-}
-
-@media (min-width: 600px) {
-    .appbar-logo {
-        width: 210px;
-        height: 38px;
-    }
-}
-
 .MuiFormLabel-root.MuiInputLabel-root.Mui-focused {
     color: var(--light-main);
 }

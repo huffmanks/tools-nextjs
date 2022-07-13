@@ -16,11 +16,11 @@ module.exports = (phase, { defaultConfig }) => {
             reactStrictMode: true,
             swcMinify: true,
             assetPrefix: phase === 'phase-export' && process.env.STAGING === 'true' ? '.' : '',
-            experimental: {
-                images: {
-                    unoptimized: true,
-                },
-            },
+            // experimental: {
+            //     images: {
+            //         unoptimized: true,
+            //     },
+            // },
             ...(phase === 'phase-export' &&
                 process.env.STAGING === 'true' && {
                     exportPathMap: async function (defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
