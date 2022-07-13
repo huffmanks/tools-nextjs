@@ -10,7 +10,7 @@ const AppBarLogo = ({ logoSize, textSize, open, isForMobile }) => {
                     alignItems: 'center',
                     gap: isForMobile ? 2 : 3,
                     '@media (min-width:600px)': {
-                        ...(isForMobile && { display: 'none' }),
+                        ...(open && { display: 'none' }),
                     },
                     '@media (max-width:599px)': {
                         ...(open === true && { display: 'none' }),
