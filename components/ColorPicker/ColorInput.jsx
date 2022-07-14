@@ -8,6 +8,7 @@ const ColorInput = ({ colorName, colorType }) => {
     const [value, setValue] = useState(colorType)
 
     const isActive = (e) => {
+        e.target.select()
         setActive(true)
         setValue(e.target.value)
     }

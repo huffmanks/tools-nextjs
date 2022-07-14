@@ -33,9 +33,22 @@ export const useFormControls = (initialValues) => {
             temp.fax = fieldValues.fax.match(/\d{3}-\d{3}-\d{4}/g) || fieldValues.fax === '' ? '' : 'Fax number is not valid.'
         }
 
-        if ('website' in fieldValues)
+        if ('website' in fieldValues) {
             temp.website =
                 fieldValues.website.match(/[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)?/gi) || fieldValues.website === '' ? '' : 'Website URL is not valid.'
+        }
+
+        if ('originalWidth' in fieldValues) {
+            temp.originalWidth = fieldValues.originalWidth.match(/^[0-9]*$/g) || fieldValues.originalWidth === '' ? '' : 'Must be a number.'
+        }
+
+        if ('originalHeight' in fieldValues) {
+            temp.originalHeight = fieldValues.originalHeight.match(/^[0-9]*$/g) || fieldValues.originalHeight === '' ? '' : 'Must be a number.'
+        }
+
+        if ('newSize' in fieldValues) {
+            temp.newSize = fieldValues.newSize.match(/^[0-9]*$/g) || fieldValues.newSize === '' ? '' : 'Must be a number.'
+        }
 
         setErrors({
             ...temp,
@@ -78,7 +91,7 @@ export const useFormControls = (initialValues) => {
     const handleCalculate = (e) => {
         const { name, value } = e.target
 
-        if (values.originalWidth && values.originalHeight && values.newSize) {
+        if (values.originalWidth && values.originalHeight && values.newSize && !!errors) {
             const newOtherSize =
                 values.selectedType === 'width'
                     ? Math.round((values.originalHeight / values.originalWidth) * values.newSize * 100) / 100
@@ -104,6 +117,8 @@ export const useFormControls = (initialValues) => {
                 aspectMultiplier,
             })
         }
+
+        validate({ [name]: value })
     }
 
     const handleBlur = (e) => {

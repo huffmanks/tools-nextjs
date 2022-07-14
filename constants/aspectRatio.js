@@ -14,7 +14,6 @@ export const aspectInputs = [
         name: 'originalWidth',
         label: 'Width',
         placeholder: '1920',
-        isAutoFocused: true,
     },
     {
         name: 'originalHeight',

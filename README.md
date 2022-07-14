@@ -2,9 +2,11 @@
 <br />
 
 <div>
-    <h1>Stratools</h1>
+  <a href="https://tools.huffmanks.com">
+        <img src="./public/logos/stratools-banner.png" alt="example screenshot">
+    </a>
     <p>
-        List of tools to help speed web development.
+        Tools to help speed the web development process.
         <br />
         <br />
         <a href="https://tools.huffmanks.com">View Demo</a>
@@ -31,8 +33,6 @@
     <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#instructions">Instructions</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 <br />
@@ -41,7 +41,7 @@
 
 ## About The Project
 
-I wanted to build some tools that would help speed up my development process. A couple of these tools exist on Google but I wanted some extra or different features.
+I built these tools to help speed my development process.
 \
 \
 \
@@ -122,8 +122,8 @@ GET /?m=2&left=4&right=5
 | Parameter | Type                               | Description       | Example   |
 | :-------- | :--------------------------------- | :---------------- | :-------- |
 | `m`       | `string` &nbsp; OR &nbsp; `number` | Measurement types | length, 2 |
-| `left`    | `string` &nbsp; OR &nbsp; `number` | Left unit select  | in, 4     |
-| `right`   | `string` &nbsp; OR &nbsp; `number` | Right unit select | km, 5     |
+| `from`    | `string` &nbsp; OR &nbsp; `number` | Left unit select  | in, 4     |
+| `to`      | `string` &nbsp; OR &nbsp; `number` | Right unit select | km, 5     |
 
 <br />
 
@@ -386,10 +386,8 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 ## Roadmap
 
 -   [x] Aspect Ratio Calculator
-    -   [ ] Error validation
 -   [x] Color Picker
 -   [x] Unit Converter
-    -   [ ] Better layout
 -   [x] Email Signature
 -   [x] Text formatter
 -   [ ] Password generator
@@ -401,31 +399,6 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 \
 \
 See the [open issues](https://github.com/huffmanks/tools-nextjs/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- CONTACT -->
-
-## Contact
-
-Kevin Huffman - huff9121@gmail.com
 
 Project Link: [https://tools.huffmanks.com](https://tools.huffmanks.com)
 
