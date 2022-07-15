@@ -91,13 +91,7 @@ const Layout = ({ children }) => {
         <Box sx={{ paddingLeft: '57px' }}>
             <CssBaseline />
             <AppBar position='fixed' open={open}>
-                <Toolbar
-                    sx={{
-                        minHeight: 64,
-                        '@media (min-width:600px)': {
-                            minHeight: 80,
-                        },
-                    }}>
+                <Toolbar sx={{ height: '64px' }}>
                     <IconButton
                         color='inherit'
                         aria-label='open drawer'
@@ -110,17 +104,11 @@ const Layout = ({ children }) => {
                         <MenuIcon />
                     </IconButton>
 
-                    <AppBarLogo logoSize={40} textSize={30} open={open} />
+                    <AppBarLogo logoSize={32} textSize={24} open={open} />
                 </Toolbar>
             </AppBar>
             <Drawer variant='permanent' open={open}>
-                <DrawerHeader
-                    sx={{
-                        minHeight: 64,
-                        '@media (min-width:600px)': {
-                            minHeight: 80,
-                        },
-                    }}>
+                <DrawerHeader sx={{ height: '64px' }}>
                     <AppBarLogo logoSize={28} textSize={23} isForMobile={true} />
 
                     <IconButton aria-label='toggle menu' onClick={handleDrawerOpen}>
@@ -246,14 +234,7 @@ const Layout = ({ children }) => {
                         p: 3,
                     },
                 }}>
-                <DrawerHeader
-                    sx={{
-                        minHeight: 64,
-                        '@media (min-width:600px)': {
-                            minHeight: 80,
-                        },
-                    }}
-                />
+                <DrawerHeader sx={{ height: '64px' }} />
                 <Container disableGutters={true}>
                     <>{children}</>
                 </Container>

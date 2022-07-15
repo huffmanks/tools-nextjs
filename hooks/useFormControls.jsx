@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
+import { getAspectNumbers } from '../utilities/getAspectNumbers'
 import { getColorOptionsInfo } from '../constants/emailSignature'
-import { getAspectGCD } from '../utilities/getAspectGCD'
 
 export const useFormControls = (initialValues) => {
     const [values, setValues] = useState(initialValues)
@@ -80,6 +80,33 @@ export const useFormControls = (initialValues) => {
                 newHeight: values.newWidth,
                 aspectRatio: `${aspectRatio[1]}:${aspectRatio[0]}`,
             })
+        } else if (name === 'originalWidth' || name === 'originalHeight' || name === 'newSize') {
+            validate({ [name]: value })
+
+            const isValid = Object.values(errors).every((x) => x === '')
+
+            if (!isNaN(value) && isValid) {
+                setValues({
+                    ...values,
+                    [name]: value,
+                })
+            } else {
+                setValues({
+                    ...values,
+                    [name]: '',
+                })
+            }
+
+            const isCalculable =
+                (!isNaN(value) && isValid && values.originalWidth && values.originalHeight && value !== '') ||
+                (!isNaN(value) && isValid && values.originalWidth && values.newSize && value !== '') ||
+                (!isNaN(value) && isValid && values.originalHeight && values.newSize && value !== '')
+                    ? true
+                    : false
+
+            if (isCalculable) {
+                calculateNumbers(name, value)
+            }
         } else {
             setValues({
                 ...values,
@@ -88,25 +115,17 @@ export const useFormControls = (initialValues) => {
         }
     }
 
-    const handleCalculate = (e) => {
+    const handleBlur = (e) => {
         const { name, value } = e.target
 
-        if (values.originalWidth && values.originalHeight && values.newSize && !!errors) {
-            const newOtherSize =
-                values.selectedType === 'width'
-                    ? Math.round((values.originalHeight / values.originalWidth) * values.newSize * 100) / 100
-                    : Math.round((values.originalWidth / values.originalHeight) * values.newSize * 100) / 100
+        validate({ [name]: value })
+    }
 
-            const newWidth = values.selectedType === 'width' ? values.newSize : newOtherSize
-            const newHeight = values.selectedType === 'height' ? values.newSize : newOtherSize
+    const calculateNumbers = useCallback(
+        (name, value) => {
+            const { newWidth, newHeight, aspectRatio, aspectMultiplier } = getAspectNumbers({ ...values, [name]: value })
 
-            const aspectGCD = getAspectGCD(parseInt(values.originalWidth), parseInt(values.originalHeight))
-
-            const aspectMultiplier = (values.originalWidth / values.originalHeight).toFixed(2)
-
-            const aspectRatio = `${(values.selectedType === 'width' ? values.originalWidth : values.originalHeight) / aspectGCD}:${
-                (values.selectedType === 'height' ? values.originalWidth : values.originalHeight) / aspectGCD
-            }`
+            const hasDimensions = !!newWidth && !!newHeight && !!values.originalWidth && !!values.originalHeight ? true : false
 
             setValues({
                 ...values,
@@ -115,17 +134,11 @@ export const useFormControls = (initialValues) => {
                 newHeight,
                 aspectRatio,
                 aspectMultiplier,
+                dimensions: hasDimensions ? `${newWidth} x ${newHeight}` : '',
             })
-        }
-
-        validate({ [name]: value })
-    }
-
-    const handleBlur = (e) => {
-        const { name, value } = e.target
-
-        validate({ [name]: value })
-    }
+        },
+        [values]
+    )
 
     const formIsValid = (fieldValues = values) => {
         const isValid = fieldValues?.fullName && fieldValues?.email && fieldValues?.title && fieldValues?.phone && Object.values(errors).every((x) => x === '')
@@ -151,7 +164,6 @@ export const useFormControls = (initialValues) => {
         handleFocus,
         handleChange,
         handleBlur,
-        handleCalculate,
         handleSubmit,
     }
 }

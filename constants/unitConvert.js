@@ -1,9 +1,9 @@
 export const initialValues = {
     measurement: '',
-    leftInput: '',
-    rightInput: '',
-    leftSelection: '',
-    rightSelection: '',
+    fromInput: '',
+    toInput: '',
+    fromSelection: '',
+    toSelection: '',
 }
 
 export const measurements = [

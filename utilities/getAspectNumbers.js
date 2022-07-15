@@ -1,0 +1,26 @@
+const getAspectGCD = (...arr) => {
+    const gcd = (x, y) => (!y ? x : getAspectGCD(y, x % y))
+    return [...arr].reduce((a, b) => gcd(a, b))
+}
+
+export const getAspectNumbers = (values) => {
+    const newOtherSize =
+        values.newSize === ''
+            ? ''
+            : values.selectedType === 'width'
+            ? Math.round((values.originalHeight / values.originalWidth) * values.newSize * 100) / 100
+            : Math.round((values.originalWidth / values.originalHeight) * values.newSize * 100) / 100
+
+    const newWidth = values.selectedType === 'width' ? values.newSize : newOtherSize
+    const newHeight = values.selectedType === 'height' ? values.newSize : newOtherSize
+
+    const aspectGCD = getAspectGCD(parseInt(values.originalWidth), parseInt(values.originalHeight))
+
+    const aspectMultiplier = (values.originalWidth / values.originalHeight).toFixed(2)
+
+    const aspectRatio = `${(values.selectedType === 'width' ? values.originalWidth : values.originalHeight) / aspectGCD}:${
+        (values.selectedType === 'height' ? values.originalWidth : values.originalHeight) / aspectGCD
+    }`
+
+    return { newWidth, newHeight, aspectMultiplier, aspectRatio }
+}

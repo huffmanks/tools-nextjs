@@ -7,6 +7,7 @@ export const initialValues = {
     newHeight: '',
     aspectRatio: '',
     aspectMultiplier: '',
+    dimensions: '',
 }
 
 export const aspectInputs = [

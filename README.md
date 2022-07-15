@@ -110,11 +110,11 @@ To get a local copy up and running follow these simple example steps.
 BASE_URL = https://tools.huffmanks.com/unit-converter
 
 ```http
-GET /?m=length&left=in&right=km
+GET /?m=length&from=in&to=km
 ```
 
 ```http
-GET /?m=2&left=4&right=5
+GET /?m=2&from=4&to=5
 ```
 
 <br />
@@ -122,8 +122,8 @@ GET /?m=2&left=4&right=5
 | Parameter | Type                               | Description       | Example   |
 | :-------- | :--------------------------------- | :---------------- | :-------- |
 | `m`       | `string` &nbsp; OR &nbsp; `number` | Measurement types | length, 2 |
-| `from`    | `string` &nbsp; OR &nbsp; `number` | Left unit select  | in, 4     |
-| `to`      | `string` &nbsp; OR &nbsp; `number` | Right unit select | km, 5     |
+| `from`    | `string` &nbsp; OR &nbsp; `number` | From unit select  | in, 4     |
+| `to`      | `string` &nbsp; OR &nbsp; `number` | To unit select    | km, 5     |
 
 <br />
 

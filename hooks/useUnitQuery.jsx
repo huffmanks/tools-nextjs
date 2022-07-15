@@ -11,8 +11,8 @@ export const useUnitQuery = () => {
     const [currentUnits, setCurrentUnits] = useState([])
 
     const m = query.m?.toLowerCase()
-    const left = query.left?.toLowerCase()
-    const right = query.right?.toLowerCase()
+    const from = query.from?.toLowerCase()
+    const to = query.to?.toLowerCase()
 
     useEffect(() => {
         const type = () => {
@@ -42,33 +42,37 @@ export const useUnitQuery = () => {
             .map((item) => item.units)
             .flat()
 
-        let leftUnit
-        let rightUnit
+        let fromUnit
+        let toUnit
 
-        if (left) {
-            leftUnit = level
+        if (from) {
+            fromUnit = level
                 .filter((item) => {
-                    return item.short.includes(left) || item.unit.includes(left) || left === item.id.toString()
+                    return item.short.includes(from) || item.unit.includes(from) || from === item.id.toString()
                 })
                 .map((item) => item.unit)
         }
 
-        if (right) {
-            rightUnit = level
+        fromUnit = (levelType === 'length' && from === 'm') || (levelType === 'length' && from === 'mi') || (levelType === 'length' && from === 'mil') ? 'miles' : fromUnit
+
+        if (to) {
+            toUnit = level
                 .filter((item) => {
-                    return item.short.includes(right) || item.unit.includes(right) || right === item.id.toString()
+                    return item.short.includes(to) || item.unit.includes(to) || to === item.id.toString()
                 })
                 .map((item) => item.unit)
         }
+
+        toUnit = (levelType === 'length' && to === 'm') || (levelType === 'length' && to === 'mi') || (levelType === 'length' && to === 'mil') ? 'miles' : toUnit
 
         setCurrentUnits(level)
         setValues((values) => ({
             ...values,
             measurement: levelType,
-            leftSelection: leftUnit?.length && leftUnit !== undefined ? leftUnit : level[0].unit,
-            rightSelection: rightUnit?.length && rightUnit !== undefined ? rightUnit : level[1].unit,
+            fromSelection: fromUnit?.length && fromUnit !== undefined ? fromUnit : level[0].unit,
+            toSelection: toUnit?.length && toUnit !== undefined ? toUnit : level[1].unit,
         }))
-    }, [m, left, right])
+    }, [m, from, to])
 
     return { values, setValues, currentUnits, setCurrentUnits }
 }

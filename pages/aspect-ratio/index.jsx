@@ -9,7 +9,7 @@ import Form from '../../components/AspectRatio/Form'
 import Output from '../../components/AspectRatio/Output'
 
 const AspectRatio = () => {
-    const { values, errors, handleFocus, handleChange, handleCalculate } = useFormControls(initialValues)
+    const { values, errors, handleFocus, handleChange, handleBlur } = useFormControls(initialValues)
 
     return (
         <>
@@ -17,7 +17,7 @@ const AspectRatio = () => {
             <PageTitle>Aspect Ratio Calculator</PageTitle>
 
             <Grid container spacing={5} alignItems='start'>
-                <Form values={values} errors={errors} handleFocus={handleFocus} handleChange={handleChange} handleCalculate={handleCalculate} />
+                <Form values={values} errors={errors} handleFocus={handleFocus} handleChange={handleChange} handleBlur={handleBlur} />
 
                 <Output values={values} />
             </Grid>

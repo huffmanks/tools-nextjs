@@ -16,7 +16,7 @@ const UnitConverter = () => {
     const handleChange = (e) => {
         const { name, value } = e.target
 
-        const { leftInput, rightInput, leftSelection, rightSelection } = values
+        const { fromInput, toInput, fromSelection, toSelection } = values
 
         if (name === 'measurement') {
             const newOptions = measurements
@@ -28,42 +28,42 @@ const UnitConverter = () => {
 
             setValues({
                 measurement: value,
-                leftInput: '',
-                rightInput: '',
-                leftSelection: newOptions[0].unit,
-                rightSelection: newOptions[1].unit,
+                fromInput: '',
+                toInput: '',
+                fromSelection: newOptions[0].unit,
+                toSelection: newOptions[1].unit,
             })
         }
 
-        if (name === 'leftInput') {
+        if (name === 'fromInput') {
             setValues({
                 ...values,
-                leftInput: value,
-                rightInput: value ? formatConvertNumber(value, leftSelection, rightSelection) : '',
+                fromInput: value,
+                toInput: value ? formatConvertNumber(value, fromSelection, toSelection) : '',
             })
         }
 
-        if (name === 'rightInput') {
+        if (name === 'toInput') {
             setValues({
                 ...values,
-                leftInput: value ? formatConvertNumber(value, rightSelection, leftSelection) : '',
-                rightInput: value,
+                fromInput: value ? formatConvertNumber(value, toSelection, fromSelection) : '',
+                toInput: value,
             })
         }
 
-        if (name === 'leftSelection') {
+        if (name === 'fromSelection') {
             setValues({
                 ...values,
-                rightInput: leftInput ? formatConvertNumber(value, leftInput, rightSelection) : rightInput,
-                leftSelection: value,
+                toInput: fromInput ? formatConvertNumber(value, fromInput, toSelection) : toInput,
+                fromSelection: value,
             })
         }
 
-        if (name === 'rightSelection') {
+        if (name === 'toSelection') {
             setValues({
                 ...values,
-                leftInput: rightInput ? formatConvertNumber(value, rightInput, leftSelection) : leftInput,
-                rightSelection: value,
+                fromInput: toInput ? formatConvertNumber(value, toInput, fromSelection) : fromInput,
+                toSelection: value,
             })
         }
     }
@@ -75,8 +75,8 @@ const UnitConverter = () => {
     const handleClear = () => {
         setValues({
             ...values,
-            leftInput: '',
-            rightInput: '',
+            fromInput: '',
+            toInput: '',
         })
     }
 
@@ -112,10 +112,10 @@ const UnitConverter = () => {
                             },
                         }}>
                         <InputGroup
-                            inputName='leftInput'
-                            inputValue={values.leftInput}
-                            selectName='leftSelection'
-                            selectValue={values.leftSelection}
+                            inputName='fromInput'
+                            inputValue={values.fromInput}
+                            selectName='fromSelection'
+                            selectValue={values.fromSelection}
                             focusHandler={handleFocus}
                             clearHandler={handleClear}
                             changeHandler={handleChange}
@@ -123,10 +123,10 @@ const UnitConverter = () => {
                         />
 
                         <InputGroup
-                            inputName='rightInput'
-                            inputValue={values.rightInput}
-                            selectName='rightSelection'
-                            selectValue={values.rightSelection}
+                            inputName='toInput'
+                            inputValue={values.toInput}
+                            selectName='toSelection'
+                            selectValue={values.toSelection}
                             focusHandler={handleFocus}
                             clearHandler={handleClear}
                             changeHandler={handleChange}
@@ -140,9 +140,9 @@ const UnitConverter = () => {
                             <div className={styles['stack-item']} key={option.id}>
                                 <span>{option.label}</span>
                                 <span className={styles['stack-pipe']}>|</span>
-                                {values.leftInput && values.rightInput && (
+                                {values.fromInput && values.toInput && (
                                     <>
-                                        <span>{formatConvertNumber(values.leftInput, values.leftSelection, option.unit)}</span>
+                                        <span>{formatConvertNumber(values.fromInput, values.fromSelection, option.unit)}</span>
                                     </>
                                 )}
 

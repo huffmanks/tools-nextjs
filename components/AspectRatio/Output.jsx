@@ -4,12 +4,7 @@ import { Box, Grid, Chip, TextField, InputAdornment, IconButton, Stack } from '@
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 
 const Output = ({ values }) => {
-    const dimensions =
-        values.originalWidth && values.originalHeight && values.selectedType === 'width'
-            ? `${values.originalWidth} x ${values.originalHeight}`
-            : values.originalWidth && values.originalHeight && values.selectedType === 'height'
-            ? `${values.originalHeight} x ${values.originalWidth}`
-            : '1920 x 1080'
+    const dimensions = values.dimensions && values.dimensions !== '' ? values.dimensions : ''
 
     return (
         <Grid item container spacing={2} md={6}>
