@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import { initialValues, passwordOptions } from '../../constants/passwordGenerator'
+import { useEffect, useState } from 'react'
+import { initialValues, passwordOptions, symbols, numbers, lowerCase, upperCase, similarCharacters } from '../../constants/passwordGenerator'
 
-import { Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, IconButton, InputAdornment, Skeleton, Stack, TextField } from '@mui/material'
+import { Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, IconButton, InputAdornment, TextField } from '@mui/material'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 
 import SEO from '../../components/layout/SEO'
@@ -10,6 +10,7 @@ import SliderInput from '../../components/PasswordGenerator/SliderInput'
 
 const PasswordGenerator = () => {
     const [values, setValues] = useState(initialValues)
+    const [passwordPool, setPasswordPool] = useState([])
 
     const handleSlider = (e, newValue) => {
         setValues({
@@ -34,48 +35,53 @@ const PasswordGenerator = () => {
         }
     }
 
+    useEffect(() => {
+        const temp = Object.keys(values).filter((key) => values[key] === true)
+
+        const arr = [...symbols, ...numbers, ...lowerCase, ...upperCase, ...similarCharacters]
+        // console.log(arr)
+    }, [values])
+
     return (
         <>
             <SEO description='Create a strong password.' title='Password Generator' url='/password-generator' />
             <PageTitle>Password Generator</PageTitle>
 
-            <Stack maxWidth={'100%'} width={500} spacing={3}>
-                <Skeleton animation={false} variant='rectangular' height={40} />
-                <Skeleton animation={false} variant='rectangular' height={300} />
-                <Skeleton animation={false} variant='rectangular' height={40} />
-            </Stack>
-
-            {/* <SliderInput values={values} handleSlider={handleSlider} />
+            <SliderInput values={values} handleSlider={handleSlider} />
 
             <FormControl component='fieldset'>
-                <FormLabel component='legend'>Password Options</FormLabel>
+                <FormLabel component='legend' sx={{ marginBottom: 2 }}>
+                    Password Options
+                </FormLabel>
                 <FormGroup>
                     {passwordOptions.map((option) => (
-                        <FormControlLabel key={option.id} control={<Checkbox checked={values[option.name]} onChange={handleChange} name={option.name} />} label={option.label} labelPlacement='start' />
+                        <FormControlLabel key={option.id} control={<Checkbox checked={values[option.name]} onChange={handleChange} name={option.name} />} label={option.label} labelPlacement='end' />
                     ))}
                 </FormGroup>
             </FormControl>
 
-            <TextField
-                focused
-                readOnly
-                variant='outlined'
-                label='Password'
-                name='password'
-                value={values.password}
-                autoComplete='none'
-                sx={{ maxWidth: '100%', width: 500, marginTop: 5 }}
-                InputProps={{
-                    readOnly: true,
-                    endAdornment: (
-                        <InputAdornment position='end'>
-                            <IconButton aria-label='copy value to clipboard' onClick={() => navigator.clipboard.writeText(values.password)} edge='end'>
-                                <ContentCopyIcon />
-                            </IconButton>
-                        </InputAdornment>
-                    ),
-                }}
-            /> */}
+            <FormGroup>
+                <TextField
+                    focused
+                    readOnly
+                    variant='outlined'
+                    label='Password'
+                    name='password'
+                    value={values.password}
+                    autoComplete='none'
+                    sx={{ maxWidth: '100%', width: 500, marginTop: 5 }}
+                    InputProps={{
+                        readOnly: true,
+                        endAdornment: (
+                            <InputAdornment position='end'>
+                                <IconButton aria-label='copy value to clipboard' onClick={() => navigator.clipboard.writeText(values.password)} edge='end'>
+                                    <ContentCopyIcon />
+                                </IconButton>
+                            </InputAdornment>
+                        ),
+                    }}
+                />
+            </FormGroup>
         </>
     )
 }
