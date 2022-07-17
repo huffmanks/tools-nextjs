@@ -15,17 +15,10 @@ import SliderInput from '../../components/PasswordGenerator/SliderInput'
 import PasswordOptions from '../../components/PasswordGenerator/PasswordOptions'
 
 const PasswordGenerator = () => {
-    const { values, handleChange } = useFormControls(initialValues)
+    const { values, handleChange, handleSlider } = useFormControls(initialValues)
 
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
-
-    const handleSlider = (e, newValue) => {
-        setValues({
-            ...values,
-            slider: Number(newValue),
-        })
-    }
 
     const handleClick = () => {
         setPassword(generatePassword(values.symbols, values.numbers, values.lowerCase, values.upperCase, values.excludeSimilar, values.slider))

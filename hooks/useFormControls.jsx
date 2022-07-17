@@ -121,6 +121,13 @@ export const useFormControls = (initialValues) => {
         }
     }
 
+    const handleSlider = (e, newValue) => {
+        setValues({
+            ...values,
+            slider: Number(newValue),
+        })
+    }
+
     const handleBlur = (e) => {
         const { name, value } = e.target
 
@@ -169,6 +176,7 @@ export const useFormControls = (initialValues) => {
         formIsValid,
         handleFocus,
         handleChange,
+        handleSlider,
         handleBlur,
         handleSubmit,
     }
