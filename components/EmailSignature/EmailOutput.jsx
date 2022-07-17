@@ -3,12 +3,12 @@ import { useRef } from 'react'
 import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
 import { getColorCode } from '../../constants/emailSignature'
 
+import { Box } from '@mui/material'
+
 import IconButton from '@mui/material/IconButton'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 
-import styles from '../../styles/EmailSignature.module.css'
-
-const Output = ({ values }) => {
+const EmailOutput = ({ values }) => {
     const resultRef = useRef(null)
 
     const copy = useCopyToClipboard()
@@ -21,7 +21,16 @@ const Output = ({ values }) => {
 
     return (
         <>
-            <div className={styles.output}>
+            <Box
+                sx={{
+                    position: 'relative',
+                    maxWidth: 375,
+                    marginBlock: 6,
+                    padding: 3,
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    color: 'background.default',
+                    borderRadius: 1.5,
+                }}>
                 <div style={{ fontFamily: '"Montserrat", sans-serif' }} ref={resultRef}>
                     <div style={{ color: getColorCode(values), fontWeight: 'bold', fontSize: '20px', fontFamily: '"Montserrat", sans-serif' }}>{values.fullName}</div>
                     <div style={{ fontWeight: 'bold', fontSize: '16px', fontFamily: '"Montserrat", sans-serif' }}>{values.title}</div>
@@ -53,12 +62,29 @@ const Output = ({ values }) => {
                         {values.address} {values.cityState} {values.zipCode}
                     </div>
                 </div>
-                <IconButton className={styles.copy} style={{ position: 'absolute' }} aria-label='copy email signature' onClick={handleClick}>
-                    <ContentCopyIcon color='primary' />
+                <IconButton
+                    sx={{
+                        position: 'absolute',
+                        top: 10,
+                        right: 10,
+                        transform: 'translate(-10px, 10px)',
+                        '&:hover': {
+                            backgroundColor: getColorCode(values),
+                            '& svg': {
+                                color: '#fff',
+                            },
+                        },
+                        '& svg': {
+                            color: getColorCode(values),
+                        },
+                    }}
+                    aria-label='copy email signature'
+                    onClick={handleClick}>
+                    <ContentCopyIcon />
                 </IconButton>
-            </div>
+            </Box>
         </>
     )
 }
 
-export default Output
+export default EmailOutput

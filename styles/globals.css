@@ -4,46 +4,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-}
-
-:root {
-    --primary-main: #5b21b6;
-    --dark-main: #1e1e1e;
-    --dark-alt: #333333;
-    --dark-alt-2: #404040;
-    --light-main: #fefefe;
-    --light-alt: #eeeeee;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-p {
-    margin-bottom: 30px;
-}
-
-.MuiFormLabel-root.MuiInputLabel-root.Mui-focused {
-    color: var(--light-main);
-}
-
-/* Custom inputs Unit Converter */
-
-.group.top .MuiOutlinedInput-root fieldset {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-color: transparent;
-}
-
-.group.bottom .MuiOutlinedInput-root fieldset {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-
-.textarea .MuiInputBase-multiline textarea {
-    overflow: hidden;
 }
 
 /* Custom Colord layout */
@@ -54,7 +14,7 @@ p {
     margin-bottom: 2rem;
     padding: 16px;
     border-radius: 12px;
-    background: var(--dark-alt);
+    background: #333333;
     box-shadow: 0 0 2px 2px #444;
 }
 

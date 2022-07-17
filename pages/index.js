@@ -1,17 +1,22 @@
 import Link from 'next/link'
 
 import { routes } from '../constants/routes'
+
+import { Box, Button, Card, CardActions, CardContent, IconButton, Typography } from '@mui/material'
 import SEO from '../components/layout/SEO'
-
-import { Button, Card, CardActions, CardContent, IconButton, Typography } from '@mui/material'
-
-import styles from '../styles/Home.module.css'
 
 const Home = () => {
     return (
         <>
             <SEO description='List of tools to help speed web development.' title='Home' url='/' />
-            <div className={styles['home-cards']}>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '30px',
+                }}>
                 {routes.slice(1).map(({ key, path, name, icon, description }) => (
                     <Card
                         key={key}
@@ -24,13 +29,25 @@ const Home = () => {
                                 flex: '0 0 325px',
                             },
                         }}>
-                        <div className={styles['home-card-icon']}>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}>
                             <Link href={path} passHref={true}>
-                                <IconButton aria-label={name} color='primary'>
+                                <IconButton
+                                    aria-label={name}
+                                    color='primary'
+                                    sx={{
+                                        '& svg': {
+                                            fontSize: '55px',
+                                        },
+                                    }}>
                                     {icon}
                                 </IconButton>
                             </Link>
-                        </div>
+                        </Box>
                         <CardContent>
                             <Typography gutterBottom variant='h5' component='div'>
                                 {name}
@@ -46,7 +63,7 @@ const Home = () => {
                         </CardActions>
                     </Card>
                 ))}
-            </div>
+            </Box>
         </>
     )
 }

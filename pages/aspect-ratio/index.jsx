@@ -5,8 +5,8 @@ import { Grid } from '@mui/material'
 
 import SEO from '../../components/layout/SEO'
 import PageTitle from '../../components/layout/PageTitle'
-import Form from '../../components/AspectRatio/Form'
-import Output from '../../components/AspectRatio/Output'
+import AspectForm from '../../components/AspectRatio/AspectForm'
+import AspectOutput from '../../components/AspectRatio/AspectOutput'
 
 const AspectRatio = () => {
     const { values, errors, handleFocus, handleChange, handleBlur } = useFormControls(initialValues)
@@ -17,9 +17,9 @@ const AspectRatio = () => {
             <PageTitle>Aspect Ratio Calculator</PageTitle>
 
             <Grid container spacing={5} alignItems='start'>
-                <Form values={values} errors={errors} handleFocus={handleFocus} handleChange={handleChange} handleBlur={handleBlur} />
+                <AspectForm values={values} errors={errors} handleFocus={handleFocus} handleChange={handleChange} handleBlur={handleBlur} />
 
-                <Output values={values} />
+                <AspectOutput values={values} />
             </Grid>
         </>
     )

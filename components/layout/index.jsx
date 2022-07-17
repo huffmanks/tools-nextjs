@@ -104,12 +104,12 @@ const Layout = ({ children }) => {
                         <MenuIcon />
                     </IconButton>
 
-                    <AppBarLogo logoSize={32} textSize={24} open={open} />
+                    <AppBarLogo logoSize={38} textSize={24} open={open} />
                 </Toolbar>
             </AppBar>
             <Drawer variant='permanent' open={open}>
                 <DrawerHeader sx={{ height: '64px' }}>
-                    <AppBarLogo logoSize={28} textSize={23} isForMobile={true} />
+                    <AppBarLogo logoSize={28} textSize={23} />
 
                     <IconButton aria-label='toggle menu' onClick={handleDrawerOpen}>
                         {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}

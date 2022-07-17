@@ -18,8 +18,10 @@ const Document = () => {
                 <link rel='shortcut icon' href='/logos/favicon.ico' />
                 <link rel='icon' href='/logos/favicon.ico' />
 
+                <link rel='icon' type='image/png' sizes='1200x630' href='/logos/stratools-stacked.png' />
                 <link rel='icon' type='image/png' sizes='192x192' href='/logos/logo-192x192.png' />
                 <link rel='icon' type='image/png' sizes='512x512' href='/logos/logo-512x512.png' />
+                <link rel='apple-touch-icon' sizes='1200x630' href='/logos/stratools-stacked.png' />
                 <link rel='apple-touch-icon' sizes='192x192' href='/logos/logo-192x192.png' />
                 <link rel='apple-touch-icon' sizes='512x512' href='/logos/logo-512x512.png' />
 
@@ -27,7 +29,7 @@ const Document = () => {
 
                 <link rel='preconnect' href='https://fonts.googleapis.com' />
                 <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin />
-                <link href='https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Montserrat:wght@100;300;400;500&display=swap' rel='stylesheet' />
+                <link href='https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Montserrat:wght@100;300;400;500;700&family=Roboto+Mono&display=swap' rel='stylesheet' />
             </Head>
             <body>
                 <Main />

@@ -4,13 +4,9 @@ import { aspectInputs } from '../../constants/aspectRatio'
 
 import { Grid, Chip, Divider, FormControl, FormControlLabel, TextField, RadioGroup, Radio } from '@mui/material'
 
-const Form = ({ values, errors, handleFocus, handleChange, handleBlur }) => {
+const AspectInputs = ({ values, errors, handleFocus, handleChange, handleBlur }) => {
     return (
-        <Grid item container spacing={2} md={6} component='form'>
-            <Grid item xs={12}>
-                <Chip label='Original' color='primary' component='div' sx={{ marginBottom: '2rem' }} />
-            </Grid>
-
+        <>
             {aspectInputs.map((input, index) => (
                 <Fragment key={index}>
                     <Grid item xs={12} sm={6}>
@@ -54,8 +50,8 @@ const Form = ({ values, errors, handleFocus, handleChange, handleBlur }) => {
                     )}
                 </Fragment>
             ))}
-        </Grid>
+        </>
     )
 }
 
-export default Form
+export default AspectInputs

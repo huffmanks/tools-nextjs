@@ -7,7 +7,6 @@ const Textarea = ({ values, handleChange, handleClear }) => {
         <>
             <Grid item xs={12}>
                 <TextField
-                    className='textarea'
                     autoFocus
                     fullWidth
                     variant='outlined'
@@ -19,6 +18,11 @@ const Textarea = ({ values, handleChange, handleClear }) => {
                     multiline
                     minRows={1}
                     maxRows={2}
+                    sx={{
+                        '& textarea': {
+                            overflow: 'hidden',
+                        },
+                    }}
                     InputProps={{
                         endAdornment: (
                             <InputAdornment position='end'>

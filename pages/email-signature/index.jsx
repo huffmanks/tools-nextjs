@@ -1,7 +1,7 @@
 import SEO from '../../components/layout/SEO'
 import PageTitle from '../../components/layout/PageTitle'
 import IntroParagraph from '../../components/EmailSignature/IntroParagraph'
-import Form from '../../components/EmailSignature/Form'
+import EmailForm from '../../components/EmailSignature/EmailForm'
 
 const EmailSignature = () => {
     return (
@@ -9,7 +9,7 @@ const EmailSignature = () => {
             <SEO description='Create an email signature.' title='Email Signature' url='/email-signature' />
             <PageTitle>Email Signature</PageTitle>
             <IntroParagraph />
-            <Form />
+            <EmailForm />
         </>
     )
 }

@@ -1,9 +1,9 @@
 1. Sitewide
     - [ ] Focus select disable for mobile
+    - [ ] FormControls hook clean
+    - [ ] Hooks directory purge
+    - [ ] Import mui components into ui to export
 2. Aspect Ratio Calculator
-    - [ ] Error validation
-    - [ ] Inputs onChange
-3. Color Picker
-    - [ ] Focus select color inputs
-4. Unit Converter
+    - [ ] Error validation improve
+3. Unit Converter
     - [ ] Better layout

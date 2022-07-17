@@ -60,9 +60,14 @@ export const useFormControls = (initialValues) => {
     }
 
     const handleChange = (e) => {
-        const { name, value } = e.target
+        const { name, value, type, checked } = e.target
 
-        if (name === 'colorType') {
+        if (type === 'checkbox') {
+            setValues({
+                ...values,
+                [name]: checked,
+            })
+        } else if (name === 'colorType') {
             setValues({
                 ...values,
                 [name]: value,
@@ -79,6 +84,7 @@ export const useFormControls = (initialValues) => {
                 newWidth: values.newHeight,
                 newHeight: values.newWidth,
                 aspectRatio: `${aspectRatio[1]}:${aspectRatio[0]}`,
+                dimensions: `${values.newHeight} x ${values.newWidth}`,
             })
         } else if (name === 'originalWidth' || name === 'originalHeight' || name === 'newSize') {
             validate({ [name]: value })
@@ -134,7 +140,7 @@ export const useFormControls = (initialValues) => {
                 newHeight,
                 aspectRatio,
                 aspectMultiplier,
-                dimensions: hasDimensions ? `${newWidth} x ${newHeight}` : '',
+                dimensions: hasDimensions && values.selectedType === 'width' ? `${newWidth} x ${newHeight}` : hasDimensions && values.selectedType === 'height' ? `${newHeight} x ${newWidth}` : '',
             })
         },
         [values]
