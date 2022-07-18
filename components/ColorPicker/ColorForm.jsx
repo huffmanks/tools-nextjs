@@ -1,30 +1,25 @@
-import Box from '@mui/material/Box'
-
+import { Box } from '@mui/material'
 import ColorInput from './ColorInput'
 
-const ColorForm = ({ hexColor, rgbColor, hslColor, nameColor, handleColor }) => {
+const ColorForm = ({ convertedColors, handleColor }) => {
     return (
-        <div style={{ marginBottom: '2rem' }}>
-            <Box
-                sx={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
-                    gap: '1rem',
-                    '@media screen and (max-width: 525px)': {
-                        gridTemplateColumns: '1fr',
-                    },
-                }}
-                autoComplete='off'
-                onChange={handleColor}>
-                <ColorInput colorName='HEX' colorType={hexColor} />
-
-                <ColorInput colorName='RGB' colorType={rgbColor} />
-
-                <ColorInput colorName='HSL' colorType={hslColor} />
-
-                <ColorInput colorName='Color' colorType={nameColor} />
-            </Box>
-        </div>
+        <Box
+            sx={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
+                gap: '1rem',
+                marginBottom: 4,
+                '@media screen and (max-width: 525px)': {
+                    gridTemplateColumns: '1fr',
+                },
+            }}
+            autoComplete='off'
+            onChange={handleColor}>
+            <ColorInput inputLabel='HEX' inputName='hexColor' colorType={convertedColors.hexColor} />
+            <ColorInput inputLabel='RGB' inputName='rgbColor' colorType={convertedColors.rgbColor} />
+            <ColorInput inputLabel='HSL' inputName='hslColor' colorType={convertedColors.hslColor} />
+            <ColorInput inputLabel='Color' inputName='nameColor' colorType={convertedColors.nameColor} />
+        </Box>
     )
 }
 

@@ -6,7 +6,7 @@ import EmailForm from '../../components/EmailSignature/EmailForm'
 const EmailSignature = () => {
     return (
         <>
-            <SEO description='Create an email signature.' title='Email Signature' url='/email-signature' />
+            <SEO description='Create an email signature.' title='Email Signature' url='/email-signature' imageUrl='/email-signature.png' />
             <PageTitle>Email Signature</PageTitle>
             <IntroParagraph />
             <EmailForm />

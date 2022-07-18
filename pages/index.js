@@ -8,7 +8,7 @@ import SEO from '../components/layout/SEO'
 const Home = () => {
     return (
         <>
-            <SEO description='List of tools to help speed web development.' title='Home' url='/' />
+            <SEO description='List of tools to help speed web development.' title='Home' url='/' imageUrl='/stratools.png' />
             <Box
                 sx={{
                     display: 'flex',

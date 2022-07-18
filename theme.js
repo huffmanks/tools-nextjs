@@ -7,6 +7,8 @@ const theme = createTheme({
             default: '#1e1e1e',
             paper: '#1e1e1e',
             secondary: '#333333;',
+            alt: '#404040',
+            altSecondary: '#444444',
         },
         text: {
             primary: '#fefefe',
@@ -22,6 +24,18 @@ const theme = createTheme({
             fontSize: '1.5rem',
             '@media (min-width:600px)': {
                 fontSize: '2.15rem',
+            },
+        },
+    },
+
+    components: {
+        MuiFormLabel: {
+            styleOverrides: {
+                root: {
+                    '&.Mui-focused': {
+                        color: '#fefefe',
+                    },
+                },
             },
         },
     },

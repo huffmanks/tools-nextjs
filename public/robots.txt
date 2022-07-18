@@ -1,6 +1,5 @@
 # *
 User-agent: *
-Disallow: /api/
 
 # Host
 Host: https://tools.huffmanks.com

@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { routes } from '../../constants/routes'
 
 import { styled, useTheme } from '@mui/material/styles'
-import { Box, Toolbar, List, CssBaseline, Typography, Divider, ListItem, ListItemIcon, ListItemText, ListItemButton, IconButton, Container } from '@mui/material'
+import { Box, Toolbar, List, CssBaseline, Divider, ListItem, ListItemIcon, ListItemText, ListItemButton, IconButton, Container } from '@mui/material'
 
 import MuiAppBar from '@mui/material/AppBar'
 import MuiDrawer from '@mui/material/Drawer'

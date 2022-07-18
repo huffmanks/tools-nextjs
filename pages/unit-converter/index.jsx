@@ -15,7 +15,7 @@ const UnitConverter = () => {
 
     return (
         <>
-            <SEO description='Convert different unit types.' title='Convert Units' url='/unit-converter' />
+            <SEO description='Convert different unit types.' title='Convert Units' url='/unit-converter' imageUrl='/unit-converter.png' />
             <PageTitle>Convert Units</PageTitle>
 
             <Box

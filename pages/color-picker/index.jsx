@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
+import { initialValues } from '../../constants/colorPicker'
 
 import { Typography } from '@mui/material'
 
@@ -15,30 +17,31 @@ extend([namesPlugin])
 
 const ColorPicker = () => {
     const [color, setColor] = useState('#5b21b6')
-    const [hexColor, setHexColor] = useState('#5b21b6')
-    const [rgbColor, setRgbColor] = useState('rgb(91, 33, 182)')
-    const [hslColor, setHslColor] = useState('hsl(263, 69%, 42%)')
-    const [nameColor, setNameColor] = useState('rebeccapurple')
+    const [convertedColors, setConvertedColors] = useState(initialValues)
 
     const handleColor = (e) => {
         setColor(e.target.value)
     }
 
     useEffect(() => {
-        setHexColor(() => colord(color).toHex())
-        setRgbColor(() => colord(color).toRgbString())
-        setHslColor(() => colord(color).toHslString())
-        setNameColor(() => colord(color).toName({ closest: true }))
+        setConvertedColors(() => ({
+            hexColor: colord(color).toHex(),
+            rgbColor: colord(color).toRgbString(),
+            hslColor: colord(color).toHslString(),
+            nameColor: colord(color).toName({ closest: true }),
+            badgeColor: `linear-gradient(to right, ${colord(color).lighten(0.15).toHex()}, ${colord(color).darken(0.15).toHex()})`,
+            textColor: colord(color).isDark() ? 'text.primary' : 'background.paper',
+        }))
     }, [color])
 
     return (
         <>
-            <SEO description='Choose a color in HEX, RGB or HSL.' title='Color Picker' url='/color-picker' />
+            <SEO description='Choose a color in HEX, RGB or HSL.' title='Color Picker' url='/color-picker' imageUrl='/color-picker.png' />
             <PageTitle>Color Picker</PageTitle>
 
             <Colord color={color} onChange={setColor} />
 
-            <ColorForm color={color} hexColor={hexColor} rgbColor={rgbColor} hslColor={hslColor} nameColor={nameColor} handleColor={handleColor} />
+            <ColorForm convertedColors={convertedColors} handleColor={handleColor} />
 
             <Typography
                 variant='h4'
@@ -47,8 +50,8 @@ const ColorPicker = () => {
                     width: 'max-content',
                     marginBottom: '2rem',
                     padding: '0.5rem 1rem',
-                    background: `linear-gradient(to right, ${colord(color).lighten(0.15).toHex()}, ${colord(color).darken(0.15).toHex()})`,
-                    color: colord(color).isDark() ? '#fff' : '#222',
+                    background: convertedColors.badgeColor,
+                    color: convertedColors.textColor,
                     borderRadius: '10px',
                     '@media screen and (max-width: 400px)': {
                         fontSize: '1.5rem',
@@ -57,7 +60,7 @@ const ColorPicker = () => {
                 Shades
             </Typography>
 
-            <ColorVariants color={color} />
+            <ColorVariants color={color} textColor={convertedColors.textColor} />
         </>
     )
 }

@@ -26,7 +26,7 @@ const PasswordGenerator = () => {
 
     return (
         <>
-            <SEO description='Create a strong password.' title='Password Generator' url='/password-generator' />
+            <SEO description='Create a strong password.' title='Password Generator' url='/password-generator' imageUrl='/password-generator.png' />
             <PageTitle>Password Generator</PageTitle>
 
             <Password password={password} showPassword={showPassword} setShowPassword={setShowPassword} />

@@ -1,9 +1,11 @@
-import { Grid, TextField, MenuItem, Button, ButtonGroup } from '@mui/material'
+import { cards } from '../../constants/textFormatter'
+
+import { Grid, TextField, MenuItem, Button, ButtonGroup, FormControl, FormLabel, FormGroup, FormControlLabel, Checkbox } from '@mui/material'
 
 import RestartAltIcon from '@mui/icons-material/RestartAlt'
 import SaveIcon from '@mui/icons-material/Save'
 
-const ActionGroup = ({ values, saved, handleChange, handleReset, handleSave }) => {
+const ActionGroup = ({ values, saved, checkAll, handleChange, handleCheckAll, handleSave, handleReset }) => {
     return (
         <>
             <Grid item lg={9} md={7} xs={12}>
@@ -24,6 +26,17 @@ const ActionGroup = ({ values, saved, handleChange, handleReset, handleSave }) =
                         Reset
                     </Button>
                 </ButtonGroup>
+            </Grid>
+            <Grid item xs={12}>
+                <FormControl fullWidth component='fieldset' variant='outlined'>
+                    <FormLabel component='legend'>Select formats</FormLabel>
+                    <FormGroup row>
+                        <FormControlLabel control={<Checkbox checked={checkAll} onChange={handleCheckAll} name='check_all' />} label='Select all' />
+                        {cards.map((box) => (
+                            <FormControlLabel key={box.name} control={<Checkbox checked={values[`check_${box.name}`]} onChange={handleChange} name={`check_${box.name}`} />} label={box.label} />
+                        ))}
+                    </FormGroup>
+                </FormControl>
             </Grid>
         </>
     )

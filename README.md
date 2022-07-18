@@ -17,7 +17,7 @@
     </p>
     <br />
     <a href="https://tools.huffmanks.com">
-        <img src="https://github.com/huffmanks/tools-nextjs/blob/main/public/preview/stratools-preview.png?raw=true" alt="example screenshot">
+        <img src="https://github.com/huffmanks/tools-nextjs/blob/main/public/previews/stratools.png?raw=true" alt="example screenshot">
     </a>
 </div>
 
@@ -45,7 +45,7 @@ I built these tools to help speed my development process.
 \
 \
 \
-![Color Picker](https://github.com/huffmanks/tools-nextjs/blob/main/public/preview/color-picker-preview.png?raw=true)
+![Color Picker](https://github.com/huffmanks/tools-nextjs/blob/main/public/previews/color-picker.png?raw=true)
 \
 \
 \
@@ -59,7 +59,7 @@ I built these tools to help speed my development process.
 \
 \
 \
-![Unit Converter](https://github.com/huffmanks/tools-nextjs/blob/main/public/preview/unit-converter-preview.png?raw=true)
+![Unit Converter](https://github.com/huffmanks/tools-nextjs/blob/main/public/previews/unit-converter.png?raw=true)
 \
 \
 \

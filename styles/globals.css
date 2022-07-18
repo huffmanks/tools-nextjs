@@ -5,37 +5,3 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-/* Custom Colord layout */
-
-.custom-layout .react-colorful {
-    width: 100%;
-    min-height: 300px;
-    margin-bottom: 2rem;
-    padding: 16px;
-    border-radius: 12px;
-    background: #333333;
-    box-shadow: 0 0 2px 2px #444;
-}
-
-.custom-layout .react-colorful__saturation {
-    margin: 15px 0;
-    border-radius: 5px;
-    border-bottom: none;
-}
-
-.custom-layout .react-colorful__hue {
-    order: -1;
-}
-
-.custom-layout .react-colorful__hue,
-.custom-layout .react-colorful__alpha {
-    height: 35px;
-    border-radius: 5px;
-}
-
-.custom-layout .react-colorful__hue-pointer,
-.custom-layout .react-colorful__alpha-pointer {
-    width: 20px;
-    height: 20px;
-}

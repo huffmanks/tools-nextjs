@@ -18,12 +18,12 @@ const Password = ({ password, showPassword, setShowPassword }) => {
                     maxWidth: '100%',
                     width: 500,
                     marginBottom: 5,
-                    '& .MuiFormLabel-root.MuiInputLabel-root.Mui-focused': {
-                        color: 'text.primary',
-                    },
                     '& input': {
                         fontFamily: '"Roboto Mono", monospace',
-                        letterSpacing: 3,
+                        letterSpacing: {
+                            xs: 2,
+                            sm: 3,
+                        },
                         fontSize: 18,
                     },
                 }}

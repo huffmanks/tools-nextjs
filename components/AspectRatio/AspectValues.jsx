@@ -17,11 +17,6 @@ const AspectValues = ({ values }) => {
                         name={output.name}
                         value={values[output.name]}
                         autoComplete='none'
-                        sx={{
-                            '& .MuiFormLabel-root.MuiInputLabel-root.Mui-focused': {
-                                color: 'text.primary',
-                            },
-                        }}
                         InputProps={{
                             readOnly: true,
                             endAdornment: (

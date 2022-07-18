@@ -13,7 +13,7 @@ const AspectRatio = () => {
 
     return (
         <>
-            <SEO description='Calculate the aspect ratio.' title='Aspect Ratio Calculator' url='/aspect-ratio' />
+            <SEO description='Calculate the aspect ratio.' title='Aspect Ratio Calculator' url='/aspect-ratio' imageUrl='/aspect-ratio.png' />
             <PageTitle>Aspect Ratio Calculator</PageTitle>
 
             <Grid container spacing={5} alignItems='start'>

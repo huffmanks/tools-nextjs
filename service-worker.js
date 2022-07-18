@@ -11,7 +11,7 @@ const WB_MANIFEST = self.__WB_MANIFEST
 
 WB_MANIFEST.push({
     url: '/fallback',
-    revision: '1',
+    revision: '2',
 })
 precacheAndRoute(WB_MANIFEST)
 
@@ -159,7 +159,7 @@ setCatchHandler(({ event }) => {
             // return caches.match('/fallback')
             break
         case 'image':
-            return matchPrecache('/logos/logo-512x512.png')
+            return matchPrecache('/previews/stratools.png')
             // return caches.match('/static/images/fallback.png')
             break
         case 'font':
