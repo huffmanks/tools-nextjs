@@ -153,7 +153,7 @@ const Layout = ({ children }) => {
                 </List>
                 <Divider />
                 <List>
-                    {routes.slice(1, -2).map(({ key, path, name, icon }) => (
+                    {routes.slice(1, -3).map(({ key, path, name, icon }) => (
                         <ListItem key={key} disablePadding sx={{ display: 'block' }}>
                             <Link href={path} passHref={true} style={{ textDecoration: 'none' }}>
                                 <ListItemButton
@@ -189,7 +189,7 @@ const Layout = ({ children }) => {
                 </List>
                 <Divider />
                 <List>
-                    {routes.slice(-2).map(({ key, path, name, icon }) => (
+                    {routes.slice(-3).map(({ key, path, name, icon }) => (
                         <ListItem key={key} disablePadding sx={{ display: 'block' }}>
                             <Link href={path} passHref={true} style={{ textDecoration: 'none' }}>
                                 <ListItemButton

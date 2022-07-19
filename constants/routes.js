@@ -5,6 +5,7 @@ import TextFieldsIcon from '@mui/icons-material/TextFields'
 import ScaleIcon from '@mui/icons-material/Scale'
 import DesignServicesIcon from '@mui/icons-material/DesignServices'
 import KeyIcon from '@mui/icons-material/Key'
+import ShuffleIcon from '@mui/icons-material/Shuffle'
 
 export const routes = [
     {
@@ -55,5 +56,12 @@ export const routes = [
         key: 'password-generator',
         icon: <KeyIcon />,
         description: 'Create a strong password.',
+    },
+    {
+        path: '/random-generator',
+        name: 'Random Generator',
+        key: 'random-generator',
+        icon: <ShuffleIcon />,
+        description: 'Get a random number or item.',
     },
 ]
