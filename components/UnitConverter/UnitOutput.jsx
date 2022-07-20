@@ -1,36 +1,47 @@
 import { formatConvertNumber } from '../../utilities/formatConvertNumber'
 
-import { Box, Stack } from '@mui/material'
+import { Box } from '@mui/material'
 
 const UnitOutput = ({ values, currentUnits }) => {
     return (
         <>
-            <Box>
-                <Stack spacing={2}>
-                    {currentUnits.map((option) => (
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
+                {currentUnits
+                    .filter((item) => item.unit !== values.unitSelection)
+                    .map((option) => (
                         <Box
                             key={option.id}
                             sx={{
-                                width: {
-                                    sx: '100%',
-                                    sm: 'fit-content',
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                maxWidth: {
+                                    xs: '100%',
+                                    md: '36.2%',
                                 },
-                                padding: '10px 15px',
+                                flexBasis: {
+                                    xs: '100%',
+                                    md: '36.2%',
+                                },
                                 backgroundColor: 'background.secondary',
-                                borderRadius: '6px',
+                                borderRadius: 1,
+                                overflow: 'hidden',
                             }}>
-                            <span>{option.label}</span>
-                            <span style={{ margin: '0 10px' }}>|</span>
-                            {values.fromInput && values.toInput && (
-                                <>
-                                    <span>{formatConvertNumber(values.fromInput, values.fromSelection, option.unit)}</span>
-                                </>
-                            )}
+                            <Box sx={{ padding: 2 }}>{option.label}</Box>
 
-                            <span> {option.short}</span>
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    gap: 1,
+                                    backgroundColor: 'primary.main',
+                                    padding: '16px 16px 16px 24px',
+                                    borderTopLeftRadius: 50,
+                                    borderBottomLeftRadius: 50,
+                                }}>
+                                {values.numInput && <div>{formatConvertNumber(values.numInput, values.unitSelection, option.unit)}</div>}
+                                <div>{option.short}</div>
+                            </Box>
                         </Box>
                     ))}
-                </Stack>
             </Box>
         </>
     )

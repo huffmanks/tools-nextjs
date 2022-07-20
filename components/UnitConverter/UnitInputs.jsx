@@ -1,50 +1,26 @@
 import { measurements } from '../../constants/unitConvert'
 
-import { TextField, MenuItem, Box } from '@mui/material'
-import InputGroup from '../../components/UnitConverter/InputGroup'
+import { TextField, MenuItem } from '@mui/material'
+import InputContainer from './InputContainer'
+import NumberInput from './NumberInput'
+import UnitSelect from './UnitSelect'
 
-const UnitInputs = ({ values, currentUnits, handleChange, handleFocus, handleClear }) => {
+const UnitInputs = ({ values, currentUnits, handleChange, handleFocus }) => {
     return (
         <>
-            <TextField fullWidth select label='Measurement' value={values.measurement} name='measurement' onChange={handleChange}>
-                {measurements.map((option) => (
-                    <MenuItem key={option.id} value={option.type}>
-                        {option.label}
-                    </MenuItem>
-                ))}
-            </TextField>
-
-            <Box
-                sx={{
-                    display: 'flex',
-                    gap: 5,
-                    mt: 5,
-                    '@media (max-width: 500px)': {
-                        display: 'block',
-                    },
-                }}>
-                <InputGroup
-                    inputName='fromInput'
-                    inputValue={values.fromInput}
-                    selectName='fromSelection'
-                    selectValue={values.fromSelection}
-                    focusHandler={handleFocus}
-                    clearHandler={handleClear}
-                    changeHandler={handleChange}
-                    unitList={currentUnits}
-                />
-
-                <InputGroup
-                    inputName='toInput'
-                    inputValue={values.toInput}
-                    selectName='toSelection'
-                    selectValue={values.toSelection}
-                    focusHandler={handleFocus}
-                    clearHandler={handleClear}
-                    changeHandler={handleChange}
-                    unitList={currentUnits}
-                />
-            </Box>
+            <InputContainer
+                top={
+                    <TextField fullWidth select label='Measurement' value={values.measurement} name='measurement' onChange={handleChange}>
+                        {measurements.map((option) => (
+                            <MenuItem key={option.id} value={option.type}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                }
+                center={<NumberInput inputLabel='Number' inputName='numInput' inputValue={values.numInput} focusHandler={handleFocus} changeHandler={handleChange} />}
+                bottom={<UnitSelect selectLabel='Unit' selectName='unitSelection' selectValue={values.unitSelection} changeHandler={handleChange} unitList={currentUnits} />}
+            />
         </>
     )
 }

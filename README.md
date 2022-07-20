@@ -109,21 +109,29 @@ To get a local copy up and running follow these simple example steps.
 
 BASE_URL = https://tools.huffmanks.com/unit-converter
 
-```http
-GET /?m=length&from=in&to=km
+#### Query params
+
+```
+/?type=length&num=3&unit=kilometer
 ```
 
-```http
-GET /?m=2&from=4&to=5
 ```
+/?t=len&n=3&u=km
+```
+
+```
+/?t=2&n=3&u=5
+```
+
+All three of these examples get the same result.
 
 <br />
 
-| Parameter | Type                               | Description       | Example   |
-| :-------- | :--------------------------------- | :---------------- | :-------- |
-| `m`       | `string` &nbsp; OR &nbsp; `number` | Measurement types | length, 2 |
-| `from`    | `string` &nbsp; OR &nbsp; `number` | From unit select  | in, 4     |
-| `to`      | `string` &nbsp; OR &nbsp; `number` | To unit select    | km, 5     |
+| Parameter     | Type                 | Description       | Example   |
+| :------------ | :------------------- | :---------------- | :-------- |
+| `type` OR `t` | `string` OR `number` | Measurement types | length, 2 |
+| `num` OR `n`  | `number`             | Number to compare | 4         |
+| `unit` OR `u` | `string` OR `number` | Unit to select    | km, 5     |
 
 <br />
 
@@ -134,9 +142,9 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 <table>
     <thead>
         <tr>
-            <th>Digital Storage</th>
-            <th>Temperature</th>
-            <th>Weight</th>
+            <th>Digital Storage, type=1</th>
+            <th>Temperature, type=4</th>
+            <th>Weight, type=6</th>
         </tr>
     </thead>
     <tbody>
@@ -236,9 +244,9 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 <table>
     <thead>
         <tr>
-            <th>Length</th>
-            <th>Volume</th>
-            <th>Time</th>
+            <th>Length, type=2</th>
+            <th>Volume, type=3</th>
+            <th>Time, type=5</th>
         </tr>
     </thead>
     <tbody>
@@ -390,11 +398,11 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 -   [x] Unit Converter
 -   [x] Email Signature
 -   [x] Text formatter
--   [ ] Password generator
--   [ ] Number picker
+-   [x] Password generator
+-   [ ] Random generator
     -   [ ] Get a random number
-    -   [ ] Get a random number from a list of numbers
-    -   [ ] Get multiple numbers from a list of numbers
+    -   [ ] Get random number(s) from a number range
+    -   [ ] Pick a random item from a list
 
 \
 \

@@ -1,9 +1,8 @@
 export const initialValues = {
     measurement: '',
-    fromInput: '',
-    toInput: '',
-    fromSelection: '',
-    toSelection: '',
+    numInput: '',
+    unitSelection: '',
+    isQuery: false,
 }
 
 export const measurements = [
