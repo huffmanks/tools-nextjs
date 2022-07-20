@@ -7,21 +7,21 @@ import UnitInputs from '../../components/UnitConverter/UnitInputs'
 import UnitOutput from '../../components/UnitConverter/UnitOutput'
 
 const UnitConverter = () => {
-    const { loading, values, currentUnits, handleChange, handleFocus } = useUnitFormControls()
+    const { isLoading, values, currentUnits, handleChange, handleFocus } = useUnitFormControls()
 
     return (
         <>
             <SEO description='Convert different unit types.' title='Convert Units' url='/unit-converter' imageUrl='/unit-converter.png' />
             <PageTitle>Convert Units</PageTitle>
 
-            {loading ? (
-                <LoadingSkeleton />
-            ) : (
+            {!isLoading ? (
                 <>
                     <UnitInputs values={values} currentUnits={currentUnits} handleChange={handleChange} handleFocus={handleFocus} />
 
                     <UnitOutput values={values} currentUnits={currentUnits} />
                 </>
+            ) : (
+                <LoadingSkeleton />
             )}
         </>
     )

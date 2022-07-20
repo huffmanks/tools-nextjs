@@ -19,7 +19,7 @@ const UnitInputs = ({ values, currentUnits, handleChange, handleFocus }) => {
                     </TextField>
                 }
                 center={<NumberInput inputLabel='Number' inputName='numInput' inputValue={values.numInput} focusHandler={handleFocus} changeHandler={handleChange} />}
-                bottom={<UnitSelect selectLabel='Unit' selectName='unitSelection' selectValue={values.unitSelection} changeHandler={handleChange} unitList={currentUnits} />}
+                bottom={<UnitSelect selectName='unitSelection' selectValue={values.unitSelection} changeHandler={handleChange} unitList={currentUnits} />}
             />
         </>
     )

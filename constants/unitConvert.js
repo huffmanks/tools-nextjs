@@ -1,8 +1,7 @@
 export const initialValues = {
-    measurement: '',
+    measurement: 'digitalStorage',
     numInput: '',
-    unitSelection: '',
-    isQuery: false,
+    unitSelection: 'terabytes',
 }
 
 export const measurements = [

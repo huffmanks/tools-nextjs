@@ -1,12 +1,11 @@
 import { MenuItem, TextField } from '@mui/material'
 
-const UnitSelect = ({ selectLabel, selectName, selectValue, changeHandler, unitList }) => {
+const UnitSelect = ({ selectName, selectValue, changeHandler, unitList }) => {
     return (
         <>
             <TextField
                 fullWidth
                 select
-                label={selectLabel}
                 name={selectName}
                 value={selectValue}
                 onChange={changeHandler}
