@@ -1,7 +1,10 @@
-import { Grid, FormControl, FormControlLabel, FormGroup, FormHelperText, FormLabel, IconButton, InputAdornment, Switch, TextField } from '@mui/material'
+import { generateRandomNumbers } from '../../utilities/generateRandomNumbers'
+
+import { Grid, FormControl, FormControlLabel, FormGroup, FormHelperText, FormLabel, IconButton, InputAdornment, Switch, TextField, Box, Button, Stack } from '@mui/material'
 
 import RemoveIcon from '@mui/icons-material/Remove'
 import AddIcon from '@mui/icons-material/Add'
+import NumbersIcon from '@mui/icons-material/Numbers'
 
 const NumberPicker = ({ values, handleChange, setValues }) => {
     const handleDecrease = () => {
@@ -16,6 +19,19 @@ const NumberPicker = ({ values, handleChange, setValues }) => {
             ...values,
             total: parseInt(prev.total) + 1,
         }))
+    }
+
+    const handleClick = () => {
+        const { total, unique, sorted, start, end } = values
+        const lowerNumber = start < end ? start : end
+        const higherNumber = start > end ? start : end
+
+        const output = generateRandomNumbers(total, lowerNumber, higherNumber, unique, sorted)
+
+        setValues({
+            ...values,
+            randomNumber: output,
+        })
     }
 
     return (
@@ -33,7 +49,14 @@ const NumberPicker = ({ values, handleChange, setValues }) => {
                             autoComplete='none'
                             sx={{
                                 width: 150,
-                                marginRight: 2,
+                                marginRight: {
+                                    xs: 0,
+                                    md: 2,
+                                },
+                                marginBottom: {
+                                    xs: 2,
+                                    md: 0,
+                                },
                                 input: {
                                     textAlign: 'center',
                                 },
@@ -119,7 +142,29 @@ const NumberPicker = ({ values, handleChange, setValues }) => {
                 </FormControl>
             </Grid>
             <Grid item xs={12} md={6}>
-                <div>output</div>
+                <Button
+                    size='large'
+                    variant='contained'
+                    onClick={handleClick}
+                    endIcon={<NumbersIcon />}
+                    sx={{
+                        width: {
+                            xs: '100%',
+                            sm: 'auto',
+                        },
+                        marginBottom: 4,
+                    }}>
+                    Generate
+                </Button>
+
+                <Stack direction={{ xs: 'column', md: 'row' }} flexWrap='wrap'>
+                    {values.randomNumber &&
+                        values.randomNumber.map((number, index) => (
+                            <Box key={index} sx={{ marginRight: { sx: 0, md: 2 }, marginBottom: 2, padding: 2, backgroundColor: 'background.secondary', borderRadius: 1 }}>
+                                {number}
+                            </Box>
+                        ))}
+                </Stack>
             </Grid>
         </Grid>
     )

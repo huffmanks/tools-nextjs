@@ -32,18 +32,22 @@ export const aspectInputs = [
 export const aspectOutput = [
     {
         name: 'newWidth',
-        label: 'Width',
+        label: 'New Width',
+        placeholder: '400',
     },
     {
         name: 'newHeight',
-        label: 'Height',
+        label: 'New Height',
+        placeholder: '225',
     },
     {
         name: 'aspectRatio',
         label: 'Aspect Ratio',
+        placeholder: '16:9',
     },
     {
         name: 'aspectMultiplier',
         label: 'Aspect Multiplier',
+        placeholder: '1.78',
     },
 ]

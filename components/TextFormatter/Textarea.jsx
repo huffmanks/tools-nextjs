@@ -7,7 +7,6 @@ const Textarea = ({ values, handleChange, handleClear }) => {
         <>
             <Grid item xs={12}>
                 <TextField
-                    autoFocus
                     fullWidth
                     variant='outlined'
                     label='Insert Text'

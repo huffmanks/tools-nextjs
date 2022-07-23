@@ -1,4 +1,4 @@
-import { useTextFormatterForm } from '../../hooks/useTextFormatterForm'
+import { useTextFormatterFormControls } from '../../hooks/useTextFormatterFormControls'
 
 import { Grid } from '@mui/material'
 
@@ -9,7 +9,7 @@ import ActionGroup from '../../components/TextFormatter/ActionGroup'
 import Cards from '../../components/TextFormatter/Cards'
 
 const TextFormatter = () => {
-    const { values, saved, checkedCards, checkAll, handleChange, handleSave, handleCheckAll, handleCopy, handleClear, handleReset } = useTextFormatterForm()
+    const { values, saved, checkedCards, checkAll, handleChange, handleSave, handleCheckAll, handleCopy, handleClear, handleReset } = useTextFormatterFormControls()
 
     return (
         <>

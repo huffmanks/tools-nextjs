@@ -4,4 +4,5 @@ export const initialValues = {
     sorted: true,
     start: 1,
     end: 100,
+    randomNumber: [],
 }

@@ -6,7 +6,7 @@ import { uniqueId } from '../utilities/uniqueId'
 import { titleCase } from '../utilities/titleCase'
 import { initialValues } from '../constants/textFormatter'
 
-export const useTextFormatterForm = () => {
+export const useTextFormatterFormControls = () => {
     const [values, setValues] = useState(initialValues)
 
     const [saved, setSaved] = useLocalStorage('webtools-v1-saved', [])

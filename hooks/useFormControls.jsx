@@ -39,15 +39,15 @@ export const useFormControls = (initialValues) => {
         }
 
         if ('originalWidth' in fieldValues) {
-            temp.originalWidth = fieldValues.originalWidth.match(/^[0-9]*$/g) || fieldValues.originalWidth === '' ? '' : 'Must be a number.'
+            temp.originalWidth = fieldValues.originalWidth.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.originalWidth === '' ? '' : 'Must be a number.'
         }
 
         if ('originalHeight' in fieldValues) {
-            temp.originalHeight = fieldValues.originalHeight.match(/^[0-9]*$/g) || fieldValues.originalHeight === '' ? '' : 'Must be a number.'
+            temp.originalHeight = fieldValues.originalHeight.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.originalHeight === '' ? '' : 'Must be a number.'
         }
 
         if ('newSize' in fieldValues) {
-            temp.newSize = fieldValues.newSize.match(/^[0-9]*$/g) || fieldValues.newSize === '' ? '' : 'Must be a number.'
+            temp.newSize = fieldValues.newSize.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.newSize === '' ? '' : 'Must be a number.'
         }
 
         setErrors({
@@ -92,15 +92,22 @@ export const useFormControls = (initialValues) => {
             const isValid = Object.values(errors).every((x) => x === '')
 
             if (!isNaN(value) && isValid) {
+                const hasValue = value !== ''
+                const isOriginal = name === 'originalWidth' || name === 'originalHeight'
+
                 setValues({
                     ...values,
                     [name]: value,
+                    newWidth: hasValue ? values.newWidth : '',
+                    newHeight: hasValue ? values.newHeight : '',
+                    aspectRatio: !hasValue && isOriginal ? '' : values.aspectRatio,
+                    aspectMultiplier: !hasValue && isOriginal ? '' : values.aspectMultiplier,
                 })
             } else {
-                setValues({
+                setValues((prev) => ({
                     ...values,
-                    [name]: '',
-                })
+                    [name]: prev[name],
+                }))
             }
 
             const isCalculable =

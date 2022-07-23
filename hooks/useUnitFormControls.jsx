@@ -38,6 +38,11 @@ export const useUnitFormControls = () => {
                 numInput: '',
                 unitSelection: newOptions[0].unit,
             })
+        } else if (name === 'numInput') {
+            setValues((prev) => ({
+                ...values,
+                [name]: prev.numInput === '' && value === '0' ? '' : value.replace(/\D/g, ''),
+            }))
         } else {
             setValues({
                 ...values,

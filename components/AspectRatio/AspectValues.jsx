@@ -15,15 +15,18 @@ const AspectValues = ({ values }) => {
                         variant='outlined'
                         label={output.label}
                         name={output.name}
+                        placeholder={output.placeholder}
                         value={values[output.name]}
                         autoComplete='none'
                         InputProps={{
                             readOnly: true,
                             endAdornment: (
                                 <InputAdornment position='end'>
-                                    <IconButton aria-label='copy value to clipboard' onClick={() => navigator.clipboard.writeText(values[output.name])} edge='end'>
-                                        <ContentCopyIcon />
-                                    </IconButton>
+                                    {values[output.name] && (
+                                        <IconButton aria-label='copy value to clipboard' onClick={() => navigator.clipboard.writeText(values[output.name])} edge='end'>
+                                            <ContentCopyIcon />
+                                        </IconButton>
+                                    )}
                                 </InputAdornment>
                             ),
                         }}
