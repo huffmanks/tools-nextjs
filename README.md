@@ -42,7 +42,7 @@ I built these tools to help speed my development process.
 
 ### Color Picker
 
-![Color Picker](https://github.com/huffmanks/tools-nextjs/blob/main/public/readme/color-picker-readme.png?raw=true)
+![Color Picker](https://github.com/huffmanks/tools-nextjs/blob/main/public/readme/color-picker.png?raw=true)
 
 [Google Color Picker](https://www.google.com/search?q=color+picker)
 \
@@ -53,7 +53,7 @@ I built these tools to help speed my development process.
 
 ### Unit Converter
 
-![Unit Converter](https://github.com/huffmanks/tools-nextjs/blob/main/public/readme/unit-converter-readme.png?raw=true)
+![Unit Converter](https://github.com/huffmanks/tools-nextjs/blob/main/public/readme/unit-converter.png?raw=true)
 
 [Google Unit Converter](https://www.google.com/search?q=unit+converter)
 \

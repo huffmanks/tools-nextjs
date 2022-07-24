@@ -7,7 +7,7 @@ const Output = ({ number, isLottery }) => {
             sx={{
                 position: 'relative',
                 padding: 2,
-                backgroundColor: isLottery ? 'red' : 'background.secondary',
+                backgroundColor: isLottery ? '#ba000d' : 'primary.main',
                 borderRadius: 2,
                 cursor: 'pointer',
                 '& button': {
