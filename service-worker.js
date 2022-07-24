@@ -1,6 +1,6 @@
 import { skipWaiting, clientsClaim } from 'workbox-core'
 import { ExpirationPlugin } from 'workbox-expiration'
-import { NetworkOnly, NetworkFirst, CacheFirst, StaleWhileRevalidate } from 'workbox-strategies'
+import { NetworkFirst, CacheFirst, StaleWhileRevalidate } from 'workbox-strategies'
 import { registerRoute, setDefaultHandler, setCatchHandler } from 'workbox-routing'
 import { matchPrecache, precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching'
 
@@ -23,7 +23,7 @@ registerRoute(
         plugins: [
             new ExpirationPlugin({
                 maxEntries: 1,
-                maxAgeSeconds: 86400,
+                maxAgeSeconds: 7776000,
                 purgeOnQuotaError: !0,
             }),
         ],
@@ -66,7 +66,7 @@ registerRoute(
         plugins: [
             new ExpirationPlugin({
                 maxEntries: 64,
-                maxAgeSeconds: 86400,
+                maxAgeSeconds: 7776000,
                 purgeOnQuotaError: !0,
             }),
         ],
@@ -80,7 +80,7 @@ registerRoute(
         plugins: [
             new ExpirationPlugin({
                 maxEntries: 32,
-                maxAgeSeconds: 86400,
+                maxAgeSeconds: 7776000,
                 purgeOnQuotaError: !0,
             }),
         ],
@@ -94,7 +94,7 @@ registerRoute(
         plugins: [
             new ExpirationPlugin({
                 maxEntries: 32,
-                maxAgeSeconds: 86400,
+                maxAgeSeconds: 7776000,
                 purgeOnQuotaError: !0,
             }),
         ],
@@ -115,21 +115,21 @@ registerRoute(
     }),
     'GET'
 )
-registerRoute(
-    /\/api\/.*$/i,
-    new NetworkFirst({
-        cacheName: 'apis',
-        networkTimeoutSeconds: 10,
-        plugins: [
-            new ExpirationPlugin({
-                maxEntries: 16,
-                maxAgeSeconds: 86400,
-                purgeOnQuotaError: !0,
-            }),
-        ],
-    }),
-    'GET'
-)
+// registerRoute(
+//     /\/api\/.*$/i,
+//     new NetworkFirst({
+//         cacheName: 'apis',
+//         networkTimeoutSeconds: 10,
+//         plugins: [
+//             new ExpirationPlugin({
+//                 maxEntries: 16,
+//                 maxAgeSeconds: 86400,
+//                 purgeOnQuotaError: !0,
+//             }),
+//         ],
+//     }),
+//     'GET'
+// )
 registerRoute(
     /.*/i,
     new NetworkFirst({
@@ -138,7 +138,7 @@ registerRoute(
         plugins: [
             new ExpirationPlugin({
                 maxEntries: 32,
-                maxAgeSeconds: 86400,
+                maxAgeSeconds: 7776000,
                 purgeOnQuotaError: !0,
             }),
         ],
@@ -149,19 +149,15 @@ registerRoute(
 setDefaultHandler(new StaleWhileRevalidate())
 
 setCatchHandler(({ event }) => {
-    // https://medium.com/proximity-labs/building-a-next-js-pwa-using-next-pwa-and-service-worker-a7acb0ea54bc
-
-    // https://medium.com/dev-channel/service-worker-caching-strategies-based-on-request-types-57411dd7652c
-
     switch (event.request.destination) {
         case 'document':
             return matchPrecache('/fallback')
-            // return caches.match('/fallback')
-            break
+        // return caches.match('/fallback')
+        // break
         case 'image':
             return matchPrecache('/previews/stratools.png')
-            // return caches.match('/static/images/fallback.png')
-            break
+        // return caches.match('/static/images/fallback.png')
+        // break
         case 'font':
         // return matchPrecache(FALLBACK_FONT_URL);
         // return caches.match('/static/fonts/fallback.otf')
