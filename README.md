@@ -3,7 +3,7 @@
 
 <div>
   <a href="https://tools.huffmanks.com">
-        <img src="./public/logos/stratools-banner.png" alt="example screenshot">
+        <img src="./public/logos/stratools-stacked.png" alt="example screenshot">
     </a>
     <p>
         Tools to help speed the web development process.
@@ -15,10 +15,7 @@
         ·
         <a href="https://github.com/huffmanks/tools-nextjs/issues">Request Feature</a>
     </p>
-    <br />
-    <a href="https://tools.huffmanks.com">
-        <img src="https://github.com/huffmanks/tools-nextjs/blob/main/public/previews/stratools.png?raw=true" alt="example screenshot">
-    </a>
+
 </div>
 
 <br />
@@ -42,13 +39,11 @@
 ## About The Project
 
 I built these tools to help speed my development process.
-\
-\
-\
+
+### Color Picker
+
 ![Color Picker](https://github.com/huffmanks/tools-nextjs/blob/main/public/readme/color-picker-readme.png?raw=true)
-\
-\
-\
+
 [Google Color Picker](https://www.google.com/search?q=color+picker)
 \
 [Stratools Color Picker](https://tools.huffmanks.com/color-picker)
@@ -56,13 +51,10 @@ I built these tools to help speed my development process.
 -   Option to copy any code not just HEX.
 -   Similar shades displayed so I could pick lighter/darker versions.
 
-\
-\
-\
+### Unit Converter
+
 ![Unit Converter](https://github.com/huffmanks/tools-nextjs/blob/main/public/readme/unit-converter-readme.png?raw=true)
-\
-\
-\
+
 [Google Unit Converter](https://www.google.com/search?q=unit+converter)
 \
 [Stratools Unit Converter](https://tools.huffmanks.com/unit-converter)
@@ -400,9 +392,11 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 -   [x] Text formatter
 -   [x] Password generator
 -   [ ] Random generator
-    -   [ ] Get a random number
-    -   [ ] Get random number(s) from a number range
+    -   [x] Get random number(s) from a number range
     -   [ ] Pick a random item from a list
+-   [ ] Todo/shopping list
+-   [ ] Calculator
+-   [ ] Keyboard shortcuts
 
 \
 \

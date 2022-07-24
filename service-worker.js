@@ -155,7 +155,7 @@ setCatchHandler(({ event }) => {
         // return caches.match('/fallback')
         // break
         case 'image':
-            return matchPrecache('/previews/stratools.png')
+            return matchPrecache('/logos/stratools-stacked.png')
         // return caches.match('/static/images/fallback.png')
         // break
         case 'font':

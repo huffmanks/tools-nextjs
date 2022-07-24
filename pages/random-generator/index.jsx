@@ -44,12 +44,7 @@ const RandomGenerator = () => {
 
     return (
         <>
-            <SEO
-                description='Get a random number or item from a list.'
-                title='Random Generator'
-                url='/random-generator'
-                // imageUrl='/random-generator.png'
-            />
+            <SEO description='Get a random number or item from a list.' title='Random Generator' url='/random-generator' imageUrl='/random-generator.png' />
             <PageTitle>Random Generator</PageTitle>
 
             <Panel panelId='panel1' panelTitle='Number Picker' expanded={expanded} handlePanel={handlePanel}>
