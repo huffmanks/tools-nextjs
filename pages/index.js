@@ -17,7 +17,7 @@ const Home = () => {
                     alignItems: 'center',
                     gap: '30px',
                 }}>
-                {allRoutes.map(({ key, path, name, icon, description }) => (
+                {allRoutes.map(({ key, path, homeName, icon, description }) => (
                     <Card
                         key={key}
                         color='secondary'
@@ -37,7 +37,7 @@ const Home = () => {
                             }}>
                             <Link href={path} passHref={true}>
                                 <IconButton
-                                    aria-label={name}
+                                    aria-label={homeName}
                                     color='primary'
                                     sx={{
                                         '& svg': {
@@ -50,7 +50,7 @@ const Home = () => {
                         </Box>
                         <CardContent>
                             <Typography gutterBottom variant='h5' component='div'>
-                                {name}
+                                {homeName}
                             </Typography>
                             <Typography variant='body2'>{description}</Typography>
                         </CardContent>

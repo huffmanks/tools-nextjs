@@ -21,6 +21,7 @@ export const calculateRoutes = [
     {
         path: '/calculate/aspect-ratio',
         name: 'Aspect Ratio',
+        homeName: 'Aspect Ratio',
         key: 'aspect-ratio',
         icon: <AspectRatioIcon />,
         description: 'Calculate the aspect ratio.',
@@ -28,6 +29,7 @@ export const calculateRoutes = [
     {
         path: '/calculate/units',
         name: 'Units',
+        homeName: 'Unit Calculator',
         key: 'unit-calculator',
         icon: <ScaleIcon />,
         description: 'Calculate different unit types.',
@@ -38,6 +40,7 @@ export const formatRoutes = [
     {
         path: '/format/text',
         name: 'Text',
+        homeName: 'Text Formatter',
         key: 'text-formatter',
         icon: <TextFieldsIcon />,
         description: 'Format text to any case.',
@@ -48,6 +51,7 @@ export const generateRoutes = [
     {
         path: '/generate/email-signature',
         name: 'Email Signature',
+        homeName: 'Email Signature',
         key: 'email-signature',
         icon: <DesignServicesIcon />,
         description: 'Create an email signature.',
@@ -55,6 +59,7 @@ export const generateRoutes = [
     {
         path: '/generate/password',
         name: 'Password',
+        homeName: 'Password Generator',
         key: 'password-generator',
         icon: <KeyIcon />,
         description: 'Create a strong password.',
@@ -65,6 +70,7 @@ export const pickerRoutes = [
     {
         path: '/picker/color',
         name: 'Color',
+        homeName: 'Color Picker',
         key: 'color-picker',
         icon: <ColorLensIcon />,
         description: 'Choose a color in HEX, RGB or HSL.',
@@ -72,6 +78,7 @@ export const pickerRoutes = [
     {
         path: '/picker/random',
         name: 'Random',
+        homeName: 'Random Picker',
         key: 'random-picker',
         icon: <ShuffleIcon />,
         description: 'Get a random number or item.',
