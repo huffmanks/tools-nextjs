@@ -11,7 +11,7 @@ const WB_MANIFEST = self.__WB_MANIFEST
 
 WB_MANIFEST.push({
     url: '/fallback',
-    revision: '3',
+    revision: '4',
 })
 precacheAndRoute(WB_MANIFEST)
 
@@ -61,7 +61,6 @@ registerRoute(
 registerRoute(
     /\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,
     new StaleWhileRevalidate({
-        // new NetworkOnly({
         cacheName: 'static-image-assets',
         plugins: [
             new ExpirationPlugin({
@@ -115,21 +114,21 @@ registerRoute(
     }),
     'GET'
 )
-// registerRoute(
-//     /\/api\/.*$/i,
-//     new NetworkFirst({
-//         cacheName: 'apis',
-//         networkTimeoutSeconds: 10,
-//         plugins: [
-//             new ExpirationPlugin({
-//                 maxEntries: 16,
-//                 maxAgeSeconds: 86400,
-//                 purgeOnQuotaError: !0,
-//             }),
-//         ],
-//     }),
-//     'GET'
-// )
+registerRoute(
+    /\/api\/.*$/i,
+    new NetworkFirst({
+        cacheName: 'apis',
+        networkTimeoutSeconds: 10,
+        plugins: [
+            new ExpirationPlugin({
+                maxEntries: 16,
+                maxAgeSeconds: 86400,
+                purgeOnQuotaError: !0,
+            }),
+        ],
+    }),
+    'GET'
+)
 registerRoute(
     /.*/i,
     new NetworkFirst({

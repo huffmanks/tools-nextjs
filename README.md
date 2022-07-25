@@ -55,7 +55,7 @@ I built these tools to help speed my development process.
 
 ![Unit Calculator](https://github.com/huffmanks/tools-nextjs/blob/main/public/readme/unit-calculator.png?raw=true)
 
-[Google Unit Calculator](https://www.google.com/search?q=unit+calculator)
+[Google Unit Calculator](https://www.google.com/search?q=unit+converter)
 \
 [Stratools Unit Calculator](https://tools.huffmanks.com/calculate/units)
 

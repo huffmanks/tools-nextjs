@@ -1,6 +1,12 @@
 import { Box, Button, Typography } from '@mui/material'
 
-const ErrorTitle = ({ errorCode, errorMessage, errorFontSize, buttonText, buttonAction }) => {
+const ErrorTitle = ({ errorCode, errorMessage, errorFontSize, buttonText, buttonAction, isFallback }) => {
+    const fontStyle = {
+        xs: isFallback ? 20 : errorFontSize - 10,
+        sm: isFallback ? 20 : errorFontSize,
+        md: isFallback ? 20 : errorFontSize + 10,
+    }
+
     return (
         <Box
             sx={{
@@ -22,11 +28,7 @@ const ErrorTitle = ({ errorCode, errorMessage, errorFontSize, buttonText, button
                         xs: 'column',
                         md: 'row',
                     },
-                    fontSize: {
-                        xs: errorFontSize - 10,
-                        sm: errorFontSize,
-                        md: errorFontSize + 10,
-                    },
+                    fontSize: fontStyle,
                 }}>
                 {errorCode && (
                     <>
@@ -46,9 +48,11 @@ const ErrorTitle = ({ errorCode, errorMessage, errorFontSize, buttonText, button
                 <span>{errorMessage}</span>
             </Typography>
 
-            <Button variant='contained' size='large' aria-label='Go back' onClick={buttonAction}>
-                {buttonText}
-            </Button>
+            {!isFallback && (
+                <Button variant='contained' size='large' aria-label='Go back' onClick={buttonAction}>
+                    {buttonText}
+                </Button>
+            )}
         </Box>
     )
 }

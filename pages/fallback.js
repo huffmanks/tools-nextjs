@@ -8,9 +8,9 @@ const Fallback = () => {
         <>
             <ErrorTitle
                 errorMessage='Missing cached files. Please reconnect to the internet to download the latest updates.'
-                errorFontSize={35}
                 buttonText='Go back'
                 buttonAction={() => router.back()}
+                isFallback={true}
             />
         </>
     )

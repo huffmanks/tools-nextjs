@@ -7,7 +7,7 @@ const config = {
         policies: [
             {
                 userAgent: '*',
-                // disallow: '/api/',
+                disallow: '/api/',
             },
         ],
     },
