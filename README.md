@@ -6,7 +6,6 @@
         <img src="./public/logos/stratools-stacked.png" alt="example screenshot">
     </a>
     <p>
-    <br />
         Tools to help speed the web development process.
         <br />
         <br />
@@ -41,8 +40,6 @@
 
 I built these tools to help speed my development process.
 
-<br />
-
 ### Color Picker
 
 ![Color Picker](https://github.com/huffmanks/tools-nextjs/blob/main/public/readme/color-picker.png?raw=true)
@@ -53,8 +50,6 @@ I built these tools to help speed my development process.
 
 -   Option to copy any code not just HEX.
 -   Similar shades displayed so I could pick lighter/darker versions.
-
-<br />
 
 ### Unit Calculator
 
