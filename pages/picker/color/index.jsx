@@ -39,6 +39,10 @@ const ColorPicker = () => {
             <SEO description='Choose a color in HEX, RGB or HSL.' title='Color Picker' url='/picker/color' imageUrl='/color-picker.png' />
             <PageTitle>Color Picker</PageTitle>
 
+            <Typography paragraph mb={5}>
+                Choose a color in HEX, RGB or HSL.
+            </Typography>
+
             <Colord color={color} onChange={setColor} />
 
             <ColorForm convertedColors={convertedColors} handleColor={handleColor} />

@@ -2,6 +2,8 @@ import { useState } from 'react'
 
 import { initialValues, megaMillionsValues, powerballValues } from '../../../constants/randomPicker'
 
+import { Typography } from '@mui/material'
+
 import SEO from '../../../components/layout/SEO'
 import PageTitle from '../../../components/layout/PageTitle'
 import Panel from '../../../components/RandomPicker/Panel'
@@ -46,6 +48,10 @@ const RandomPicker = () => {
         <>
             <SEO description='Get a random number or item from a list.' title='Random Picker' url='/picker/random' imageUrl='/random-generator.png' />
             <PageTitle>Random Picker</PageTitle>
+
+            <Typography paragraph mb={5}>
+                Get a random number or item from a list.
+            </Typography>
 
             <Panel panelId='panel1' panelTitle='Numbers' expanded={expanded} handlePanel={handlePanel}>
                 <NumberPicker values={values} handleChange={handleChange} setValues={setValues} />

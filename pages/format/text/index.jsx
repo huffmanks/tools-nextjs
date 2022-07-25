@@ -1,6 +1,6 @@
 import { useTextFormatterFormControls } from '../../../hooks/useTextFormatterFormControls'
 
-import { Grid } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 
 import SEO from '../../../components/layout/SEO'
 import PageTitle from '../../../components/layout/PageTitle'
@@ -15,6 +15,10 @@ const TextFormatter = () => {
         <>
             <SEO description='Format text to any case.' title='Text Formatter' url='/format/text' imageUrl='/text-formatter.png' />
             <PageTitle>Text Formatter</PageTitle>
+
+            <Typography paragraph mb={5}>
+                Format text to any case.
+            </Typography>
 
             <Grid container spacing={5}>
                 <Textarea values={values} handleChange={handleChange} handleClear={handleClear} />

@@ -1,68 +1,49 @@
-import Link from 'next/link'
+import { useState } from 'react'
 
-import { allRoutes } from '../constants/routes'
+import { calculateRoutes, formatRoutes, generateRoutes, pickerRoutes } from '../constants/routes'
 
-import { Box, Button, Card, CardActions, CardContent, IconButton, Typography } from '@mui/material'
+import { Box, Tab, Tabs, Typography } from '@mui/material'
+
 import SEO from '../components/layout/SEO'
+import PageTitle from '../components/layout/PageTitle'
+import { a11yProps, TabPanel } from '../components/Home/TabPanel'
+import CardLinks from '../components/Home/CardLinks'
 
 const Home = () => {
+    const [value, setValue] = useState(0)
+
+    const handleChange = (_, newValue) => {
+        setValue(newValue)
+    }
     return (
         <>
             <SEO description='List of tools to help speed web development.' title='Home' url='/' />
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    gap: '30px',
-                }}>
-                {allRoutes.map(({ key, path, homeName, icon, description }) => (
-                    <Card
-                        key={key}
-                        color='secondary'
-                        sx={{
-                            flex: '0 0 100%',
-                            maxWidth: 345,
-                            padding: 3,
-                            '@media (min-width:450px)': {
-                                flex: '0 0 325px',
-                            },
-                        }}>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                            }}>
-                            <Link href={path} passHref={true}>
-                                <IconButton
-                                    aria-label={homeName}
-                                    color='primary'
-                                    sx={{
-                                        '& svg': {
-                                            fontSize: '55px',
-                                        },
-                                    }}>
-                                    {icon}
-                                </IconButton>
-                            </Link>
-                        </Box>
-                        <CardContent>
-                            <Typography gutterBottom variant='h5' component='div'>
-                                {homeName}
-                            </Typography>
-                            <Typography variant='body2'>{description}</Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Link href={path} passHref={true} style={{ width: '100%', textDecoration: 'none' }}>
-                                <Button variant='contained' fullWidth>
-                                    View
-                                </Button>
-                            </Link>
-                        </CardActions>
-                    </Card>
-                ))}
+
+            <PageTitle>Home</PageTitle>
+            <Typography paragraph mb={5}>
+                List of tools to help speed web development.
+            </Typography>
+
+            <Box sx={{ width: '100%' }}>
+                <Tabs variant='scrollable' scrollButtons allowScrollButtonsMobile value={value} onChange={handleChange} aria-label='tabs for pages' sx={{ marginBottom: 4 }}>
+                    <Tab label='Calculate' {...a11yProps(0)} />
+                    <Tab label='Format' {...a11yProps(1)} />
+                    <Tab label='Generate' {...a11yProps(2)} />
+                    <Tab label='Picker' {...a11yProps(3)} />
+                </Tabs>
+
+                <TabPanel value={value} index={0}>
+                    <CardLinks routes={calculateRoutes} />
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                    <CardLinks routes={formatRoutes} />
+                </TabPanel>
+                <TabPanel value={value} index={2}>
+                    <CardLinks routes={generateRoutes} />
+                </TabPanel>
+                <TabPanel value={value} index={3}>
+                    <CardLinks routes={pickerRoutes} />
+                </TabPanel>
             </Box>
         </>
     )

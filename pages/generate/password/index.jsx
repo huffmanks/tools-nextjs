@@ -4,7 +4,7 @@ import { useFormControls } from '../../../hooks/useFormControls'
 import { generatePassword } from '../../../utilities/generatePassword'
 import { initialValues } from '../../../constants/passwordGenerator'
 
-import { Box, Button, Stack } from '@mui/material'
+import { Box, Button, Stack, Typography } from '@mui/material'
 
 import KeyIcon from '@mui/icons-material/Key'
 
@@ -28,6 +28,10 @@ const PasswordGenerator = () => {
         <>
             <SEO description='Create a strong password.' title='Password Generator' url='/generate/password' imageUrl='/password-generator.png' />
             <PageTitle>Password Generator</PageTitle>
+
+            <Typography paragraph mb={5}>
+                Create a strong password.
+            </Typography>
 
             <Stack direction={{ xs: 'column', lg: 'row' }} sx={{ gap: '0 64px' }}>
                 <div>
