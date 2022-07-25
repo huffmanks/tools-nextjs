@@ -4,7 +4,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 
-const Password = ({ password, showPassword, setShowPassword }) => {
+const PasswordOutput = ({ password, showPassword, setShowPassword }) => {
     return (
         <FormGroup>
             <TextField
@@ -49,4 +49,4 @@ const Password = ({ password, showPassword, setShowPassword }) => {
     )
 }
 
-export default Password
+export default PasswordOutput

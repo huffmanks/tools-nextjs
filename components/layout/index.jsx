@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 
-import { routes } from '../../constants/routes'
+import { mainRoutes, calculateRoutes, formatRoutes, generateRoutes, pickerRoutes } from '../../constants/routes'
 
 import { styled, useTheme } from '@mui/material/styles'
-import { Box, Toolbar, List, CssBaseline, Divider, ListItem, ListItemIcon, ListItemText, ListItemButton, IconButton, Container } from '@mui/material'
+import { Box, Toolbar, CssBaseline, Divider, IconButton, Container } from '@mui/material'
 
 import MuiAppBar from '@mui/material/AppBar'
 import MuiDrawer from '@mui/material/Drawer'
@@ -15,6 +14,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 
 import AppBarLogo from './AppBarLogo'
+import NavItem from './NavItem'
 
 const drawerWidth = 240
 
@@ -115,114 +115,17 @@ const Layout = ({ children }) => {
                         {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                     </IconButton>
                 </DrawerHeader>
+
                 <Divider />
-                <List>
-                    {routes.slice(0, 1).map(({ key, path, name, icon }) => (
-                        <ListItem key={key} disablePadding sx={{ display: 'block' }}>
-                            <Link href={path} passHref={true} style={{ textDecoration: 'none' }}>
-                                <ListItemButton
-                                    selected={router.pathname === path ? true : false}
-                                    onClick={() => setOpen(false)}
-                                    sx={{
-                                        minHeight: 48,
-                                        justifyContent: open ? 'initial' : 'center',
-                                        px: 2.5,
-                                    }}>
-                                    <ListItemIcon
-                                        sx={{
-                                            minWidth: 0,
-                                            mr: open ? 2 : 'auto',
-                                            justifyContent: 'center',
-                                        }}>
-                                        {icon}
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        primary={name}
-                                        sx={{
-                                            color: '#fff',
-                                            opacity: open ? 1 : 0,
-                                            '& .MuiListItemText-primary': {
-                                                fontSize: '15px',
-                                            },
-                                        }}
-                                    />
-                                </ListItemButton>
-                            </Link>
-                        </ListItem>
-                    ))}
-                </List>
-                <Divider />
-                <List>
-                    {routes.slice(1, -3).map(({ key, path, name, icon }) => (
-                        <ListItem key={key} disablePadding sx={{ display: 'block' }}>
-                            <Link href={path} passHref={true} style={{ textDecoration: 'none' }}>
-                                <ListItemButton
-                                    selected={router.pathname === path ? true : false}
-                                    onClick={() => setOpen(false)}
-                                    sx={{
-                                        minHeight: 48,
-                                        justifyContent: open ? 'initial' : 'center',
-                                        px: 2.5,
-                                    }}>
-                                    <ListItemIcon
-                                        sx={{
-                                            minWidth: 0,
-                                            mr: open ? 2 : 'auto',
-                                            justifyContent: 'center',
-                                        }}>
-                                        {icon}
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        primary={name}
-                                        sx={{
-                                            color: '#fff',
-                                            opacity: open ? 1 : 0,
-                                            '& .MuiListItemText-primary': {
-                                                fontSize: '15px',
-                                            },
-                                        }}
-                                    />
-                                </ListItemButton>
-                            </Link>
-                        </ListItem>
-                    ))}
-                </List>
-                <Divider />
-                <List>
-                    {routes.slice(-3).map(({ key, path, name, icon }) => (
-                        <ListItem key={key} disablePadding sx={{ display: 'block' }}>
-                            <Link href={path} passHref={true} style={{ textDecoration: 'none' }}>
-                                <ListItemButton
-                                    selected={router.pathname === path ? true : false}
-                                    onClick={() => setOpen(false)}
-                                    sx={{
-                                        minHeight: 48,
-                                        justifyContent: open ? 'initial' : 'center',
-                                        px: 2.5,
-                                    }}>
-                                    <ListItemIcon
-                                        sx={{
-                                            minWidth: 0,
-                                            mr: open ? 2 : 'auto',
-                                            justifyContent: 'center',
-                                        }}>
-                                        {icon}
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        primary={name}
-                                        sx={{
-                                            color: '#fff',
-                                            opacity: open ? 1 : 0,
-                                            '& .MuiListItemText-primary': {
-                                                fontSize: '15px',
-                                            },
-                                        }}
-                                    />
-                                </ListItemButton>
-                            </Link>
-                        </ListItem>
-                    ))}
-                </List>
+                <NavItem router={router} routes={mainRoutes} open={open} setOpen={setOpen} />
+
+                <NavItem router={router} routes={calculateRoutes} open={open} setOpen={setOpen} groupName='Calculate' />
+
+                <NavItem router={router} routes={formatRoutes} open={open} setOpen={setOpen} groupName='Format' />
+
+                <NavItem router={router} routes={generateRoutes} open={open} setOpen={setOpen} groupName='Generate' />
+
+                <NavItem router={router} routes={pickerRoutes} open={open} setOpen={setOpen} groupName='Picker' />
             </Drawer>
             <Box
                 component='main'

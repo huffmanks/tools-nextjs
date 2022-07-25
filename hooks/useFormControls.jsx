@@ -1,6 +1,5 @@
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 
-import { getAspectNumbers } from '../utilities/getAspectNumbers'
 import { getColorOptionsInfo } from '../constants/emailSignature'
 
 export const useFormControls = (initialValues) => {
@@ -38,18 +37,6 @@ export const useFormControls = (initialValues) => {
                 fieldValues.website.match(/[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)?/gi) || fieldValues.website === '' ? '' : 'Website URL is not valid.'
         }
 
-        if ('originalWidth' in fieldValues) {
-            temp.originalWidth = fieldValues.originalWidth.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.originalWidth === '' ? '' : 'Must be a number.'
-        }
-
-        if ('originalHeight' in fieldValues) {
-            temp.originalHeight = fieldValues.originalHeight.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.originalHeight === '' ? '' : 'Must be a number.'
-        }
-
-        if ('newSize' in fieldValues) {
-            temp.newSize = fieldValues.newSize.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.newSize === '' ? '' : 'Must be a number.'
-        }
-
         setErrors({
             ...temp,
         })
@@ -75,51 +62,6 @@ export const useFormControls = (initialValues) => {
                 themeColor: getColorOptionsInfo(value, 'defaultValue'),
                 placeholder: getColorOptionsInfo(value, 'defaultValue'),
             })
-        } else if (name === 'selectedType' && values.newSize) {
-            const aspectRatio = values.aspectRatio.split(':')
-
-            setValues({
-                ...values,
-                [name]: value,
-                newWidth: values.newHeight,
-                newHeight: values.newWidth,
-                aspectRatio: `${aspectRatio[1]}:${aspectRatio[0]}`,
-                dimensions: `${values.newHeight} x ${values.newWidth}`,
-            })
-        } else if (name === 'originalWidth' || name === 'originalHeight' || name === 'newSize') {
-            validate({ [name]: value })
-
-            const isValid = Object.values(errors).every((x) => x === '')
-
-            if (!isNaN(value) && isValid) {
-                const hasValue = value !== ''
-                const isOriginal = name === 'originalWidth' || name === 'originalHeight'
-
-                setValues({
-                    ...values,
-                    [name]: value,
-                    newWidth: hasValue ? values.newWidth : '',
-                    newHeight: hasValue ? values.newHeight : '',
-                    aspectRatio: !hasValue && isOriginal ? '' : values.aspectRatio,
-                    aspectMultiplier: !hasValue && isOriginal ? '' : values.aspectMultiplier,
-                })
-            } else {
-                setValues((prev) => ({
-                    ...values,
-                    [name]: prev[name],
-                }))
-            }
-
-            const isCalculable =
-                (!isNaN(value) && isValid && values.originalWidth && values.originalHeight && value !== '') ||
-                (!isNaN(value) && isValid && values.originalWidth && values.newSize && value !== '') ||
-                (!isNaN(value) && isValid && values.originalHeight && values.newSize && value !== '')
-                    ? true
-                    : false
-
-            if (isCalculable) {
-                calculateNumbers(name, value)
-            }
         } else {
             setValues({
                 ...values,
@@ -140,25 +82,6 @@ export const useFormControls = (initialValues) => {
 
         validate({ [name]: value })
     }
-
-    const calculateNumbers = useCallback(
-        (name, value) => {
-            const { newWidth, newHeight, aspectRatio, aspectMultiplier } = getAspectNumbers({ ...values, [name]: value })
-
-            const hasDimensions = !!newWidth && !!newHeight && !!values.originalWidth && !!values.originalHeight ? true : false
-
-            setValues({
-                ...values,
-                [name]: value,
-                newWidth,
-                newHeight,
-                aspectRatio,
-                aspectMultiplier,
-                dimensions: hasDimensions && values.selectedType === 'width' ? `${newWidth} x ${newHeight}` : hasDimensions && values.selectedType === 'height' ? `${newHeight} x ${newWidth}` : '',
-            })
-        },
-        [values]
-    )
 
     const formIsValid = (fieldValues = values) => {
         const isValid = fieldValues?.fullName && fieldValues?.email && fieldValues?.title && fieldValues?.phone && Object.values(errors).every((x) => x === '')

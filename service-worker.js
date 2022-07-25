@@ -11,7 +11,7 @@ const WB_MANIFEST = self.__WB_MANIFEST
 
 WB_MANIFEST.push({
     url: '/fallback',
-    revision: '2',
+    revision: '3',
 })
 precacheAndRoute(WB_MANIFEST)
 

@@ -46,18 +46,18 @@ I built these tools to help speed my development process.
 
 [Google Color Picker](https://www.google.com/search?q=color+picker)
 \
-[Stratools Color Picker](https://tools.huffmanks.com/color-picker)
+[Stratools Color Picker](https://tools.huffmanks.com/picker/color)
 
 -   Option to copy any code not just HEX.
 -   Similar shades displayed so I could pick lighter/darker versions.
 
-### Unit Converter
+### Unit Calculator
 
-![Unit Converter](https://github.com/huffmanks/tools-nextjs/blob/main/public/readme/unit-converter.png?raw=true)
+![Unit Calculator](https://github.com/huffmanks/tools-nextjs/blob/main/public/readme/unit-calculator.png?raw=true)
 
-[Google Unit Converter](https://www.google.com/search?q=unit+converter)
+[Google Unit Calculator](https://www.google.com/search?q=unit+calculator)
 \
-[Stratools Unit Converter](https://tools.huffmanks.com/unit-converter)
+[Stratools Unit Calculator](https://tools.huffmanks.com/calculate/units)
 
 -   Wanted all the units to be displayed so I could see the differences.
 
@@ -97,9 +97,9 @@ To get a local copy up and running follow these simple example steps.
 
 ## Instructions
 
-### Stratools Unit Converter
+### Stratools Unit Calculator
 
-BASE_URL = https://tools.huffmanks.com/unit-converter
+BASE_URL = https://tools.huffmanks.com/calculate/units
 
 #### Query params
 
@@ -387,11 +387,11 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 
 -   [x] Aspect Ratio Calculator
 -   [x] Color Picker
--   [x] Unit Converter
+-   [x] Unit Calculator
 -   [x] Email Signature
--   [x] Text formatter
--   [x] Password generator
--   [ ] Random generator
+-   [x] Text Formatter
+-   [x] Password Generator
+-   [ ] Random Picker
     -   [x] Get random number(s) from a number range
     -   [ ] Pick a random item from a list
 -   [ ] Todo/shopping list

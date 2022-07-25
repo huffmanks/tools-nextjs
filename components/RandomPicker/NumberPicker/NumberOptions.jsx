@@ -4,6 +4,8 @@ import RemoveIcon from '@mui/icons-material/Remove'
 import AddIcon from '@mui/icons-material/Add'
 
 const NumberOptions = ({ values, handleChange, handleDecrease, handleIncrease }) => {
+    const isDisabled = values.isPowerball || values.isMegaMillions ? true : false
+
     return (
         <>
             <FormControl component='fieldset' variant='standard' sx={{ marginBottom: 3 }}>
@@ -20,6 +22,7 @@ const NumberOptions = ({ values, handleChange, handleDecrease, handleIncrease })
                         marginBottom: 1,
                     }}>
                     <TextField
+                        disabled={isDisabled}
                         variant='outlined'
                         label='Total'
                         name='total'
@@ -42,7 +45,7 @@ const NumberOptions = ({ values, handleChange, handleDecrease, handleIncrease })
                                     <IconButton
                                         aria-label='decrement one'
                                         onClick={handleDecrease}
-                                        disabled={values.total <= 1}
+                                        disabled={values.total <= 1 || isDisabled}
                                         size='small'
                                         edge='end'
                                         sx={{
@@ -59,6 +62,7 @@ const NumberOptions = ({ values, handleChange, handleDecrease, handleIncrease })
                                     <IconButton
                                         aria-label='increment one'
                                         onClick={handleIncrease}
+                                        disabled={isDisabled}
                                         size='small'
                                         edge='start'
                                         sx={{
@@ -73,8 +77,8 @@ const NumberOptions = ({ values, handleChange, handleDecrease, handleIncrease })
                         }}
                     />
 
-                    <FormControlLabel control={<Switch checked={values.unique} onChange={handleChange} name='unique' />} label='Unique' />
-                    <FormControlLabel control={<Switch checked={values.sorted} onChange={handleChange} name='sorted' />} label='Sorted' />
+                    <FormControlLabel control={<Switch disabled={isDisabled} checked={values.unique} onChange={handleChange} name='unique' />} label='Unique' />
+                    <FormControlLabel control={<Switch disabled={isDisabled} checked={values.sorted} onChange={handleChange} name='sorted' />} label='Sorted' />
                 </FormGroup>
                 <FormHelperText>
                     {values.total

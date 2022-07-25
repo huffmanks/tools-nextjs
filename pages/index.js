@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { routes } from '../constants/routes'
+import { allRoutes } from '../constants/routes'
 
 import { Box, Button, Card, CardActions, CardContent, IconButton, Typography } from '@mui/material'
 import SEO from '../components/layout/SEO'
@@ -17,7 +17,7 @@ const Home = () => {
                     alignItems: 'center',
                     gap: '30px',
                 }}>
-                {routes.slice(1).map(({ key, path, name, icon, description }) => (
+                {allRoutes.map(({ key, path, name, icon, description }) => (
                     <Card
                         key={key}
                         color='secondary'

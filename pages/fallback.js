@@ -6,7 +6,12 @@ const Fallback = () => {
     const router = useRouter()
     return (
         <>
-            <ErrorTitle errorMessage='Something went wrong...' errorFontSize={35} buttonText='Go back' buttonAction={() => router.back()} />
+            <ErrorTitle
+                errorMessage='Missing cached files. Please reconnect to the internet to download the latest updates.'
+                errorFontSize={35}
+                buttonText='Go back'
+                buttonAction={() => router.back()}
+            />
         </>
     )
 }

@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
 
-import { initialValues } from '../../constants/colorPicker'
+import { initialValues } from '../../../constants/colorPicker'
 
 import { Typography } from '@mui/material'
 
-import SEO from '../../components/layout/SEO'
-import PageTitle from '../../components/layout/PageTitle'
+import SEO from '../../../components/layout/SEO'
+import PageTitle from '../../../components/layout/PageTitle'
 
-import Colord from '../../components/ColorPicker/Colord'
-import ColorForm from '../../components/ColorPicker/ColorForm'
-import ColorVariants from '../../components/ColorPicker/ColorVariants'
+import Colord from '../../../components/ColorPicker/Colord'
+import ColorForm from '../../../components/ColorPicker/ColorForm'
+import ColorVariants from '../../../components/ColorPicker/ColorVariants'
 
 import { colord, extend } from 'colord'
 import namesPlugin from 'colord/plugins/names'
@@ -36,7 +36,7 @@ const ColorPicker = () => {
 
     return (
         <>
-            <SEO description='Choose a color in HEX, RGB or HSL.' title='Color Picker' url='/color-picker' imageUrl='/color-picker.png' />
+            <SEO description='Choose a color in HEX, RGB or HSL.' title='Color Picker' url='/picker/color' imageUrl='/color-picker.png' />
             <PageTitle>Color Picker</PageTitle>
 
             <Colord color={color} onChange={setColor} />

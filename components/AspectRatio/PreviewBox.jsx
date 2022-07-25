@@ -1,7 +1,7 @@
 import { Box, Grid, Stack } from '@mui/material'
 
 const PreviewBox = ({ values }) => {
-    const dimensions = values.dimensions && values.dimensions !== '' ? values.dimensions : ''
+    const dimensions = values?.dimensions ?? ''
 
     return (
         <>

@@ -1,19 +1,19 @@
-import { useTextFormatterFormControls } from '../../hooks/useTextFormatterFormControls'
+import { useTextFormatterFormControls } from '../../../hooks/useTextFormatterFormControls'
 
 import { Grid } from '@mui/material'
 
-import SEO from '../../components/layout/SEO'
-import PageTitle from '../../components/layout/PageTitle'
-import Textarea from '../../components/TextFormatter/Textarea'
-import ActionGroup from '../../components/TextFormatter/ActionGroup'
-import Cards from '../../components/TextFormatter/Cards'
+import SEO from '../../../components/layout/SEO'
+import PageTitle from '../../../components/layout/PageTitle'
+import Textarea from '../../../components/TextFormatter/Textarea'
+import ActionGroup from '../../../components/TextFormatter/ActionGroup'
+import Cards from '../../../components/TextFormatter/Cards'
 
 const TextFormatter = () => {
     const { values, saved, checkedCards, checkAll, handleChange, handleSave, handleCheckAll, handleCopy, handleClear, handleReset } = useTextFormatterFormControls()
 
     return (
         <>
-            <SEO description='Format text to any case.' title='Text Formatter' url='/text-formatter' imageUrl='/text-formatter.png' />
+            <SEO description='Format text to any case.' title='Text Formatter' url='/format/text' imageUrl='/text-formatter.png' />
             <PageTitle>Text Formatter</PageTitle>
 
             <Grid container spacing={5}>

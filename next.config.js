@@ -26,12 +26,12 @@ module.exports = (phase, { defaultConfig }) => {
                     exportPathMap: async function (defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
                         return {
                             '/': { page: '/' },
-                            '/aspect-ratio/index': { page: '/aspect-ratio' },
-                            '/color-picker/index': { page: '/color-picker' },
-                            '/email-signature/index': { page: '/email-signature' },
-                            '/password-generator/index': { page: '/password-generator' },
-                            '/text-formatter/index': { page: '/text-formatter' },
-                            '/unit-converter/index': { page: '/unit-converter' },
+                            '/calculate/aspect-ratio/index': { page: '/calculate/aspect-ratio' },
+                            '/picker/color/index': { page: '/picker/color' },
+                            '/generate/email-signature/index': { page: '/generate/email-signature' },
+                            '/generate/password/index': { page: '/generate/password' },
+                            '/format/text/index': { page: '/format/text' },
+                            '/calculate/units/index': { page: '/calculate/units' },
                         }
                     },
                 }),

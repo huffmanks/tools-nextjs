@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
-import { initialValues, megaMillionsValues, powerballValues } from '../../constants/randomGenerator'
+import { initialValues, megaMillionsValues, powerballValues } from '../../../constants/randomPicker'
 
-import SEO from '../../components/layout/SEO'
-import PageTitle from '../../components/layout/PageTitle'
-import Panel from '../../components/RandomGenerator/Panel'
-import NumberPicker from '../../components/RandomGenerator/NumberPicker'
-import ItemPicker from '../../components/RandomGenerator/ItemPicker'
+import SEO from '../../../components/layout/SEO'
+import PageTitle from '../../../components/layout/PageTitle'
+import Panel from '../../../components/RandomPicker/Panel'
+import NumberPicker from '../../../components/RandomPicker/NumberPicker'
+import ItemPicker from '../../../components/RandomPicker/ItemPicker'
 
-const RandomGenerator = () => {
+const RandomPicker = () => {
     const [expanded, setExpanded] = useState('panel1')
     const [values, setValues] = useState(initialValues)
 
@@ -44,17 +44,17 @@ const RandomGenerator = () => {
 
     return (
         <>
-            <SEO description='Get a random number or item from a list.' title='Random Generator' url='/random-generator' imageUrl='/random-generator.png' />
-            <PageTitle>Random Generator</PageTitle>
+            <SEO description='Get a random number or item from a list.' title='Random Picker' url='/picker/random' imageUrl='/random-generator.png' />
+            <PageTitle>Random Picker</PageTitle>
 
-            <Panel panelId='panel1' panelTitle='Number Picker' expanded={expanded} handlePanel={handlePanel}>
+            <Panel panelId='panel1' panelTitle='Numbers' expanded={expanded} handlePanel={handlePanel}>
                 <NumberPicker values={values} handleChange={handleChange} setValues={setValues} />
             </Panel>
-            <Panel panelId='panel2' panelTitle='Item Picker' expanded={expanded} handlePanel={handlePanel}>
+            <Panel panelId='panel2' panelTitle='Items' expanded={expanded} handlePanel={handlePanel}>
                 <ItemPicker />
             </Panel>
         </>
     )
 }
 
-export default RandomGenerator
+export default RandomPicker

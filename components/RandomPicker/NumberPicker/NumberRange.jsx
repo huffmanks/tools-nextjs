@@ -1,6 +1,8 @@
 import { FormControl, FormGroup, FormHelperText, FormLabel, TextField } from '@mui/material'
 
 const NumberRange = ({ values, handleChange }) => {
+    const isDisabled = values.isPowerball || values.isMegaMillions ? true : false
+
     return (
         <>
             <FormControl component='fieldset' variant='standard'>
@@ -17,6 +19,7 @@ const NumberRange = ({ values, handleChange }) => {
                         marginBottom: 1,
                     }}>
                     <TextField
+                        disabled={isDisabled}
                         variant='outlined'
                         label='Start'
                         name='start'
@@ -43,6 +46,7 @@ const NumberRange = ({ values, handleChange }) => {
                     />
 
                     <TextField
+                        disabled={isDisabled}
                         variant='outlined'
                         label='End'
                         name='end'

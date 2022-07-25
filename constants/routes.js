@@ -7,7 +7,7 @@ import DesignServicesIcon from '@mui/icons-material/DesignServices'
 import KeyIcon from '@mui/icons-material/Key'
 import ShuffleIcon from '@mui/icons-material/Shuffle'
 
-export const routes = [
+export const mainRoutes = [
     {
         path: '/',
         name: 'Home',
@@ -15,53 +15,67 @@ export const routes = [
         icon: <HomeIcon />,
         description: 'Web dev tools.',
     },
+]
+
+export const calculateRoutes = [
     {
-        path: '/aspect-ratio',
+        path: '/calculate/aspect-ratio',
         name: 'Aspect Ratio',
         key: 'aspect-ratio',
         icon: <AspectRatioIcon />,
         description: 'Calculate the aspect ratio.',
     },
     {
-        path: '/color-picker',
-        name: 'Color Picker',
-        key: 'color-picker',
-        icon: <ColorLensIcon />,
-        description: 'Choose a color in HEX, RGB or HSL.',
+        path: '/calculate/units',
+        name: 'Units',
+        key: 'unit-calculator',
+        icon: <ScaleIcon />,
+        description: 'Calculate different unit types.',
     },
+]
+
+export const formatRoutes = [
     {
-        path: '/text-formatter',
-        name: 'Text Formatter',
+        path: '/format/text',
+        name: 'Text',
         key: 'text-formatter',
         icon: <TextFieldsIcon />,
         description: 'Format text to any case.',
     },
+]
+
+export const generateRoutes = [
     {
-        path: '/unit-converter',
-        name: 'Unit Converter',
-        key: 'unit-converter',
-        icon: <ScaleIcon />,
-        description: 'Convert different unit types.',
-    },
-    {
-        path: '/email-signature',
+        path: '/generate/email-signature',
         name: 'Email Signature',
         key: 'email-signature',
         icon: <DesignServicesIcon />,
         description: 'Create an email signature.',
     },
     {
-        path: '/password-generator',
-        name: 'Password Generator',
+        path: '/generate/password',
+        name: 'Password',
         key: 'password-generator',
         icon: <KeyIcon />,
         description: 'Create a strong password.',
     },
+]
+
+export const pickerRoutes = [
     {
-        path: '/random-generator',
-        name: 'Random Generator',
-        key: 'random-generator',
+        path: '/picker/color',
+        name: 'Color',
+        key: 'color-picker',
+        icon: <ColorLensIcon />,
+        description: 'Choose a color in HEX, RGB or HSL.',
+    },
+    {
+        path: '/picker/random',
+        name: 'Random',
+        key: 'random-picker',
         icon: <ShuffleIcon />,
         description: 'Get a random number or item.',
     },
 ]
+
+export const allRoutes = [...calculateRoutes, ...formatRoutes, ...generateRoutes, ...pickerRoutes]

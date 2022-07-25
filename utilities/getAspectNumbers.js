@@ -14,6 +14,10 @@ export const getAspectNumbers = (values) => {
     const newWidth = values.selectedType === 'width' ? values.newSize : newOtherSize
     const newHeight = values.selectedType === 'height' ? values.newSize : newOtherSize
 
+    const hasDimensions = !!newWidth && !!newHeight && !!values.originalWidth && !!values.originalHeight ? true : false
+
+    const dimensions = hasDimensions ? `${newWidth} x ${newHeight}` : ''
+
     const aspectGCD = getAspectGCD(parseInt(values.originalWidth), parseInt(values.originalHeight))
 
     const aspectMultiplier = (values.originalWidth / values.originalHeight).toFixed(2)
@@ -22,5 +26,5 @@ export const getAspectNumbers = (values) => {
         (values.selectedType === 'height' ? values.originalWidth : values.originalHeight) / aspectGCD
     }`
 
-    return { newWidth, newHeight, aspectMultiplier, aspectRatio }
+    return { newWidth, newHeight, aspectMultiplier, aspectRatio, dimensions }
 }
