@@ -3,5 +3,6 @@
 /text-formatter /format/text 301
 /email-signature /generate/email-signature 301
 /password-generator /generate/password 301
+/todo-list /generate/todo 301
 /color-picker /picker/color 301
 /random-picker /picker/random 301

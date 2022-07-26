@@ -1,11 +1,12 @@
-import HomeIcon from '@mui/icons-material/Home'
 import AspectRatioIcon from '@mui/icons-material/AspectRatio'
 import ColorLensIcon from '@mui/icons-material/ColorLens'
-import TextFieldsIcon from '@mui/icons-material/TextFields'
-import ScaleIcon from '@mui/icons-material/Scale'
 import DesignServicesIcon from '@mui/icons-material/DesignServices'
+import HomeIcon from '@mui/icons-material/Home'
 import KeyIcon from '@mui/icons-material/Key'
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd'
+import ScaleIcon from '@mui/icons-material/Scale'
 import ShuffleIcon from '@mui/icons-material/Shuffle'
+import TextFieldsIcon from '@mui/icons-material/TextFields'
 
 export const mainRoutes = [
     {
@@ -63,6 +64,14 @@ export const generateRoutes = [
         key: 'password-generator',
         icon: <KeyIcon />,
         description: 'Create a strong password.',
+    },
+    {
+        path: '/generate/todo',
+        name: 'Todo List',
+        homeName: 'Todo List',
+        key: 'todo-list',
+        icon: <PlaylistAddIcon />,
+        description: 'Create a todo list.',
     },
 ]
 
