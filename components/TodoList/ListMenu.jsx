@@ -1,4 +1,6 @@
-import { useEffect, useId, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
+
+import { useTodoListFormControls } from '../../hooks/useTodoListFormControls'
 
 import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
@@ -12,52 +14,10 @@ import ViewListIcon from '@mui/icons-material/ViewList'
 import Create from './Create'
 import View from './View'
 
-export default function FixedBottomNavigation() {
+const ListMenu = () => {
     const ref = useRef(null)
-    const id = useId()
 
-    const [screen, setScreen] = useState(0)
-    const [title, setTitle] = useState('')
-    const [item, setItem] = useState('')
-    const [items, setItems] = useState([])
-    const [lists, setLists] = useState([])
-
-    const handleChange = (e) => {
-        const { name, value } = e.target
-
-        if (name === 'title') return setTitle(value)
-
-        if (name === 'item') return setItem(value)
-    }
-
-    const handleAddItem = () => {
-        setItems([
-            ...items,
-            {
-                id: id + item,
-                text: item,
-            },
-        ])
-
-        setItem('')
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
-        setLists([
-            ...lists,
-            {
-                id: id + title,
-                title,
-                items,
-            },
-        ])
-
-        setTitle('')
-        setItem('')
-        setItems([])
-    }
+    const { screen, values, errors, formIsValid, items, lists, handleScreen, handleChange, handleAddItem, handleSubmit } = useTodoListFormControls()
 
     useEffect(() => {
         ref.current.ownerDocument.body.scrollTop = 0
@@ -66,15 +26,14 @@ export default function FixedBottomNavigation() {
     return (
         <Box sx={{ pb: 7 }} ref={ref}>
             <CssBaseline />
-            {screen === 1 ? <View lists={lists} /> : <Create title={title} item={item} items={items} handleChange={handleChange} handleAddItem={handleAddItem} handleSubmit={handleSubmit} />}
+            {screen === 1 ? (
+                <View lists={lists} />
+            ) : (
+                <Create values={values} errors={errors} formIsValid={formIsValid} items={items} handleChange={handleChange} handleAddItem={handleAddItem} handleSubmit={handleSubmit} />
+            )}
 
             <Paper sx={{ position: 'fixed', bottom: 0, left: { xs: 56, sm: 64 }, right: 0 }} elevation={3}>
-                <BottomNavigation
-                    showLabels
-                    value={screen}
-                    onChange={(_, newScreen) => {
-                        setScreen(newScreen)
-                    }}>
+                <BottomNavigation showLabels value={screen} onChange={handleScreen}>
                     <BottomNavigationAction label='Create' icon={<CreateIcon />} />
                     <BottomNavigationAction label='View' icon={<ViewListIcon />} />
                 </BottomNavigation>
@@ -82,3 +41,5 @@ export default function FixedBottomNavigation() {
         </Box>
     )
 }
+
+export default ListMenu
