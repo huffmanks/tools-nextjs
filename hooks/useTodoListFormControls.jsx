@@ -21,7 +21,7 @@ export const useTodoListFormControls = () => {
     const handleChange = (e) => {
         const { name, value } = e.target
 
-        if (value === '') {
+        if (value.trim() === '') {
             setValues({
                 ...values,
                 [name]: '',
@@ -48,8 +48,8 @@ export const useTodoListFormControls = () => {
             setItems([
                 ...items,
                 {
-                    id: listId + values.item,
-                    text: values.item,
+                    id: listId + values.item.trim(),
+                    text: values.item.trim(),
                 },
             ])
 
@@ -66,14 +66,15 @@ export const useTodoListFormControls = () => {
         setLists([
             ...lists,
             {
-                id: listId + values.title,
-                title: values.title,
+                id: listId + values.title.trim(),
+                title: values.title.trim(),
                 items,
             },
         ])
 
         setValues(initialValues)
         setItems([])
+        setFormIsValid(false)
     }
 
     useEffect(() => {

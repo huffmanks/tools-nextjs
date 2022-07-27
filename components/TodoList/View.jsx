@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
+import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 const View = ({ lists }) => {
@@ -11,6 +11,10 @@ const View = ({ lists }) => {
     }
     return (
         <>
+            <Typography paragraph mb={5}>
+                {lists?.length ? 'View or edit a created list.' : 'No lists to show.'}
+            </Typography>
+
             {lists?.length ? (
                 lists?.map((list) => (
                     <Accordion key={list.id} expanded={expanded === list.id} onChange={handlePanel(list.id)}>
@@ -27,7 +31,7 @@ const View = ({ lists }) => {
                     </Accordion>
                 ))
             ) : (
-                <div>hello</div>
+                <Box sx={{ width: 'fit-content', backgroundColor: 'background.secondary', padding: '8px 12px', borderRadius: 1 }}>Create a list and it will appear here.</Box>
             )}
         </>
     )

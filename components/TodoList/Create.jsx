@@ -1,4 +1,4 @@
-import { Box, Grid, Button, IconButton, InputAdornment, TextField, Stack } from '@mui/material'
+import { Box, Grid, Button, IconButton, InputAdornment, TextField, Stack, Typography } from '@mui/material'
 
 import AddIcon from '@mui/icons-material/Add'
 import DesignServicesIcon from '@mui/icons-material/DesignServices'
@@ -6,6 +6,10 @@ import DesignServicesIcon from '@mui/icons-material/DesignServices'
 const Create = ({ values, errors, items, handleChange, handleAddItem, handleSubmit, formIsValid }) => {
     return (
         <>
+            <Typography paragraph mb={5}>
+                Create a todo list.
+            </Typography>
+
             <Grid container spacing={3}>
                 <Grid item xs={12} sm={6} md={4}>
                     <TextField
@@ -73,7 +77,7 @@ const Create = ({ values, errors, items, handleChange, handleAddItem, handleSubm
                                 </Box>
                             ))
                         ) : (
-                            <Box sx={{ backgroundColor: 'background.secondary', padding: '8px 12px', borderRadius: 1 }}>Items will appear here.</Box>
+                            <Box sx={{ backgroundColor: 'background.secondary', padding: '8px 12px', borderRadius: 1 }}>Added items will appear here.</Box>
                         )}
                     </Stack>
                 </Grid>

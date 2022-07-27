@@ -1,5 +1,3 @@
-import { Typography } from '@mui/material'
-
 import SEO from '../../../components/layout/SEO'
 import PageTitle from '../../../components/layout/PageTitle'
 import ListMenu from '../../../components/TodoList/ListMenu'
@@ -14,10 +12,6 @@ const TodoList = () => {
                 //    imageUrl='/todo-list.png'
             />
             <PageTitle>Todo List</PageTitle>
-
-            <Typography paragraph mb={5}>
-                Create a todo list.
-            </Typography>
 
             <ListMenu />
         </>
