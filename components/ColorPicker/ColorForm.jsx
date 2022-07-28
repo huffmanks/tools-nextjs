@@ -6,12 +6,11 @@ const ColorForm = ({ convertedColors, handleColor }) => {
         <Box
             sx={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
-                gap: '1rem',
-                marginBottom: 4,
-                '@media screen and (max-width: 525px)': {
-                    gridTemplateColumns: '1fr',
+                gridTemplateColumns: {
+                    xs: '1fr',
+                    md: 'repeat(auto-fit, minmax(210px, 1fr))',
                 },
+                gap: 2,
             }}
             autoComplete='off'
             onChange={handleColor}>

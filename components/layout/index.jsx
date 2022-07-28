@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
-import { mainRoutes, calculateRoutes, formatRoutes, generateRoutes, pickerRoutes } from '../../constants/routes'
+import { navItems } from '../../constants/routes'
 
 import { styled, useTheme } from '@mui/material/styles'
 import { Box, Toolbar, CssBaseline, Divider, IconButton, Container } from '@mui/material'
@@ -117,28 +117,30 @@ const Layout = ({ children }) => {
                 </DrawerHeader>
 
                 <Divider />
-                <NavItem router={router} routes={mainRoutes} open={open} setOpen={setOpen} />
 
-                <NavItem router={router} routes={calculateRoutes} open={open} setOpen={setOpen} groupName='Calculate' />
-
-                <NavItem router={router} routes={formatRoutes} open={open} setOpen={setOpen} groupName='Format' />
-
-                <NavItem router={router} routes={generateRoutes} open={open} setOpen={setOpen} groupName='Generate' />
-
-                <NavItem router={router} routes={pickerRoutes} open={open} setOpen={setOpen} groupName='Picker' />
+                {navItems.map((navItem, index) => (
+                    <NavItem key={index} router={router} routes={navItem.routes} open={open} setOpen={setOpen} groupName={navItem?.groupName} />
+                ))}
             </Drawer>
             <Box
                 component='main'
                 sx={{
                     flexGrow: 1,
-                    p: 4,
-                    ...(open && { paddingLeft: '212px' }),
-                    '@media (max-width: 600px)': {
-                        p: 3,
+                    p: {
+                        xs: 3,
+                        md: 4,
                     },
+                    ...(open && { paddingLeft: '212px' }),
                 }}>
                 <DrawerHeader sx={{ height: '64px' }} />
-                <Container disableGutters={true}>
+                <Container
+                    sx={{
+                        marginInline: 0,
+                        paddingInline: {
+                            xs: 0,
+                            sm: 3,
+                        },
+                    }}>
                     <>{children}</>
                 </Container>
             </Box>

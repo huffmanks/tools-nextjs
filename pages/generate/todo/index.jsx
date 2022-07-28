@@ -5,12 +5,7 @@ import ListMenu from '../../../components/TodoList/ListMenu'
 const TodoList = () => {
     return (
         <>
-            <SEO
-                description='Create a todo list.'
-                title='Todo List'
-                url='/generate/todo'
-                //    imageUrl='/todo-list.png'
-            />
+            <SEO description='Create a todo list.' title='Todo List' url='/generate/todo' imageUrl='/todo-list.png' />
             <PageTitle>Todo List</PageTitle>
 
             <ListMenu />

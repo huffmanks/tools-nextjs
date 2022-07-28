@@ -1,36 +1,51 @@
-import { generateColorVariants } from '../../utilities/generateColorVariants'
+import { variantRadios } from '../../constants/colorPicker'
 
-import { Box } from '@mui/material'
+import { Box, FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
 import ColorItem from './ColorItem'
 
-const ColorVariants = ({ color, textColor }) => {
-    const tints = generateColorVariants(color)
-
+const ColorVariants = ({ convertedColors, tintType, handleTintType }) => {
     return (
-        <Box
-            sx={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                gap: 4,
-                '@media (max-width: 500px)': {
-                    gridTemplateColumns: '1fr',
-                },
-            }}>
-            {tints.map((tint, index) => (
+        <>
+            <FormControl component='fieldset' sx={{ marginBottom: 3 }}>
+                <RadioGroup row defaultValue='hex' name='selectedType' value={tintType} onChange={handleTintType}>
+                    {variantRadios.map(({ value, label }, index) => (
+                        <FormControlLabel
+                            key={index}
+                            value={value}
+                            control={
+                                <Radio
+                                    sx={{
+                                        '&.Mui-checked': {
+                                            color: convertedColors.hexColor,
+                                        },
+                                    }}
+                                />
+                            }
+                            label={label}
+                        />
+                    ))}
+                </RadioGroup>
+            </FormControl>
+            <Box
+                sx={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                    gap: 4,
+                    '@media (max-width: 500px)': {
+                        gridTemplateColumns: '1fr',
+                    },
+                }}>
                 <Box
-                    key={index}
                     sx={{
                         borderRadius: '15px',
                         overflow: 'hidden',
                     }}>
-                    <ColorItem textColor={textColor} colorValue={tint.lightest} />
-                    <ColorItem textColor={textColor} colorValue={tint.lighter} />
-                    <ColorItem textColor={textColor} colorValue={tint.original} />
-                    <ColorItem textColor={textColor} colorValue={tint.darker} />
-                    <ColorItem textColor={textColor} colorValue={tint.darkest} />
+                    {convertedColors.tints.map((tint, index) => (
+                        <ColorItem key={index} textColor={convertedColors.textColor} colorValue={tint} />
+                    ))}
                 </Box>
-            ))}
-        </Box>
+            </Box>
+        </>
     )
 }
 

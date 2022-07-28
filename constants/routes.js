@@ -94,4 +94,10 @@ export const pickerRoutes = [
     },
 ]
 
-export const allRoutes = [...calculateRoutes, ...formatRoutes, ...generateRoutes, ...pickerRoutes]
+export const navItems = [
+    { routes: mainRoutes },
+    { routes: calculateRoutes, groupName: 'Calculate' },
+    { routes: formatRoutes, groupName: 'Format' },
+    { routes: generateRoutes, groupName: 'Generate' },
+    { routes: pickerRoutes, groupName: 'Picker' },
+]

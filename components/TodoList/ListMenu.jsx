@@ -32,7 +32,7 @@ const ListMenu = () => {
                 <Create values={values} errors={errors} formIsValid={formIsValid} items={items} handleChange={handleChange} handleAddItem={handleAddItem} handleSubmit={handleSubmit} />
             )}
 
-            <Paper sx={{ position: 'fixed', bottom: 0, left: { xs: 56, sm: 64 }, right: 0 }} elevation={3}>
+            <Paper sx={{ position: 'fixed', bottom: 0, left: { xs: 56, sm: 64 }, right: 0, zIndex: 2 }} elevation={3}>
                 <BottomNavigation showLabels value={screen} onChange={handleScreen}>
                     <BottomNavigationAction label='Create' icon={<CreateIcon />} />
                     <BottomNavigationAction label='View' icon={<ViewListIcon />} />

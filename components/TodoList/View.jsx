@@ -12,7 +12,7 @@ const View = ({ lists }) => {
     return (
         <>
             <Typography paragraph mb={5}>
-                {lists?.length ? 'View or edit a created list.' : 'No lists to show.'}
+                {lists?.length ? 'View or edit a list below.' : 'Created lists will appear here.'}
             </Typography>
 
             {lists?.length ? (
@@ -31,7 +31,7 @@ const View = ({ lists }) => {
                     </Accordion>
                 ))
             ) : (
-                <Box sx={{ width: 'fit-content', backgroundColor: 'background.secondary', padding: '8px 12px', borderRadius: 1 }}>Create a list and it will appear here.</Box>
+                <Box sx={{ width: 'fit-content', backgroundColor: 'background.secondary', padding: '8px 12px', borderRadius: 1 }}>No lists to show.</Box>
             )}
         </>
     )

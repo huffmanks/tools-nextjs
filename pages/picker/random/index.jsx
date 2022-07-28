@@ -46,7 +46,7 @@ const RandomPicker = () => {
 
     return (
         <>
-            <SEO description='Get a random number or item from a list.' title='Random Picker' url='/picker/random' imageUrl='/random-generator.png' />
+            <SEO description='Get a random number or item from a list.' title='Random Picker' url='/picker/random' imageUrl='/random-picker.png' />
             <PageTitle>Random Picker</PageTitle>
 
             <Typography paragraph mb={5}>

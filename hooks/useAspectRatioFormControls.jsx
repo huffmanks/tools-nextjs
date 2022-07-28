@@ -60,7 +60,7 @@ export const useAspectRatioFormControls = (initialValues) => {
                     newHeight: hasValue ? values.newHeight : '',
                     aspectRatio: !hasValue && isOriginal ? '' : values.aspectRatio,
                     aspectMultiplier: !hasValue && isOriginal ? '' : values.aspectMultiplier,
-                    dimensions: !hasValue ? '' : 'hello',
+                    dimensions: values.newWidth && values.newHeight ? `${values.newWidth} x ${values.newHeight}` : '',
                 })
             } else {
                 setValues((prev) => ({
