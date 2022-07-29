@@ -95,6 +95,12 @@ export const measurements = [
                 label: 'Millimeters',
                 short: 'mm',
             },
+            {
+                id: '9',
+                unit: 'pixels',
+                label: 'Pixels',
+                short: 'px',
+            },
         ],
     },
     {

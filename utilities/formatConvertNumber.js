@@ -1,7 +1,17 @@
 import convert from 'convert'
 
 export const formatConvertNumber = (value, fromNum, toNum) => {
-    const decimals = 3
+    const maxDecimals = 3
 
-    return Number(Math.round(parseFloat(convert(parseInt(value), fromNum).to(toNum) + 'e' + decimals)) + 'e-' + decimals)
+    if (toNum === 'pixels') {
+        const inch = convert(parseFloat(value), fromNum).to('inch')
+        return parseFloat((inch * 96).toFixed(maxDecimals))
+    }
+
+    if (fromNum === 'pixels') {
+        const otherMeasurements = convert(parseFloat(value), 'inch').to(toNum)
+        return parseFloat((otherMeasurements / 96).toFixed(maxDecimals))
+    }
+
+    return parseFloat(convert(parseFloat(value), fromNum).to(toNum).toFixed(maxDecimals))
 }

@@ -13,9 +13,7 @@ const EmailOutput = ({ values }) => {
 
     const copy = useCopyToClipboard()
 
-    const handleClick = async (e) => {
-        e.preventDefault()
-
+    const handleClick = async () => {
         copy(resultRef, true)
     }
 

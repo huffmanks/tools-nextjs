@@ -3,11 +3,15 @@ import { formatConvertNumber } from '../../utilities/formatConvertNumber'
 import { Box } from '@mui/material'
 
 const UnitOutput = ({ values, currentUnits }) => {
+    // const isPixel = (option) => {
+    //     return values.measurement === 'length' && option.unit.startsWith('p')
+    // }
+
     return (
         <>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
                 {currentUnits
-                    .filter((item) => item.unit !== values.unitSelection)
+                    .filter((item) => item.unit !== values.unitSelection && formatConvertNumber(values.numInput, values.unitSelection, item.unit) !== 0)
                     .map((option) => (
                         <Box
                             key={option.id}
