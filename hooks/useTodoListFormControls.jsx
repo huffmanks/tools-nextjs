@@ -7,15 +7,21 @@ import { initialValues, initialErrors } from '../constants/todoList'
 export const useTodoListFormControls = () => {
     const listId = uniqueId()
 
+    const [saved, setSaved] = useLocalStorage('webtools-v1-todo-lists-saved', [])
+    const [lists, setLists] = useState(saved ?? [])
+
     const [screen, setScreen] = useState(0)
     const [values, setValues] = useState(initialValues)
+    const [items, setItems] = useState([])
     const [errors, setErrors] = useState(initialErrors)
     const [formIsValid, setFormIsValid] = useState(false)
 
-    const [items, setItems] = useState([])
-
-    const [saved, setSaved] = useLocalStorage('webtools-v1-todo-lists-saved', [])
-    const [lists, setLists] = useState(saved ?? [])
+    useEffect(() => {
+        if (saved?.length) {
+            setScreen(1)
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const handleScreen = (_, newScreen) => {
         setScreen(newScreen)
