@@ -73,7 +73,7 @@ registerRoute(
     'GET'
 )
 registerRoute(
-    /\.(?:js)$/i,
+    /\.(?:js)|(_redirects)$/i,
     new StaleWhileRevalidate({
         cacheName: 'static-js-assets',
         plugins: [
