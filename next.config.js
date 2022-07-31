@@ -16,6 +16,7 @@ module.exports = (phase, { defaultConfig }) => {
             reactStrictMode: true,
             swcMinify: true,
             publicExcludes: ['!_redirects'],
+            buildExcludes: ['!_redirects'],
             basePath: phase === 'phase-export' && process.env.STAGING === 'true' ? '/huffmanks/out' : '',
             // experimental: {
             //     images: {

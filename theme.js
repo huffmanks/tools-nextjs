@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles'
 
-const theme = createTheme({
+const globalTheme = createTheme({
     palette: {
         mode: 'dark',
         background: {
@@ -19,13 +19,6 @@ const theme = createTheme({
     },
     typography: {
         fontFamily: `'Montserrat', sans-serif`,
-        h2: {
-            marginBottom: 32,
-            fontSize: '1.5rem',
-            '@media (min-width:600px)': {
-                fontSize: '2.15rem',
-            },
-        },
     },
     breakpoints: {
         values: {
@@ -37,12 +30,26 @@ const theme = createTheme({
             xl: 1536,
         },
     },
+})
+
+const theme = createTheme({
+    ...globalTheme,
+    typography: {
+        ...globalTheme.typography,
+        h2: {
+            marginBottom: 32,
+            fontSize: 24,
+            [globalTheme.breakpoints.up('md')]: {
+                fontSize: '2.15rem',
+            },
+        },
+    },
     components: {
         MuiFormLabel: {
             styleOverrides: {
                 root: {
                     '&.Mui-focused': {
-                        color: '#fefefe',
+                        color: globalTheme.palette.text.primary,
                     },
                 },
             },

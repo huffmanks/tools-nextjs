@@ -9,7 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 const ListToolbar = ({ list, handleCopy, handleUpdate }) => {
     return (
         <>
-            <ButtonGroup variant='outlined' aria-label='list toolbar' sx={{ mb: 4, padding: '4px 8px', backgroundColor: 'background.secondary' }}>
+            <ButtonGroup variant='outlined' aria-label='list toolbar' sx={{ padding: '4px 8px', backgroundColor: 'background.secondary', borderRadius: 0 }}>
                 <IconButton value='favorite' aria-label='favorite' onClick={() => handleUpdate(list, 'favorite')}>
                     {list.isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                 </IconButton>

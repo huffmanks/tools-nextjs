@@ -6,10 +6,14 @@
     - [ ] Import mui components into ui to export
     - [ ] Ignore public readme images
     - [ ] Copy to clipboard snackbar (success/failed)
+    - [ ] PWA \_redirects precache error
 
 2. Random Picker
 
-    - [ ] Ouput better design and copy usability
+    1. List
+
+    - [ ] Create
 
 3. Todo List
     - [ ] List toolbar functionality
+    - [ ] View layout and modal styles
