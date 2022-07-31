@@ -27,5 +27,5 @@ export const useCopyToClipboard = (isRich) => {
         }
     }
 
-    return [copiedText, copy]
+    return [copy, copiedText]
 }

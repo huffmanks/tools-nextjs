@@ -7,7 +7,9 @@ export const initialValues = {
     randomNumber: [],
     isPowerball: false,
     isMegaMillions: false,
-    lottery: '',
+    isLottery: false,
+    lotteryPower: '',
+    resultIsCentered: false,
 }
 
 export const powerballValues = {

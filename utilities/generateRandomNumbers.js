@@ -1,7 +1,3 @@
-const getRandomNumber = (lowerNumber, higherNumber) => {
-    return Math.floor(Math.random() * (higherNumber - lowerNumber + 1) + lowerNumber)
-}
-
 export const generateRandomNumbers = (total, lowerNumber, higherNumber, unique, sorted, isLottery) => {
     let output = unique ? new Set() : []
 
@@ -28,4 +24,8 @@ export const generateRandomNumbers = (total, lowerNumber, higherNumber, unique, 
     }
 
     return output
+}
+
+const getRandomNumber = (min, max) => {
+    return Math.floor(Math.random() * (parseInt(max) - parseInt(min) + 1)) + parseInt(min)
 }

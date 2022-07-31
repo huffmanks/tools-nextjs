@@ -1,7 +1,7 @@
 import { FormControl, FormGroup, FormHelperText, FormLabel, TextField } from '@mui/material'
 
 const NumberRange = ({ values, handleChange }) => {
-    const isDisabled = values.isPowerball || values.isMegaMillions ? true : false
+    const isDisabled = values.isLottery
 
     return (
         <>

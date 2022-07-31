@@ -11,7 +11,7 @@ const View = ({ lists, handleUpdate }) => {
     const listRefs = useRef([])
     listRefs.current = lists.map((_, i) => listRefs.current[i] ?? createRef())
 
-    const [_, copy] = useCopyToClipboard(false)
+    const [copy] = useCopyToClipboard(false)
 
     const [expanded, setExpanded] = useState(0)
 

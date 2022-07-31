@@ -1,8 +1,12 @@
+import { useRef } from 'react'
+
+import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard'
 import { generateRandomNumbers } from '../../../utilities/generateRandomNumbers'
 
 import { Button, Grid, Stack } from '@mui/material'
 
 import NumbersIcon from '@mui/icons-material/Numbers'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 
 import Presets from './Presets'
 import NumberOptions from './NumberOptions'
@@ -10,6 +14,10 @@ import NumberRange from './NumberRange'
 import Output from './Output'
 
 const NumberPicker = ({ values, handleChange, setValues }) => {
+    const resultRef = useRef(null)
+
+    const [copy] = useCopyToClipboard()
+
     const handleDecrease = () => {
         setValues((prev) => ({
             ...values,
@@ -26,18 +34,28 @@ const NumberPicker = ({ values, handleChange, setValues }) => {
 
     const handleClick = () => {
         const { total, unique, sorted, start, end, isPowerball, isMegaMillions } = values
+
         const lowerNumber = start < end ? start : end
         const higherNumber = start > end ? start : end
 
         const isLottery = (isPowerball || isMegaMillions) ?? false
-
         const output = generateRandomNumbers(total, lowerNumber, higherNumber, unique, sorted, isLottery)
+
+        const resultChildren = [...resultRef.current.children].map((child) => child.offsetWidth + 16)
+        const resultChildrenWidth = resultChildren.reduce((prev, value) => prev + value, 0)
+        const resultWidth = resultRef.current.offsetWidth
 
         setValues({
             ...values,
             randomNumber: output,
-            lottery: isLottery ? generateRandomNumbers(1, 1, isPowerball ? 26 : 25) : '',
+            isLottery,
+            lotteryPower: isLottery ? generateRandomNumbers(1, 1, isPowerball ? 26 : 25) : '',
+            resultIsCentered: resultChildrenWidth > resultWidth,
         })
+    }
+
+    const handleCopy = async () => {
+        copy(resultRef.current)
     }
 
     return (
@@ -50,32 +68,32 @@ const NumberPicker = ({ values, handleChange, setValues }) => {
                 <Grid item xs={12} md={5} lg={6}>
                     <NumberRange values={values} handleChange={handleChange} />
 
-                    <div style={{ marginTop: '32px' }}>
-                        <Button
-                            size='large'
-                            variant='contained'
-                            onClick={handleClick}
-                            endIcon={<NumbersIcon />}
-                            sx={{
-                                width: {
-                                    xs: '100%',
-                                    sm: 'auto',
-                                },
-                            }}>
+                    <Stack
+                        direction={{ xs: 'row', sm: 'row' }}
+                        gap={2}
+                        sx={{
+                            flexDirection: {
+                                xs: 'column',
+                                xms: 'row',
+                            },
+                            marginTop: '32px',
+                        }}>
+                        <Button variant='contained' size='large' aria-label='generate random numbers' endIcon={<NumbersIcon />} onClick={handleClick}>
                             Generate
                         </Button>
-                    </div>
+                        <Button variant='contained' size='large' disabled={!values?.randomNumber?.length} aria-label='copy value to clipboard' endIcon={<ContentCopyIcon />} onClick={handleCopy}>
+                            Copy
+                        </Button>
+                    </Stack>
                 </Grid>
             </Grid>
 
-            {values?.randomNumber && (
-                <Stack direction={{ xs: 'column', md: 'row' }} flexWrap='wrap' gap={2} mt={4} mb={2}>
-                    {values.randomNumber.map((number, index) => (
-                        <Output key={index} number={number} />
-                    ))}
-                    {values?.lottery && <Output number={values.lottery} isLottery={true} />}
-                </Stack>
-            )}
+            <Stack ref={resultRef} flexDirection='row' justifyContent={values.resultIsCentered ? 'center' : 'flex-start'} flexWrap='wrap' gap={2} mt={4} mb={2}>
+                {values.randomNumber.map((number, index) => (
+                    <Output key={index} number={number} isLottery={values.isLottery} />
+                ))}
+                {values?.lotteryPower && <Output number={values.lotteryPower} isLottery={values.isLottery} isLotteryPower={true} />}
+            </Stack>
         </>
     )
 }

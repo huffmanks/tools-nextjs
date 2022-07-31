@@ -4,7 +4,7 @@ import RemoveIcon from '@mui/icons-material/Remove'
 import AddIcon from '@mui/icons-material/Add'
 
 const NumberOptions = ({ values, handleChange, handleDecrease, handleIncrease }) => {
-    const isDisabled = values.isPowerball || values.isMegaMillions ? true : false
+    const isDisabled = values.isLottery
 
     return (
         <>
