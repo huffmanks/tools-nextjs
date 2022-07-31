@@ -17,7 +17,7 @@ import View from './View'
 const ListMenu = () => {
     const ref = useRef(null)
 
-    const { screen, values, errors, formIsValid, items, lists, handleScreen, handleChange, handleAddItem, handleSubmit } = useTodoListFormControls()
+    const { screen, values, errors, formIsValid, items, lists, handleScreen, handleChange, handleAddItem, handleSubmit, handleUpdate } = useTodoListFormControls()
 
     useEffect(() => {
         ref.current.ownerDocument.body.scrollTop = 0
@@ -27,7 +27,7 @@ const ListMenu = () => {
         <Box sx={{ pb: 7 }} ref={ref}>
             <CssBaseline />
             {screen === 1 ? (
-                <View lists={lists} />
+                <View lists={lists} handleUpdate={handleUpdate} />
             ) : (
                 <Create values={values} errors={errors} formIsValid={formIsValid} items={items} handleChange={handleChange} handleAddItem={handleAddItem} handleSubmit={handleSubmit} />
             )}

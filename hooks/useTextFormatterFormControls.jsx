@@ -9,7 +9,7 @@ import { initialValues } from '../constants/textFormatter'
 export const useTextFormatterFormControls = () => {
     const [values, setValues] = useState(initialValues)
 
-    const [saved, setSaved] = useLocalStorage('webtools-v1-saved', [])
+    const [saved, setSaved] = useLocalStorage('webtools-v1-text-formatter-saved', [])
 
     const [savedId, setSavedId] = useState(uniqueId)
 

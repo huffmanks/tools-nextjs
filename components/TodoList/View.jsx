@@ -1,14 +1,17 @@
-import { useRef, useState } from 'react'
+import { createRef, useEffect, useRef, useState } from 'react'
 
 import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
 
 import { Accordion, AccordionDetails, AccordionSummary, Box, IconButton, Typography } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 
-const View = ({ lists }) => {
-    const listRef = useRef(null)
-    const copy = useCopyToClipboard()
+import ListToolbar from './ListToolbar'
+
+const View = ({ lists, handleUpdate }) => {
+    const listRefs = useRef([])
+    listRefs.current = lists.map((_, i) => listRefs.current[i] ?? createRef())
+
+    const [_, copy] = useCopyToClipboard(false)
 
     const [expanded, setExpanded] = useState(0)
 
@@ -16,8 +19,8 @@ const View = ({ lists }) => {
         setExpanded(newExpanded ? panel : false)
     }
 
-    const handleClick = async () => {
-        copy(listRef, true)
+    const handleCopy = async (ref) => {
+        copy(ref.current)
     }
     return (
         <>
@@ -26,21 +29,20 @@ const View = ({ lists }) => {
             </Typography>
 
             {lists?.length ? (
-                lists?.map((list) => (
+                lists?.map((list, i) => (
                     <Accordion key={list.id} expanded={expanded === list.id} onChange={handlePanel(list.id)}>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls={`${list.id}-content`} id={`${list.id}-header`}>
-                            <Typography>{list.title}</Typography>
+                            <Typography fontSize={26}>{list.title}</Typography>
                         </AccordionSummary>
-                        <AccordionDetails>
+                        <AccordionDetails sx={{ backgroundColor: 'background.altSecondary' }}>
                             <Box sx={{ position: 'relative' }}>
-                                <IconButton aria-label='copy value to clipboard' onClick={handleClick} sx={{ position: 'absolute', top: 32, right: 32, transform: 'translate(32px, -32px)' }}>
-                                    <ContentCopyIcon />
-                                </IconButton>
-                                <div ref={listRef}>
+                                <ListToolbar list={list} handleCopy={() => handleCopy(listRefs.current[i])} handleUpdate={handleUpdate} />
+
+                                <Box ref={listRefs.current[i]} sx={{ padding: 1 }}>
                                     {list.items.map((item) => (
                                         <div key={item.id}>{item.text}</div>
                                     ))}
-                                </div>
+                                </Box>
                             </Box>
                         </AccordionDetails>
                     </Accordion>

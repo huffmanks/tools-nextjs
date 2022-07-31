@@ -136,248 +136,310 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 
 <br />
 
+<details>
+  <summary>Measurement types</summary>
+  <ol>
+    <li><a href="#digital-storage">Digital Storage</a></li>
+    <li><a href="#length">Length</a></li>
+    <li><a href="#volume">Volume</a></li>
+    <li><a href="#temperature">Temperature</a></li>
+    <li><a href="#time">Time</a></li>
+    <li><a href="#weight">Weight</a></li>
+  </ol>
+</details>
+
+<br />
+
+### Digital Storage
+
+type=1
+
 <table>
-    <thead>
-        <tr>
-            <th>Digital Storage, type=1</th>
-            <th>Temperature, type=4</th>
-            <th>Weight, type=6</th>
-        </tr>
-    </thead>
     <tbody>
         <tr>
-            <td>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Unit</th>
-                            <th>Short</th>
-                        </tr>
-                        <tr>
-                            <td>terabytes</td>
-                            <td>TB</td>
-                        </tr>
-                        <tr>
-                            <td>gigabytes</td>
-                            <td>GB</td>
-                        </tr>
-                        <tr>
-                            <td>megabytes</td>
-                            <td>MB</td>
-                        </tr>
-                        <tr>
-                            <td>kilobytes</td>
-                            <td>KB</td>
-                        </tr>
-                        <tr>
-                            <td>bytes</td>
-                            <td>B</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-            <td>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Unit</th>
-                            <th>Short</th>
-                        </tr>
-                        <tr>
-                            <td>celsius</td>
-                            <td>C</td>
-                        </tr>
-                        <tr>
-                            <td>fahrenheit</td>
-                            <td>F</td>
-                        </tr>
-                        <tr>
-                            <td>kelvin</td>
-                            <td>K</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-            <td>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Unit</th>
-                            <th>Short</th>
-                        </tr>
-                        <tr>
-                            <td>US tons</td>
-                            <td>ton</td>
-                        </tr>
-                        <tr>
-                            <td>pounds</td>
-                            <td>lbs</td>
-                        </tr>
-                        <tr>
-                            <td>ounces</td>
-                            <td>oz</td>
-                        </tr>
-                        <tr>
-                            <td>kilograms</td>
-                            <td>kg</td>
-                        </tr>
-                        <tr>
-                            <td>grams</td>
-                            <td>g</td>
-                        </tr>
-                        <tr>
-                            <td>milligrams</td>
-                            <td>mg</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
+            <th width="130">Unit</th>
+            <th width="40">Number</th>
+            <th width="50">Short</th>
+        </tr>
+        <tr>
+            <td>terabytes</td>
+            <td align="center">1</td>
+            <td align="center">TB</td>
+        </tr>
+        <tr>
+            <td>gigabytes</td>
+            <td align="center">2</td>
+            <td align="center">GB</td>
+        </tr>
+        <tr>
+            <td>megabytes</td>
+            <td align="center">3</td>
+            <td align="center">MB</td>
+        </tr>
+        <tr>
+            <td>kilobytes</td>
+            <td align="center">4</td>
+            <td align="center">KB</td>
+        </tr>
+        <tr>
+            <td>bytes</td>
+            <td align="center">5</td>
+            <td align="center">B</td>
         </tr>
     </tbody>
 </table>
 
 <br />
 
+### Length
+
+type=2
+
 <table>
-    <thead>
-        <tr>
-            <th>Length, type=2</th>
-            <th>Volume, type=3</th>
-            <th>Time, type=5</th>
-        </tr>
-    </thead>
     <tbody>
         <tr>
-            <td>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Unit</th>
-                            <th>Short</th>
-                        </tr>
-                        <tr>
-                            <td>miles</td>
-                            <td>mi</td>
-                        </tr>
-                        <tr>
-                            <td>yards</td>
-                            <td>yd</td>
-                        </tr>
-                        <tr>
-                            <td>feet</td>
-                            <td>ft</td>
-                        </tr>
-                        <tr>
-                            <td>inches</td>
-                            <td>in</td>
-                        </tr>
-                        <tr>
-                            <td>kilometers</td>
-                            <td>km</td>
-                        </tr>
-                        <tr>
-                            <td>meters</td>
-                            <td>m</td>
-                        </tr>
-                        <tr>
-                            <td>centimeters</td>
-                            <td>cm</td>
-                        </tr>
-                        <tr>
-                            <td>millimeters</td>
-                            <td>mm</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-            <td>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Unit</th>
-                            <th>Short</th>
-                        </tr>
-                        <tr>
-                            <td>US liquid gallons</td>
-                            <td>gal</td>
-                        </tr>
-                        <tr>
-                            <td>US liquid quarts</td>
-                            <td>qt</td>
-                        </tr>
-                        <tr>
-                            <td>US liquid pints</td>
-                            <td>p</td>
-                        </tr>
-                        <tr>
-                            <td>US legal cups</td>
-                            <td>c</td>
-                        </tr>
-                        <tr>
-                            <td>US fluid ounces</td>
-                            <td>oz</td>
-                        </tr>
-                        <tr>
-                            <td>US tablespoons</td>
-                            <td>tbsp</td>
-                        </tr>
-                        <tr>
-                            <td>US teaspoons</td>
-                            <td>tsp</td>
-                        </tr>
-                        <tr>
-                            <td>liters</td>
-                            <td>L</td>
-                        </tr>
-                        <tr>
-                            <td>milliliters</td>
-                            <td>mL</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-            <td>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Unit</th>
-                            <th>Short</th>
-                        </tr>
-                        <tr>
-                            <td>years</td>
-                            <td>yr</td>
-                        </tr>
-                        <tr>
-                            <td>months</td>
-                            <td>mo</td>
-                        </tr>
-                        <tr>
-                            <td>weeks</td>
-                            <td>wk</td>
-                        </tr>
-                        <tr>
-                            <td>days</td>
-                            <td>d</td>
-                        </tr>
-                        <tr>
-                            <td>hours</td>
-                            <td>hr</td>
-                        </tr>
-                        <tr>
-                            <td>minutes</td>
-                            <td>min</td>
-                        </tr>
-                        <tr>
-                            <td>seconds</td>
-                            <td>s</td>
-                        </tr>
-                        <tr>
-                            <td>milliseconds</td>
-                            <td>ms</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
+            <th width="130">Unit</th>
+            <th width="40">Number</th>
+            <th width="50">Short</th>
+        </tr>
+        <tr>
+            <td>miles</td>
+            <td align="center">1</td>
+            <td align="center">mi</td>
+        </tr>
+        <tr>
+            <td>yards</td>
+            <td align="center">2</td>
+            <td align="center">yd</td>
+        </tr>
+        <tr>
+            <td>feet</td>
+            <td align="center">3</td>
+            <td align="center">ft</td>
+        </tr>
+        <tr>
+            <td>inches</td>
+            <td align="center">4</td>
+            <td align="center">in</td>
+        </tr>
+        <tr>
+            <td>kilometers</td>
+            <td align="center">5</td>
+            <td align="center">km</td>
+        </tr>
+        <tr>
+            <td>meters</td>
+            <td align="center">6</td>
+            <td align="center">m</td>
+        </tr>
+        <tr>
+            <td>centimeters</td>
+            <td align="center">7</td>
+            <td align="center">cm</td>
+        </tr>
+        <tr>
+            <td>millimeters</td>
+            <td align="center">8</td>
+            <td align="center">mm</td>
+        </tr>
+        <tr>
+            <td>pixels</td>
+            <td align="center">9</td>
+            <td align="center">px</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+
+### Volume
+
+type=3
+
+<table>
+    <tbody>
+        <tr>
+            <th width="130">Unit</th>
+            <th width="40">Number</th>
+            <th width="50">Short</th>
+        </tr>
+        <tr>
+            <td>US liquid gallons</td>
+            <td align="center">1</td>
+            <td align="center">gal</td>
+        </tr>
+        <tr>
+            <td>US liquid quarts</td>
+            <td align="center">2</td>
+            <td align="center">qt</td>
+        </tr>
+        <tr>
+            <td>US liquid pints</td>
+            <td align="center">3</td>
+            <td align="center">p</td>
+        </tr>
+        <tr>
+            <td>US legal cups</td>
+            <td align="center">4</td>
+            <td align="center">c</td>
+        </tr>
+        <tr>
+            <td>US fluid ounces</td>
+            <td align="center">5</td>
+            <td align="center">oz</td>
+        </tr>
+        <tr>
+            <td>US tablespoons</td>
+            <td align="center">6</td>
+            <td align="center">tbsp</td>
+        </tr>
+        <tr>
+            <td>US teaspoons</td>
+            <td align="center">7</td>
+            <td align="center">tsp</td>
+        </tr>
+        <tr>
+            <td>liters</td>
+            <td align="center">8</td>
+            <td align="center">L</td>
+        </tr>
+        <tr>
+            <td>milliliters</td>
+            <td align="center">9</td>
+            <td align="center">mL</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+
+### Temperature
+
+type=4
+
+<table>
+    <tbody>
+        <tr>
+            <th width="130">Unit</th>
+            <th width="40">Number</th>
+            <th width="50">Short</th>
+        </tr>
+        <tr>
+            <td>celsius</td>
+            <td align="center">1</td>
+            <td align="center">C</td>
+        </tr>
+        <tr>
+            <td>fahrenheit</td>
+            <td align="center">2</td>
+            <td align="center">F</td>
+        </tr>
+        <tr>
+            <td>kelvin</td>
+            <td align="center">3</td>
+            <td align="center">K</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+
+### Time
+
+type=5
+
+<table>
+    <tbody>
+        <tr>
+            <th width="130">Unit</th>
+            <th width="40">Number</th>
+            <th width="50">Short</th>
+        </tr>
+        <tr>
+            <td>years</td>
+            <td align="center">1</td>
+            <td align="center">yr</td>
+        </tr>
+        <tr>
+            <td>months</td>
+            <td align="center">2</td>
+            <td align="center">mo</td>
+        </tr>
+        <tr>
+            <td>weeks</td>
+            <td align="center">3</td>
+            <td align="center">wk</td>
+        </tr>
+        <tr>
+            <td>days</td>
+            <td align="center">4</td>
+            <td align="center">d</td>
+        </tr>
+        <tr>
+            <td>hours</td>
+            <td align="center">5</td>
+            <td align="center">hr</td>
+        </tr>
+        <tr>
+            <td>minutes</td>
+            <td align="center">6</td>
+            <td align="center">min</td>
+        </tr>
+        <tr>
+            <td>seconds</td>
+            <td align="center">7</td>
+            <td align="center">s</td>
+        </tr>
+        <tr>
+            <td>milliseconds</td>
+            <td align="center">8</td>
+            <td align="center">ms</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+
+### Weight
+
+type=6
+
+<table>
+    <tbody>
+        <tr>
+            <th width="130">Unit</th>
+            <th width="40">Number</th>
+            <th width="50">Short</th>
+        </tr>
+        <tr>
+            <td>US tons</td>
+            <td align="center">1</td>
+            <td align="center">ton</td>
+        </tr>
+        <tr>
+            <td>pounds</td>
+            <td align="center">2</td>
+            <td align="center">lbs</td>
+        </tr>
+        <tr>
+            <td>ounces</td>
+            <td align="center">3</td>
+            <td align="center">oz</td>
+        </tr>
+        <tr>
+            <td>kilograms</td>
+            <td align="center">4</td>
+            <td align="center">kg</td>
+        </tr>
+        <tr>
+            <td>grams</td>
+            <td align="center">5</td>
+            <td align="center">g</td>
+        </tr>
+        <tr>
+            <td>milligrams</td>
+            <td align="center">6</td>
+            <td align="center">mg</td>
         </tr>
     </tbody>
 </table>

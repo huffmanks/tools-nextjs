@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { useLocalStorage } from './useLocalStorage'
 import { uniqueId } from '../utilities/uniqueId'
 import { initialValues, initialErrors } from '../constants/todoList'
 
@@ -12,7 +13,9 @@ export const useTodoListFormControls = () => {
     const [formIsValid, setFormIsValid] = useState(false)
 
     const [items, setItems] = useState([])
-    const [lists, setLists] = useState([])
+
+    const [saved, setSaved] = useLocalStorage('webtools-v1-todo-lists-saved', [])
+    const [lists, setLists] = useState(saved ?? [])
 
     const handleScreen = (_, newScreen) => {
         setScreen(newScreen)
@@ -48,7 +51,7 @@ export const useTodoListFormControls = () => {
             setItems([
                 ...items,
                 {
-                    id: listId + values.item.trim(),
+                    id: listId,
                     text: values.item.trim(),
                 },
             ])
@@ -63,18 +66,49 @@ export const useTodoListFormControls = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        setLists([
-            ...lists,
-            {
-                id: listId + values.title.trim(),
+        if (!saved.some((item) => item.title === values.title.trim())) {
+            const update = {
+                id: listId,
                 title: values.title.trim(),
+                isFavorite: false,
                 items,
-            },
-        ])
+            }
+
+            setLists([...lists, update])
+
+            setSaved([...saved, update])
+        }
 
         setValues(initialValues)
         setItems([])
         setFormIsValid(false)
+    }
+
+    const handleUpdate = (list, type) => {
+        // const newList = saved.filter((item) => item.id === list.id)
+        console.log('updated')
+
+        // if (newList?.length) {
+        // const update =
+        //     type === 'favorite'
+        //         ? {
+        //               ...list,
+        //               isFavorite: !list.isFavorite,
+        //           }
+        //         : type === 'title'
+        //         ? {
+        //               ...list,
+        //               title: list.title,
+        //           }
+        //         : type === 'items'
+        //         ? {
+        //               ...list,
+        //               items: list.items,
+        //           }
+        //         : {}
+
+        // setLists([...lists, update])
+        // setSaved([...saved, update])
     }
 
     useEffect(() => {
@@ -92,5 +126,6 @@ export const useTodoListFormControls = () => {
         handleChange,
         handleAddItem,
         handleSubmit,
+        handleUpdate,
     }
 }

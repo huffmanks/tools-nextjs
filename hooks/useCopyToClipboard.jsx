@@ -1,21 +1,31 @@
-export const useCopyToClipboard = () => {
-    const copy = async (element, isRich) => {
+import { useState } from 'react'
+
+export const useCopyToClipboard = (isRich) => {
+    const [copiedText, setCopiedText] = useState(null)
+
+    const copy = async (element) => {
         try {
             if (isRich) {
-                const selection = element.current.innerHTML
+                const selection = element.innerHTML
 
                 const blobHTML = new Blob([selection], { type: 'text/html' })
 
-                // eslint-disable-next-line no-undef
                 const clipboardItemHTML = new ClipboardItem({ 'text/html': blobHTML })
                 await navigator.clipboard.write([clipboardItemHTML])
+
+                setCopiedText(element.innerHTML)
+                return true
             } else {
-                await navigator.clipboard.writeText(element)
+                await navigator.clipboard.writeText(element.innerText)
+
+                setCopiedText(element.innerText)
+                return true
             }
         } catch (error) {
-            console.warn('Copy failed', error)
+            setCopiedText(null)
+            return false
         }
     }
 
-    return copy
+    return [copiedText, copy]
 }

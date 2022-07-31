@@ -11,10 +11,10 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 const EmailOutput = ({ values }) => {
     const resultRef = useRef(null)
 
-    const copy = useCopyToClipboard()
+    const [_, copy] = useCopyToClipboard(true)
 
     const handleClick = async () => {
-        copy(resultRef, true)
+        copy(resultRef.current)
     }
 
     return (
