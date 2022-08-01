@@ -15,8 +15,18 @@ module.exports = (phase, { defaultConfig }) => {
             },
             reactStrictMode: true,
             swcMinify: true,
-            publicExcludes: ['!_redirects'],
-            buildExcludes: ['!_redirects'],
+            async redirects() {
+                return [
+                    { source: '/aspect-ratio', destination: ' /calculate/aspect-ratio', permanent: true },
+                    { source: '/unit-calculator', destination: ' /calculate/units', permanent: true },
+                    { source: '/text-formatter', destination: ' /format/text', permanent: true },
+                    { source: '/email-signature', destination: ' /generate/email-signature', permanent: true },
+                    { source: '/password-generator', destination: ' /generate/password', permanent: true },
+                    { source: '/todo-list', destination: ' /generate/todo', permanent: true },
+                    { source: '/color-picker', destination: ' /picker/color', permanent: true },
+                    { source: '/random-picker', destination: ' /picker/random', permanent: true },
+                ]
+            },
             basePath: phase === 'phase-export' && process.env.STAGING === 'true' ? '/huffmanks/out' : '',
             // experimental: {
             //     images: {
