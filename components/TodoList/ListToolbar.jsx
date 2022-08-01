@@ -1,4 +1,4 @@
-import { ButtonGroup, IconButton } from '@mui/material'
+import { IconButton, Stack, Divider } from '@mui/material'
 
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
@@ -9,7 +9,8 @@ import DeleteIcon from '@mui/icons-material/Delete'
 const ListToolbar = ({ list, handleCopy, handleUpdate }) => {
     return (
         <>
-            <ButtonGroup variant='outlined' aria-label='list toolbar' sx={{ padding: '4px 8px', backgroundColor: 'background.secondary', borderRadius: 0 }}>
+            <Divider />
+            <Stack direction='row' gap={1} p={1}>
                 <IconButton value='favorite' aria-label='favorite' onClick={() => handleUpdate(list, 'favorite')}>
                     {list.isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                 </IconButton>
@@ -19,10 +20,10 @@ const ListToolbar = ({ list, handleCopy, handleUpdate }) => {
                 <IconButton value='edit' aria-label='edit'>
                     <EditIcon />
                 </IconButton>
-                <IconButton value='delete' aria-label='delete'>
+                <IconButton value='delete' aria-label='delete' sx={{ ml: 'auto' }}>
                     <DeleteIcon />
                 </IconButton>
-            </ButtonGroup>
+            </Stack>
         </>
     )
 }

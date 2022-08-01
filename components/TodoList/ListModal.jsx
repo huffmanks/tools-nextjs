@@ -1,6 +1,8 @@
 import { useState } from 'react'
 
-import { Backdrop, Box, Button, Fade, Modal } from '@mui/material'
+import { Backdrop, Box, Button, Fade, IconButton, Modal, Typography } from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close'
+import MoreVertIcon from '@mui/icons-material/MoreVert'
 
 import ListToolbar from './ListToolbar'
 
@@ -9,11 +11,10 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 325,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
+    borderRadius: 2,
+    overflow: 'hidden',
 }
 
 const ListModal = ({ list, index, listRefs, handleCopy, handleUpdate }) => {
@@ -22,7 +23,7 @@ const ListModal = ({ list, index, listRefs, handleCopy, handleUpdate }) => {
     const handleClose = () => setOpen(false)
     return (
         <>
-            <Button variant='contained' onClick={handleOpen}>
+            <Button fullWidth variant='contained' onClick={handleOpen} endIcon={<MoreVertIcon fontSize='medium' />} sx={{ display: 'flex', justifyContent: 'space-between', fontSize: 20 }}>
                 {list.title}
             </Button>
             <Modal
@@ -37,15 +38,21 @@ const ListModal = ({ list, index, listRefs, handleCopy, handleUpdate }) => {
                 }}>
                 <Fade in={open}>
                     <Box sx={style}>
-                        <>
-                            <ListToolbar list={list} handleCopy={() => handleCopy(listRefs.current[index])} handleUpdate={handleUpdate} />
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 2, p: 2, bgcolor: 'primary.main' }}>
+                            <Typography fontSize={24} lineHeight={1.15}>
+                                {list.title}
+                            </Typography>
+                            <IconButton aria-label='close modal' onClick={handleClose} sx={{ p: 0 }}>
+                                <CloseIcon />
+                            </IconButton>
+                        </Box>
 
-                            <Box ref={listRefs.current[index]} sx={{ p: 3 }}>
-                                {list.items.map((item) => (
-                                    <div key={item.id}>{item.text}</div>
-                                ))}
-                            </Box>
-                        </>
+                        <Box ref={listRefs.current[index]} sx={{ p: 3 }}>
+                            {list.items.map((item) => (
+                                <div key={item.id}>{item.text}</div>
+                            ))}
+                        </Box>
+                        <ListToolbar list={list} handleCopy={() => handleCopy(listRefs.current[index])} handleUpdate={handleUpdate} />
                     </Box>
                 </Fade>
             </Modal>
