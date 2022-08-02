@@ -1,10 +1,11 @@
 import { FormControl, FormHelperText, FormLabel } from '@mui/material'
 
-const FieldsetContainer = ({ title, helperText, size, children }) => {
+const FieldsetContainer = ({ title, helperText, size, isFullWidth, children }) => {
     const styles =
         size === 'large'
             ? {
                   control: {
+                      width: isFullWidth ? '100%' : 'auto',
                       marginBottom: 3,
                   },
                   label: {

@@ -59,8 +59,8 @@ const ItemPicker = () => {
         <>
             <Grid container spacing={5}>
                 <Grid item xs={12} md={7}>
-                    <FieldsetContainer title='Result options' size='large' helperText={`There will be ${items.total} item${items.total > 1 ? 's' : ''} selected from the list.`}>
-                        <Stack direction='row' gap={5} mb={1}>
+                    <FieldsetContainer title='Result options' size='large' isFullWidth helperText={`There will be ${items.total} item${items.total > 1 ? 's' : ''} selected from the list.`}>
+                        <Stack direction={{ xs: 'column', md: 'row' }} gap={{ xs: 0, sm: 2 }} mb={1}>
                             <Counter values={items} handleChange={handleChange} handleDecrease={handleDecrease} handleIncrease={handleIncrease} />
                             <Delimiters items={items} handleChange={handleChange} />
                         </Stack>
