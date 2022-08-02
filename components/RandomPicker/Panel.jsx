@@ -6,7 +6,7 @@ const Panel = ({ expanded, handlePanel, panelId, panelTitle, children }) => {
         <>
             <Accordion expanded={expanded === panelId} onChange={handlePanel(panelId)}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls={`${panelId}-content`} id={`${panelId}-header`}>
-                    <Typography>{panelTitle}</Typography>
+                    <Typography fontSize={22}>{panelTitle}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>{children}</AccordionDetails>
             </Accordion>

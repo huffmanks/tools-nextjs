@@ -2,6 +2,7 @@ import { Box, Grid, Button, IconButton, InputAdornment, TextField, Stack, Typogr
 
 import AddIcon from '@mui/icons-material/Add'
 import DesignServicesIcon from '@mui/icons-material/DesignServices'
+import OutputMessage from '../layout/OutputMessage'
 
 const Create = ({ values, errors, items, handleChange, handleAddItem, handleSubmit, formIsValid }) => {
     return (
@@ -77,7 +78,7 @@ const Create = ({ values, errors, items, handleChange, handleAddItem, handleSubm
                                 </Box>
                             ))
                         ) : (
-                            <Box sx={{ backgroundColor: 'background.secondary', padding: '8px 12px', borderRadius: 1 }}>Added items will appear here.</Box>
+                            <OutputMessage message='Added items will appear here.' />
                         )}
                     </Stack>
                 </Grid>

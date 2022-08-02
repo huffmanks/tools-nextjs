@@ -2,9 +2,10 @@ import { createRef, useRef } from 'react'
 
 import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
 
-import { Box, Grid, Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 
 import ListModal from './ListModal'
+import OutputMessage from '../layout/OutputMessage'
 
 const View = ({ lists, handleUpdate }) => {
     const listRefs = useRef([])
@@ -30,7 +31,7 @@ const View = ({ lists, handleUpdate }) => {
                     ))}
                 </Grid>
             ) : (
-                <Box sx={{ width: 'fit-content', backgroundColor: 'background.secondary', padding: '8px 12px', borderRadius: 1 }}>No lists to show.</Box>
+                <OutputMessage message='No lists to show.' />
             )}
         </>
     )

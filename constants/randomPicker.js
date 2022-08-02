@@ -26,12 +26,24 @@ export const megaMillionsValues = {
 
 export const initialItems = {
     total: 1,
-    delimiter: 'newline',
+    inputDelimiter: 'newline',
+    outputDelimiter: 'newline',
     list: '',
     output: [],
 }
 
-export const delimiterRadios = [
+export const delimiterSelects = [
+    {
+        value: 'inputDelimiter',
+        label: 'Input',
+    },
+    {
+        value: 'outputDelimiter',
+        label: 'Output',
+    },
+]
+
+export const delimiterOptions = [
     {
         value: 'newline',
         label: 'Newline',

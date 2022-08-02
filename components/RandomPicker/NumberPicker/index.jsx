@@ -11,6 +11,7 @@ import NumberOptions from './NumberOptions'
 import NumberRange from './NumberRange'
 import ActionGroup from '../ActionGroup'
 import Output from './Output'
+import OutputMessage from '../../layout/OutputMessage'
 
 const NumberPicker = ({ values, handleChange, setValues }) => {
     const resultRef = useRef(null)
@@ -60,10 +61,16 @@ const NumberPicker = ({ values, handleChange, setValues }) => {
             </Grid>
 
             <Stack ref={resultRef} flexDirection='row' justifyContent={values.resultIsCentered ? 'center' : 'flex-start'} flexWrap='wrap' gap={2} mt={4} mb={2}>
-                {values.randomNumber.map((number, index) => (
-                    <Output key={index} number={number} isLottery={values.isLottery} />
-                ))}
-                {values?.lotteryPower && <Output number={values.lotteryPower} isLottery={values.isLottery} isLotteryPower={true} />}
+                {values.randomNumber.length > 0 ? (
+                    <>
+                        {values.randomNumber.map((number, index) => (
+                            <Output key={index} number={number} isLottery={values.isLottery} />
+                        ))}
+                        {values?.lotteryPower && <Output number={values.lotteryPower} isLottery={values.isLottery} isLotteryPower={true} />}
+                    </>
+                ) : (
+                    <OutputMessage message='No numbers to show.' />
+                )}
             </Stack>
         </>
     )
