@@ -23,3 +23,25 @@ export const megaMillionsValues = {
     total: 5,
     end: 70,
 }
+
+export const initialItems = {
+    total: 1,
+    delimiter: 'newline',
+    list: '',
+    output: [],
+}
+
+export const delimiterRadios = [
+    {
+        value: 'newline',
+        label: 'Newline',
+    },
+    {
+        value: 'comma',
+        label: 'Comma',
+    },
+    {
+        value: 'pipe',
+        label: 'Pipe',
+    },
+]

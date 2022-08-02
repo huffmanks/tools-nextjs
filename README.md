@@ -458,10 +458,8 @@ type=6
 -   [x] Email Signature
 -   [x] Text Formatter
 -   [x] Password Generator
--   [ ] Random Picker
-    -   [x] Get random number(s) from a number range
-    -   [ ] Pick a random item from a list
--   [ ] Todo/shopping list
+-   [x] Random Picker
+-   [x] Todo list
 -   [ ] Calculator
 -   [ ] Keyboard shortcuts
 

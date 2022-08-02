@@ -1,16 +1,15 @@
 import { useRef } from 'react'
 
+import { useCounter } from '../../../hooks/useCounter'
 import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard'
 import { generateRandomNumbers } from '../../../utilities/generateRandomNumbers'
 
-import { Button, Grid, Stack } from '@mui/material'
-
-import NumbersIcon from '@mui/icons-material/Numbers'
-import ContentCopyIcon from '@mui/icons-material/ContentCopy'
+import { Grid, Stack } from '@mui/material'
 
 import Presets from './Presets'
 import NumberOptions from './NumberOptions'
 import NumberRange from './NumberRange'
+import ActionGroup from '../ActionGroup'
 import Output from './Output'
 
 const NumberPicker = ({ values, handleChange, setValues }) => {
@@ -18,19 +17,7 @@ const NumberPicker = ({ values, handleChange, setValues }) => {
 
     const [copy] = useCopyToClipboard()
 
-    const handleDecrease = () => {
-        setValues((prev) => ({
-            ...values,
-            total: parseInt(prev.total) === 1 ? 1 : parseInt(prev.total) - 1,
-        }))
-    }
-
-    const handleIncrease = () => {
-        setValues((prev) => ({
-            ...values,
-            total: parseInt(prev.total) + 1,
-        }))
-    }
+    const { handleDecrease, handleIncrease } = useCounter(values, setValues)
 
     const handleClick = () => {
         const { total, unique, sorted, start, end, isPowerball, isMegaMillions } = values
@@ -68,23 +55,7 @@ const NumberPicker = ({ values, handleChange, setValues }) => {
                 <Grid item xs={12} md={5} lg={6}>
                     <NumberRange values={values} handleChange={handleChange} />
 
-                    <Stack
-                        direction={{ xs: 'row', sm: 'row' }}
-                        gap={2}
-                        sx={{
-                            flexDirection: {
-                                xs: 'column',
-                                xms: 'row',
-                            },
-                            marginTop: '32px',
-                        }}>
-                        <Button variant='contained' size='large' aria-label='generate random numbers' endIcon={<NumbersIcon />} onClick={handleClick}>
-                            Generate
-                        </Button>
-                        <Button variant='contained' size='large' disabled={!values?.randomNumber?.length} aria-label='copy value to clipboard' endIcon={<ContentCopyIcon />} onClick={handleCopy}>
-                            Copy
-                        </Button>
-                    </Stack>
+                    <ActionGroup isDisabled={!values?.randomNumber?.length} generateAria='generate random numbers' handleClick={handleClick} handleCopy={handleCopy} />
                 </Grid>
             </Grid>
 

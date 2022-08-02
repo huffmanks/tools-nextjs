@@ -1,14 +1,13 @@
-import { FormControl, FormGroup, FormHelperText, FormLabel, TextField } from '@mui/material'
+import { FormGroup, TextField } from '@mui/material'
+
+import FieldsetContainer from '../FieldsetContainer'
 
 const NumberRange = ({ values, handleChange }) => {
     const isDisabled = values.isLottery
 
     return (
         <>
-            <FormControl component='fieldset' variant='standard'>
-                <FormLabel component='legend' sx={{ marginBottom: 3 }}>
-                    Number range
-                </FormLabel>
+            <FieldsetContainer title='Number range' size='medium' helperText={`The results will be between ${values.start} and ${values.end}`}>
                 <FormGroup
                     sx={{
                         flexDirection: { xs: 'column', sm: 'row' },
@@ -68,8 +67,7 @@ const NumberRange = ({ values, handleChange }) => {
                         }}
                     />
                 </FormGroup>
-                <FormHelperText>{`The results will be between ${values.start} and ${values.end}`}</FormHelperText>
-            </FormControl>
+            </FieldsetContainer>
         </>
     )
 }

@@ -10,9 +10,7 @@
 
 2. Random Picker
 
-    1. List
-
-    - [ ] Create
+    - [ ] Item picker output styles
 
 3. Todo List
     - [ ] List toolbar functionality
