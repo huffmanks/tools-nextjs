@@ -3,9 +3,10 @@ import { useContext } from 'react'
 import { GlobalStateContext } from '../context/GlobalStateProvider'
 
 export const useGlobalState = () => {
-    const { toasts } = useContext(GlobalStateContext)
+    const { toasts, modals } = useContext(GlobalStateContext)
 
-    const { message, open, addToast, removeToast } = toasts
+    const { toastOpen, toastMessage, addToast, removeToast } = toasts
+    const { modalId, modalOpen, modalData, addModal, removeModal } = modals
 
-    return { message, open, addToast, removeToast }
+    return { toastOpen, toastMessage, addToast, removeToast, modalId, modalOpen, modalData, addModal, removeModal }
 }

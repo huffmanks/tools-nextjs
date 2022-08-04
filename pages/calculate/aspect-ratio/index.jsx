@@ -1,12 +1,13 @@
-import { useAspectRatioFormControls } from '../../../hooks/useAspectRatioFormControls'
+import { useAspectRatioFormControls } from '../../../helpers/AspectRatio/useAspectRatioFormControls'
 import { initialValues } from '../../../constants/aspectRatio'
 
 import { Grid, Typography } from '@mui/material'
 
-import SEO from '../../../components/layout/SEO'
-import PageTitle from '../../../components/layout/PageTitle'
-import AspectForm from '../../../components/AspectRatio/AspectForm'
-import AspectOutput from '../../../components/AspectRatio/AspectOutput'
+import SEO from '../../../components/common/SEO'
+import PageTitle from '../../../components/common/PageTitle'
+
+import AspectForm from '../../../features/AspectRatio/AspectForm'
+import AspectOutput from '../../../features/AspectRatio/AspectOutput'
 
 const AspectRatio = () => {
     const { values, errors, handleFocus, handleChange, handleBlur } = useAspectRatioFormControls(initialValues)
@@ -14,6 +15,7 @@ const AspectRatio = () => {
     return (
         <>
             <SEO description='Calculate the aspect ratio.' title='Aspect Ratio Calculator' url='/calculate/aspect-ratio' imageUrl='/aspect-ratio.png' />
+
             <PageTitle>Aspect Ratio Calculator</PageTitle>
 
             <Typography paragraph mb={5}>

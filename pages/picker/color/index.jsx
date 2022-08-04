@@ -1,48 +1,16 @@
-import { useEffect, useState } from 'react'
-
-import { generateColorVariants } from '../../../utilities/generateColorVariants'
-import { initialColors } from '../../../constants/colorPicker'
+import { useColorPickerFormControls } from '../../../helpers/ColorPicker/useColorPickerFormControls'
 
 import { Grid, Typography } from '@mui/material'
 
-import SEO from '../../../components/layout/SEO'
-import PageTitle from '../../../components/layout/PageTitle'
+import SEO from '../../../components/common/SEO'
+import PageTitle from '../../../components/common/PageTitle'
 
-import Colord from '../../../components/ColorPicker/Colord'
-import ColorForm from '../../../components/ColorPicker/ColorForm'
-import ColorVariants from '../../../components/ColorPicker/ColorVariants'
-
-import { colord, extend } from 'colord'
-import namesPlugin from 'colord/plugins/names'
-extend([namesPlugin])
+import Colord from '../../../features/ColorPicker/Colord'
+import ColorForm from '../../../features/ColorPicker/ColorForm'
+import ColorVariants from '../../../features/ColorPicker/ColorVariants'
 
 const ColorPicker = () => {
-    const [color, setColor] = useState('#5b21b6')
-    const [convertedColors, setConvertedColors] = useState(initialColors)
-    const [tintType, setTintType] = useState('hex')
-
-    const handleColor = (e) => {
-        setColor(e.target.value)
-    }
-
-    const handleTintType = (e) => {
-        setTintType(e.target.value)
-    }
-
-    useEffect(() => {
-        const tints = generateColorVariants(color, tintType)
-
-        setConvertedColors(() => ({
-            hexColor: colord(color).toHex(),
-            rgbColor: colord(color).toRgbString(),
-            hslColor: colord(color).toHslString(),
-            nameColor: colord(color).toName({ closest: true }),
-            badgeColor: `linear-gradient(to right, ${colord(color).lighten(0.15).toHex()}, ${colord(color).darken(0.15).toHex()})`,
-            textColor: colord(color).isDark() ? 'text.primary' : 'background.paper',
-            tintType,
-            tints,
-        }))
-    }, [color, tintType])
+    const { color, convertedColors, tintType, setColor, handleColor, handleTintType } = useColorPickerFormControls()
 
     return (
         <>

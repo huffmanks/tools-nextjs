@@ -4,10 +4,11 @@ import { calculateRoutes, formatRoutes, generateRoutes, pickerRoutes } from '../
 
 import { Box, Tab, Tabs, Typography } from '@mui/material'
 
-import SEO from '../components/layout/SEO'
-import PageTitle from '../components/layout/PageTitle'
-import { a11yProps, TabPanel } from '../components/Home/TabPanel'
-import CardLinks from '../components/Home/CardLinks'
+import SEO from '../components/common/SEO'
+import PageTitle from '../components/common/PageTitle'
+
+import { a11yProps, TabPanel } from '../features/Home/TabPanel'
+import CardLinks from '../features/Home/CardLinks'
 
 const Home = () => {
     const [value, setValue] = useState(0)
@@ -20,6 +21,7 @@ const Home = () => {
             <SEO description='List of tools to help speed web development.' title='Home' url='/' />
 
             <PageTitle>Home</PageTitle>
+
             <Typography paragraph mb={5}>
                 List of tools to help speed web development.
             </Typography>
@@ -35,12 +37,15 @@ const Home = () => {
                 <TabPanel value={value} index={0}>
                     <CardLinks routes={calculateRoutes} />
                 </TabPanel>
+
                 <TabPanel value={value} index={1}>
                     <CardLinks routes={formatRoutes} />
                 </TabPanel>
+
                 <TabPanel value={value} index={2}>
                     <CardLinks routes={generateRoutes} />
                 </TabPanel>
+
                 <TabPanel value={value} index={3}>
                     <CardLinks routes={pickerRoutes} />
                 </TabPanel>

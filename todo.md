@@ -8,10 +8,19 @@
     - [ ] Copy to clipboard snackbar (success/failed)
     - [ ] PWA \_redirects precache error
 
-2. Item Picker
+2. Aspect Ratio
+
+    - [ ] Error validation, double tap
+    - [ ] Aspect ratio is flipping when switching radio
+
+3. Item Picker
 
     - [ ] Ouput to comma, pipe
 
-3. Todo List
+4. Text Formatter
+
+    - [ ] On save clear input
+
+5. Todo List
     - [ ] List toolbar functionality
     - [ ] View layout and modal styles

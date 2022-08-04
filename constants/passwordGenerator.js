@@ -5,6 +5,8 @@ export const initialValues = {
     lowerCase: true,
     upperCase: true,
     excludeSimilar: false,
+    password: '',
+    showPassword: false,
 }
 
 export const marks = [

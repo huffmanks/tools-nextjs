@@ -2,31 +2,67 @@ import { createContext, useCallback, useState } from 'react'
 
 export const GlobalStateContext = createContext({
     toasts: {
-        message: '',
+        toastOpen: false,
+        toastMessage: '',
         addToast: () => {},
         removeToast: () => {},
+    },
+    modals: {
+        modalId: null,
+        modalOpen: false,
+        modalData: [],
+        addModal: () => {},
+        removeModal: () => {},
     },
 })
 
 const GlobalStateProvider = ({ children }) => {
-    const [message, setMessage] = useState('')
-    const [open, setOpen] = useState(false)
+    const [toastOpen, setToastOpen] = useState(false)
+    const [toastMessage, setToastMessage] = useState('')
 
     const addToast = (text) => {
-        setMessage(text)
-        setOpen(true)
+        setToastMessage(text)
+        setToastOpen(true)
     }
+
     const removeToast = () => {
-        setMessage('')
-        setOpen(false)
+        setToastOpen(false)
+        setToastMessage('')
+    }
+
+    const [modalId, setModalId] = useState(null)
+    const [modalOpen, setModalOpen] = useState(false)
+    const [modalData, setModalData] = useState([])
+
+    const addModal = (arr, id) => {
+        const data = arr.filter((item) => {
+            return item.id === id
+        })
+
+        setModalId(id)
+        setModalData(data[0])
+        setModalOpen(true)
+    }
+
+    const removeModal = () => {
+        setModalOpen(false)
+        setModalId(null)
+        setModalData([])
     }
 
     const contextValue = {
         toasts: {
-            message,
-            open,
+            toastOpen,
+            toastMessage,
             addToast: useCallback((text) => addToast(text), []),
             removeToast: useCallback(() => removeToast(), []),
+        },
+        modals: {
+            modalId,
+            modalOpen,
+            modalData,
+            addModal: useCallback((arr, id) => addModal(arr, id), []),
+            removeModal: useCallback(() => removeModal(), []),
         },
     }
 

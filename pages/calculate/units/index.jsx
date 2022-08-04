@@ -1,12 +1,13 @@
-import { useUnitCalculatorFormControls } from '../../../hooks/useUnitCalculatorFormControls'
+import { useUnitCalculatorFormControls } from '../../../helpers/UnitCalculator/useUnitCalculatorFormControls'
 
 import { Typography } from '@mui/material'
 
-import SEO from '../../../components/layout/SEO'
-import PageTitle from '../../../components/layout/PageTitle'
-import LoadingSkeleton from '../../../components/UnitCalculator/LoadingSkeleton'
-import UnitInputs from '../../../components/UnitCalculator/UnitInputs'
-import UnitOutput from '../../../components/UnitCalculator/UnitOutput'
+import SEO from '../../../components/common/SEO'
+import PageTitle from '../../../components/common/PageTitle'
+
+import LoadingSkeleton from '../../../features/UnitCalculator/LoadingSkeleton'
+import UnitInputs from '../../../features/UnitCalculator/UnitInputs'
+import UnitOutput from '../../../features/UnitCalculator/UnitOutput'
 
 const UnitCalculator = () => {
     const { isLoading, values, currentUnits, handleChange, handleFocus } = useUnitCalculatorFormControls()
@@ -14,6 +15,7 @@ const UnitCalculator = () => {
     return (
         <>
             <SEO description='Calculate different unit types.' title='Unit Calculator' url='/calculate/units' imageUrl='/unit-calculator.png' />
+
             <PageTitle>Unit Calculator</PageTitle>
 
             <Typography paragraph mb={5}>

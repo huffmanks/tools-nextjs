@@ -4,7 +4,7 @@ import theme from '../theme'
 
 import GlobalStateProvider from '../context/GlobalStateProvider'
 import Layout from '../components/layout'
-import Toast from '../components/layout/Toast'
+import Toast from '../components/common/Toast'
 
 import '../styles/globals.css'
 import Script from 'next/script'
