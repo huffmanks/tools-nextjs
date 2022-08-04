@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 
+import { useGlobalState } from '../../../hooks/useGlobalState'
 import { useCounter } from '../../../hooks/useCounter'
 import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard'
 import { generateSeparatedStrings } from '../../../utilities/generateSeparatedStrings'
@@ -16,7 +17,9 @@ import OutputMessage from '../../layout/OutputMessage'
 
 const ItemPicker = () => {
     const resultRef = useRef(null)
-    const [copy] = useCopyToClipboard()
+
+    const { addToast } = useGlobalState()
+    const [copy] = useCopyToClipboard(true)
 
     const [items, setItems] = useState(initialItems)
     const [errorMessage, setErrorMessage] = useState('')
@@ -30,8 +33,18 @@ const ItemPicker = () => {
         }
         setItems({
             ...items,
-            [name]: value.replace(/\n\s*\n/g, '\n').trim(),
+            [name]: value,
         })
+    }
+
+    const handleBlur = (e) => {
+        const { name, value } = e.target
+        if (name === 'list') {
+            setItems({
+                ...items,
+                list: value.replace(/\n\s*\n/g, '\n').trim(),
+            })
+        }
     }
 
     const handleClick = () => {
@@ -52,7 +65,16 @@ const ItemPicker = () => {
     }
 
     const handleCopy = async () => {
-        copy(resultRef.current)
+        const copySuccess = await copy(resultRef.current)
+
+        if (copySuccess) {
+            addToast('Copied to clipboard!')
+        }
+    }
+
+    const handleReset = () => {
+        setItems(initialItems)
+        setErrorMessage('')
     }
 
     return (
@@ -77,12 +99,14 @@ const ItemPicker = () => {
                         placeholder='Insert a list here'
                         value={items.list}
                         onChange={handleChange}
+                        onBlur={handleBlur}
                         error={!!errorMessage}
                         {...(errorMessage && {
                             error: true,
                             helperText: errorMessage,
                         })}
                         sx={{
+                            marginBottom: 4,
                             '& textarea::-webkit-scrollbar': {
                                 width: 12,
                             },
@@ -100,7 +124,7 @@ const ItemPicker = () => {
                         }}
                     />
 
-                    <ActionGroup isDisabled={!items?.output?.length} generateAria='pick items from a list' handleClick={handleClick} handleCopy={handleCopy} />
+                    <ActionGroup isDisabled={!items?.output?.length} generateAria='pick items from a list' handleClick={handleClick} handleCopy={handleCopy} handleReset={handleReset} />
                 </Grid>
                 <Grid item xs={12} md={5}>
                     {items?.output?.length > 0 ? (

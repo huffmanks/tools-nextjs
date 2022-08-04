@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { useGlobalState } from './useGlobalState'
 import { useLocalStorage } from './useLocalStorage'
 import { uniqueId } from '../utilities/uniqueId'
 import { initialValues, initialErrors } from '../constants/todoList'
@@ -15,6 +16,9 @@ export const useTodoListFormControls = () => {
     const [items, setItems] = useState([])
     const [errors, setErrors] = useState(initialErrors)
     const [formIsValid, setFormIsValid] = useState(false)
+
+    const [listModal, setListModal] = useState(false)
+    const { addToast } = useGlobalState()
 
     useEffect(() => {
         if (saved?.length) {
@@ -90,31 +94,26 @@ export const useTodoListFormControls = () => {
         setFormIsValid(false)
     }
 
-    const handleUpdate = (list, type) => {
-        // const newList = saved.filter((item) => item.id === list.id)
-        console.log('updated')
+    const handleOpenModal = () => {
+        setListModal(true)
+    }
 
-        // if (newList?.length) {
-        // const update =
-        //     type === 'favorite'
-        //         ? {
-        //               ...list,
-        //               isFavorite: !list.isFavorite,
-        //           }
-        //         : type === 'title'
-        //         ? {
-        //               ...list,
-        //               title: list.title,
-        //           }
-        //         : type === 'items'
-        //         ? {
-        //               ...list,
-        //               items: list.items,
-        //           }
-        //         : {}
+    const handleCloseModal = () => {
+        setListModal(false)
+    }
 
-        // setLists([...lists, update])
-        // setSaved([...saved, update])
+    const handleDelete = (list) => {
+        const newList = saved.filter((item) => item.id !== list.id)
+
+        setListModal(false)
+
+        setLists([...newList])
+        setSaved([...newList])
+
+        // setLists((prev) => [prev.filter((item) => item.id !== list.id)])
+        // setSaved((prev) => [prev.filter((item) => item.id !== list.id)])
+
+        addToast(`${list.title} deleted successfully!`)
     }
 
     useEffect(() => {
@@ -128,10 +127,13 @@ export const useTodoListFormControls = () => {
         formIsValid,
         items,
         lists,
+        listModal,
         handleScreen,
         handleChange,
         handleAddItem,
         handleSubmit,
-        handleUpdate,
+        handleOpenModal,
+        handleCloseModal,
+        handleDelete,
     }
 }

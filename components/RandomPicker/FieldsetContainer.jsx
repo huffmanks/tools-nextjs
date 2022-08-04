@@ -1,31 +1,16 @@
 import { FormControl, FormHelperText, FormLabel } from '@mui/material'
 
 const FieldsetContainer = ({ title, helperText, size, isFullWidth, children }) => {
-    const styles =
-        size === 'large'
-            ? {
-                  control: {
-                      width: isFullWidth ? '100%' : 'auto',
-                      marginBottom: 3,
-                  },
-                  label: {
-                      marginBottom: 3,
-                  },
-              }
-            : size === 'medium'
-            ? {
-                  label: {
-                      marginBottom: 3,
-                  },
-              }
-            : {
-                  control: {
-                      display: 'block',
-                  },
-                  label: {
-                      marginBottom: 1,
-                  },
-              }
+    const styles = {
+        control: {
+            display: size === 'small' ? 'block' : 'initial',
+            width: isFullWidth ? '100%' : 'auto',
+            marginBottom: 3,
+        },
+        label: {
+            marginBottom: size === 'small' ? 1 : 3,
+        },
+    }
     return (
         <>
             <FormControl component='fieldset' variant='standard' sx={styles?.control}>

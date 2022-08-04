@@ -1,8 +1,18 @@
+import { useGlobalState } from '../../hooks/useGlobalState'
+import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
+
 import { Box } from '@mui/material'
 
 const ColorItem = ({ colorValue, textColor }) => {
-    const handleClipboard = () => {
-        return navigator.clipboard.writeText(colorValue)
+    const { addToast } = useGlobalState()
+    const [copy] = useCopyToClipboard()
+
+    const handleCopy = async () => {
+        const copySuccess = await copy(colorValue)
+
+        if (copySuccess) {
+            addToast('Copied to clipboard!')
+        }
     }
 
     return (
@@ -34,7 +44,7 @@ const ColorItem = ({ colorValue, textColor }) => {
                     fontSize: '14px',
                 },
             }}
-            onClick={handleClipboard}>
+            onClick={handleCopy}>
             {colorValue}
         </Box>
     )

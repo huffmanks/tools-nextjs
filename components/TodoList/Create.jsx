@@ -1,10 +1,14 @@
+import { useTodoListFormControls } from '../../hooks/useTodoListFormControls'
+
 import { Box, Grid, Button, IconButton, InputAdornment, TextField, Stack, Typography } from '@mui/material'
 
 import AddIcon from '@mui/icons-material/Add'
 import DesignServicesIcon from '@mui/icons-material/DesignServices'
 import OutputMessage from '../layout/OutputMessage'
 
-const Create = ({ values, errors, items, handleChange, handleAddItem, handleSubmit, formIsValid }) => {
+const Create = () => {
+    const { values, errors, formIsValid, items, handleChange, handleAddItem, handleSubmit } = useTodoListFormControls()
+
     return (
         <>
             <Typography paragraph mb={5}>

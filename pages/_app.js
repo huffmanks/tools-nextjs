@@ -1,8 +1,10 @@
 import Head from 'next/head'
 import { ThemeProvider } from '@mui/material/styles'
-
-import Layout from '../components/layout'
 import theme from '../theme'
+
+import GlobalStateProvider from '../context/GlobalStateProvider'
+import Layout from '../components/layout'
+import Toast from '../components/layout/Toast'
 
 import '../styles/globals.css'
 import Script from 'next/script'
@@ -19,9 +21,12 @@ const App = ({ Component, pageProps }) => {
             )}
 
             <ThemeProvider theme={theme}>
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
+                <GlobalStateProvider>
+                    <Layout>
+                        <Component {...pageProps} />
+                    </Layout>
+                    <Toast />
+                </GlobalStateProvider>
             </ThemeProvider>
         </>
     )

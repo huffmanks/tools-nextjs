@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 
+import { useGlobalState } from '../../hooks/useGlobalState'
 import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
 import { getColorCode } from '../../constants/emailSignature'
 
@@ -11,10 +12,15 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 const EmailOutput = ({ values }) => {
     const resultRef = useRef(null)
 
-    const [copy] = useCopyToClipboard(true)
+    const { addToast } = useGlobalState()
+    const [copy] = useCopyToClipboard(true, true)
 
-    const handleClick = async () => {
-        copy(resultRef.current)
+    const handleCopy = async () => {
+        const copySuccess = await copy(resultRef.current)
+
+        if (copySuccess) {
+            addToast('Copied to clipboard!')
+        }
     }
 
     return (
@@ -77,7 +83,7 @@ const EmailOutput = ({ values }) => {
                         },
                     }}
                     aria-label='copy email signature'
-                    onClick={handleClick}>
+                    onClick={handleCopy}>
                     <ContentCopyIcon />
                 </IconButton>
             </Box>

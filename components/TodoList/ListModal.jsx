@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useTodoListFormControls } from '../../hooks/useTodoListFormControls'
 
 import { Backdrop, Box, Button, Fade, IconButton, Modal, Typography } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
@@ -6,43 +6,32 @@ import MoreVertIcon from '@mui/icons-material/MoreVert'
 
 import ListToolbar from './ListToolbar'
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 325,
-    bgcolor: 'background.paper',
-    borderRadius: 2,
-    overflow: 'hidden',
-}
+const ListModal = ({ list, index, listRefs, handleCopy }) => {
+    const { listModal, handleOpenModal, handleCloseModal } = useTodoListFormControls()
 
-const ListModal = ({ list, index, listRefs, handleCopy, handleUpdate }) => {
-    const [open, setOpen] = useState(false)
-    const handleOpen = () => setOpen(true)
-    const handleClose = () => setOpen(false)
     return (
         <>
-            <Button fullWidth variant='contained' onClick={handleOpen} endIcon={<MoreVertIcon fontSize='medium' />} sx={{ display: 'flex', justifyContent: 'space-between', fontSize: 20 }}>
+            <Button fullWidth variant='contained' onClick={handleOpenModal} endIcon={<MoreVertIcon fontSize='medium' />} sx={{ display: 'flex', justifyContent: 'space-between', fontSize: 20 }}>
                 {list.title}
             </Button>
+
             <Modal
                 aria-labelledby={`transition-modal-${list.title}`}
-                aria-describedby={`transition-modal-${list.items[0].text}`}
-                open={open}
-                onClose={handleClose}
+                aria-describedby={`transition-modal-${list.title}`}
+                open={listModal}
+                onClose={handleCloseModal}
                 closeAfterTransition
                 BackdropComponent={Backdrop}
                 BackdropProps={{
                     timeout: 500,
                 }}>
-                <Fade in={open}>
-                    <Box sx={style}>
+                <Fade in={listModal}>
+                    <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 325, bgcolor: 'background.paper', borderRadius: 2, overflow: 'hidden' }}>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 2, p: 2, bgcolor: 'primary.main' }}>
                             <Typography fontSize={24} lineHeight={1.15}>
                                 {list.title}
                             </Typography>
-                            <IconButton aria-label='close modal' onClick={handleClose} sx={{ p: 0 }}>
+                            <IconButton aria-label='close modal' onClick={handleCloseModal} sx={{ p: 0 }}>
                                 <CloseIcon />
                             </IconButton>
                         </Box>
@@ -52,7 +41,8 @@ const ListModal = ({ list, index, listRefs, handleCopy, handleUpdate }) => {
                                 <div key={item.id}>{item.text}</div>
                             ))}
                         </Box>
-                        <ListToolbar list={list} handleCopy={() => handleCopy(listRefs.current[index])} handleUpdate={handleUpdate} />
+
+                        <ListToolbar list={list} handleCopy={() => handleCopy(listRefs.current[index])} />
                     </Box>
                 </Fade>
             </Modal>

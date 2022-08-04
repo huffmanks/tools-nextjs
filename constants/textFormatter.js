@@ -11,11 +11,11 @@ export const initialValues = {
     constantCase: '',
     check_lowerCase: false,
     check_upperCase: false,
-    check_capitalCase: false,
+    check_capitalCase: true,
     check_sentenceCase: false,
     check_camelCase: false,
     check_snakeCase: false,
-    check_headerCase: false,
+    check_headerCase: true,
     check_constantCase: false,
 }
 

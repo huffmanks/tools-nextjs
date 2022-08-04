@@ -1,15 +1,22 @@
 import { useEffect, useState } from 'react'
 
 import { camelCase, constantCase, headerCase, sentenceCase, snakeCase } from 'change-case'
+
+import { useGlobalState } from './useGlobalState'
+import { useCopyToClipboard } from './useCopyToClipboard'
 import { useLocalStorage } from './useLocalStorage'
+
 import { uniqueId } from '../utilities/uniqueId'
 import { titleCase } from '../utilities/titleCase'
 import { initialValues } from '../constants/textFormatter'
 
 export const useTextFormatterFormControls = () => {
+    const { addToast } = useGlobalState()
+
     const [values, setValues] = useState(initialValues)
 
     const [saved, setSaved] = useLocalStorage('webtools-v1-text-formatter-saved', [])
+    const [copy] = useCopyToClipboard()
 
     const [savedId, setSavedId] = useState(uniqueId)
 
@@ -72,8 +79,12 @@ export const useTextFormatterFormControls = () => {
         }
     }
 
-    const handleCopy = (name) => {
-        return navigator.clipboard.writeText(values[name])
+    const handleCopy = async (name) => {
+        const copySuccess = await copy(values[name])
+
+        if (copySuccess) {
+            addToast('Copied to clipboard!')
+        }
     }
 
     const handleReset = () => {
@@ -106,6 +117,8 @@ export const useTextFormatterFormControls = () => {
             ])
 
             setSavedId((prev) => prev + 1)
+
+            addToast('Item saved for later!')
         }
     }
 

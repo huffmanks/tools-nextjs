@@ -1,11 +1,17 @@
 import { useState } from 'react'
 
+import { useGlobalState } from '../../hooks/useGlobalState'
+import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
+
 import { TextField, InputAdornment, IconButton } from '@mui/material'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 
 const ColorInput = ({ inputLabel, inputName, colorType }) => {
     const [active, setActive] = useState(false)
     const [value, setValue] = useState(colorType)
+
+    const { addToast } = useGlobalState()
+    const [copy] = useCopyToClipboard(false)
 
     const handleFocus = (e) => {
         setActive(true)
@@ -21,8 +27,12 @@ const ColorInput = ({ inputLabel, inputName, colorType }) => {
         setValue(colorType)
     }
 
-    const handleCopy = () => {
-        return navigator.clipboard.writeText(colorType)
+    const handleCopy = async () => {
+        const copySuccess = await copy(colorType)
+
+        if (copySuccess) {
+            addToast('Copied to clipboard!')
+        }
     }
 
     return (

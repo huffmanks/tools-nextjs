@@ -1,9 +1,22 @@
+import { useGlobalState } from '../../hooks/useGlobalState'
+import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
 import { aspectOutput } from '../../constants/aspectRatio'
 
 import { Grid, TextField, InputAdornment, IconButton } from '@mui/material'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 
 const AspectValues = ({ values }) => {
+    const { addToast } = useGlobalState()
+    const [copy] = useCopyToClipboard()
+
+    const handleCopy = async (name) => {
+        const copySuccess = await copy(name)
+
+        if (copySuccess) {
+            addToast('Copied to clipboard!')
+        }
+    }
+
     return (
         <>
             {aspectOutput.map((output, index) => (
@@ -23,7 +36,7 @@ const AspectValues = ({ values }) => {
                             endAdornment: (
                                 <InputAdornment position='end'>
                                     {values[output.name] && (
-                                        <IconButton aria-label='copy value to clipboard' onClick={() => navigator.clipboard.writeText(values[output.name])} edge='end'>
+                                        <IconButton aria-label='copy value to clipboard' onClick={() => handleCopy(values[output.name])} edge='end'>
                                             <ContentCopyIcon />
                                         </IconButton>
                                     )}

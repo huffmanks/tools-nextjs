@@ -10,7 +10,6 @@ const NumberOptions = ({ values, handleChange, handleDecrease, handleIncrease })
         <>
             <FieldsetContainer
                 title='Result options'
-                size='large'
                 helperText={
                     values.total
                         ? `There will be ${values.total} number${values.total > 1 ? 's' : ''} that ${values.total > 1 ? 'are' : 'is'} ${values.unique ? 'unique' : 'non-unique'} and ${

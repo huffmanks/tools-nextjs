@@ -8,9 +8,9 @@
     - [ ] Copy to clipboard snackbar (success/failed)
     - [ ] PWA \_redirects precache error
 
-2. Random Picker
+2. Item Picker
 
-    - [ ] Item picker output styles
+    - [ ] Ouput to comma, pipe
 
 3. Todo List
     - [ ] List toolbar functionality

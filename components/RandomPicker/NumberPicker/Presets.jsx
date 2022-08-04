@@ -7,6 +7,7 @@ const Presets = ({ values, handleChange }) => {
         <>
             <FieldsetContainer
                 title='Presets'
+                size='small'
                 helperText={
                     values.isPowerball
                         ? 'Four numbers between 1-69 and one number between 1-26 for the powerball.'

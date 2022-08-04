@@ -1,3 +1,6 @@
+import { useGlobalState } from '../../hooks/useGlobalState'
+import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
+
 import { FormGroup, IconButton, InputAdornment, TextField } from '@mui/material'
 
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
@@ -5,6 +8,17 @@ import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 
 const PasswordOutput = ({ password, showPassword, setShowPassword }) => {
+    const { addToast } = useGlobalState()
+    const [copy] = useCopyToClipboard()
+
+    const handleCopy = async () => {
+        const copySuccess = await copy(password)
+
+        if (copySuccess) {
+            addToast('Copied to clipboard!')
+        }
+    }
+
     return (
         <FormGroup>
             <TextField
@@ -38,7 +52,7 @@ const PasswordOutput = ({ password, showPassword, setShowPassword }) => {
                     ),
                     endAdornment: (
                         <InputAdornment position='end'>
-                            <IconButton aria-label='copy value to clipboard' onClick={() => navigator.clipboard.writeText(password)} edge='end'>
+                            <IconButton aria-label='copy value to clipboard' onClick={handleCopy} edge='end'>
                                 <ContentCopyIcon />
                             </IconButton>
                         </InputAdornment>
