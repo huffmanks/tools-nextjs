@@ -1,3 +1,4 @@
+// Page icons
 import AspectRatioIcon from '@mui/icons-material/AspectRatio'
 import ColorLensIcon from '@mui/icons-material/ColorLens'
 import DesignServicesIcon from '@mui/icons-material/DesignServices'
@@ -6,7 +7,14 @@ import KeyIcon from '@mui/icons-material/Key'
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd'
 import ScaleIcon from '@mui/icons-material/Scale'
 import ShuffleIcon from '@mui/icons-material/Shuffle'
+import TagIcon from '@mui/icons-material/Tag'
 import TextFieldsIcon from '@mui/icons-material/TextFields'
+
+// Group icons
+import CalculateIcon from '@mui/icons-material/Calculate'
+import FormatPaintIcon from '@mui/icons-material/FormatPaint'
+import FactoryIcon from '@mui/icons-material/Factory'
+import SelectAllIcon from '@mui/icons-material/SelectAll'
 
 export const mainRoutes = [
     {
@@ -85,19 +93,26 @@ export const pickerRoutes = [
         description: 'Choose a color in HEX, RGB or HSL.',
     },
     {
-        path: '/picker/random',
-        name: 'Random',
-        homeName: 'Random Picker',
-        key: 'random-picker',
+        path: '/picker/item',
+        name: 'Item',
+        homeName: 'Item Picker',
+        key: 'item-picker',
         icon: <ShuffleIcon />,
-        description: 'Get a random number or item.',
+        description: 'Get a random item from a list.',
+    },
+    {
+        path: '/picker/number',
+        name: 'Number',
+        homeName: 'Number Picker',
+        key: 'number-picker',
+        icon: <TagIcon />,
+        description: 'Get a random number.',
     },
 ]
 
 export const navItems = [
-    { routes: mainRoutes },
-    { routes: calculateRoutes, groupName: 'Calculate' },
-    { routes: formatRoutes, groupName: 'Format' },
-    { routes: generateRoutes, groupName: 'Generate' },
-    { routes: pickerRoutes, groupName: 'Picker' },
+    { routes: calculateRoutes, label: 'Calculate', value: 'calculate', icon: <CalculateIcon /> },
+    { routes: formatRoutes, label: 'Format', value: 'format', icon: <FormatPaintIcon /> },
+    { routes: generateRoutes, label: 'Generate', value: 'generate', icon: <FactoryIcon /> },
+    { routes: pickerRoutes, label: 'Picker', value: 'picker', icon: <SelectAllIcon /> },
 ]

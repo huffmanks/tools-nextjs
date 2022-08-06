@@ -4,10 +4,10 @@ import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui
 
 import NavDivider from './NavDivider'
 
-const NavItem = ({ router, routes, open, setOpen, groupName }) => {
+const NavItem = ({ router, routes, open, setOpen, label, isHomePage }) => {
     return (
         <>
-            {groupName && <NavDivider open={open} groupName={groupName} />}
+            {!isHomePage && <NavDivider open={open} label={label} />}
             <List>
                 {routes.map(({ key, path, name, icon }) => (
                     <ListItem key={key} disablePadding sx={{ display: 'block' }}>

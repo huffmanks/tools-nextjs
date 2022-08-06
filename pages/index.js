@@ -1,20 +1,20 @@
 import { useState } from 'react'
 
-import { calculateRoutes, formatRoutes, generateRoutes, pickerRoutes } from '../constants/routes'
+import { calculateRoutes, formatRoutes, generateRoutes, navItems, pickerRoutes } from '../constants/routes'
 
-import { Box, Tab, Tabs, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 
 import SEO from '../components/common/SEO'
 import PageTitle from '../components/common/PageTitle'
 
-import { a11yProps, TabPanel } from '../features/Home/TabPanel'
 import CardLinks from '../features/Home/CardLinks'
+import BottomMenu from '../components/layout/BottomMenu'
 
 const Home = () => {
-    const [value, setValue] = useState(0)
+    const [screen, setScreen] = useState('calculate')
 
-    const handleChange = (_, newValue) => {
-        setValue(newValue)
+    const handleScreen = (_, newScreen) => {
+        setScreen(newScreen)
     }
     return (
         <>
@@ -26,30 +26,15 @@ const Home = () => {
                 List of tools to help speed web development.
             </Typography>
 
-            <Box sx={{ width: '100%' }}>
-                <Tabs variant='scrollable' scrollButtons allowScrollButtonsMobile value={value} onChange={handleChange} aria-label='tabs for pages' sx={{ marginBottom: 4 }}>
-                    <Tab label='Calculate' {...a11yProps(0)} />
-                    <Tab label='Format' {...a11yProps(1)} />
-                    <Tab label='Generate' {...a11yProps(2)} />
-                    <Tab label='Picker' {...a11yProps(3)} />
-                </Tabs>
+            <BottomMenu screen={screen} handleScreen={handleScreen} navItems={navItems}>
+                {screen === 'calculate' && <CardLinks routes={calculateRoutes} />}
 
-                <TabPanel value={value} index={0}>
-                    <CardLinks routes={calculateRoutes} />
-                </TabPanel>
+                {screen === 'format' && <CardLinks routes={formatRoutes} />}
 
-                <TabPanel value={value} index={1}>
-                    <CardLinks routes={formatRoutes} />
-                </TabPanel>
+                {screen === 'generate' && <CardLinks routes={generateRoutes} />}
 
-                <TabPanel value={value} index={2}>
-                    <CardLinks routes={generateRoutes} />
-                </TabPanel>
-
-                <TabPanel value={value} index={3}>
-                    <CardLinks routes={pickerRoutes} />
-                </TabPanel>
-            </Box>
+                {screen === 'picker' && <CardLinks routes={pickerRoutes} />}
+            </BottomMenu>
         </>
     )
 }

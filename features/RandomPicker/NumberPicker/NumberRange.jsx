@@ -10,9 +10,10 @@ const NumberRange = ({ values, handleChange }) => {
             <FieldsetContainer title='Number range' helperText={`The results will be between ${values.start} and ${values.end}`}>
                 <FormGroup
                     sx={{
+                        flexDirection: 'row',
                         gap: {
                             xs: 0,
-                            sm: 2,
+                            xms: 2,
                         },
                         marginBottom: 1,
                     }}>
@@ -25,19 +26,19 @@ const NumberRange = ({ values, handleChange }) => {
                         onChange={handleChange}
                         autoComplete='none'
                         sx={{
-                            flex: 1,
+                            // flex: 1,
                             '& fieldset': {
                                 borderBottomLeftRadius: {
                                     xs: 0,
-                                    sm: 4,
+                                    xms: 4,
                                 },
                                 borderBottomRightRadius: {
                                     xs: 0,
-                                    sm: 4,
+                                    xms: 4,
                                 },
                                 borderBottomColor: {
                                     xs: 'transparent',
-                                    sm: 'rgba(255, 255, 255, 0.23)',
+                                    xms: 'rgba(255, 255, 255, 0.23)',
                                 },
                             },
                         }}
@@ -52,7 +53,7 @@ const NumberRange = ({ values, handleChange }) => {
                         onChange={handleChange}
                         autoComplete='none'
                         sx={{
-                            flex: 1,
+                            // flex: 1,
                             '& fieldset': {
                                 borderTopLeftRadius: {
                                     xs: 0,

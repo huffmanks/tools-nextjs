@@ -1,28 +1,21 @@
-import { useItemPickerFormControls } from '../../../helpers/RandomPicker/useItemPickerFormControls'
-
-import { useCounter } from '../../../hooks/useCounter'
-
-import { Grid, Stack, TextField } from '@mui/material'
+import { Box, Grid, Stack, TextField } from '@mui/material'
 
 import FieldsetContainer from '../FieldsetContainer'
 import Counter from '../Counter'
 import ActionGroup from '../ActionGroup'
 
 import Delimiters from './Delimiters'
-import ItemOutput from './ItemOutput'
+import OutputMessage from '../../../components/common/OutputMessage'
 
-const ItemPicker = () => {
-    const { resultRef, items, errorMessage, setItems, handleChange, handleBlur, handleClick, handleCopy, handleReset } = useItemPickerFormControls()
-    const { handleDecrease, handleIncrease } = useCounter(items, setItems)
-
+const ItemForm = ({ resultRef, values, errorMessage, handleChange, handleBlur, handleClick, handleCopy, handleReset, handleDecrease, handleIncrease }) => {
     return (
         <>
             <Grid container spacing={5}>
                 <Grid item xs={12} md={7}>
-                    <FieldsetContainer title='Result options' size='large' isFullWidth helperText={`There will be ${items.total} item${items.total > 1 ? 's' : ''} selected from the list.`}>
+                    <FieldsetContainer title='Result options' size='large' isFullWidth helperText={`There will be ${values.total} item${values.total > 1 ? 's' : ''} selected from the list.`}>
                         <Stack direction={{ xs: 'column', md: 'row' }} gap={{ xs: 0, sm: 2 }} mb={1}>
-                            <Counter values={items} handleChange={handleChange} handleDecrease={handleDecrease} handleIncrease={handleIncrease} />
-                            <Delimiters items={items} handleChange={handleChange} />
+                            <Counter values={values} handleChange={handleChange} handleDecrease={handleDecrease} handleIncrease={handleIncrease} />
+                            <Delimiters values={values} handleChange={handleChange} />
                         </Stack>
                     </FieldsetContainer>
 
@@ -35,7 +28,7 @@ const ItemPicker = () => {
                         name='list'
                         label='List Items'
                         placeholder='Insert a list here'
-                        value={items.list}
+                        value={values.list}
                         onChange={handleChange}
                         onBlur={handleBlur}
                         error={!!errorMessage}
@@ -44,7 +37,7 @@ const ItemPicker = () => {
                             helperText: errorMessage,
                         })}
                         sx={{
-                            marginBottom: 4,
+                            marginBottom: 1,
                             '& textarea::-webkit-scrollbar': {
                                 width: 12,
                             },
@@ -61,14 +54,25 @@ const ItemPicker = () => {
                             },
                         }}
                     />
-
-                    <ActionGroup isDisabled={!items?.output?.length} generateAria='pick items from a list' handleClick={handleClick} handleCopy={handleCopy} handleReset={handleReset} />
                 </Grid>
+                <Grid item xs={12} md={5}>
+                    <ActionGroup isDisabled={!values?.output?.length} generateAria='pick items from a list' handleClick={handleClick} handleCopy={handleCopy} handleReset={handleReset} />
 
-                <ItemOutput resultRef={resultRef} items={items} />
+                    <Box sx={{ marginTop: 5 }}>
+                        {values?.output?.length > 0 ? (
+                            <div ref={resultRef}>
+                                {values.output.map((item, i) => (
+                                    <div key={i}>{item}</div>
+                                ))}
+                            </div>
+                        ) : (
+                            <OutputMessage message='No items to show.' />
+                        )}
+                    </Box>
+                </Grid>
             </Grid>
         </>
     )
 }
 
-export default ItemPicker
+export default ItemForm

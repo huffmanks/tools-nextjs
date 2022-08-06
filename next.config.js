@@ -33,7 +33,8 @@ module.exports = (phase, { defaultConfig }) => {
                             '/generate/password/index': { page: '/generate/password' },
                             '/generate/todo/index': { page: '/generate/todo' },
                             '/picker/color/index': { page: '/picker/color' },
-                            '/picker/random/index': { page: '/picker/random' },
+                            '/picker/item/index': { page: '/picker/item' },
+                            '/picker/number/index': { page: '/picker/number' },
                         }
                     },
                 }),

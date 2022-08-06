@@ -3,7 +3,7 @@ import { useRef, useState } from 'react'
 import { useGlobalState } from '../../hooks/useGlobalState'
 import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
 import { generateRandomNumbers } from '../../utilities/generateRandomNumbers'
-import { initialValues, megaMillionsValues, powerballValues } from '../../constants/randomPicker'
+import { initialValues, megaMillionsValues, powerballValues } from '../../constants/numberPicker'
 
 export const useNumberPickerFormControls = () => {
     const resultRef = useRef(null)

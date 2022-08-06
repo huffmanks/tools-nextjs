@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
-import { navItems } from '../../constants/routes'
+import { mainRoutes, navItems } from '../../constants/routes'
 
 import { styled, useTheme } from '@mui/material/styles'
-import { Box, Toolbar, CssBaseline, Divider, IconButton, Container } from '@mui/material'
+import { Box, Toolbar, CssBaseline, IconButton, Container } from '@mui/material'
 
 import MuiAppBar from '@mui/material/AppBar'
 import MuiDrawer from '@mui/material/Drawer'
@@ -40,6 +40,7 @@ const closedMixin = (theme) => ({
 })
 
 const DrawerHeader = styled('div')(({ theme }) => ({
+    height: '64px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -48,6 +49,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }))
 
 const AppBar = styled(MuiAppBar)(({ theme, open }) => ({
+    backgroundImage: 'none',
+    borderBottom: '1px solid rgba(255, 255, 255, 0.12)',
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
@@ -88,7 +91,16 @@ const Layout = ({ children }) => {
     }
 
     return (
-        <Box sx={{ paddingLeft: '57px' }}>
+        <Box
+            sx={{
+                minHeight: '100vh',
+                paddingTop: '65px',
+                paddingLeft: {
+                    xs: '57px',
+                    sm: '65px',
+                    md: open ? '240px' : '65px',
+                },
+            }}>
             <CssBaseline />
             <AppBar position='fixed' open={open}>
                 <Toolbar sx={{ height: '64px' }}>
@@ -108,7 +120,7 @@ const Layout = ({ children }) => {
                 </Toolbar>
             </AppBar>
             <Drawer variant='permanent' open={open}>
-                <DrawerHeader sx={{ height: '64px' }}>
+                <DrawerHeader>
                     <AppBarLogo logoSize={28} textSize={23} />
 
                     <IconButton aria-label='toggle menu' onClick={handleDrawerOpen}>
@@ -116,29 +128,25 @@ const Layout = ({ children }) => {
                     </IconButton>
                 </DrawerHeader>
 
-                <Divider />
+                <NavItem router={router} routes={mainRoutes} open={open} setOpen={setOpen} label={mainRoutes[0].name} isHomePage />
 
                 {navItems.map((navItem, index) => (
-                    <NavItem key={index} router={router} routes={navItem.routes} open={open} setOpen={setOpen} groupName={navItem?.groupName} />
+                    <NavItem key={index} router={router} routes={navItem.routes} open={open} setOpen={setOpen} label={navItem.label} />
                 ))}
             </Drawer>
             <Box
                 component='main'
                 sx={{
                     flexGrow: 1,
-                    p: {
-                        xs: 3,
-                        md: 4,
-                    },
-                    ...(open && { paddingLeft: '212px' }),
                 }}>
-                <DrawerHeader sx={{ height: '64px' }} />
                 <Container
                     sx={{
+                        minHeight: 'calc(100vh - 65px)',
                         marginInline: 0,
-                        paddingInline: {
-                            xs: 0,
-                            sm: 3,
+                        padding: {
+                            xs: 3,
+                            sm: 4,
+                            md: 5,
                         },
                     }}>
                     <>{children}</>

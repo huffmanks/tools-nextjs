@@ -24,7 +24,7 @@ const AppBarLogo = ({ logoSize, textSize, open }) => {
                     }}>
                     <SvgIcon
                         viewBox='0 0 20 20'
-                        color='primary'
+                        color='icon'
                         sx={{
                             width: logoSize,
                             height: logoSize,

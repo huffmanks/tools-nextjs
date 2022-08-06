@@ -16,6 +16,9 @@ const globalTheme = createTheme({
         primary: {
             main: '#5b21b6',
         },
+        icon: {
+            main: '#6214e1',
+        },
     },
     typography: {
         fontFamily: `'Montserrat', sans-serif`,
@@ -34,22 +37,33 @@ const globalTheme = createTheme({
 
 const theme = createTheme({
     ...globalTheme,
-    typography: {
-        ...globalTheme.typography,
-        h2: {
-            marginBottom: 32,
-            fontSize: 24,
-            [globalTheme.breakpoints.up('md')]: {
-                fontSize: '2.15rem',
+    components: {
+        MuiTypography: {
+            styleOverrides: {
+                h2: {
+                    marginBottom: 32,
+                    fontSize: 24,
+                    [globalTheme.breakpoints.up('md')]: {
+                        fontSize: '2.15rem',
+                    },
+                },
             },
         },
-    },
-    components: {
         MuiFormLabel: {
             styleOverrides: {
                 root: {
                     '&.Mui-focused': {
                         color: globalTheme.palette.text.primary,
+                    },
+                },
+            },
+        },
+        MuiSnackbar: {
+            styleOverrides: {
+                root: {
+                    [globalTheme.breakpoints.up('xs')]: {
+                        left: 'auto',
+                        right: 24,
                     },
                 },
             },

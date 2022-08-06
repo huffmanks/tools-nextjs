@@ -4,7 +4,7 @@ import { useGlobalState } from '../../hooks/useGlobalState'
 import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
 import { generateSeparatedStrings } from './generateSeparatedStrings'
 import { generateRandomNumbers } from '../../utilities/generateRandomNumbers'
-import { initialItems } from '../../constants/randomPicker'
+import { initialValues } from '../../constants/itemPicker'
 
 export const useItemPickerFormControls = () => {
     const resultRef = useRef(null)
@@ -12,7 +12,7 @@ export const useItemPickerFormControls = () => {
     const { addToast } = useGlobalState()
     const [copy] = useCopyToClipboard(true)
 
-    const [items, setItems] = useState(initialItems)
+    const [values, setValues] = useState(initialValues)
     const [errorMessage, setErrorMessage] = useState('')
 
     const handleChange = (e) => {
@@ -21,8 +21,8 @@ export const useItemPickerFormControls = () => {
         if (errorMessage) {
             setErrorMessage('')
         }
-        setItems({
-            ...items,
+        setValues({
+            ...values,
             [name]: value,
         })
     }
@@ -30,26 +30,26 @@ export const useItemPickerFormControls = () => {
     const handleBlur = (e) => {
         const { name, value } = e.target
         if (name === 'list') {
-            setItems({
-                ...items,
+            setValues({
+                ...values,
                 list: value.replace(/\n\s*\n/g, '\n').trim(),
             })
         }
     }
 
     const handleClick = () => {
-        const values = generateSeparatedStrings(items)
+        const items = generateSeparatedStrings(values)
 
-        if (values.isError) return setErrorMessage(values.message)
+        if (items.isError) return setErrorMessage(items.message)
 
-        const lines = values.length
+        const lines = items.length
 
-        const randomNumbers = generateRandomNumbers(items.total, 1, lines, true).map((number) => number - 1)
+        const randomNumbers = generateRandomNumbers(values.total, 1, lines, true).map((number) => number - 1)
 
-        const output = values.filter((_, i) => randomNumbers.includes(i))
+        const output = items.filter((_, i) => randomNumbers.includes(i))
 
-        setItems({
-            ...items,
+        setValues({
+            ...values,
             output,
         })
     }
@@ -63,15 +63,15 @@ export const useItemPickerFormControls = () => {
     }
 
     const handleReset = () => {
-        setItems(initialItems)
+        setValues(initialValues)
         setErrorMessage('')
     }
 
     return {
         resultRef,
-        items,
+        values,
         errorMessage,
-        setItems,
+        setValues,
         handleChange,
         handleBlur,
         handleClick,

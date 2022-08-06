@@ -2,12 +2,12 @@ import { Grid } from '@mui/material'
 
 import OutputMessage from '../../../components/common/OutputMessage'
 
-const ItemOutput = ({ resultRef, items }) => {
+const ItemOutput = ({ resultRef, values }) => {
     return (
         <Grid item xs={12} md={5}>
-            {items?.output?.length > 0 ? (
+            {values?.output?.length > 0 ? (
                 <div ref={resultRef}>
-                    {items.output.map((item, i) => (
+                    {values.output.map((item, i) => (
                         <div key={i}>{item}</div>
                     ))}
                 </div>

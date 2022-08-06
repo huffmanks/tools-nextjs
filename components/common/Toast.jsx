@@ -6,7 +6,7 @@ import Snackbar from '@mui/material/Snackbar'
 import MuiAlert from '@mui/material/Alert'
 
 const Alert = forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant='filled' color='primary' {...props} />
+    return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />
 })
 
 const Toast = () => {
@@ -22,8 +22,15 @@ const Toast = () => {
 
     return (
         <>
-            <Snackbar anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} open={toastOpen} autoHideDuration={3000} onClose={handleClose}>
-                <Alert onClose={handleClose} severity='success' sx={{ width: '100%' }}>
+            <Snackbar
+                open={toastOpen}
+                autoHideDuration={3000}
+                onClose={handleClose}
+                sx={{
+                    top: { xs: 88, sm: 'auto' },
+                    bottom: { xs: 'auto', sm: 24 },
+                }}>
+                <Alert severity='success' onClose={handleClose} sx={{ width: '100%', backgroundColor: 'primary.main', backgroundImage: 'none' }}>
                     {toastMessage}
                 </Alert>
             </Snackbar>

@@ -5,9 +5,11 @@ import { Typography } from '@mui/material'
 import SEO from '../../../components/common/SEO'
 import PageTitle from '../../../components/common/PageTitle'
 
-import LoadingSkeleton from '../../../features/UnitCalculator/LoadingSkeleton'
 import UnitInputs from '../../../features/UnitCalculator/UnitInputs'
 import UnitOutput from '../../../features/UnitCalculator/UnitOutput'
+import InputContainer from '../../../features/UnitCalculator/InputContainer'
+import Skelly from '../../../components/common/Skelly'
+import SkellyGroup from '../../../components/common/SkellyGroup'
 
 const UnitCalculator = () => {
     const { isLoading, values, currentUnits, handleChange, handleFocus } = useUnitCalculatorFormControls()
@@ -29,7 +31,11 @@ const UnitCalculator = () => {
                     <UnitOutput values={values} currentUnits={currentUnits} />
                 </>
             ) : (
-                <LoadingSkeleton />
+                <>
+                    <InputContainer top={<Skelly type='input' />} center={<Skelly type='input' />} bottom={<Skelly type='input' />} />
+
+                    <SkellyGroup skellyAmount={3} gapSize={4} />
+                </>
             )}
         </>
     )

@@ -29,6 +29,7 @@ const ErrorTitle = ({ errorCode, errorMessage, errorFontSize, buttonText, button
                         md: 'row',
                     },
                     fontSize: fontStyle,
+                    textAlign: 'center',
                 }}>
                 {errorCode && (
                     <>

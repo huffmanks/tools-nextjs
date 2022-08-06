@@ -5,4 +5,5 @@
 /password-generator /generate/password 301
 /todo-list /generate/todo 301
 /color-picker /picker/color 301
-/random-picker /picker/random 301
+/item-picker /picker/item 301
+/number-picker /picker/number 301

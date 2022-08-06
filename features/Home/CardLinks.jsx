@@ -4,7 +4,16 @@ import { Box, Button, Card, CardActions, CardContent, IconButton, Typography } f
 
 const CardLinks = ({ routes }) => {
     return (
-        <>
+        <Box
+            sx={{
+                display: 'flex',
+                justifyContent: {
+                    xs: 'center',
+                    sm: 'flex-start',
+                },
+                flexWrap: 'wrap',
+                gap: 3,
+            }}>
             {routes.map(({ key, path, homeName, icon, description }) => (
                 <Card
                     key={key}
@@ -51,7 +60,7 @@ const CardLinks = ({ routes }) => {
                     </CardActions>
                 </Card>
             ))}
-        </>
+        </Box>
     )
 }
 

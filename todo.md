@@ -24,3 +24,4 @@
 5. Todo List
     - [ ] List toolbar functionality
     - [ ] View layout and modal styles
+        - [ ] Make create button open modal

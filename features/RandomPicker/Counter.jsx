@@ -11,7 +11,7 @@ const Counter = ({ isDisabled, values, handleChange, handleDecrease, handleIncre
                 variant='outlined'
                 label='Total'
                 name='total'
-                value={values.total}
+                value={values?.total}
                 onChange={handleChange}
                 autoComplete='none'
                 sx={{
@@ -30,7 +30,7 @@ const Counter = ({ isDisabled, values, handleChange, handleDecrease, handleIncre
                             <IconButton
                                 aria-label='decrement one'
                                 onClick={handleDecrease}
-                                disabled={values.total <= 1 || isDisabled}
+                                disabled={values?.total <= 1 || isDisabled}
                                 size='small'
                                 edge='end'
                                 sx={{

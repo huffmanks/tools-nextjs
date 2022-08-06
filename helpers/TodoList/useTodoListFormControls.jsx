@@ -11,7 +11,7 @@ export const useTodoListFormControls = () => {
     const [saved, setSaved] = useLocalStorage('webtools-v1-todo-lists-saved', [])
     const [lists, setLists] = useState(saved ?? [])
 
-    const [screen, setScreen] = useState(0)
+    const [screen, setScreen] = useState('')
     const [values, setValues] = useState(initialValues)
     const [items, setItems] = useState([])
     const [errors, setErrors] = useState(initialErrors)
@@ -20,9 +20,9 @@ export const useTodoListFormControls = () => {
     const { addToast, removeModal } = useGlobalState()
 
     useEffect(() => {
-        if (saved?.length) {
-            setScreen(1)
-        }
+        if (saved?.length) return setScreen('view')
+
+        setScreen('create')
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
