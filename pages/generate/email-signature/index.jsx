@@ -1,4 +1,4 @@
-import { useEmailSignatureFormControls } from '../../../helpers/EmailSignature/useEmailSignatureFormControls'
+import { useEmailSignatureFormControls } from '../../../features/EmailSignature/useEmailSignatureFormControls'
 
 import SEO from '../../../components/common/SEO'
 import PageTitle from '../../../components/common/PageTitle'

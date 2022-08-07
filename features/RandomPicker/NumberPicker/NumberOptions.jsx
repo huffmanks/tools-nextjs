@@ -1,7 +1,7 @@
 import { FormControlLabel, FormGroup, Switch } from '@mui/material'
 
 import FieldsetContainer from '../FieldsetContainer'
-import Counter from '../Counter'
+import Counter from '../../../components/common/Counter'
 
 const NumberOptions = ({ values, handleChange, handleDecrease, handleIncrease }) => {
     const isDisabled = values.isLottery

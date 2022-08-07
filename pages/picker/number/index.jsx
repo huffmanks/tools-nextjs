@@ -1,4 +1,4 @@
-import { useNumberPickerFormControls } from '../../../helpers/RandomPicker/useNumberPickerFormControls'
+import { useNumberPickerFormControls } from '../../../features/RandomPicker/useNumberPickerFormControls'
 import { useCounter } from '../../../hooks/useCounter'
 
 import { Typography } from '@mui/material'

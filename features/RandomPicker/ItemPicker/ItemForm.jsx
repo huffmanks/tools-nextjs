@@ -1,7 +1,7 @@
 import { Box, Grid, Stack, TextField } from '@mui/material'
 
 import FieldsetContainer from '../FieldsetContainer'
-import Counter from '../Counter'
+import Counter from '../../../components/common/Counter'
 import ActionGroup from '../ActionGroup'
 
 import Delimiters from './Delimiters'

@@ -1,4 +1,4 @@
-import { usePasswordGeneratorFormControls } from '../../../helpers/PasswordGenerator/usePasswordGeneratorFormControls'
+import { usePasswordGeneratorFormControls } from '../../../features/PasswordGenerator/usePasswordGeneratorFormControls'
 
 import { Button, Typography } from '@mui/material'
 import KeyIcon from '@mui/icons-material/Key'

@@ -1,4 +1,4 @@
-import { formatConvertNumber } from '../../helpers/UnitCalculator/formatConvertNumber'
+import { formatConvertNumber } from './formatConvertNumber'
 
 import { Box } from '@mui/material'
 

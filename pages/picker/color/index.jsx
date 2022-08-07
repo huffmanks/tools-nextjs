@@ -1,4 +1,4 @@
-import { useColorPickerFormControls } from '../../../helpers/ColorPicker/useColorPickerFormControls'
+import { useColorPickerFormControls } from '../../../features/ColorPicker/useColorPickerFormControls'
 
 import { Grid, Typography } from '@mui/material'
 

@@ -1,4 +1,4 @@
-import { useTextFormatterFormControls } from '../../../helpers/TextFormatter/useTextFormatterFormControls'
+import { useTextFormatterFormControls } from '../../../features/TextFormatter/useTextFormatterFormControls'
 
 import { Grid, Typography } from '@mui/material'
 

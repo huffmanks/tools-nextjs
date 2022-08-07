@@ -1,4 +1,4 @@
-import { useAspectRatioFormControls } from '../../../helpers/AspectRatio/useAspectRatioFormControls'
+import { useAspectRatioFormControls } from '../../../features/AspectRatio/useAspectRatioFormControls'
 import { initialValues } from '../../../constants/aspectRatio'
 
 import { Grid, Typography } from '@mui/material'

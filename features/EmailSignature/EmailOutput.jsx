@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import { useGlobalState } from '../../hooks/useGlobalState'
 import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
 
-import { getColorCode } from '../../helpers/EmailSignature/getEmailThemeOptions'
+import { getColorCode } from './getEmailThemeOptions'
 
 import { Box } from '@mui/material'
 
