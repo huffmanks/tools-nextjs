@@ -8,7 +8,7 @@ const Textarea = ({ output, handleChange, handleClear }) => {
             <Grid item xs={12}>
                 <TextField
                     fullWidth
-                    variant='outlined'
+                    variant='filled'
                     label='Insert Text'
                     name='output'
                     value={output}
@@ -24,7 +24,13 @@ const Textarea = ({ output, handleChange, handleClear }) => {
                     }}
                     InputProps={{
                         endAdornment: (
-                            <InputAdornment position='end'>
+                            <InputAdornment
+                                sx={{
+                                    position: 'absolute',
+                                    top: '50%',
+                                    right: 1,
+                                    transform: 'translateY(-50%)',
+                                }}>
                                 <IconButton aria-label='clear input' onClick={handleClear} edge='start'>
                                     <ClearIcon />
                                 </IconButton>

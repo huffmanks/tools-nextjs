@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 
-import { useGlobalState } from '../../hooks/useGlobalState'
+import { useGlobalState } from '../../hooks/useContext'
 import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
 import { generateSeparatedStrings } from './generateSeparatedStrings'
 import { generateRandomNumbers } from '../../utilities/generateRandomNumbers'

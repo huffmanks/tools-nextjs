@@ -1,7 +1,7 @@
 import { Backdrop, Box, Fade, IconButton, Modal, Typography } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 
-import { useGlobalState } from '../../hooks/useGlobalState'
+import { useGlobalState } from '../../hooks/useContext'
 
 const GlobalModal = ({ title, description, children }) => {
     const { modalOpen, removeModal } = useGlobalState()

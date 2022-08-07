@@ -1,3 +1,4 @@
+import { useGlobalState } from '../../../hooks/useContext'
 import { useTodoListFormControls } from '../../../features/TodoList/useTodoListFormControls'
 import { navItems } from '../../../constants/todoList'
 
@@ -18,7 +19,6 @@ const TodoList = () => {
             <SEO description='Create a todo list.' title='Todo List' url='/generate/todo' imageUrl='/todo-list.png' />
 
             <PageTitle>Todo List</PageTitle>
-
             <BottomMenu screen={screen} handleScreen={handleScreen} navItems={navItems}>
                 {screen === '' && (
                     <>

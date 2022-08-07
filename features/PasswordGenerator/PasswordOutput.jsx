@@ -1,4 +1,4 @@
-import { useGlobalState } from '../../hooks/useGlobalState'
+import { useGlobalState } from '../../hooks/useContext'
 import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
 
 import { FormGroup, IconButton, InputAdornment, TextField } from '@mui/material'

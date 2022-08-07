@@ -10,7 +10,6 @@ export const GlobalStateContext = createContext({
     modals: {
         modalId: null,
         modalOpen: false,
-        modalData: [],
         addModal: () => {},
         removeModal: () => {},
     },
@@ -32,22 +31,15 @@ const GlobalStateProvider = ({ children }) => {
 
     const [modalId, setModalId] = useState(null)
     const [modalOpen, setModalOpen] = useState(false)
-    const [modalData, setModalData] = useState([])
 
-    const addModal = (arr, id) => {
-        const data = arr.filter((item) => {
-            return item.id === id
-        })
-
+    const addModal = (id) => {
         setModalId(id)
-        setModalData(data[0])
         setModalOpen(true)
     }
 
     const removeModal = () => {
         setModalOpen(false)
         setModalId(null)
-        setModalData([])
     }
 
     const contextValue = {
@@ -60,8 +52,7 @@ const GlobalStateProvider = ({ children }) => {
         modals: {
             modalId,
             modalOpen,
-            modalData,
-            addModal: useCallback((arr, id) => addModal(arr, id), []),
+            addModal: useCallback((id) => addModal(id), []),
             removeModal: useCallback(() => removeModal(), []),
         },
     }

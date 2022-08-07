@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { useGlobalState } from '../../hooks/useGlobalState'
+import { useGlobalState } from '../../hooks/useContext'
+import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { uniqueId } from '../../utilities/uniqueId'
 import { initialValues, initialErrors } from '../../constants/todoList'
@@ -17,7 +18,8 @@ export const useTodoListFormControls = () => {
     const [errors, setErrors] = useState(initialErrors)
     const [formIsValid, setFormIsValid] = useState(false)
 
-    const { addToast, removeModal } = useGlobalState()
+    const { addModal, addToast, removeModal } = useGlobalState()
+    const [copy] = useCopyToClipboard(true)
 
     useEffect(() => {
         if (saved?.length) return setScreen('view')
@@ -93,27 +95,41 @@ export const useTodoListFormControls = () => {
         setFormIsValid(false)
     }
 
+    const handleOpenModal = (id) => {
+        addModal(id)
+    }
+
+    const handleCopy = async (ref) => {
+        const copySuccess = await copy(ref.current)
+
+        if (copySuccess) {
+            addToast('Copied to clipboard!')
+        }
+    }
+
     const handleFavorite = (id) => {
-        const newList = lists.map((list) => {
+        const updatedList = lists.map((list) => {
             if (list.id === id) {
-                list.isFavorite = true
+                return {
+                    ...list,
+                    isFavorite: !list.isFavorite,
+                }
             }
             return list
         })
 
-        setLists([...newList])
-        setSaved([...newList])
+        setLists(updatedList)
+        setSaved(updatedList)
     }
 
-    const handleDelete = (list) => {
-        const newList = lists.filter((item) => item.id !== list.id)
+    const handleDelete = (id) => {
+        const newList = lists.filter((item) => item.id !== id)
 
-        setLists([...newList])
-        setSaved([...newList])
+        setLists(newList)
+        setSaved(newList)
 
         removeModal()
-
-        addToast(`${list.title} deleted successfully!`)
+        addToast('Deleted successfully!')
     }
 
     useEffect(() => {
@@ -131,6 +147,8 @@ export const useTodoListFormControls = () => {
         handleChange,
         handleAddItem,
         handleSubmit,
+        handleOpenModal,
+        handleCopy,
         handleFavorite,
         handleDelete,
     }

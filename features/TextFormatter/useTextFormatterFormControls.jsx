@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { camelCase, constantCase, headerCase, sentenceCase, snakeCase } from 'change-case'
 
-import { useGlobalState } from '../../hooks/useGlobalState'
+import { useGlobalState } from '../../hooks/useContext'
 import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 
