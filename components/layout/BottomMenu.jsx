@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 
 import { BottomNavigation, BottomNavigationAction, Box, CssBaseline, Paper } from '@mui/material'
 
-const BottomMenu = ({ screen, handleScreen, navItems, children }) => {
+const BottomMenu = ({ screen, handleScreen, navItems, isTodo, children }) => {
     const ref = useRef(null)
 
     useEffect(() => {

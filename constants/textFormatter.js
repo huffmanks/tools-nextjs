@@ -1,3 +1,5 @@
+export const LOCAL_STORAGE_KEY = 'webtools-v1-text-formatter-saved'
+
 export const outputValues = {
     output: '',
     selected: '',

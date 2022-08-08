@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from '../theme'
 
-import GlobalStateProvider from '../context/GlobalStateProvider'
+import GlobalStateProvider from '../context/GlobalContext'
 import Layout from '../components/layout'
 import Toast from '../components/common/Toast'
 

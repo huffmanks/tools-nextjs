@@ -1,23 +1,31 @@
 import { useRef } from 'react'
 
+import { useGlobalState } from '../../hooks/useContext'
+
 import { Box } from '@mui/material'
 
 import GlobalModal from '../../components/common/GlobalModal'
 import ListToolbar from './ListToolbar'
 
-const ListModal = ({ list, handleFavorite, handleDelete }) => {
+const ListModal = ({ list }) => {
     const listRef = useRef()
 
-    return (
-        <GlobalModal title={list?.title} description='list of items modal'>
-            <Box ref={listRef} sx={{ maxHeight: 250, p: 3, overflowY: 'auto' }}>
-                {list?.items.map((item) => (
-                    <div key={item.id}>{item.text}</div>
-                ))}
-            </Box>
+    const { modalId } = useGlobalState()
 
-            <ListToolbar listRef={listRef} list={list} handleFavorite={handleFavorite} handleDelete={handleDelete} />
-        </GlobalModal>
+    return (
+        <>
+            {modalId && (
+                <GlobalModal title={list.title} description='list of items modal'>
+                    <Box ref={listRef} sx={{ maxHeight: 250, p: 3, overflowY: 'auto' }}>
+                        {list.items.map((item) => (
+                            <div key={item.id}>{item.text}</div>
+                        ))}
+                    </Box>
+
+                    <ListToolbar listRef={listRef} listId={list.id} />
+                </GlobalModal>
+            )}
+        </>
     )
 }
 

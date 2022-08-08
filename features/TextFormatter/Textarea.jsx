@@ -14,23 +14,9 @@ const Textarea = ({ output, handleChange, handleClear }) => {
                     value={output}
                     onFocus={(e) => e.target.select()}
                     onChange={handleChange}
-                    multiline
-                    minRows={1}
-                    maxRows={2}
-                    sx={{
-                        '& textarea': {
-                            overflow: 'hidden',
-                        },
-                    }}
                     InputProps={{
                         endAdornment: (
-                            <InputAdornment
-                                sx={{
-                                    position: 'absolute',
-                                    top: '50%',
-                                    right: 1,
-                                    transform: 'translateY(-50%)',
-                                }}>
+                            <InputAdornment position='end'>
                                 <IconButton aria-label='clear input' onClick={handleClear} edge='start'>
                                     <ClearIcon />
                                 </IconButton>

@@ -1,11 +1,16 @@
+import { initialValues } from '../../constants/todoList'
+
 import { Box, Grid, Button, IconButton, InputAdornment, TextField, Stack, Typography } from '@mui/material'
 
 import AddIcon from '@mui/icons-material/Add'
 import DesignServicesIcon from '@mui/icons-material/DesignServices'
 
 import OutputMessage from '../../components/common/OutputMessage'
+import { useTodoListFormControls } from './useTodoListFormControls'
 
-const Create = ({ values, errors, formIsValid, items, handleChange, handleAddItem, handleSubmit }) => {
+const Create = () => {
+    const { list, items, errors, formIsValid, handleChange, handleAddItem, handleSubmit } = useTodoListFormControls(initialValues)
+
     return (
         <>
             <Typography paragraph mb={5}>
@@ -21,7 +26,7 @@ const Create = ({ values, errors, formIsValid, items, handleChange, handleAddIte
                         label='List Title'
                         placeholder='Shopping List'
                         name='title'
-                        value={values.title}
+                        value={list.title}
                         onChange={handleChange}
                         autoComplete='none'
                         error={errors.title}
@@ -39,7 +44,7 @@ const Create = ({ values, errors, formIsValid, items, handleChange, handleAddIte
                         label='Add Item'
                         placeholder='Carrots'
                         name='item'
-                        value={values.item}
+                        value={list.item}
                         onChange={handleChange}
                         onKeyPress={handleAddItem}
                         autoComplete='none'

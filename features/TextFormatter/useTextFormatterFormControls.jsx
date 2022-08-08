@@ -8,16 +8,17 @@ import { useLocalStorage } from '../../hooks/useLocalStorage'
 
 import { uniqueId } from '../../utilities/uniqueId'
 import { titleCase } from './titleCase'
-import { initialValues, checkAllValues, checkNoneValues, outputValues } from '../../constants/textFormatter'
+import { LOCAL_STORAGE_KEY, initialValues, checkAllValues, checkNoneValues, outputValues } from '../../constants/textFormatter'
 
 export const useTextFormatterFormControls = () => {
+    const uid = uniqueId()
+
     const { addToast } = useGlobalState()
 
-    const [saved, setSaved] = useLocalStorage('webtools-v1-text-formatter-saved', [])
+    const [saved, setSaved] = useLocalStorage(LOCAL_STORAGE_KEY, [])
     const [copy] = useCopyToClipboard()
 
     const [values, setValues] = useState(initialValues)
-    const [savedId, setSavedId] = useState(uniqueId)
     const [checkedCards, setCheckedCards] = useState([])
     const [checkAll, setCheckAll] = useState(false)
 
@@ -31,7 +32,7 @@ export const useTextFormatterFormControls = () => {
             })
         }
 
-        if (type === 'textarea' || name === 'selected') {
+        if (name === 'output' || name === 'selected') {
             setValues({
                 ...values,
                 [name]: value,
@@ -77,7 +78,6 @@ export const useTextFormatterFormControls = () => {
             ...outputValues,
         })
         setSaved([])
-        setSavedId(1)
     }
 
     const handleSave = () => {
@@ -85,14 +85,13 @@ export const useTextFormatterFormControls = () => {
             setSaved([
                 ...saved,
                 {
-                    id: savedId,
+                    id: uid,
                     value: values.output,
                     label: values.output,
                 },
             ])
 
-            setSavedId((prev) => prev + 1)
-
+            handleClear()
             addToast('Item saved for later!')
         }
     }

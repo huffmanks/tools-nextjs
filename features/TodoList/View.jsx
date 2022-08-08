@@ -1,5 +1,4 @@
-import { useGlobalState } from '../../hooks/useContext'
-import { useTodoListFormControls } from './useTodoListFormControls'
+import { useLists } from '../../hooks/useContext'
 
 import { Box, Grid, IconButton, Typography } from '@mui/material'
 
@@ -10,9 +9,8 @@ import MoreVertIcon from '@mui/icons-material/MoreVert'
 import ListModal from './ListModal'
 import OutputMessage from '../../components/common/OutputMessage'
 
-const View = ({ lists, handleFavorite, handleDelete }) => {
-    const { modalId } = useGlobalState()
-    const { handleOpenModal } = useTodoListFormControls()
+const View = () => {
+    const { lists, activeListId, setId, addListAsFavorite } = useLists()
 
     return (
         <>
@@ -20,10 +18,10 @@ const View = ({ lists, handleFavorite, handleDelete }) => {
                 {lists?.length ? 'View or edit a list below.' : 'Created lists will appear here.'}
             </Typography>
 
-            {lists?.length ? (
+            {lists?.length > 0 ? (
                 <>
                     <Grid container spacing={3}>
-                        {lists?.map((list) => (
+                        {lists.map((list) => (
                             <Grid key={list.id} item xs={12} sm={6} md={4}>
                                 <Box
                                     sx={{
@@ -43,10 +41,10 @@ const View = ({ lists, handleFavorite, handleDelete }) => {
                                     }}>
                                     <span>{list.title}</span>
                                     <div>
-                                        <IconButton aria-label={`${list.title} list favorite`} onClick={() => handleFavorite(list.id)}>
+                                        <IconButton aria-label={`${list.title} list favorite`} onClick={() => addListAsFavorite(list.id)}>
                                             {list?.isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                                         </IconButton>
-                                        <IconButton aria-label={`${list.title} list options`} onClick={() => handleOpenModal(list.id)}>
+                                        <IconButton aria-label={`${list.title} list options`} onClick={() => setId(list.id)}>
                                             <MoreVertIcon />
                                         </IconButton>
                                     </div>
@@ -54,7 +52,7 @@ const View = ({ lists, handleFavorite, handleDelete }) => {
                             </Grid>
                         ))}
                     </Grid>
-                    <ListModal list={lists.find((list) => list.id === modalId)} handleFavorite={handleFavorite} handleDelete={handleDelete} />
+                    <ListModal list={lists.find((list) => list.id === activeListId)} />
                 </>
             ) : (
                 <OutputMessage message='No lists to show.' />
