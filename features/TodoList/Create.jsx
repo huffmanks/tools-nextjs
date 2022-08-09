@@ -1,4 +1,4 @@
-import { initialValues } from '../../constants/todoList'
+import { useTodoListFormControls } from './useTodoListFormControls'
 
 import { Box, Grid, Button, IconButton, InputAdornment, TextField, Stack, Typography } from '@mui/material'
 
@@ -6,10 +6,9 @@ import AddIcon from '@mui/icons-material/Add'
 import DesignServicesIcon from '@mui/icons-material/DesignServices'
 
 import OutputMessage from '../../components/common/OutputMessage'
-import { useTodoListFormControls } from './useTodoListFormControls'
 
 const Create = () => {
-    const { list, items, errors, formIsValid, handleChange, handleAddItem, handleSubmit } = useTodoListFormControls(initialValues)
+    const { list, items, errors, formIsValid, handleChange, handleAddItem, handleSubmit } = useTodoListFormControls()
 
     return (
         <>
@@ -33,7 +32,7 @@ const Create = () => {
                         helperText='Enter a title for the list.'
                         {...(errors.title && {
                             error: true,
-                            helperText: 'This field is required.',
+                            helperText: 'Title field is required.',
                         })}
                     />
                 </Grid>
@@ -43,14 +42,14 @@ const Create = () => {
                         variant='outlined'
                         label='Add Item'
                         placeholder='Carrots'
-                        name='item'
-                        value={list.item}
+                        name='tempItem'
+                        value={list.tempItem}
                         onChange={handleChange}
                         onKeyPress={handleAddItem}
                         autoComplete='none'
-                        error={errors.item}
+                        error={errors.tempItem}
                         helperText={items?.length ? 'Add another item.' : 'Enter at least one item to the list.'}
-                        {...(errors.item && {
+                        {...(errors.tempItem && {
                             error: true,
                             helperText: 'One item is required.',
                         })}

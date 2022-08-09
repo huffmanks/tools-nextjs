@@ -18,6 +18,12 @@ const TodoStateProvider = ({ children }) => {
     const [activeListId, setActiveListId] = useState(null)
 
     const changeScreen = (_, newScreen) => {
+        if (newScreen === 'create') {
+            setActiveListId(null)
+        }
+
+        if (newScreen === 'edit' && activeListId === null) return
+
         setScreen(newScreen)
     }
 
@@ -72,7 +78,14 @@ const TodoStateProvider = ({ children }) => {
         }
     }
 
-    const editList = (id, updatedList) => setLists([...lists.map((list) => (list.id === id ? { ...list, ...updatedList } : list))])
+    const updateList = (id, changedList) => {
+        const updatedList = [...lists.map((list) => (list.id === id ? changedList : list))]
+
+        setLists(updatedList)
+        setSavedLists(updatedList)
+
+        addToast('Updated successfully!')
+    }
 
     const removeList = (id) => {
         const updatedList = lists.filter((list) => list.id !== id)
@@ -93,7 +106,7 @@ const TodoStateProvider = ({ children }) => {
         setId,
         addListAsFavorite,
         copyList,
-        editList,
+        updateList,
         removeList,
     }
 

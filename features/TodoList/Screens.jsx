@@ -11,7 +11,7 @@ import View from './View'
 const Screens = () => {
     const { screen, changeScreen } = useLists()
     return (
-        <BottomMenu screen={screen} handleScreen={changeScreen} navItems={navItems} isTodo={true}>
+        <BottomMenu screen={screen} handleScreen={changeScreen} navItems={navItems}>
             {screen === '' && (
                 <>
                     <Skelly type='text' />
@@ -23,7 +23,7 @@ const Screens = () => {
 
             {screen === 'view' && <View />}
 
-            {/* {screen === 'edit' && <Edit />} */}
+            {screen === 'edit' && <Edit />}
         </BottomMenu>
     )
 }

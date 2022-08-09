@@ -6,7 +6,7 @@ export const LOCAL_STORAGE_KEY = 'webtools-v1-todo-lists-saved'
 
 export const initialValues = {
     title: '',
-    item: '',
+    tempItem: '',
 }
 
 export const initialErrors = {

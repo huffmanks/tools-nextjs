@@ -29,7 +29,7 @@ const ListToolbar = ({ listRef, listId }) => {
                 <IconButton aria-label='copy' onClick={() => copyList(listRef)}>
                     <ContentCopyIcon />
                 </IconButton>
-                <IconButton disabled value='edit' aria-label='edit' onClick={handleEdit}>
+                <IconButton value='edit' aria-label='edit' onClick={handleEdit}>
                     <EditIcon />
                 </IconButton>
                 <IconButton value='delete' aria-label='delete' onClick={() => removeList(listId)} sx={{ ml: 'auto' }}>
