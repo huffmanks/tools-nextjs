@@ -7,7 +7,8 @@ import { initialValues, initialErrors } from '../../constants/todoList'
 
 export const useTodoListFormControls = () => {
     const uid = uniqueId()
-    const { screen, lists, activeListId, addList, updateList } = useLists()
+
+    const { screen, activeListId, lists, changeScreen, setId, addList, updateList } = useLists()
 
     const [list, setList] = useState(initialValues)
     const [items, setItems] = useState([])
@@ -19,40 +20,43 @@ export const useTodoListFormControls = () => {
 
         if (initialList) {
             setList(initialList)
-            setFormIsValid(true)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [lists])
+    }, [])
 
-    const validate = (id, name, value) => {
+    const validate = (name, value) => {
         if (value.trim() === '') {
             setList({
                 ...list,
                 [name]: '',
             })
 
+            setFormIsValid(false)
+
             return setErrors({
                 title: name === 'title' ?? false,
                 ...(screen === 'create' && {
                     tempItem: (name === 'tempItem' && !items?.length) ?? false,
                 }),
-                ...(screen === 'edit' && {
-                    [id]: (!list.items[0].text.length && !list.items[1]) ?? false,
-                }),
             })
         }
-
         setErrors(initialErrors)
-        if (!!list.title && (items?.length > 0 || !!list?.items?.[0].text.length)) return setFormIsValid(true)
+
+        if (!!list.title && list.items?.length > 0 && list.items.every((item) => item.text.length)) setFormIsValid(true)
     }
 
     const handleChange = (e) => {
         const { id, name, value } = e.target
 
-        validate(id, name, value)
+        validate(name, value)
 
         if (screen === 'edit' && name !== 'title') {
             const updatedItems = [...list.items.map((item) => (item.id === id ? { ...item, text: value } : item))]
+
+            if (updatedItems.every((item) => item.text.length)) {
+                setFormIsValid(true)
+            }
+
             return setList({ ...list, items: updatedItems })
         }
 
@@ -79,7 +83,14 @@ export const useTodoListFormControls = () => {
                 ...list,
                 tempItem: '',
             })
+
+            if (!!list.title) return setFormIsValid(true)
         }
+    }
+
+    const handleEdit = (e, id) => {
+        changeScreen(e, 'edit')
+        setId(id)
     }
 
     const handleAddInput = () => {
@@ -123,6 +134,7 @@ export const useTodoListFormControls = () => {
         formIsValid,
         handleChange,
         handleAddItem,
+        handleEdit,
         handleAddInput,
         handleRemoveItem,
         handleSubmit,
