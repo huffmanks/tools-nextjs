@@ -22,7 +22,7 @@ const UnitOutput = ({ values, currentUnits }) => {
                                     xs: '100%',
                                     md: '36.2%',
                                 },
-                                backgroundColor: 'background.secondary',
+                                backgroundColor: 'background.altTwo',
                                 borderRadius: 1,
                                 overflow: 'hidden',
                             }}>

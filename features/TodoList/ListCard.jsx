@@ -6,7 +6,7 @@ import { useTodoListFormControls } from './useTodoListFormControls'
 import { styled } from '@mui/material/styles'
 import { green, pink } from '@mui/material/colors'
 
-import { Box, Card, CardHeader, CardContent, CardActions, Collapse, Avatar, IconButton } from '@mui/material'
+import { Box, Card, CardHeader, CardContent, CardActions, Collapse, Avatar, IconButton, Typography } from '@mui/material'
 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import AssignmentIcon from '@mui/icons-material/Assignment'
@@ -30,51 +30,49 @@ const ExpandMore = styled((props) => {
 const ListCard = ({ list }) => {
     const listRef = useRef()
 
-    const { addListAsFavorite, copyList, removeList } = useLists()
-    const { handleEdit } = useTodoListFormControls()
-
-    const [expanded, setExpanded] = useState(false)
-
-    const handleExpandClick = (id) => {
-        if (expanded === id) return setExpanded(false)
-        setExpanded(id)
-    }
+    const { expanded, addListAsFavorite, copyList, expandList, editScreen, removeList } = useLists()
 
     return (
         <>
             {list && (
-                <Card sx={{ width: 300, height: '100%' }}>
+                <Card sx={{ width: 300, height: '100%', backgroundColor: 'background.alt', backgroundImage: 'none' }}>
                     <CardHeader
                         avatar={
-                            list?.cardType === 'shopping' ? (
-                                <Avatar sx={{ bgcolor: pink[600], color: 'text.primary' }} aria-label='shopping'>
+                            list?.type === 'shopping' ? (
+                                <Avatar sx={{ bgcolor: list.isFavorite ? 'primary.main' : pink[600], color: 'text.primary' }} aria-label='shopping'>
                                     <ShoppingCartIcon />
                                 </Avatar>
                             ) : (
-                                <Avatar sx={{ bgcolor: green[800], color: 'text.primary' }} aria-label='task'>
+                                <Avatar sx={{ bgcolor: list.isFavorite ? 'primary.main' : green[800], color: 'text.primary' }} aria-label='task'>
                                     <AssignmentIcon />
                                 </Avatar>
                             )
                         }
                         title={list.title}
-                        subheader={list.updatedAt.date}
+                        subheader={list.createdAt.date}
                         action={
-                            <ExpandMore expand={expanded} onClick={() => handleExpandClick(list.id)} aria-expanded={expanded} aria-label='show more'>
+                            <ExpandMore expand={expanded === list.id} onClick={() => expandList(list.id)} aria-expanded={expanded === list.id} aria-label='show more'>
                                 <ExpandMoreIcon />
                             </ExpandMore>
                         }
                     />
                     <Collapse in={expanded === list.id} timeout='auto' unmountOnExit>
                         <CardContent sx={{ p: 0, '&.MuiCardContent-root:last-child': { pb: 0 } }}>
-                            <Box ref={listRef} sx={{ maxHeight: 250, p: 3, overflowY: 'auto' }}>
-                                {list.items.map((item) => (
-                                    <div key={item.id}>{item.text}</div>
-                                ))}
+                            <Box sx={{ maxHeight: 250, p: 3, backgroundColor: expanded ? 'background.altTwo' : 'background.alt', overflowY: 'auto' }}>
+                                <div ref={listRef}>
+                                    {list.items.map((item) => (
+                                        <div key={item.id}>{item.text}</div>
+                                    ))}
+                                </div>
+
+                                <Typography component='div' variant='caption' mt={3}>
+                                    {`Updated: ${list.updatedAt.date} ${list.updatedAt.time}`}
+                                </Typography>
                             </Box>
                         </CardContent>
                     </Collapse>
 
-                    <CardActions disableSpacing sx={{ bgcolor: 'background.secondary' }}>
+                    <CardActions disableSpacing sx={{ bgcolor: expanded === list.id ? 'background.alt' : 'background.altTwo' }}>
                         <IconButton value='favorite' aria-label='favorite' onClick={() => addListAsFavorite(list.id)}>
                             {list.isFavorite ? <FavoriteIcon sx={{ color: 'primary.light' }} /> : <FavoriteBorderIcon />}
                         </IconButton>
@@ -83,7 +81,7 @@ const ListCard = ({ list }) => {
                             <ContentCopyIcon />
                         </IconButton>
 
-                        <IconButton value='edit' aria-label='edit' onClick={(e) => handleEdit(e, list.id)}>
+                        <IconButton value='edit' aria-label='edit' onClick={(e) => editScreen(e, list.id)}>
                             <EditIcon />
                         </IconButton>
 

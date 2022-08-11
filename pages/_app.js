@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import Script from 'next/script'
+
 import { ThemeProvider } from '@mui/material/styles'
 import theme from '../theme'
 
@@ -7,7 +9,6 @@ import Layout from '../components/layout'
 import Toast from '../components/common/Toast'
 
 import '../styles/globals.css'
-import Script from 'next/script'
 
 const App = ({ Component, pageProps }) => {
     return (

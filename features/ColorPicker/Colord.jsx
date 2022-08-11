@@ -24,7 +24,7 @@ const Colord = ({ color, ...rest }) => {
                     borderRadius: 1,
                     borderWidth: '1px',
                     borderStyle: 'solid',
-                    borderColor: 'background.altSecondary',
+                    borderColor: 'background.altFour',
                 },
                 '& .react-colorful__saturation': {
                     marginBlock: 2,

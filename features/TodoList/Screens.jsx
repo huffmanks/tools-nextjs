@@ -9,9 +9,10 @@ import Edit from './Edit'
 import View from './View'
 
 const Screens = () => {
-    const { screen, changeScreen } = useLists()
+    const { screen, activeListId, changeScreen } = useLists()
+
     return (
-        <BottomMenu screen={screen} handleScreen={changeScreen} navItems={navItems}>
+        <BottomMenu screen={screen} handleScreen={changeScreen} navItems={navItems} activeListId={activeListId}>
             {screen === '' && (
                 <>
                     <Skelly type='text' />

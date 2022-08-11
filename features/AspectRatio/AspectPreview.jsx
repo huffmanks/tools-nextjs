@@ -18,7 +18,7 @@ const AspectPreview = ({ values }) => {
                         maxHeight: '400px',
                         margin: '0 auto',
                         aspectRatio: values.aspectMultiplier !== '' ? values.aspectMultiplier : '1920 / 1080',
-                        backgroundColor: 'background.secondary',
+                        backgroundColor: 'background.altTwo',
                         borderRadius: '4px',
                     }}>
                     <Stack spacing={1} justifyContent='center' alignItems='center'>

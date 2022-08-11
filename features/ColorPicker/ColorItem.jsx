@@ -19,7 +19,7 @@ const ColorItem = ({ colorValue, textColor }) => {
         <Box
             sx={{
                 padding: '1rem 0.5rem',
-                backgroundColor: 'background.secondary',
+                backgroundColor: 'background.altTwo',
                 textAlign: 'center',
                 borderLeftWidth: '65px',
                 borderLeftStyle: 'solid',
@@ -27,7 +27,7 @@ const ColorItem = ({ colorValue, textColor }) => {
                 cursor: 'pointer',
                 transition: '0.15s ease-in',
                 '&:nth-of-type(even)': {
-                    backgroundColor: 'background.altSecondary',
+                    backgroundColor: 'background.altFour',
                 },
                 '&:hover': {
                     backgroundColor: colorValue,

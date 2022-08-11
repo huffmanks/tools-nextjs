@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 
 import { BottomNavigation, BottomNavigationAction, Box, CssBaseline, Paper } from '@mui/material'
 
-const BottomMenu = ({ screen, handleScreen, navItems, children }) => {
+const BottomMenu = ({ screen, handleScreen, navItems, activeListId, children }) => {
     const ref = useRef(null)
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const BottomMenu = ({ screen, handleScreen, navItems, children }) => {
             <Paper sx={{ position: 'fixed', bottom: 0, left: { xs: 57, sm: 65 }, right: 0, zIndex: 2 }} elevation={3}>
                 <BottomNavigation showLabels value={screen} onChange={handleScreen}>
                     {navItems.map((item, i) => (
-                        <BottomNavigationAction key={i} label={item.label} value={item.value} icon={item.icon} />
+                        <BottomNavigationAction key={i} label={item.label} value={item.value} icon={item.icon} disabled={!activeListId && item.editIcon} />
                     ))}
                 </BottomNavigation>
             </Paper>

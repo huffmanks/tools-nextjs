@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from 'react'
+
 import { useGlobalState } from '../hooks/useContext'
 import { useCopyToClipboard } from '../hooks/useCopyToClipboard'
 import { useLocalStorage } from '../hooks/useLocalStorage'
@@ -10,6 +11,7 @@ export const TodoStateContext = createContext()
 
 const TodoStateProvider = ({ children }) => {
     const uid = uniqueId()
+
     const { addToast } = useGlobalState()
     const [copy] = useCopyToClipboard(true)
 
@@ -17,13 +19,12 @@ const TodoStateProvider = ({ children }) => {
     const [savedLists, setSavedLists] = useLocalStorage(LOCAL_STORAGE_KEY, [])
     const [lists, setLists] = useState(savedLists ?? [])
     const [activeListId, setActiveListId] = useState(null)
+    const [expanded, setExpanded] = useState(false)
 
-    const changeScreen = (_, newScreen) => {
+    const changeScreen = (e, newScreen) => {
         if (newScreen === 'create') {
             setActiveListId(null)
         }
-
-        if (newScreen === 'edit' && activeListId === null) return
 
         setScreen(newScreen)
     }
@@ -39,6 +40,7 @@ const TodoStateProvider = ({ children }) => {
         if (!lists.some((item) => item.title === list.title.trim())) {
             const newList = {
                 id: uid,
+                type: list.type,
                 createdAt: {
                     date: getTimestamp(),
                     time: getTimestamp('time'),
@@ -86,6 +88,16 @@ const TodoStateProvider = ({ children }) => {
         }
     }
 
+    const expandList = (id) => {
+        if (expanded === id) return setExpanded(false)
+        setExpanded(id)
+    }
+
+    const editScreen = (e, id) => {
+        setId(id)
+        changeScreen(e, 'edit')
+    }
+
     const updateList = (id, changedList) => {
         const updatedList = [
             ...lists.map((list) =>
@@ -120,11 +132,14 @@ const TodoStateProvider = ({ children }) => {
         screen,
         lists,
         activeListId,
+        expanded,
         changeScreen,
         addList,
         setId,
         addListAsFavorite,
         copyList,
+        expandList,
+        editScreen,
         updateList,
         removeList,
     }

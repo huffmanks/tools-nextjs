@@ -6,9 +6,10 @@ const globalTheme = createTheme({
         background: {
             default: '#1e1e1e',
             paper: '#1e1e1e',
-            secondary: '#333333;',
-            alt: '#404040',
-            altSecondary: '#444444',
+            alt: '#2c2c2c',
+            altTwo: '#333333;',
+            altThree: '#404040',
+            altFour: '#444444',
         },
         text: {
             primary: '#fefefe',
