@@ -8,7 +8,7 @@ import { initialValues, initialErrors } from '../../constants/todoList'
 export const useTodoListFormControls = () => {
     const uid = uniqueId()
 
-    const { screen, activeListId, lists, addList, updateList } = useLists()
+    const { screen, activeListId, lists, changeScreen, addList, updateList } = useLists()
 
     const [list, setList] = useState(initialValues)
     const [items, setItems] = useState([])
@@ -106,6 +106,7 @@ export const useTodoListFormControls = () => {
     const handleRemoveItem = (id) => {
         const updatedItems = list.items.filter((item) => item.id !== id)
         setList({ ...list, items: updatedItems })
+        setFormIsValid(true)
     }
 
     const handleSubmit = (e) => {
@@ -120,6 +121,8 @@ export const useTodoListFormControls = () => {
         } else {
             updateList(list.id, list)
         }
+
+        changeScreen(e, 'view')
     }
 
     return {
