@@ -1,7 +1,6 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 
 import { useLists } from '../../hooks/useContext'
-import { useTodoListFormControls } from './useTodoListFormControls'
 
 import { styled } from '@mui/material/styles'
 import { green, pink } from '@mui/material/colors'
@@ -61,7 +60,17 @@ const ListCard = ({ list }) => {
                             <Box sx={{ maxHeight: 250, p: 3, backgroundColor: expanded ? 'background.altTwo' : 'background.alt', overflowY: 'auto' }}>
                                 <div ref={listRef}>
                                     {list.items.map((item) => (
-                                        <div key={item.id}>{item.text}</div>
+                                        <div key={item.id}>
+                                            <Box
+                                                component='span'
+                                                sx={{
+                                                    ...(item.completed && {
+                                                        textDecoration: 'red line-through',
+                                                    }),
+                                                }}>
+                                                {item.text}
+                                            </Box>
+                                        </div>
                                     ))}
                                 </div>
 

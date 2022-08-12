@@ -12,6 +12,7 @@ export const useTodoListFormControls = () => {
 
     const [list, setList] = useState(initialValues)
     const [items, setItems] = useState([])
+    const [completed, setCompleted] = useState({})
     const [errors, setErrors] = useState(initialErrors)
     const [formIsValid, setFormIsValid] = useState(false)
 
@@ -46,15 +47,11 @@ export const useTodoListFormControls = () => {
     }
 
     const handleChange = (e) => {
-        const { id, name, value, type, checked } = e.target
+        const { id, name, value } = e.target
 
         validate(name, value)
 
         if (screen === 'edit' && id) {
-            // if ((screen === 'edit' && id) || (screen === 'edit' && type === 'checkbox')) {
-            // const update = type === 'checkbox' ? { completed: checked } : { text: value }
-
-            // const updatedItems = [...list.items.map((item) => (item.id === id ? { ...item, ...update } : item))]
             const updatedItems = [...list.items.map((item) => (item.id === id ? { ...item, text: value } : item))]
 
             if (updatedItems.every((item) => item.text.length)) {
@@ -68,6 +65,23 @@ export const useTodoListFormControls = () => {
             ...list,
             [name]: value,
         })
+    }
+
+    const handleCompleted = (e, itemId) => {
+        const { name, checked } = e.target
+
+        setCompleted({
+            ...completed,
+            [name]: checked,
+        })
+
+        const updatedItems = [...list.items.map((item) => (item.id === itemId ? { ...item, completed: checked } : item))]
+
+        if (updatedItems.every((item) => item.text.length)) {
+            setFormIsValid(true)
+        }
+
+        return setList({ ...list, items: updatedItems })
     }
 
     const handleAddItem = (e) => {
@@ -112,7 +126,7 @@ export const useTodoListFormControls = () => {
             })
 
             setTimeout(() => {
-                itemsRef.current.lastChild.firstChild.firstChild.focus()
+                itemsRef.current.lastChild.firstChild.firstChild.nextElementSibling.focus()
             }, 1)
         }
     }
@@ -145,6 +159,7 @@ export const useTodoListFormControls = () => {
         errors,
         formIsValid,
         handleChange,
+        handleCompleted,
         handleAddItem,
         handleAddInput,
         handleRemoveItem,

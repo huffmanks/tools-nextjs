@@ -22,9 +22,7 @@ export const getAspectNumbers = (values) => {
 
     const aspectMultiplier = (values.originalWidth / values.originalHeight).toFixed(2)
 
-    const aspectRatio = `${(values.selectedType === 'width' ? values.originalWidth : values.originalHeight) / aspectGCD}:${
-        (values.selectedType === 'height' ? values.originalWidth : values.originalHeight) / aspectGCD
-    }`
+    const aspectRatio = `${values.originalWidth / aspectGCD}:${values.originalHeight / aspectGCD}`
 
     return { newWidth, newHeight, aspectMultiplier, aspectRatio, dimensions }
 }

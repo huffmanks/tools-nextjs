@@ -13,7 +13,7 @@ import ListType from './ListType'
 const Edit = () => {
     const itemsRef = useRef()
     const { handleFocus, handleBlur } = useLists()
-    const { list, errors, formIsValid, handleChange, handleAddInput, handleRemoveItem, handleSubmit } = useTodoListFormControls()
+    const { list, errors, formIsValid, handleChange, handleCompleted, handleAddInput, handleRemoveItem, handleSubmit } = useTodoListFormControls()
 
     return (
         <>
@@ -57,7 +57,7 @@ const Edit = () => {
                     <TextField
                         key={item.id}
                         id={item.id}
-                        // disabled={item.completed}
+                        disabled={item.completed}
                         fullWidth
                         variant='outlined'
                         placeholder={`Item ${index + 1}`}
@@ -76,11 +76,16 @@ const Edit = () => {
                                 helperText: 'One item is required.',
                             })}
                         InputProps={{
-                            // startAdornment: (
-                            //     <InputAdornment position='start' sx={{ '& span': { paddingLeft: 0 } }}>
-                            //         <Checkbox checked={item.completed} onChange={handleChange} inputProps={{ 'aria-label': 'item completed checkbox' }} />
-                            //     </InputAdornment>
-                            // ),
+                            startAdornment: (
+                                <InputAdornment position='start' sx={{ '& span': { paddingLeft: 0 } }}>
+                                    <Checkbox
+                                        name={`check_${item.id}`}
+                                        checked={item.completed ?? false}
+                                        onChange={(e) => handleCompleted(e, item.id)}
+                                        inputProps={{ 'aria-label': 'item completed checkbox' }}
+                                    />
+                                </InputAdornment>
+                            ),
                             endAdornment: (
                                 <InputAdornment position='end'>
                                     <IconButton
