@@ -1,6 +1,9 @@
+import { useRef } from 'react'
+
+import { useLists } from '../../hooks/useContext'
 import { useTodoListFormControls } from './useTodoListFormControls'
 
-import { Box, Button, IconButton, InputAdornment, Stack, TextField, Typography } from '@mui/material'
+import { Box, Button, Checkbox, IconButton, InputAdornment, Stack, TextField, Typography } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 import AddIcon from '@mui/icons-material/Add'
 import SaveIcon from '@mui/icons-material/Save'
@@ -8,6 +11,8 @@ import SaveIcon from '@mui/icons-material/Save'
 import ListType from './ListType'
 
 const Edit = () => {
+    const itemsRef = useRef()
+    const { handleFocus, handleBlur } = useLists()
     const { list, errors, formIsValid, handleChange, handleAddInput, handleRemoveItem, handleSubmit } = useTodoListFormControls()
 
     return (
@@ -33,6 +38,8 @@ const Edit = () => {
                     placeholder={list.title}
                     name='title'
                     value={list.title}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
                     onChange={handleChange}
                     autoComplete='none'
                     error={errors.title}
@@ -44,18 +51,22 @@ const Edit = () => {
                     })}
                 />
             </div>
-            <Stack direction='column' gap={3} mt={3}>
+
+            <Stack ref={itemsRef} direction='column' gap={3} mt={3}>
                 {list?.items?.map((item, index) => (
-                    // <div >
                     <TextField
                         key={item.id}
                         id={item.id}
+                        // disabled={item.completed}
                         fullWidth
                         variant='outlined'
                         placeholder={`Item ${index + 1}`}
                         defaultValue={item.text}
                         value={item[item.id]}
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}
                         onChange={handleChange}
+                        onKeyDown={(e) => handleAddInput(e, index, itemsRef)}
                         autoComplete='none'
                         sx={{ width: 'min(300px, 100%)' }}
                         helperText=''
@@ -65,6 +76,11 @@ const Edit = () => {
                                 helperText: 'One item is required.',
                             })}
                         InputProps={{
+                            // startAdornment: (
+                            //     <InputAdornment position='start' sx={{ '& span': { paddingLeft: 0 } }}>
+                            //         <Checkbox checked={item.completed} onChange={handleChange} inputProps={{ 'aria-label': 'item completed checkbox' }} />
+                            //     </InputAdornment>
+                            // ),
                             endAdornment: (
                                 <InputAdornment position='end'>
                                     <IconButton
@@ -84,12 +100,18 @@ const Edit = () => {
                             ),
                         }}
                     />
-                    // </div>
                 ))}
             </Stack>
 
             <Box>
-                <Button variant='outlined' size='large' aria-label='add extra item input' onClick={handleAddInput} endIcon={<AddIcon />} sx={{ width: 'min(300px, 100%)', height: 55, marginTop: 3 }}>
+                <Button
+                    id='addInput'
+                    variant='outlined'
+                    size='large'
+                    aria-label='add extra item input'
+                    onClick={handleAddInput}
+                    endIcon={<AddIcon />}
+                    sx={{ width: 'min(300px, 100%)', height: 55, marginTop: 3 }}>
                     Add
                 </Button>
             </Box>

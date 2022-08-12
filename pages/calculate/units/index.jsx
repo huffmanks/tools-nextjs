@@ -34,7 +34,7 @@ const UnitCalculator = () => {
                 <>
                     <InputContainer top={<Skelly type='input' />} center={<Skelly type='input' />} bottom={<Skelly type='input' />} />
 
-                    <SkellyGroup skellyAmount={3} gapSize={4} />
+                    <SkellyGroup type='input' skellyAmount={3} gapSize={4} />
                 </>
             )}
         </>

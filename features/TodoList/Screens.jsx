@@ -9,14 +9,14 @@ import Edit from './Edit'
 import View from './View'
 
 const Screens = () => {
-    const { screen, activeListId, changeScreen } = useLists()
+    const { screen, isFocused, activeListId, changeScreen } = useLists()
 
     return (
-        <BottomMenu screen={screen} handleScreen={changeScreen} navItems={navItems} activeListId={activeListId}>
+        <BottomMenu screen={screen} handleScreen={changeScreen} navItems={navItems} isFocused={isFocused} activeListId={activeListId}>
             {screen === '' && (
                 <>
                     <Skelly type='text' />
-                    <SkellyGroup skellyAmount={3} gapSize={3} />
+                    <SkellyGroup type='card' skellyAmount={4} gapSize={3} />
                 </>
             )}
 

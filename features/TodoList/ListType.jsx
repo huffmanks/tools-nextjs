@@ -3,12 +3,12 @@ import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mu
 const ListType = ({ list, handleChange }) => {
     return (
         <FormControl sx={{ mb: 3 }}>
-            <FormLabel id='demo-row-radio-buttons-group-label'>List type</FormLabel>
+            <FormLabel>List type</FormLabel>
 
             <RadioGroup row name='type' value={list.type} onChange={handleChange}>
-                <FormControlLabel value='task' control={<Radio color='primary' />} label='Task' />
-
                 <FormControlLabel value='shopping' control={<Radio color='primary' />} label='Shopping' />
+
+                <FormControlLabel value='task' control={<Radio color='primary' />} label='Task' />
             </RadioGroup>
         </FormControl>
     )

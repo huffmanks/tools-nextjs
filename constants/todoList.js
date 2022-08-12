@@ -5,7 +5,7 @@ import EditIcon from '@mui/icons-material/Edit'
 export const LOCAL_STORAGE_KEY = 'webtools-v1-todo-lists-saved'
 
 export const initialValues = {
-    type: 'task',
+    type: 'shopping',
     title: '',
     tempItem: '',
 }

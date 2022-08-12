@@ -18,7 +18,7 @@ export const useTodoListFormControls = () => {
     useEffect(() => {
         const initialList = lists.find((list) => list.id === activeListId)
 
-        if (initialList) {
+        if (initialList && screen !== 'create') {
             setList(initialList)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -46,11 +46,15 @@ export const useTodoListFormControls = () => {
     }
 
     const handleChange = (e) => {
-        const { id, name, value } = e.target
+        const { id, name, value, type, checked } = e.target
 
         validate(name, value)
 
         if (screen === 'edit' && id) {
+            // if ((screen === 'edit' && id) || (screen === 'edit' && type === 'checkbox')) {
+            // const update = type === 'checkbox' ? { completed: checked } : { text: value }
+
+            // const updatedItems = [...list.items.map((item) => (item.id === id ? { ...item, ...update } : item))]
             const updatedItems = [...list.items.map((item) => (item.id === id ? { ...item, text: value } : item))]
 
             if (updatedItems.every((item) => item.text.length)) {
@@ -75,6 +79,7 @@ export const useTodoListFormControls = () => {
                 ...items,
                 {
                     id: uid,
+                    completed: false,
                     text: list.tempItem.trim(),
                 },
             ])
@@ -88,19 +93,28 @@ export const useTodoListFormControls = () => {
         }
     }
 
-    const handleAddInput = () => {
-        const addedItem = [
-            ...list.items,
-            {
-                id: uid,
-                text: '',
-            },
-        ]
+    const handleAddInput = (e, index, itemsRef) => {
+        const { id } = e.currentTarget
 
-        setList({
-            ...list,
-            items: addedItem,
-        })
+        if ((e.key === 'Enter' && index === list.items.length - 1) || id === 'addInput') {
+            const addedItem = [
+                ...list.items,
+                {
+                    id: uid,
+                    completed: false,
+                    text: '',
+                },
+            ]
+
+            setList({
+                ...list,
+                items: addedItem,
+            })
+
+            setTimeout(() => {
+                itemsRef.current.lastChild.firstChild.firstChild.focus()
+            }, 1)
+        }
     }
 
     const handleRemoveItem = (id) => {

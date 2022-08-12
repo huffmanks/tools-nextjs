@@ -2,10 +2,11 @@
 
     - [ ] Bundle analyzer remove unused code
     - [ ] Focus select disable for mobile
-    - [ ] FormControls hook clean
+    - [ ] remove modal global context
     - [ ] Import mui components into ui to export
     - [ ] Ignore public readme images
-    - [ ] Copy to clipboard snackbar (success/failed)
+    - [ ] Copy to clipboard snackbar add failed variant
+    - [ ] add copy to clipboard to global context
     - [ ] PWA \_redirects precache error
 
 2. Aspect Ratio
@@ -17,11 +18,9 @@
 
     - [ ] Ouput to comma, pipe
 
-4. Text Formatter
-
-    - [ ] On save clear input
-
-5. Todo List
-    - [ ] List toolbar functionality
-    - [ ] View layout and modal styles
-        - [ ] Make create button open modal
+4. Todo List
+    - [ ] checkboxes for completed and styles
+    - [ ] Edit
+        - [ ] rearrangeable list
+    - [ ] View
+        - [ ] sorts lists by title, updated, created, type and favorites

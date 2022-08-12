@@ -1,3 +1,4 @@
+import { useLists } from '../../hooks/useContext'
 import { useTodoListFormControls } from './useTodoListFormControls'
 
 import { Box, Grid, Button, IconButton, InputAdornment, TextField, Stack, Typography } from '@mui/material'
@@ -9,6 +10,7 @@ import ListType from './ListType'
 import OutputMessage from '../../components/common/OutputMessage'
 
 const Create = () => {
+    const { handleFocus, handleBlur } = useLists()
     const { list, items, errors, formIsValid, handleChange, handleAddItem, handleSubmit } = useTodoListFormControls()
 
     return (
@@ -29,6 +31,8 @@ const Create = () => {
                         placeholder='Shopping List'
                         name='title'
                         value={list.title}
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}
                         onChange={handleChange}
                         autoComplete='none'
                         error={errors.title}
@@ -47,6 +51,8 @@ const Create = () => {
                         placeholder='Carrots'
                         name='tempItem'
                         value={list.tempItem}
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}
                         onChange={handleChange}
                         onKeyPress={handleAddItem}
                         autoComplete='none'

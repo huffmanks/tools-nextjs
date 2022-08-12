@@ -18,14 +18,11 @@ const TodoStateProvider = ({ children }) => {
     const [screen, setScreen] = useState('')
     const [savedLists, setSavedLists] = useLocalStorage(LOCAL_STORAGE_KEY, [])
     const [lists, setLists] = useState(savedLists ?? [])
+    const [isFocused, setIsFocused] = useState(false)
     const [activeListId, setActiveListId] = useState(null)
     const [expanded, setExpanded] = useState(false)
 
     const changeScreen = (e, newScreen) => {
-        if (newScreen === 'create') {
-            setActiveListId(null)
-        }
-
         setScreen(newScreen)
     }
 
@@ -35,6 +32,14 @@ const TodoStateProvider = ({ children }) => {
         setScreen('create')
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    const handleFocus = () => {
+        setIsFocused(true)
+    }
+
+    const handleBlur = () => {
+        setIsFocused(false)
+    }
 
     const addList = ({ list, items }) => {
         if (!lists.some((item) => item.title === list.title.trim())) {
@@ -131,9 +136,12 @@ const TodoStateProvider = ({ children }) => {
     const contextValue = {
         screen,
         lists,
+        isFocused,
         activeListId,
         expanded,
         changeScreen,
+        handleFocus,
+        handleBlur,
         addList,
         setId,
         addListAsFavorite,

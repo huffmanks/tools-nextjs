@@ -39,11 +39,11 @@ const ListCard = ({ list }) => {
                     <CardHeader
                         avatar={
                             list?.type === 'shopping' ? (
-                                <Avatar sx={{ bgcolor: list.isFavorite ? 'primary.main' : pink[600], color: 'text.primary' }} aria-label='shopping'>
+                                <Avatar sx={{ bgcolor: pink[600], color: 'text.primary' }} aria-label='shopping'>
                                     <ShoppingCartIcon />
                                 </Avatar>
                             ) : (
-                                <Avatar sx={{ bgcolor: list.isFavorite ? 'primary.main' : green[800], color: 'text.primary' }} aria-label='task'>
+                                <Avatar sx={{ bgcolor: green[800], color: 'text.primary' }} aria-label='task'>
                                     <AssignmentIcon />
                                 </Avatar>
                             )
@@ -72,9 +72,9 @@ const ListCard = ({ list }) => {
                         </CardContent>
                     </Collapse>
 
-                    <CardActions disableSpacing sx={{ bgcolor: expanded === list.id ? 'background.alt' : 'background.altTwo' }}>
+                    <CardActions disableSpacing sx={{ bgcolor: list.isFavorite ? 'primary.main' : expanded === list.id ? 'background.alt' : 'background.altTwo' }}>
                         <IconButton value='favorite' aria-label='favorite' onClick={() => addListAsFavorite(list.id)}>
-                            {list.isFavorite ? <FavoriteIcon sx={{ color: 'primary.light' }} /> : <FavoriteBorderIcon />}
+                            {list.isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                         </IconButton>
 
                         <IconButton aria-label='copy' onClick={() => copyList(listRef)}>
