@@ -30,7 +30,6 @@
     <li><a href="#built-with">Built With</a></li>
     <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#instructions">Instructions</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
   </ol>
 </details>
 <br />
@@ -91,9 +90,14 @@ To get a local copy up and running follow these simple example steps.
     ```sh
     git clone https://github.com/huffmanks/tools-nextjs.git
     ```
-2. Install NPM packages
+2. Install packages
     ```sh
+    cd {DIR_NAME}
     yarn
+    ```
+3. Start
+    ```sh
+    yarn dev
     ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -446,25 +450,6 @@ type=6
 
 <br />
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- ROADMAP -->
-
-## Roadmap
-
--   [x] Aspect Ratio Calculator
--   [x] Color Picker
--   [x] Unit Calculator
--   [x] Email Signature
--   [x] Text Formatter
--   [x] Password Generator
--   [x] Random Picker
--   [x] Todo list
--   [ ] Calculator
--   [ ] Keyboard shortcuts
-
-\
-\
 See the [open issues](https://github.com/huffmanks/tools-nextjs/issues) for a full list of proposed features (and known issues).
 
 Project Link: [https://tools.huffmanks.com](https://tools.huffmanks.com)
