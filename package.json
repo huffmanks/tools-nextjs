@@ -1,6 +1,12 @@
 {
-    "name": "next-demo",
+    "name": "stratools",
     "version": "0.1.0",
+    "author": {
+        "name": "Kevin Huffman",
+        "email": "huffmanks2@gmail.com",
+        "url": "https://tools.huffmanks.com"
+    },
+    "license": "MIT",
     "private": true,
     "scripts": {
         "dev": "next dev -p 3001",
