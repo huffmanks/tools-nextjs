@@ -5,6 +5,7 @@ import DesignServicesIcon from '@mui/icons-material/DesignServices'
 import HomeIcon from '@mui/icons-material/Home'
 import KeyIcon from '@mui/icons-material/Key'
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd'
+import QrCodeIcon from '@mui/icons-material/QrCode'
 import ScaleIcon from '@mui/icons-material/Scale'
 import ShuffleIcon from '@mui/icons-material/Shuffle'
 import TagIcon from '@mui/icons-material/Tag'
@@ -72,6 +73,14 @@ export const generateRoutes = [
         key: 'password-generator',
         icon: <KeyIcon />,
         description: 'Create a strong password.',
+    },
+    {
+        path: '/generate/qr-code',
+        name: 'QR Code',
+        homeName: 'QR Code Generator',
+        key: 'qr-code-generator',
+        icon: <QrCodeIcon />,
+        description: 'Create a QR code.',
     },
     {
         path: '/generate/todo',

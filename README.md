@@ -10,11 +10,11 @@
         Tools to help speed the web development process.
         <br />
         <br />
-        <a href="https://tools.huffmanks.com">View Demo</a>
+        <a href="https://tools.huffmanks.com">View demo</a>
         ·
-        <a href="https://github.com/huffmanks/tools-nextjs/issues">Report Bug</a>
+        <a href="https://github.com/huffmanks/tools-nextjs/issues">Report bug</a>
         ·
-        <a href="https://github.com/huffmanks/tools-nextjs/issues">Request Feature</a>
+        <a href="https://github.com/huffmanks/tools-nextjs/issues">Request feature</a>
     </p>
 
 </div>
@@ -24,19 +24,50 @@
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+  <summary>Table of contents</summary>
   <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#built-with">Built With</a></li>
-    <li><a href="#getting-started">Getting Started</a></li>
-    <li><a href="#instructions">Instructions</a></li>
+    <li><a href="#built-with">Built with</a></li>
+    <li><a href="#tool-list">Tool list</a></li>
+    <li><a href="#about-the-project">About the project</a></li>
+    <li><a href="#getting-started">Getting started</a></li>
+    <li><a href="#unit-calculator-query-params">Unit Calculator query params</a></li>
   </ol>
 </details>
 <br />
 
+<!-- BUILT WITH -->
+
+## Built with
+
+-   [Next.js](https://nextjs.org/)
+-   [MUI](https://mui.com/)
+-   [change-case](https://www.npmjs.com/package/change-case)
+-   [colord](https://www.npmjs.com/package/colord)
+-   [convert](https://www.npmjs.com/package/convert)
+-   [react-colorful](https://www.npmjs.com/package/react-colorful)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- TOOL LIST -->
+
+## Tool list
+
+-   [Aspect Ratio Calculator](https://tools.huffmanks.com/calculate/aspect-ratio)
+-   [Unit Calculator](https://tools.huffmanks.com/calculate/units)
+-   [Text Formatter](https://tools.huffmanks.com/format/text)
+-   [Email Signature](https://tools.huffmanks.com/generate/email-signature)
+-   [Password Generator](https://tools.huffmanks.com/generate/password)
+-   [QR Code Generator](https://tools.huffmanks.com/generate/qr-code)
+-   [Todo List](https://tools.huffmanks.com/generate/todo)
+-   [Color Picker](https://tools.huffmanks.com/picker/color)
+-   [Item Picker](https://tools.huffmanks.com/picker/item)
+-   [Number Picker](https://tools.huffmanks.com/picker/number)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
+## About the project
 
 I built these tools to help speed my development process.
 
@@ -67,35 +98,26 @@ I built these tools to help speed my development process.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- BUILT WITH -->
-
-## Built With
-
--   [Next.js](https://nextjs.org/)
--   [MUI](https://mui.com/)
--   [change-case](https://www.npmjs.com/package/change-case)
--   [colord](https://www.npmjs.com/package/colord)
--   [convert](https://www.npmjs.com/package/convert)
--   [react-colorful](https://www.npmjs.com/package/react-colorful)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 <!-- GETTING STARTED -->
 
-## Getting Started
+## Getting started
 
 To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
+
     ```sh
-    git clone https://github.com/huffmanks/tools-nextjs.git
+    git clone https://github.com/huffmanks/tools-nextjs.git .
     ```
+
 2. Install packages
+
     ```sh
-    cd {DIR_NAME}
     yarn
     ```
+
 3. Start
+
     ```sh
     yarn dev
     ```
@@ -104,13 +126,9 @@ To get a local copy up and running follow these simple example steps.
 
 <!-- INSTRUCTIONS -->
 
-## Instructions
-
-### Stratools Unit Calculator
+## Unit Calculator query params
 
 BASE_URL = https://tools.huffmanks.com/calculate/units
-
-#### Query params
 
 ```
 /?type=length&num=3&unit=kilometer
@@ -143,7 +161,7 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 <details>
   <summary>Measurement types</summary>
   <ol>
-    <li><a href="#digital-storage">Digital Storage</a></li>
+    <li><a href="#digital-storage">Digital storage</a></li>
     <li><a href="#length">Length</a></li>
     <li><a href="#volume">Volume</a></li>
     <li><a href="#temperature">Temperature</a></li>
@@ -154,7 +172,7 @@ The string can be any variant of the word. i.e. kilometers, kilo, km, etc.
 
 <br />
 
-### Digital Storage
+### Digital storage
 
 type=1
 

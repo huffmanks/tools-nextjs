@@ -31,6 +31,7 @@ module.exports = (phase, { defaultConfig }) => {
                             '/format/text/index': { page: '/format/text' },
                             '/generate/email-signature/index': { page: '/generate/email-signature' },
                             '/generate/password/index': { page: '/generate/password' },
+                            '/generate/qr-code/index': { page: '/generate/qr-code' },
                             '/generate/todo/index': { page: '/generate/todo' },
                             '/picker/color/index': { page: '/picker/color' },
                             '/picker/item/index': { page: '/picker/item' },

@@ -24,6 +24,7 @@
         "change-case": "^4.1.2",
         "colord": "^2.9.2",
         "convert": "^4.5.0",
+        "easyqrcodejs": "^4.4.12",
         "next": "12.2.2",
         "next-pwa": "^5.5.4",
         "next-sitemap": "^3.1.10",
