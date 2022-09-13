@@ -2,6 +2,8 @@ import { qrCodeInputs } from '../../constants/qrCode'
 
 import { Box, Container, TextField } from '@mui/material'
 
+// import ThemeColor from '../EmailSignature/ThemeColor'
+
 import ActionGroup from './ActionGroup'
 import LogoUpload from './LogoUpload'
 
@@ -30,7 +32,9 @@ const QrCodeForm = ({ values, downloadUrl, handleChange, handleSubmit, handleRes
                     />
                 ))}
 
-                <LogoUpload handleChange={handleChange} />
+                <LogoUpload logoBackgroundTransparent={values.logoBackgroundTransparent} logoName={values.logoName} handleChange={handleChange} />
+
+                {/* <ThemeColor values={values} handleChange={handleChange} /> */}
 
                 <ActionGroup values={values} downloadUrl={downloadUrl} handleReset={handleReset} />
             </Box>

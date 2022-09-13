@@ -11,18 +11,23 @@ export const useQrCodeFormControls = () => {
     const [downloadUrl, setDownloadUrl] = useState('')
 
     const handleChange = (e) => {
-        const { name, type, value, files } = e.target
+        const { checked, name, type, value, files } = e.target
 
         if (type === 'file') {
             const file = files[0]
 
             const reader = new FileReader()
 
-            reader.onloadend = handleFile
+            reader.onloadend = handleFile(file.name)
 
             if (file) {
                 reader.readAsDataURL(file)
             }
+        } else if (type === 'checkbox') {
+            setValues({
+                ...values,
+                [name]: checked,
+            })
         } else {
             setValues({
                 ...values,
@@ -30,26 +35,27 @@ export const useQrCodeFormControls = () => {
             })
         }
     }
-    const handleFile = (e) => {
+    const handleFile = (logoName) => (e) => {
         const logoUpload = e.target.result
         setValues({
             ...values,
             logoUpload,
+            logoName,
         })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const { websiteLink, logoUpload } = values
+        const { websiteLink, logoUpload, logoBackgroundTransparent, colorDark } = values
 
         const options = {
             text: websiteLink,
             width: 512,
             height: 512,
             logo: logoUpload,
-            logoBackgroundTransparent: true,
-            colorDark: '#5b21b6',
+            logoBackgroundTransparent,
+            colorDark,
             colorLight: '#fff',
             PI: '#222',
             PO: '#222',
@@ -72,6 +78,7 @@ export const useQrCodeFormControls = () => {
     const handleReset = () => {
         setValues(initialValues)
         setDownloadUrl('')
+        codeRef.current.innerHTML = ''
     }
 
     return {

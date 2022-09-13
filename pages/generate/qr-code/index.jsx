@@ -1,6 +1,6 @@
 import { useQrCodeFormControls } from '../../../features/QrCode/useQrCodeFormControls'
 
-import { Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 
 import PageTitle from '../../../components/common/PageTitle'
 import SEO from '../../../components/common/SEO'
@@ -26,7 +26,7 @@ const QrCode = () => {
 
             <QrCodeForm values={values} downloadUrl={downloadUrl} handleChange={handleChange} handleSubmit={handleSubmit} handleReset={handleReset} />
 
-            <div ref={codeRef}></div>
+            <Box ref={codeRef} sx={{ '& canvas': { maxWidth: '100%' } }}></Box>
         </>
     )
 }
