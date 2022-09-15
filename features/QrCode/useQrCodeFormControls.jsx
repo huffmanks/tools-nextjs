@@ -3,11 +3,13 @@ import { createRef, useState } from 'react'
 import QRCode from 'easyqrcodejs'
 
 import { initialValues } from '../../constants/qrCode'
+import { getColorCode } from '../../utilities/getThemeColorOptions'
 
-export const useQrCodeFormControls = () => {
+export const useQrCodeFormControls = (themeValues) => {
     const codeRef = createRef()
 
     const [values, setValues] = useState(initialValues)
+    const [qrcode, setQrcode] = useState(null)
     const [downloadUrl, setDownloadUrl] = useState('')
 
     const handleChange = (e) => {
@@ -47,7 +49,11 @@ export const useQrCodeFormControls = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const { websiteLink, logoUpload, logoBackgroundTransparent, colorDark } = values
+        if (qrcode) {
+            qrcode.clear()
+        }
+
+        const { websiteLink, logoUpload, logoBackgroundTransparent } = values
 
         const options = {
             text: websiteLink,
@@ -55,7 +61,7 @@ export const useQrCodeFormControls = () => {
             height: 512,
             logo: logoUpload,
             logoBackgroundTransparent,
-            colorDark,
+            colorDark: getColorCode(themeValues),
             colorLight: '#fff',
             PI: '#222',
             PO: '#222',
@@ -64,11 +70,12 @@ export const useQrCodeFormControls = () => {
             correctLevel: QRCode.CorrectLevel.H,
         }
 
-        new QRCode(codeRef.current, options)
+        const QRCodeCanvas = new QRCode(codeRef.current, options)
+
+        setQrcode(QRCodeCanvas)
 
         setTimeout(() => {
-            const canvas = codeRef.current.querySelector('canvas')
-            const dataURL = canvas?.toDataURL('image/png')
+            const dataURL = QRCodeCanvas?._el.children[0].toDataURL('image/png')
             const url = dataURL.replace(/^data:image\/png/, 'data:application/octet-stream')
 
             setDownloadUrl(url)
@@ -78,14 +85,16 @@ export const useQrCodeFormControls = () => {
     const handleReset = () => {
         setValues(initialValues)
         setDownloadUrl('')
-        codeRef.current.innerHTML = ''
+
+        if (qrcode) {
+            qrcode.clear()
+        }
     }
 
     return {
         codeRef,
         values,
         downloadUrl,
-        // handleFocus,
         handleChange,
         // handleBlur,
         handleSubmit,

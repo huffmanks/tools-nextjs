@@ -1,18 +1,18 @@
-import { themeColorOptions } from '../../constants/emailSignature'
-import { Grid, TextField, FormLabel, InputAdornment, MenuItem } from '@mui/material'
+import { themeColorOptions } from '../../constants/themeColorOptions'
+import { Grid, TextField, InputAdornment, MenuItem, Typography } from '@mui/material'
 
 const ThemeColor = ({ values, handleFocus, handleChange }) => {
     return (
-        <>
+        <Grid container spacing={2} sx={{ marginBottom: 1 }}>
             <Grid item xs={12}>
-                <FormLabel>Theme Color</FormLabel>
+                <Typography variant='subtitle1'>Theme Color</Typography>
             </Grid>
 
-            <Grid item xl={0.75} md={1} sm={1.75} xs={3}>
-                <div style={{ width: '100%', height: '100%', backgroundColor: values.colorSymbol + values.themeColor + (values.hasEndSymbol ? ')' : ''), borderRadius: '4px' }}></div>
+            <Grid item>
+                <div style={{ width: '56px', height: '56px', backgroundColor: values.colorSymbol + values.themeColor + (values.hasEndSymbol ? ')' : ''), borderRadius: '4px' }}></div>
             </Grid>
-            <Grid item xl={1.75} sm={2.5} xs={9}>
-                <TextField fullWidth select label='Type' value={values?.colorType} name='colorType' onChange={handleChange}>
+            <Grid item>
+                <TextField fullWidth select label='Type' value={values?.colorType} name='colorType' onChange={handleChange} sx={{ width: 100 }}>
                     {themeColorOptions.map((option) => (
                         <MenuItem key={option.name} value={option.name}>
                             {option.label}
@@ -20,7 +20,7 @@ const ThemeColor = ({ values, handleFocus, handleChange }) => {
                     ))}
                 </TextField>
             </Grid>
-            <Grid item xl={2.25} md={3} sm={4.75} xs={12}>
+            <Grid item>
                 <TextField
                     fullWidth
                     variant='outlined'
@@ -36,7 +36,7 @@ const ThemeColor = ({ values, handleFocus, handleChange }) => {
                     }}
                 />
             </Grid>
-        </>
+        </Grid>
     )
 }
 

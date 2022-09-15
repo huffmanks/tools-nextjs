@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 import { initialValues } from '../../constants/emailSignature'
-import { getColorOptionsInfo } from './getEmailThemeOptions'
 
 export const useEmailSignatureFormControls = () => {
     const [values, setValues] = useState(initialValues)
@@ -43,29 +42,15 @@ export const useEmailSignatureFormControls = () => {
         })
     }
 
-    const handleFocus = (e) => {
-        e.target.select()
-    }
-
     const handleChange = (e) => {
         const { name, value } = e.target
 
         setFormSubmitted(false)
 
-        if (name === 'colorType') {
-            setValues({
-                ...values,
-                [name]: value,
-                colorSymbol: getColorOptionsInfo(value, 'colorSymbol'),
-                themeColor: getColorOptionsInfo(value, 'defaultValue'),
-                placeholder: getColorOptionsInfo(value, 'defaultValue'),
-            })
-        } else {
-            setValues({
-                ...values,
-                [name]: value,
-            })
-        }
+        setValues({
+            ...values,
+            [name]: value,
+        })
     }
 
     const handleBlur = (e) => {
@@ -95,7 +80,6 @@ export const useEmailSignatureFormControls = () => {
         errors,
         formSubmitted,
         formIsValid,
-        handleFocus,
         handleChange,
         handleBlur,
         handleSubmit,

@@ -2,12 +2,12 @@ import { qrCodeInputs } from '../../constants/qrCode'
 
 import { Box, Container, TextField } from '@mui/material'
 
-// import ThemeColor from '../EmailSignature/ThemeColor'
+import ThemeColor from '../../components/common/ThemeColor'
 
 import ActionGroup from './ActionGroup'
 import LogoUpload from './LogoUpload'
 
-const QrCodeForm = ({ values, downloadUrl, handleChange, handleSubmit, handleReset }) => {
+const QrCodeForm = ({ values, themeValues, downloadUrl, handleFocus, handleChange, handleThemeChange, handleSubmit, handleReset }) => {
     return (
         <Container maxWidth='sm' disableGutters sx={{ margin: 0 }}>
             <Box component='form' onSubmit={handleSubmit} autoComplete='off' sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
@@ -20,7 +20,7 @@ const QrCodeForm = ({ values, downloadUrl, handleChange, handleSubmit, handleRes
                         placeholder={input.placeholder}
                         name={input.name}
                         value={values[input.name]}
-                        // onFocus={handleFocus}
+                        onFocus={handleFocus}
                         onChange={handleChange}
                         // onBlur={handleBlur}
                         // error={!!errors[input.name]}
@@ -32,9 +32,9 @@ const QrCodeForm = ({ values, downloadUrl, handleChange, handleSubmit, handleRes
                     />
                 ))}
 
-                <LogoUpload logoBackgroundTransparent={values.logoBackgroundTransparent} logoName={values.logoName} handleChange={handleChange} />
+                <ThemeColor values={themeValues} handleFocus={handleFocus} handleChange={handleThemeChange} />
 
-                {/* <ThemeColor values={values} handleChange={handleChange} /> */}
+                <LogoUpload logoBackgroundTransparent={values.logoBackgroundTransparent} logoName={values.logoName} handleChange={handleChange} />
 
                 <ActionGroup values={values} downloadUrl={downloadUrl} handleReset={handleReset} />
             </Box>

@@ -1,4 +1,4 @@
-import { themeColorOptions } from '../../constants/emailSignature'
+import { themeColorOptions } from '../constants/themeColorOptions'
 
 export const getColorOptionsInfo = (value, output) => {
     const option = themeColorOptions.filter((opt) => opt.name === value)

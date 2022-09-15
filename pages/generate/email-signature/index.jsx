@@ -1,3 +1,4 @@
+import { useThemeColor } from '../../../hooks/useThemeColor'
 import { useEmailSignatureFormControls } from '../../../features/EmailSignature/useEmailSignatureFormControls'
 
 import SEO from '../../../components/common/SEO'
@@ -9,7 +10,9 @@ import EmailOutput from '../../../features/EmailSignature/EmailOutput'
 import OutputMessage from '../../../components/common/OutputMessage'
 
 const EmailSignature = () => {
-    const { values, errors, formSubmitted, formIsValid, handleFocus, handleChange, handleBlur, handleSubmit } = useEmailSignatureFormControls()
+    const { values, errors, formSubmitted, formIsValid, handleChange, handleBlur, handleSubmit } = useEmailSignatureFormControls()
+
+    const { values: themeValues, handleFocus, handleChange: handleThemeChange } = useThemeColor()
 
     return (
         <>
@@ -19,9 +22,19 @@ const EmailSignature = () => {
 
             <IntroParagraph />
 
-            <EmailForm values={values} errors={errors} formIsValid={formIsValid} handleFocus={handleFocus} handleChange={handleChange} handleBlur={handleBlur} handleSubmit={handleSubmit} />
+            <EmailForm
+                values={values}
+                themeValues={themeValues}
+                errors={errors}
+                formIsValid={formIsValid}
+                handleFocus={handleFocus}
+                handleChange={handleChange}
+                handleThemeChange={handleThemeChange}
+                handleBlur={handleBlur}
+                handleSubmit={handleSubmit}
+            />
 
-            {formSubmitted ? <EmailOutput values={values} /> : <OutputMessage message='Email signature will appear here.' extraMb />}
+            {formSubmitted ? <EmailOutput values={values} themeValues={themeValues} /> : <OutputMessage message='Email signature will appear here.' extraMb />}
         </>
     )
 }

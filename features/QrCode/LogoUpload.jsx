@@ -5,7 +5,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload'
 const LogoUpload = ({ logoBackgroundTransparent, logoName, handleChange }) => {
     return (
         <div style={{ marginBottom: 16 }}>
-            <Typography variant='subtitle2' gutterBottom>
+            <Typography variant='subtitle1' sx={{ marginBottom: 2 }}>
                 Logo Upload
             </Typography>
             <Stack direction={{ xs: 'column', sm: 'row' }} alignItems={{ xs: 'start', sm: 'center' }} gap={2} mb={2}>
