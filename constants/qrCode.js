@@ -15,6 +15,7 @@ export const qrCodeInputs = [
     {
         label: 'Website Link',
         name: 'websiteLink',
+        type: 'url',
         placeholder: 'https://tools.huffmanks.com/generate/qr-code',
     },
 ]

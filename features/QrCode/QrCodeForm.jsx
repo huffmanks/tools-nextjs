@@ -11,9 +11,10 @@ const QrCodeForm = ({ values, downloadUrl, handleFocus, handleChange, handleBlur
     return (
         <Container maxWidth='sm' disableGutters sx={{ margin: 0 }}>
             <Box component='form' onSubmit={handleSubmit} autoComplete='off' sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-                {qrCodeInputs.map((input, i) => (
+                {qrCodeInputs.map((input) => (
                     <TextField
-                        key={i}
+                        key={input.name}
+                        type={input.type || 'text'}
                         fullWidth
                         variant='outlined'
                         label={input.label}
@@ -22,19 +23,15 @@ const QrCodeForm = ({ values, downloadUrl, handleFocus, handleChange, handleBlur
                         value={values[input.name]}
                         onFocus={handleFocus}
                         onChange={handleChange}
-                        // onBlur={handleBlur}
-                        // error={!!errors[input.name]}
                         autoComplete='none'
-                        // {...(errors[input.name] && {
-                        //     error: true,
-                        //     helperText: errors[input.name],
-                        // })}
                     />
                 ))}
 
-                {qrCodePickers.map((picker, i) => (
-                    <PopoverColorPicker key={i} label={picker?.label} name={picker.name} helperText={picker?.helperText} handleBlur={handleBlur} />
-                ))}
+                <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' }, alignItems: 'end', gap: 3 }}>
+                    {qrCodePickers.map((picker) => (
+                        <PopoverColorPicker key={picker.name} label={picker?.label} name={picker.name} helperText={picker?.helperText} handleBlur={handleBlur} />
+                    ))}
+                </Box>
 
                 <LogoUpload logoBackgroundTransparent={values.logoBackgroundTransparent} logoName={values.logoName} handleChange={handleChange} />
 

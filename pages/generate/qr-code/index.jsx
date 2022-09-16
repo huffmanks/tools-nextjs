@@ -14,12 +14,7 @@ const QrCode = () => {
 
     return (
         <>
-            <SEO
-                description='Create a QR code.'
-                title='QR Code Generator'
-                url='/generate/qr-code'
-                //  imageUrl='/qr-code.png'
-            />
+            <SEO description='Create a QR code.' title='QR Code Generator' url='/generate/qr-code' imageUrl='/qr-code.png' />
 
             <PageTitle>QR Code Generator</PageTitle>
 

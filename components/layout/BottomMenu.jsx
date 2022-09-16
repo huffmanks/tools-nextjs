@@ -16,10 +16,9 @@ const BottomMenu = ({ screen, handleScreen, navItems, isFocused, activeListId, c
             {children}
 
             <Paper sx={{ position: 'fixed', bottom: isFocused ? '-56px' : 0, left: { xs: 57, sm: 65 }, right: 0, zIndex: 2 }} elevation={3}>
-                {/* <Paper sx={{ display: isFocused ? 'none' : 'block', position: 'fixed', bottom: 0, left: { xs: 57, sm: 65 }, right: 0, zIndex: 2 }} elevation={3}> */}
                 <BottomNavigation showLabels value={screen} onChange={handleScreen}>
-                    {navItems.map((item, i) => (
-                        <BottomNavigationAction key={i} label={item.label} value={item.value} icon={item.icon} disabled={!activeListId && item.editIcon} />
+                    {navItems.map((item) => (
+                        <BottomNavigationAction key={item.label} label={item.label} value={item.value} icon={item.icon} disabled={!activeListId && item.editIcon} />
                     ))}
                 </BottomNavigation>
             </Paper>
