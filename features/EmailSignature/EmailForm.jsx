@@ -3,9 +3,9 @@ import { Box, Grid, Button } from '@mui/material'
 import DesignServicesIcon from '@mui/icons-material/DesignServices'
 
 import EmailInputs from './EmailInputs'
-import ThemeColor from '../../components/common/ThemeColor'
+import PopoverColorPicker from '../../components/common/PopoverColorPicker'
 
-const EmailForm = ({ values, themeValues, errors, formIsValid, handleFocus, handleChange, handleThemeChange, handleBlur, handleSubmit }) => {
+const EmailForm = ({ values, errors, formIsValid, handleChange, handleBlur, handleColorPickerBlur, handleSubmit }) => {
     return (
         <>
             <Box component='form' onSubmit={handleSubmit} autoComplete='off'>
@@ -13,7 +13,7 @@ const EmailForm = ({ values, themeValues, errors, formIsValid, handleFocus, hand
                     <EmailInputs values={values} errors={errors} handleChange={handleChange} handleBlur={handleBlur} />
                 </Grid>
 
-                <ThemeColor values={themeValues} handleFocus={handleFocus} handleChange={handleThemeChange} />
+                <PopoverColorPicker label='Theme Color' name='themeColor' handleBlur={handleColorPickerBlur} />
 
                 <Button
                     type='submit'

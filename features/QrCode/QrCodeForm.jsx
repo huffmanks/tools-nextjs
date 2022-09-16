@@ -1,13 +1,13 @@
-import { qrCodeInputs } from '../../constants/qrCode'
-
 import { Box, Container, TextField } from '@mui/material'
 
-import ThemeColor from '../../components/common/ThemeColor'
+import { qrCodeInputs } from '../../constants/qrCode'
+import { qrCodePickers } from '../../constants/popoverColorPicker'
 
 import ActionGroup from './ActionGroup'
 import LogoUpload from './LogoUpload'
+import PopoverColorPicker from '../../components/common/PopoverColorPicker'
 
-const QrCodeForm = ({ values, themeValues, downloadUrl, handleFocus, handleChange, handleThemeChange, handleSubmit, handleReset }) => {
+const QrCodeForm = ({ values, downloadUrl, handleFocus, handleChange, handleBlur, handleSubmit, handleReset }) => {
     return (
         <Container maxWidth='sm' disableGutters sx={{ margin: 0 }}>
             <Box component='form' onSubmit={handleSubmit} autoComplete='off' sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
@@ -32,7 +32,9 @@ const QrCodeForm = ({ values, themeValues, downloadUrl, handleFocus, handleChang
                     />
                 ))}
 
-                <ThemeColor values={themeValues} handleFocus={handleFocus} handleChange={handleThemeChange} />
+                {qrCodePickers.map((picker, i) => (
+                    <PopoverColorPicker key={i} label={picker?.label} name={picker.name} helperText={picker?.helperText} handleBlur={handleBlur} />
+                ))}
 
                 <LogoUpload logoBackgroundTransparent={values.logoBackgroundTransparent} logoName={values.logoName} handleChange={handleChange} />
 

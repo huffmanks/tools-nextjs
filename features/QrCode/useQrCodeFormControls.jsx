@@ -3,9 +3,8 @@ import { createRef, useState } from 'react'
 import QRCode from 'easyqrcodejs'
 
 import { initialValues } from '../../constants/qrCode'
-import { getColorCode } from '../../utilities/getThemeColorOptions'
 
-export const useQrCodeFormControls = (themeValues) => {
+export const useQrCodeFormControls = (colors) => {
     const codeRef = createRef()
 
     const [values, setValues] = useState(initialValues)
@@ -57,16 +56,14 @@ export const useQrCodeFormControls = (themeValues) => {
 
         const options = {
             text: websiteLink,
-            width: 512,
-            height: 512,
+            width: 600,
+            height: 600,
             logo: logoUpload,
             logoBackgroundTransparent,
-            colorDark: getColorCode(themeValues),
-            colorLight: '#fff',
-            PI: '#222',
-            PO: '#222',
-            // AI: '#009ACD',
-            // AO: '#B03060',
+            colorDark: colors.dotColor,
+            colorLight: colors.backgroundColor,
+            PO: colors.ringOuter,
+            PI: colors.ringInner,
             correctLevel: QRCode.CorrectLevel.H,
         }
 
@@ -96,7 +93,6 @@ export const useQrCodeFormControls = (themeValues) => {
         values,
         downloadUrl,
         handleChange,
-        // handleBlur,
         handleSubmit,
         handleReset,
     }
