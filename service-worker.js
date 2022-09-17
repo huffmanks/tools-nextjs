@@ -18,12 +18,12 @@ precacheAndRoute(WB_MANIFEST)
 cleanupOutdatedCaches()
 registerRoute(
     '/',
-    new NetworkFirst({
+    new StaleWhileRevalidate({
         cacheName: 'start-url',
         plugins: [
             new ExpirationPlugin({
                 maxEntries: 1,
-                maxAgeSeconds: 86400,
+                maxAgeSeconds: 31536e3,
                 purgeOnQuotaError: !0,
             }),
         ],
@@ -44,20 +44,20 @@ registerRoute(
     }),
     'GET'
 )
-// registerRoute(
-//     /\.(?:eot|otf|ttc|ttf|woff|woff2|font.css)$/i,
-//     new StaleWhileRevalidate({
-//         cacheName: 'static-font-assets',
-//         plugins: [
-//             new ExpirationPlugin({
-//                 maxEntries: 4,
-//                 maxAgeSeconds: 604800,
-//                 purgeOnQuotaError: !0,
-//             }),
-//         ],
-//     }),
-//     'GET'
-// )
+registerRoute(
+    /\.(?:eot|otf|ttc|ttf|woff|woff2|font.css)$/i,
+    new CacheFirst({
+        cacheName: 'static-font-assets',
+        plugins: [
+            new ExpirationPlugin({
+                maxEntries: 4,
+                maxAgeSeconds: 31536e3,
+                purgeOnQuotaError: !0,
+            }),
+        ],
+    }),
+    'GET'
+)
 registerRoute(
     /\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,
     new StaleWhileRevalidate({
@@ -65,7 +65,7 @@ registerRoute(
         plugins: [
             new ExpirationPlugin({
                 maxEntries: 64,
-                maxAgeSeconds: 7776000,
+                maxAgeSeconds: 31536e3,
                 purgeOnQuotaError: !0,
             }),
         ],
@@ -79,7 +79,7 @@ registerRoute(
         plugins: [
             new ExpirationPlugin({
                 maxEntries: 32,
-                maxAgeSeconds: 7776000,
+                maxAgeSeconds: 31536e3,
                 purgeOnQuotaError: !0,
             }),
         ],
@@ -93,7 +93,7 @@ registerRoute(
         plugins: [
             new ExpirationPlugin({
                 maxEntries: 32,
-                maxAgeSeconds: 7776000,
+                maxAgeSeconds: 31536e3,
                 purgeOnQuotaError: !0,
             }),
         ],
@@ -102,42 +102,27 @@ registerRoute(
 )
 registerRoute(
     /\.(?:json|xml|csv)$/i,
-    new NetworkFirst({
+    new StaleWhileRevalidate({
         cacheName: 'static-data-assets',
         plugins: [
             new ExpirationPlugin({
                 maxEntries: 32,
-                maxAgeSeconds: 7776000,
+                maxAgeSeconds: 31536e3,
                 purgeOnQuotaError: !0,
             }),
         ],
     }),
     'GET'
 )
-// registerRoute(
-//     /\/api\/.*$/i,
-//     new NetworkFirst({
-//         cacheName: 'apis',
-//         networkTimeoutSeconds: 10,
-//         plugins: [
-//             new ExpirationPlugin({
-//                 maxEntries: 16,
-//                 maxAgeSeconds: 86400,
-//                 purgeOnQuotaError: !0,
-//             }),
-//         ],
-//     }),
-//     'GET'
-// )
 registerRoute(
     /.*/i,
-    new NetworkFirst({
+    new StaleWhileRevalidate({
         cacheName: 'others',
         networkTimeoutSeconds: 10,
         plugins: [
             new ExpirationPlugin({
                 maxEntries: 32,
-                maxAgeSeconds: 7776000,
+                maxAgeSeconds: 31536e3,
                 purgeOnQuotaError: !0,
             }),
         ],
