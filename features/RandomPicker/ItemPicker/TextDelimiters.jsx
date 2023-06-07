@@ -2,7 +2,7 @@ import { delimiterOptions, delimiterSelects } from '../../../constants/itemPicke
 
 import { FormControl, InputLabel, MenuItem, Select, Stack } from '@mui/material'
 
-const Delimiters = ({ values, handleChange }) => {
+const TextDelimiters = ({ values, handleChange }) => {
     return (
         <Stack direction={{ xs: 'column', xms: 'row' }} gap={2} sx={{ flex: 1, maxWidth: '100%' }}>
             {delimiterSelects.map((select, i) => (
@@ -21,4 +21,4 @@ const Delimiters = ({ values, handleChange }) => {
     )
 }
 
-export default Delimiters
+export default TextDelimiters

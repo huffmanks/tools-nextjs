@@ -1,10 +1,10 @@
-import { Grid } from '@mui/material'
+import { Box } from '@mui/material'
 
 import OutputMessage from '../../../components/common/OutputMessage'
 
-const ItemOutput = ({ resultRef, values }) => {
+const TextOutput = ({ resultRef, values }) => {
     return (
-        <Grid item xs={12} md={5}>
+        <Box sx={{ marginTop: 5 }}>
             {values?.output?.length > 0 ? (
                 <div ref={resultRef}>
                     {values.output.map((item, i) => (
@@ -14,8 +14,8 @@ const ItemOutput = ({ resultRef, values }) => {
             ) : (
                 <OutputMessage message='No items to show.' />
             )}
-        </Grid>
+        </Box>
     )
 }
 
-export default ItemOutput
+export default TextOutput
