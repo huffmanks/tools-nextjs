@@ -9,7 +9,7 @@ import PageTitle from '../../../components/common/PageTitle'
 import ItemForm from '../../../features/RandomPicker/ItemPicker/ItemForm'
 
 const ItemPicker = () => {
-    const { resultRef, values, setValues, handleChange, handleClick, handleCopy, handleReset } = useItemPickerFormControls()
+    const { fileRef, resultRef, values, setValues, handleChange, handleFileUpload, handleRandomSelection, handleClick, handleCopy, handleReset } = useItemPickerFormControls()
     const { handleDecrease, handleIncrease } = useCounter(values, setValues)
 
     return (
@@ -23,9 +23,12 @@ const ItemPicker = () => {
             </Typography>
 
             <ItemForm
+                fileRef={fileRef}
                 resultRef={resultRef}
                 values={values}
                 handleChange={handleChange}
+                handleFileUpload={handleFileUpload}
+                handleRandomSelection={handleRandomSelection}
                 handleClick={handleClick}
                 handleCopy={handleCopy}
                 handleReset={handleReset}

@@ -21,15 +21,15 @@ export const useEmailSignatureFormControls = () => {
 
         if ('phone' in fieldValues) {
             temp.phone = fieldValues.phone ? '' : 'This field is required.'
-            if (fieldValues.phone) temp.phone = fieldValues.phone.match(/\d{3}-\d{3}-\d{4}/g) ? '' : 'Phone number is not valid.'
+            if (fieldValues.phone) temp.phone = fieldValues.phone.match(/^(\(\d{3}\)\s?|\d{3}[-.]?)?\d{3}[-.]?\d{4}$/g) ? '' : 'Phone number is not valid.'
         }
 
         if ('cellPhone' in fieldValues) {
-            temp.cellPhone = fieldValues.cellPhone.match(/\d{3}-\d{3}-\d{4}/g) || fieldValues.cellPhone === '' ? '' : 'Cell number is not valid.'
+            temp.cellPhone = fieldValues.cellPhone.match(/^(\(\d{3}\)\s?|\d{3}[-.]?)?\d{3}[-.]?\d{4}$/g) || fieldValues.cellPhone === '' ? '' : 'Cell number is not valid.'
         }
 
         if ('fax' in fieldValues) {
-            temp.fax = fieldValues.fax.match(/\d{3}-\d{3}-\d{4}/g) || fieldValues.fax === '' ? '' : 'Fax number is not valid.'
+            temp.fax = fieldValues.fax.match(/^(\(\d{3}\)\s?|\d{3}[-.]?)?\d{3}[-.]?\d{4}$/g) || fieldValues.fax === '' ? '' : 'Fax number is not valid.'
         }
 
         if ('website' in fieldValues) {

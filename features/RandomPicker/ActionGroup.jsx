@@ -3,7 +3,7 @@ import NumbersIcon from '@mui/icons-material/Numbers'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import RestartAltIcon from '@mui/icons-material/RestartAlt'
 
-const ActionGroup = ({ isDisabled, generateAria, handleClick, handleCopy, handleReset }) => {
+const ActionGroup = ({ isCopyDisabled, isGenerateDisabled, isUpload, generateAria, handleRandomSelection, handleClick, handleCopy, handleReset }) => {
     const styles = {
         button: {
             width: {
@@ -23,13 +23,22 @@ const ActionGroup = ({ isDisabled, generateAria, handleClick, handleCopy, handle
         },
     }
     return (
-        <Stack direction={{ xs: 'column', xms: 'row' }} gap={2} mb={3}>
-            <Button variant='contained' size='large' aria-label={generateAria} endIcon={<NumbersIcon />} onClick={handleClick} sx={styles.button}>
+        <Stack direction={{ xs: 'column', xms: 'row' }} gap={2} mt={{ sm: !isUpload ? 3 : 0, md: !isUpload ? 6.5 : 0 }} mb={3}>
+            <Button
+                variant='contained'
+                size='large'
+                disabled={isGenerateDisabled}
+                aria-label={generateAria}
+                endIcon={<NumbersIcon />}
+                onClick={isUpload ? handleRandomSelection : handleClick}
+                sx={styles.button}>
                 Generate
             </Button>
-            <Button variant='contained' size='large' disabled={isDisabled} aria-label='copy value to clipboard' endIcon={<ContentCopyIcon />} onClick={handleCopy} sx={styles.button}>
-                Copy
-            </Button>
+            {!isUpload && (
+                <Button variant='contained' size='large' disabled={isCopyDisabled} aria-label='copy value to clipboard' endIcon={<ContentCopyIcon />} onClick={handleCopy} sx={styles.button}>
+                    Copy
+                </Button>
+            )}
             <Button variant='contained' size='large' aria-label='reset values' endIcon={<RestartAltIcon />} onClick={handleReset} sx={styles.button}>
                 Reset
             </Button>

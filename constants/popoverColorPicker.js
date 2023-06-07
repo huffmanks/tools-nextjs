@@ -3,6 +3,7 @@ export const initialValues = {
     backgroundColor: '#fff',
     ringOuter: '#222',
     ringInner: '#222',
+    themeColor: '#5b21b6',
 }
 
 export const qrCodePickers = [

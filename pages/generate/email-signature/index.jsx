@@ -8,11 +8,12 @@ import IntroParagraph from '../../../features/EmailSignature/IntroParagraph'
 import EmailForm from '../../../features/EmailSignature/EmailForm'
 import EmailOutput from '../../../features/EmailSignature/EmailOutput'
 import OutputMessage from '../../../components/common/OutputMessage'
+import { initialValues } from '../../../constants/popoverColorPicker'
 
 const EmailSignature = () => {
     const { values, errors, formSubmitted, formIsValid, handleChange, handleBlur, handleSubmit } = useEmailSignatureFormControls()
 
-    const { colors, handleBlur: handleColorPickerBlur } = usePopoverColorPicker()
+    const { colors, handleBlur: handleColorPickerBlur } = usePopoverColorPicker(initialValues)
 
     return (
         <>

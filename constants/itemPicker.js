@@ -1,10 +1,25 @@
 export const initialValues = {
     total: 1,
+    listType: 'upload',
+    selectedRows: [],
+    isProcessing: false,
+    fileName: '',
     inputDelimiter: 'newline',
     outputDelimiter: 'newline',
     list: '',
     output: [],
 }
+
+export const itemRadios = [
+    {
+        value: 'upload',
+        label: 'Upload',
+    },
+    {
+        value: 'text',
+        label: 'Text',
+    },
+]
 
 export const delimiterSelects = [
     {
