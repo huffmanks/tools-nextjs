@@ -16,3 +16,4 @@
     - [ ] Dummy HTML generator, i.e.: https://www.htmlstrip.com/lorem-ipsum-generator but use ipsum alternative like https://www.dummytextgenerator.com
     - [ ] Compare text, i.e.: https://www.diffchecker.com
     - [ ] Random keygen, i.e.: https://randomkeygen.com
+    - [ ] CSS custom scrollbar generator
