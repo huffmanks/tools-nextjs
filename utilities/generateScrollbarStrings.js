@@ -12,7 +12,7 @@ export const generateScrollbarStrings = (value) => {
         : ''
 
     const trackRadius = !value.isTrackTransparent ? `\n    border-radius: ${value.trackRadius}px;` : ''
-    const trackBorder = !value.isTrackTransparent ? `\n    border: ${value.trackBorderWidth} ${value.trackBorderStyle} ${value.trackBorderColor};` : ''
+    const trackBorder = !value.isTrackTransparent ? `\n    border: ${value.trackBorderWidth}px ${value.trackBorderStyle} ${value.trackBorderColor};` : ''
     const thumbBgClip = value.isTrackTransparent ? `\n    background-clip: content-box;` : ''
     const thumbBorder = value.isTrackTransparent ? `\n    border: ${Math.floor(value.thickness / 3)}px solid transparent;` : ''
 

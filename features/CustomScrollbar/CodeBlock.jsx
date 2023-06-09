@@ -1,7 +1,6 @@
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { materialDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import oneDark from 'react-syntax-highlighter/dist/cjs/styles/prism/one-dark'
 import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css'
-// import prism from 'react-syntax-highlighter/dist/cjs/styles/prism/prism'
 
 import { Box, IconButton } from '@mui/material'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
@@ -27,7 +26,7 @@ const CodeBlock = ({ value }) => {
     }
     return (
         <Box sx={{ position: 'relative', width: 600, fontSize: 14 }}>
-            <SyntaxHighlighter language='css' style={materialDark} wrapLines='true' showLineNumbers='true'>
+            <SyntaxHighlighter language='css' style={oneDark} wrapLines='true' showLineNumbers='true'>
                 {codeString}
             </SyntaxHighlighter>
             <IconButton aria-label='copy' size='large' onClick={handleCopy} sx={{ position: 'absolute', top: 15, right: 8 }}>

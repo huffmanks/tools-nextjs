@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://tools.huffmanks.com</loc><lastmod>2022-09-17T16:05:16.459Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://tools.huffmanks.com/calculate/aspect-ratio</loc><lastmod>2022-09-17T16:05:16.459Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://tools.huffmanks.com/calculate/units</loc><lastmod>2022-09-17T16:05:16.459Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://tools.huffmanks.com/fallback</loc><lastmod>2022-09-17T16:05:16.459Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://tools.huffmanks.com/format/text</loc><lastmod>2022-09-17T16:05:16.459Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://tools.huffmanks.com/generate/email-signature</loc><lastmod>2022-09-17T16:05:16.459Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://tools.huffmanks.com/generate/password</loc><lastmod>2022-09-17T16:05:16.459Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://tools.huffmanks.com/generate/qr-code</loc><lastmod>2022-09-17T16:05:16.459Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://tools.huffmanks.com/generate/todo</loc><lastmod>2022-09-17T16:05:16.459Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://tools.huffmanks.com/picker/color</loc><lastmod>2022-09-17T16:05:16.459Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://tools.huffmanks.com/picker/item</loc><lastmod>2022-09-17T16:05:16.459Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://tools.huffmanks.com/picker/number</loc><lastmod>2022-09-17T16:05:16.459Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://tools.huffmanks.com</loc><lastmod>2023-06-09T03:01:52.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://tools.huffmanks.com/calculate/aspect-ratio</loc><lastmod>2023-06-09T03:01:52.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://tools.huffmanks.com/calculate/units</loc><lastmod>2023-06-09T03:01:52.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://tools.huffmanks.com/fallback</loc><lastmod>2023-06-09T03:01:52.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://tools.huffmanks.com/format/text</loc><lastmod>2023-06-09T03:01:52.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://tools.huffmanks.com/generate/custom-scrollbar</loc><lastmod>2023-06-09T03:01:52.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://tools.huffmanks.com/generate/email-signature</loc><lastmod>2023-06-09T03:01:52.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://tools.huffmanks.com/generate/password</loc><lastmod>2023-06-09T03:01:52.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://tools.huffmanks.com/generate/qr-code</loc><lastmod>2023-06-09T03:01:52.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://tools.huffmanks.com/generate/todo</loc><lastmod>2023-06-09T03:01:52.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://tools.huffmanks.com/picker/color</loc><lastmod>2023-06-09T03:01:52.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://tools.huffmanks.com/picker/item</loc><lastmod>2023-06-09T03:01:52.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://tools.huffmanks.com/picker/number</loc><lastmod>2023-06-09T03:01:52.799Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
