@@ -22,9 +22,11 @@ const PopoverColorPicker = ({ label, name, helperText, handleBlur }) => {
 
     return (
         <div>
-            <Typography variant='subtitle1' mb={1}>
-                {label}
-            </Typography>
+            {label && (
+                <Typography variant='subtitle1' mb={1} mt={2}>
+                    {label}
+                </Typography>
+            )}
 
             <Stack flexDirection='row' alignItems='center' sx={{ position: 'relative', gap: 2 }}>
                 <Box sx={{ width: '28px', height: '28px', backgroundColor: color, border: '2px solid #fefefe', borderRadius: 1, cursor: 'pointer' }} onClick={() => toggle((prev) => !prev)}></Box>

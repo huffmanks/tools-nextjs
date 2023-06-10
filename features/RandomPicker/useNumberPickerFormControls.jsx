@@ -19,21 +19,25 @@ export const useNumberPickerFormControls = () => {
         if (name === 'total' || name === 'start' || name === 'end') {
             setValues((prev) => ({
                 ...values,
+                isLottery: false,
                 [name]: prev[name] === '' && parseInt(value) === 0 ? '' : value.replace(/[^0-9]/g, ''),
             }))
         } else if (name === 'powerball') {
             setValues((prev) => ({
                 ...powerballValues,
+                isLottery: checked,
                 isPowerball: !prev.isPowerball,
             }))
         } else if (name === 'megaMillions') {
             setValues((prev) => ({
                 ...megaMillionsValues,
+                isLottery: checked,
                 isMegaMillions: !prev.isMegaMillions,
             }))
         } else {
             setValues({
                 ...values,
+                isLottery: false,
                 [name]: type === 'checkbox' ? checked : value,
             })
         }

@@ -1,95 +1,94 @@
 import { styled } from '@mui/material/styles'
 import { Box } from '@mui/material'
 
-export const generateScrollbarStrings = (value) => {
-    const scrollBarHover = !value.isTrackTransparent
+export const generateScrollbarStrings = (values, colors) => {
+    const scrollBarHover = !values.isTrackTransparent
         ? `
 .scrollbar::-webkit-scrollbar-track:hover,
 .scrollbar::-webkit-scrollbar-track:active {
-    background-color: ${value.trackBgHover};
+    background-color: ${colors.trackBgHover};
 }
 `
         : ''
 
-    const trackRadius = !value.isTrackTransparent ? `\n    border-radius: ${value.trackRadius}px;` : ''
-    const trackBorder = !value.isTrackTransparent ? `\n    border: ${value.trackBorderWidth}px ${value.trackBorderStyle} ${value.trackBorderColor};` : ''
-    const thumbBgClip = value.isTrackTransparent ? `\n    background-clip: content-box;` : ''
-    const thumbBorder = value.isTrackTransparent ? `\n    border: ${Math.floor(value.thickness / 3)}px solid transparent;` : ''
+    const trackRadius = !values.isTrackTransparent ? `\n    border-radius: ${values.trackRadius}px;` : ''
+    const trackBorder = !values.isTrackTransparent ? `\n    border: ${values.trackBorderWidth}px ${values.trackBorderStyle} ${colors.trackBorderColor};` : ''
+    const thumbBgClip = values.isTrackTransparent ? `\n    background-clip: content-box;` : ''
+    const thumbBorder = values.isTrackTransparent ? `\n    border: ${Math.floor(values.thickness / 3)}px solid transparent;` : ''
 
     const DemoBox = styled(Box)`
-background-color: rgb(0 0 0 / .3);
-width: 400px;
-height: 300px;
-display: flex;
-flex-direction: column;
-gap: 20px;
-padding: 10px;
-overflow-${value.axis}: scroll;
 
-scrollbar-width: ${value.widthFirefox};
-scrollbar-color: ${value.thumbBg} ${value.trackBg};
+width: ${values.axis === 'y' ? 'auto' : '50%'};
+height: ${values.axis === 'y' ? '300px' : 'auto'};
+background-color: #282c34;
+border-radius: 4.2px;
+
+overflow-${values.axis}: scroll;
+
+scrollbar-width: ${values.widthFirefox};
+scrollbar-color: ${colors.thumbBg} ${colors.trackBg};
 
 :hover,
 :active {
-scrollbar-color: ${value.thumbBg} ${value.trackBg};
+scrollbar-color: ${colors.thumbBg} ${colors.trackBg};
 }
 
 ::-webkit-scrollbar {
-${value.axis === 'y' ? 'width' : 'height'}: ${value.thickness}px;
-overflow-${value.axis}: scroll;
+${values.axis === 'y' ? 'width' : 'height'}: ${values.thickness}px;
+overflow-${values.axis}: scroll;
 }
 
 ::-webkit-scrollbar-track {
-background-color: ${!value.isTrackTransparent ? value.trackBg : 'transparent'};
+background-color: ${!values.isTrackTransparent ? colors.trackBg : 'transparent'};
 ${trackRadius}
 ${trackBorder}
 }
 
-${!value.isTrackTransparent ? '::-webkit-scrollbar-track:hover,' + '::-webkit-scrollbar-track:active{' + 'background-color: ' + value.trackBgHover + ';}' : ''}
+${!values.isTrackTransparent ? '::-webkit-scrollbar-track:hover,' + '::-webkit-scrollbar-track:active{' + 'background-color: ' + colors.trackBgHover + ';}' : ''}
 
 ::-webkit-scrollbar-thumb {
 ${thumbBgClip}
-background-color: ${value.thumbBg};
-border-radius: ${value.thumbRadius}px;
+background-color: ${colors.thumbBg};
+border-radius: ${values.thumbRadius}px;
 ${thumbBorder}
 }
 
 ::-webkit-scrollbar-thumb:hover,
 ::-webkit-scrollbar-thumb:active {
-background-color: ${value.thumbBgHover};
+background-color: ${colors.thumbBgHover};
 }
 `
 
     const codeString = `/* ===== Scrollbar CSS ===== */
 /* Firefox */
 .scrollbar {
-    scrollbar-width: ${value.widthFirefox};
-    scrollbar-color: ${value.thumbBg} ${value.trackBg};
+    scrollbar-width: ${values.widthFirefox};
+    scrollbar-color: ${colors.thumbBg} ${colors.trackBg};
 }
 
 .scrollbar:hover,
 .scrollbar:active {
-    scrollbar-color: ${value.thumbBg} ${value.trackBg};
+    scrollbar-color: ${colors.thumbBg} ${colors.trackBg};
 }
 
 /* Chrome, Edge and Safari */
 .scrollbar::-webkit-scrollbar {
-    ${value.axis === 'y' ? 'width' : 'height'}: ${value.thickness}px;
-    overflow-${value.axis}: scroll;
+    ${values.axis === 'y' ? 'width' : 'height'}: ${values.thickness}px;
+    overflow-${values.axis}: scroll;
 }
 
 .scrollbar::-webkit-scrollbar-track {
-    background-color: ${!value.isTrackTransparent ? value.trackBg : 'transparent'};${trackRadius}${trackBorder}
+    background-color: ${!values.isTrackTransparent ? colors.trackBg : 'transparent'};${trackRadius}${trackBorder}
 }
 ${scrollBarHover}
 .scrollbar::-webkit-scrollbar-thumb {${thumbBgClip}
-    background-color: ${value.thumbBg};
-    border-radius: ${value.thumbRadius}px;${thumbBorder}
+    background-color: ${colors.thumbBg};
+    border-radius: ${values.thumbRadius}px;${thumbBorder}
 }
 
 .scrollbar::-webkit-scrollbar-thumb:hover,
 .scrollbar::-webkit-scrollbar-thumb:active {
-    background-color: ${value.thumbBgHover};
+    background-color: ${colors.thumbBgHover};
 }`
 
     return { DemoBox, codeString }

@@ -4,6 +4,11 @@ export const initialValues = {
     ringOuter: '#222',
     ringInner: '#222',
     themeColor: '#5b21b6',
+    trackBg: '#e7e7e7',
+    trackBorderColor: '#cacaca',
+    trackBgHover: '#cfcfcf',
+    thumbBg: '#d55959',
+    thumbBgHover: '#cf3f3f',
 }
 
 export const qrCodePickers = [
@@ -24,5 +29,33 @@ export const qrCodePickers = [
     {
         name: 'ringInner',
         helperText: 'Inner Color',
+    },
+]
+
+export const scrollbarTrackPickers = [
+    {
+        label: 'Track styles',
+        name: 'trackBg',
+        helperText: 'Background Color',
+    },
+    {
+        name: 'trackBorderColor',
+        helperText: 'Border Color',
+    },
+    {
+        name: 'trackBgHover',
+        helperText: 'Hover Background Color',
+    },
+]
+
+export const scrollbarThumbPickers = [
+    {
+        label: 'Thumb Styles',
+        name: 'thumbBg',
+        helperText: 'Background Color',
+    },
+    {
+        name: 'thumbBgHover',
+        helperText: 'Hover Background Color',
     },
 ]
