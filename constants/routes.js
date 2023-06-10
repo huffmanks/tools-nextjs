@@ -4,6 +4,7 @@ import ColorLensIcon from '@mui/icons-material/ColorLens'
 import DesignServicesIcon from '@mui/icons-material/DesignServices'
 import HomeIcon from '@mui/icons-material/Home'
 import KeyIcon from '@mui/icons-material/Key'
+import LineAxisIcon from '@mui/icons-material/LineAxis'
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd'
 import QrCodeIcon from '@mui/icons-material/QrCode'
 import ScaleIcon from '@mui/icons-material/Scale'
@@ -58,6 +59,14 @@ export const formatRoutes = [
 ]
 
 export const generateRoutes = [
+    {
+        path: '/generate/css-scrollbar',
+        name: 'CSS Scrollbar',
+        homeName: 'CSS Scrollbar',
+        key: 'css-scrollbar',
+        icon: <LineAxisIcon />,
+        description: 'Customize a CSS scrollbar.',
+    },
     {
         path: '/generate/email-signature',
         name: 'Email Signature',

@@ -48,28 +48,30 @@ const ScrollbarForm = ({ values, handleBlur, handleChange, handleReset }) => {
                     <PixelInput inputLabel='Thickness' inputName='thickness' inputValue={values.thickness} handleChange={handleChange} />
                 </Stack>
 
-                <Stack direction='row' spacing={4} sx={{ margin: '0 0 24px' }}>
-                    <Box sx={{ display: 'grid', alignItems: 'end', gap: 3 }}>
-                        {scrollbarTrackPickers.map((picker) => (
-                            <PopoverColorPicker key={picker.name} label={picker?.label} name={picker.name} helperText={picker?.helperText} handleBlur={handleBlur} />
-                        ))}
-                    </Box>
+                {!values.isTrackTransparent && (
+                    <Stack direction='row' spacing={4} sx={{ margin: '0 0 24px' }}>
+                        <Box sx={{ display: 'grid', alignItems: 'end', gap: 3 }}>
+                            {scrollbarTrackPickers.map((picker) => (
+                                <PopoverColorPicker key={picker.name} label={picker?.label} name={picker.name} helperText={picker?.helperText} handleBlur={handleBlur} />
+                            ))}
+                        </Box>
 
-                    <Stack spacing={3} pt={10}>
-                        <PixelInput inputLabel='Border radius' inputName='trackRadius' inputValue={values.trackRadius} handleChange={handleChange} />
-                        <PixelInput inputLabel='Border width' inputName='trackBorderWidth' inputValue={values.trackBorderWidth} handleChange={handleChange} />
+                        <Stack spacing={3} pt={10}>
+                            <PixelInput inputLabel='Border radius' inputName='trackRadius' inputValue={values.trackRadius} handleChange={handleChange} />
+                            <PixelInput inputLabel='Border width' inputName='trackBorderWidth' inputValue={values.trackBorderWidth} handleChange={handleChange} />
 
-                        <ScrollbarSelect
-                            selectGroup='trackBorderStyleSelect'
-                            groupLabel='Border style'
-                            ariaLabel='track-border-style-select-label'
-                            groupName='trackBorderStyle'
-                            defaultValue='auto'
-                            groupValue={values.trackBorderStyle}
-                            handleChange={handleChange}
-                        />
+                            <ScrollbarSelect
+                                selectGroup='trackBorderStyleSelect'
+                                groupLabel='Border style'
+                                ariaLabel='track-border-style-select-label'
+                                groupName='trackBorderStyle'
+                                defaultValue='auto'
+                                groupValue={values.trackBorderStyle}
+                                handleChange={handleChange}
+                            />
+                        </Stack>
                     </Stack>
-                </Stack>
+                )}
 
                 <Stack direction='row' spacing={4} sx={{ margin: '40px 0 0' }}>
                     <Box sx={{ display: 'grid', alignItems: 'end', gap: 3 }}>

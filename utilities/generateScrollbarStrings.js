@@ -26,11 +26,11 @@ border-radius: 4.2px;
 overflow-${values.axis}: scroll;
 
 scrollbar-width: ${values.widthFirefox};
-scrollbar-color: ${colors.thumbBg} ${colors.trackBg};
+scrollbar-color: ${colors.thumbBg} ${values.isTrackTransparent ? 'transparent' : colors.trackBg};
 
 :hover,
 :active {
-scrollbar-color: ${colors.thumbBg} ${colors.trackBg};
+scrollbar-color: ${colors.thumbBgHover} ${values.isTrackTransparent ? 'transparent' : colors.trackBg};
 }
 
 ::-webkit-scrollbar {
@@ -63,12 +63,12 @@ background-color: ${colors.thumbBgHover};
 /* Firefox */
 .scrollbar {
     scrollbar-width: ${values.widthFirefox};
-    scrollbar-color: ${colors.thumbBg} ${colors.trackBg};
+    scrollbar-color: ${colors.thumbBg} ${values.isTrackTransparent ? 'transparent' : colors.trackBg};
 }
 
 .scrollbar:hover,
 .scrollbar:active {
-    scrollbar-color: ${colors.thumbBg} ${colors.trackBg};
+    scrollbar-color: ${colors.thumbBgHover} ${values.isTrackTransparent ? 'transparent' : colors.trackBg};
 }
 
 /* Chrome, Edge and Safari */
