@@ -29,6 +29,7 @@ module.exports = (phase, { defaultConfig }) => {
                             '/calculate/aspect-ratio/index': { page: '/calculate/aspect-ratio' },
                             '/calculate/units/index': { page: '/calculate/units' },
                             '/format/text/index': { page: '/format/text' },
+                            '/generate/css-scrollbar/index': { page: '/generate/css-scrollbar' },
                             '/generate/email-signature/index': { page: '/generate/email-signature' },
                             '/generate/password/index': { page: '/generate/password' },
                             '/generate/qr-code/index': { page: '/generate/qr-code' },

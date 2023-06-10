@@ -18,12 +18,11 @@ export const generateScrollbarStrings = (values, colors) => {
 
     const DemoBox = styled(Box)`
 
-width: ${values.axis === 'y' ? 'auto' : '50%'};
-height: ${values.axis === 'y' ? '300px' : 'auto'};
+height: 300px;
 background-color: #282c34;
 border-radius: 4.2px;
 
-overflow-${values.axis}: scroll;
+overflow-y: scroll;
 
 scrollbar-width: ${values.widthFirefox};
 scrollbar-color: ${colors.thumbBg} ${values.isTrackTransparent ? 'transparent' : colors.trackBg};

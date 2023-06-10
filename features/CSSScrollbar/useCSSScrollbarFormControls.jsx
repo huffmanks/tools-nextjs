@@ -21,13 +21,8 @@ export const useCSSScrollbarFormControls = () => {
         }
     }
 
-    const handleReset = () => {
-        setValues(initialValues)
-    }
-
     return {
         values,
         handleChange,
-        handleReset,
     }
 }

@@ -12,11 +12,11 @@ import { initialValues } from '../../../constants/popoverColorPicker'
 
 const CSSScrollbar = () => {
     const { colors, handleBlur } = usePopoverColorPicker(initialValues)
-    const { values, handleChange, handleReset } = useCSSScrollbarFormControls()
+    const { values, handleChange } = useCSSScrollbarFormControls()
 
     return (
         <>
-            <SEO description='Customize a CSS scrollbar.' title='CSS Scrollbar' url='/generate/css-scrollbar' imageUrl='/qr-code.png' />
+            <SEO description='Customize a CSS scrollbar.' title='CSS Scrollbar' url='/generate/css-scrollbar' imageUrl='/css-scrollbar.png' />
 
             <PageTitle>CSS Scrollbar</PageTitle>
 
@@ -25,7 +25,7 @@ const CSSScrollbar = () => {
             </Typography>
 
             <Grid container spacing={5}>
-                <ScrollbarForm values={values} handleBlur={handleBlur} handleChange={handleChange} handleReset={handleReset} />
+                <ScrollbarForm values={values} handleBlur={handleBlur} handleChange={handleChange} />
 
                 <ScrollbarOutput values={values} colors={colors} />
             </Grid>
