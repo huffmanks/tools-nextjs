@@ -55,6 +55,7 @@
 -   [Aspect Ratio Calculator](https://tools.huffmanks.com/calculate/aspect-ratio)
 -   [Unit Calculator](https://tools.huffmanks.com/calculate/units)
 -   [Text Formatter](https://tools.huffmanks.com/format/text)
+-   [CSS Scrollbar](https://tools.huffmanks.com/generate/css-scrollbar)
 -   [Email Signature](https://tools.huffmanks.com/generate/email-signature)
 -   [Password Generator](https://tools.huffmanks.com/generate/password)
 -   [QR Code Generator](https://tools.huffmanks.com/generate/qr-code)
