@@ -1,9 +1,9 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 
-import { firefoxWidthSelect, trackBorderStyleSelect } from '../../constants/cssScrollbar'
+import { firefoxWidthSelect, borderStyleSelect } from '../../constants/cssScrollbar'
 
 const ScrollbarSelect = ({ selectGroup, groupLabel, ariaLabel, groupName, defaultValue, groupValue, handleChange }) => {
-    const selectLists = { firefoxWidthSelect, trackBorderStyleSelect }
+    const selectLists = { firefoxWidthSelect, borderStyleSelect }
     const selectArr = selectLists[selectGroup]
 
     return (

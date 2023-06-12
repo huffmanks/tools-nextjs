@@ -25,7 +25,7 @@ const CSSScrollbar = () => {
             </Typography>
 
             <Grid container spacing={5}>
-                <ScrollbarForm values={values} handleBlur={handleBlur} handleChange={handleChange} />
+                <ScrollbarForm values={values} colors={colors} handleBlur={handleBlur} handleChange={handleChange} />
 
                 <ScrollbarOutput values={values} colors={colors} />
             </Grid>

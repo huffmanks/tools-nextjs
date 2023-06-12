@@ -11,8 +11,8 @@ SyntaxHighlighter.registerLanguage('css', css)
 const CodeBlock = ({ values, colors }) => {
     const { codeString } = generateScrollbarStrings(values, colors)
     return (
-        <Box sx={{ fontSize: 14 }}>
-            <SyntaxHighlighter language='css' customStyle={{ margin: 0, padding: '20px 10px', overflowX: 'hidden' }} style={oneDark} wrapLines={true} showLineNumbers={true}>
+        <Box sx={{ marginBottom: '40px', fontSize: 14 }}>
+            <SyntaxHighlighter language='css' customStyle={{ margin: 0, padding: '20px 10px' }} style={oneDark} wrapLines={true} showLineNumbers={true}>
                 {codeString}
             </SyntaxHighlighter>
         </Box>

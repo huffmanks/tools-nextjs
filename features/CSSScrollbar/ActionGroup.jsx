@@ -1,4 +1,4 @@
-import { Button, Stack } from '@mui/material'
+import { Button, Box } from '@mui/material'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 
 import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
@@ -20,11 +20,11 @@ const ActionGroup = ({ values, colors }) => {
     }
 
     return (
-        <Stack direction='row' justifyContent='end' margin='0 0 20px auto' gap={2}>
+        <Box sx={{ position: 'absolute', top: 20, right: 20 }}>
             <Button variant='contained' aria-label='copy' size='large' onClick={handleCopy} endIcon={<ContentCopyIcon fontSize='inherit' />}>
                 Copy
             </Button>
-        </Stack>
+        </Box>
     )
 }
 

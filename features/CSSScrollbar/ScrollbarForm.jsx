@@ -5,11 +5,13 @@ import PopoverColorPicker from '../../components/common/PopoverColorPicker'
 import ScrollbarRadios from './ScrollbarRadios'
 import ScrollbarSelect from './ScrollbarSelect'
 import PixelInput from './PixelInput'
+import Demo from './Demo'
 
-const ScrollbarForm = ({ values, handleBlur, handleChange }) => {
+const ScrollbarForm = ({ values, colors, handleBlur, handleChange }) => {
     return (
         <>
             <Grid item xs={12} md={5}>
+                <Demo values={values} colors={colors} />
                 <Typography variant='subtitle1' mb={2}>
                     Scrollbar Styles
                 </Typography>
@@ -61,7 +63,7 @@ const ScrollbarForm = ({ values, handleBlur, handleChange }) => {
                             <PixelInput inputLabel='Border width' inputName='trackBorderWidth' inputValue={values.trackBorderWidth} handleChange={handleChange} />
 
                             <ScrollbarSelect
-                                selectGroup='trackBorderStyleSelect'
+                                selectGroup='borderStyleSelect'
                                 groupLabel='Border style'
                                 ariaLabel='track-border-style-select-label'
                                 groupName='trackBorderStyle'
@@ -75,13 +77,32 @@ const ScrollbarForm = ({ values, handleBlur, handleChange }) => {
 
                 <Stack direction={{ xs: 'column', sm: 'row', md: 'column', lg: 'row' }} alignItems={{ xs: 'start', sm: 'center', md: 'start', lg: 'center' }} gap={4} mt={4}>
                     <Box sx={{ display: 'grid', alignItems: 'end', gap: 3 }}>
-                        {scrollbarThumbPickers.map((picker) => (
-                            <PopoverColorPicker key={picker.name} label={picker?.label} name={picker.name} helperText={picker?.helperText} handleBlur={handleBlur} />
-                        ))}
+                        {values.isTrackTransparent
+                            ? scrollbarThumbPickers
+                                  .filter((picker, index) => index !== 1)
+                                  .map((picker) => <PopoverColorPicker key={picker.name} label={picker?.label} name={picker.name} helperText={picker?.helperText} handleBlur={handleBlur} />)
+                            : scrollbarThumbPickers.map((picker) => (
+                                  <PopoverColorPicker key={picker.name} label={picker?.label} name={picker.name} helperText={picker?.helperText} handleBlur={handleBlur} />
+                              ))}
                     </Box>
 
                     <Stack gap={3} pt={{ xs: 0, sm: 5, md: 0, lg: 5 }}>
                         <PixelInput inputLabel='Border radius' inputName='thumbRadius' inputValue={values.thumbRadius} handleChange={handleChange} />
+                        {!values.isTrackTransparent && (
+                            <>
+                                <PixelInput inputLabel='Border width' inputName='thumbBorderWidth' inputValue={values.thumbBorderWidth} handleChange={handleChange} />
+
+                                <ScrollbarSelect
+                                    selectGroup='borderStyleSelect'
+                                    groupLabel='Border style'
+                                    ariaLabel='thumb-border-style-select-label'
+                                    groupName='thumbBorderStyle'
+                                    defaultValue='auto'
+                                    groupValue={values.thumbBorderStyle}
+                                    handleChange={handleChange}
+                                />
+                            </>
+                        )}
                     </Stack>
                 </Stack>
             </Grid>

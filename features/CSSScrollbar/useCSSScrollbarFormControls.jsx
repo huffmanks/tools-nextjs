@@ -8,11 +8,17 @@ export const useCSSScrollbarFormControls = () => {
     const handleChange = (e) => {
         const { name, value } = e.target
 
-        if (name === 'thickness') {
+        if (name === 'thickness' || name === 'trackRadius' || name === 'trackBorderWidth' || name === 'thumbRadius' || name === 'thumbBorderWidth') {
             setValues((prev) => ({
                 ...values,
                 [name]: prev[name] === '' && parseInt(value) === 0 ? '' : value.replace(/[^0-9]/g, ''),
             }))
+        } else if (name === 'axis') {
+            setValues({
+                ...values,
+                [name]: value,
+                thickness: 10,
+            })
         } else {
             setValues({
                 ...values,

@@ -8,6 +8,7 @@ export const initialValues = {
     trackBorderColor: '#cacaca',
     trackBgHover: '#cfcfcf',
     thumbBg: '#d55959',
+    thumbBorderColor: '#ffc0cb',
     thumbBgHover: '#cf3f3f',
 }
 
@@ -53,6 +54,10 @@ export const scrollbarThumbPickers = [
         label: 'Thumb Styles',
         name: 'thumbBg',
         helperText: 'Background Color',
+    },
+    {
+        name: 'thumbBorderColor',
+        helperText: 'Border Color',
     },
     {
         name: 'thumbBgHover',

@@ -7,6 +7,8 @@ export const initialValues = {
     trackBorderWidth: 1,
     trackBorderStyle: 'solid',
     thumbRadius: 50,
+    thumbBorderWidth: 1,
+    thumbBorderStyle: 'solid',
 }
 
 export const directionRadios = [
@@ -46,7 +48,7 @@ export const firefoxWidthSelect = [
     },
 ]
 
-export const trackBorderStyleSelect = [
+export const borderStyleSelect = [
     {
         value: 'solid',
         label: 'Solid',
