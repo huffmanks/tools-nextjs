@@ -3,7 +3,7 @@ import { Html, Head, Main, NextScript } from 'next/document'
 const Document = () => {
     return (
         <Html lang='en'>
-            <Head>
+            <Head itemscope itemtype='https://schema.org/WebSite'>
                 <meta charSet='utf-8' />
                 <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
 
