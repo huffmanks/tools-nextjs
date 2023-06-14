@@ -29,9 +29,9 @@ const SEO = ({ description, title, url, imageUrl }) => {
             <meta name='og:image:width' property='og:image:width' content='1200' />
             <meta name='og:image:height' property='og:image:height' content='630' />
 
+            <meta name='twitter:card' property='twitter:card' content='summary_large_image' />
             <meta name='twitter:site' content='@huffmanks2' />
             <meta name='twitter:creator' content='@huffmanks2' />
-            <meta name='twitter:card' property='twitter:card' content='summary' />
             <meta name='twitter:domain' property='twitter:domain' content='tools.huffmanks.com' />
             <meta name='twitter:title' property='twitter:title' content={title} />
             <meta name='twitter:url' property='twitter:url' content={pageUrl} />
