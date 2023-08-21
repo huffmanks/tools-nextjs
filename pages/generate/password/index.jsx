@@ -10,6 +10,7 @@ import PasswordContainer from '../../../features/PasswordGenerator/PasswordConta
 import PasswordOutput from '../../../features/PasswordGenerator/PasswordOutput'
 import SliderInput from '../../../features/PasswordGenerator/SliderInput'
 import PasswordOptions from '../../../features/PasswordGenerator/PasswordOptions'
+import RandomKeyGens from '../../../features/PasswordGenerator/RandomKeyGens'
 
 const PasswordGenerator = () => {
     const { values, handleChange, handleSlider, handleClick, handleShowPassword } = usePasswordGeneratorFormControls()
@@ -30,6 +31,7 @@ const PasswordGenerator = () => {
                         <PasswordOutput password={values.password} showPassword={values.showPassword} handleShowPassword={handleShowPassword} />
 
                         <SliderInput slider={values.slider} handleSlider={handleSlider} />
+                        <RandomKeyGens />
                     </>
                 }
                 center={<PasswordOptions values={values} handleChange={handleChange} />}

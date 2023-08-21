@@ -41,19 +41,40 @@ const EmailOutput = ({ values, themeColor }) => {
                         <div>
                             <span style={{ fontSize: '14px', fontFamily: '"Montserrat", sans-serif' }}>Email: </span>
                             <a href={`mailto:${values.email}`} style={{ color: themeColor, fontSize: '14px', textDecoration: 'none', fontFamily: '"Montserrat", sans-serif' }}>
-                                {values.email}
+                                <span style={{ color: themeColor, fontSize: '14px', textDecoration: 'none', fontFamily: '"Montserrat", sans-serif' }}>{values.email}</span>
                             </a>
                         </div>
 
-                        <div style={{ fontSize: '14px', fontFamily: '"Montserrat", sans-serif' }}>Phone: {values.phone}</div>
+                        <div>
+                            <span style={{ fontSize: '14px', fontFamily: '"Montserrat", sans-serif' }}>Phone: </span>
+                            <a href={`tel:${values.phone}`} style={{ color: themeColor, fontSize: '14px', textDecoration: 'none', fontFamily: '"Montserrat", sans-serif' }}>
+                                <span style={{ color: themeColor, fontSize: '14px', textDecoration: 'none', fontFamily: '"Montserrat", sans-serif' }}>{values.phone}</span>
+                            </a>
+                        </div>
 
-                        {values.cellPhone && <div style={{ fontSize: '14px', fontFamily: '"Montserrat", sans-serif' }}>Cell: {values.cellPhone}</div>}
-                        {values.fax && <div style={{ fontSize: '14px', fontFamily: '"Montserrat", sans-serif' }}>Fax: {values.fax}</div>}
+                        {values.cellPhone && (
+                            <div>
+                                <span style={{ fontSize: '14px', fontFamily: '"Montserrat", sans-serif' }}>Cell: </span>
+                                <a href={`tel:${values.cellPhone}`} style={{ color: themeColor, fontSize: '14px', textDecoration: 'none', fontFamily: '"Montserrat", sans-serif' }}>
+                                    <span style={{ color: themeColor, fontSize: '14px', textDecoration: 'none', fontFamily: '"Montserrat", sans-serif' }}>{values.cellPhone}</span>
+                                </a>
+                            </div>
+                        )}
+                        {values.fax && (
+                            <div>
+                                <span style={{ fontSize: '14px', fontFamily: '"Montserrat", sans-serif' }}>Fax: </span>
+                                <a href={`tel:${values.fax}`} style={{ color: themeColor, fontSize: '14px', textDecoration: 'none', fontFamily: '"Montserrat", sans-serif' }}>
+                                    <span style={{ color: themeColor, fontSize: '14px', textDecoration: 'none', fontFamily: '"Montserrat", sans-serif' }}>{values.fax}</span>
+                                </a>
+                            </div>
+                        )}
                         {values.website && (
                             <div>
                                 <span style={{ fontSize: '14px', fontFamily: '"Montserrat", sans-serif' }}>Web: </span>
-                                <a href={values.website} style={{ color: themeColor, fontSize: '14px', textDecoration: 'none', fontFamily: '"Montserrat", sans-serif' }}>
-                                    {values.website}
+                                <a
+                                    href={!values.website.startsWith('http') ? `https://${values.website}` : values.website}
+                                    style={{ color: themeColor, fontSize: '14px', textDecoration: 'none', fontFamily: '"Montserrat", sans-serif' }}>
+                                    <span style={{ color: themeColor, fontSize: '14px', textDecoration: 'none', fontFamily: '"Montserrat", sans-serif' }}>{values.website}</span>
                                 </a>
                             </div>
                         )}
