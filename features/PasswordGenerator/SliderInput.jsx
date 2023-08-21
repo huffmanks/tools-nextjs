@@ -5,7 +5,7 @@ import StraightenIcon from '@mui/icons-material/Straighten'
 
 const SliderInput = ({ slider, handleSlider }) => {
     return (
-        <Box maxWidth={500} width='100%' marginBottom={5}>
+        <Box maxWidth={500} width='100%' sx={{ marginBottom: { xs: 5, lg: 0 } }}>
             <Typography marginBottom={4}>Password Length</Typography>
             <Grid container alignItems='start' justifyContent='center' paddingInline={1}>
                 <Grid item sx={{ paddingRight: '24px', display: { xs: 'none', sm: 'block' } }}>

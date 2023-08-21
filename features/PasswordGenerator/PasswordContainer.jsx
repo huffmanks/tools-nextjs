@@ -1,25 +1,12 @@
-import { Box, Stack } from '@mui/material'
+import { Stack } from '@mui/material'
 import React from 'react'
 
-const PasswordContainer = ({ top, center, bottom }) => {
+const PasswordContainer = ({ left, right }) => {
     return (
         <Stack direction={{ xs: 'column', lg: 'row' }} sx={{ gap: '0 64px' }}>
-            <div>{top}</div>
+            <div>{left}</div>
 
-            <div>
-                {center}
-                <Box
-                    marginBottom={5}
-                    sx={{
-                        width: {
-                            sm: '50%',
-                            lg: '100%',
-                        },
-                        paddingInline: 1,
-                    }}>
-                    {bottom}
-                </Box>
-            </div>
+            <div>{right}</div>
         </Stack>
     )
 }

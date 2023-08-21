@@ -8,7 +8,7 @@ const PasswordOptions = ({ values, handleChange }) => {
             <FormLabel component='legend' sx={{ marginBottom: 2 }}>
                 Password Options
             </FormLabel>
-            <FormGroup sx={{ marginBottom: 4 }}>
+            <FormGroup sx={{ marginBottom: 3 }}>
                 {passwordOptions.map((option) => (
                     <FormControlLabel key={option.id} control={<Checkbox checked={values[option.name]} onChange={handleChange} name={option.name} />} label={option.label} labelPlacement='end' />
                 ))}

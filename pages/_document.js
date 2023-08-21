@@ -26,7 +26,7 @@ const Document = () => {
                 <link rel='apple-touch-icon' sizes='192x192' href={baseUrl + '/logos/logo-192x192.png'} />
                 <link rel='apple-touch-icon' sizes='512x512' href={baseUrl + '/logos/logo-512x512.png'} />
 
-                <link rel='manifest' href={baseUrl + '/manifest.json'} />
+                <link rel='manifest' href={'/manifest.json'} />
 
                 <link rel='preconnect' href='https://fonts.googleapis.com' />
                 <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin />

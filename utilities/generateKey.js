@@ -8,7 +8,7 @@ export const generateKey = () => {
         return hash.digest('binary')
     }
 
-    const numKeys = 3
+    const numKeys = 1
 
     const hmac = (data, key) => {
         const blockSize = 64
@@ -39,12 +39,8 @@ export const generateKey = () => {
         const uniqueSecret = secret + Math.random().toString()
         const hmacKey = hmac('', uniqueSecret)
 
-        // const keyLength = (i + 3) * 3
         const keyLength = 10000
         const truncatedKey = hmacKey.substring(0, keyLength)
-
-        // const hexKey = Array.from(truncatedKey, (byte) => byte.charCodeAt(0).toString(16)).join('')
-        // const hexKey = Array.from(truncatedKey, (byte) => String.fromCharCode(byte.charCodeAt(0))).join('')
 
         const keyString = Array.from(truncatedKey, (byte) => {
             const charCode = byte.charCodeAt(0)
@@ -59,7 +55,8 @@ export const generateKey = () => {
             .join('')
             .padEnd(keyLength, 'KCr8ASTSe4dGwF8oQv6IbG5SDcLuddmM')
 
-        hexKeys.push(keyString)
+        const trimmedKeyString = keyString.slice(0, 32)
+        hexKeys.push(trimmedKeyString)
     }
 
     return hexKeys

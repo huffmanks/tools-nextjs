@@ -1,4 +1,9 @@
+import { generateKey } from '../utilities/generateKey'
+
+const keygen = generateKey()
+
 export const initialValues = {
+    passwordType: 'password',
     slider: 12,
     symbols: true,
     numbers: true,
@@ -7,6 +12,7 @@ export const initialValues = {
     excludeSimilar: false,
     password: '',
     showPassword: false,
+    keygen,
 }
 
 export const marks = [

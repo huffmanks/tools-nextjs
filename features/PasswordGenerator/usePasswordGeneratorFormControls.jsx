@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import { generatePassword } from './generatePassword'
+import { generateKey } from '../../utilities/generateKey'
 import { initialValues } from '../../constants/passwordGenerator'
+
+import { generatePassword } from './generatePassword'
 
 export const usePasswordGeneratorFormControls = () => {
     const [values, setValues] = useState(initialValues)
@@ -22,12 +24,23 @@ export const usePasswordGeneratorFormControls = () => {
     }
 
     const handleClick = () => {
-        const password = generatePassword(values.symbols, values.numbers, values.lowerCase, values.upperCase, values.excludeSimilar, values.slider)
+        if (values.passwordType === 'password') {
+            const password = generatePassword(values.symbols, values.numbers, values.lowerCase, values.upperCase, values.excludeSimilar, values.slider)
 
-        setValues({
-            ...values,
-            password,
-        })
+            setValues({
+                ...values,
+                password,
+            })
+        }
+
+        if (values.passwordType === 'keygen') {
+            const keygen = generateKey()
+
+            setValues({
+                ...values,
+                keygen,
+            })
+        }
     }
 
     const handleShowPassword = () => {

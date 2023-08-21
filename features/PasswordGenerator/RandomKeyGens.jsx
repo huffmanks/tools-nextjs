@@ -1,13 +1,24 @@
+import { useGlobalState } from '../../hooks/useContext'
+import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
+
 import { FormGroup, IconButton, InputAdornment, TextField } from '@mui/material'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 
-import { generateKey } from '../../utilities/generateKey'
+const RandomKeyGens = ({ values }) => {
+    const { addToast } = useGlobalState()
+    const [copy] = useCopyToClipboard()
 
-const RandomKeyGens = ({ handleCopy }) => {
-    const keygen = generateKey()
+    const handleCopy = async (key) => {
+        const copySuccess = await copy(key)
+
+        if (copySuccess) {
+            addToast('Copied to clipboard!')
+        }
+    }
+
     return (
         <>
-            {keygen.map((key) => (
+            {values.keygen.map((key) => (
                 <FormGroup key={key}>
                     <TextField
                         focused
@@ -33,7 +44,7 @@ const RandomKeyGens = ({ handleCopy }) => {
 
                             endAdornment: (
                                 <InputAdornment position='end'>
-                                    <IconButton aria-label='copy value to clipboard' onClick={handleCopy} edge='end'>
+                                    <IconButton aria-label='copy value to clipboard' onClick={() => handleCopy(key)} edge='end'>
                                         <ContentCopyIcon />
                                     </IconButton>
                                 </InputAdornment>
