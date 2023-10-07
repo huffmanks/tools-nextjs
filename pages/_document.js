@@ -4,7 +4,7 @@ const Document = () => {
     const baseUrl = 'https://tools.huffmanks.com'
     return (
         <Html lang='en'>
-            <Head itemscope itemtype='https://schema.org/WebSite'>
+            <Head itemScope itemType='https://schema.org/WebSite'>
                 <meta charSet='utf-8' />
                 <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
 
@@ -29,7 +29,7 @@ const Document = () => {
                 <link rel='manifest' href={'/manifest.json'} />
 
                 <link rel='preconnect' href='https://fonts.googleapis.com' />
-                <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin />
+                <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
                 <link href='https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Montserrat:wght@100;300;400;500;700&family=Roboto+Mono&display=swap' rel='stylesheet' />
             </Head>
             <body>
