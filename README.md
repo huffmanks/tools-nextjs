@@ -7,7 +7,7 @@
     </a>
     <p>
     <br />
-        Tools to help speed the web development process.
+        Development tools for the web, installable as a PWA.
         <br />
         <br />
         <a href="https://tools.huffmanks.com">View demo</a>
