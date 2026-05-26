@@ -3,8 +3,8 @@ export const getAspectNumbers = (values) => {
     values.newSize === ""
       ? ""
       : values.selectedType === "width"
-      ? Math.round((values.originalHeight / values.originalWidth) * values.newSize * 100) / 100
-      : Math.round((values.originalWidth / values.originalHeight) * values.newSize * 100) / 100;
+        ? Math.round((values.originalHeight / values.originalWidth) * values.newSize * 100) / 100
+        : Math.round((values.originalWidth / values.originalHeight) * values.newSize * 100) / 100;
 
   const newWidth = values.selectedType === "width" ? values.newSize : newOtherSize;
   const newHeight = values.selectedType === "height" ? values.newSize : newOtherSize;
@@ -14,18 +14,16 @@ export const getAspectNumbers = (values) => {
   const dimensions = hasDimensions ? `${newWidth} x ${newHeight}` : "";
 
   const aspectGCD = getAspectGCD(parseInt(values.originalWidth), parseInt(values.originalHeight));
-
   const aspectMultiplier = (values.originalWidth / values.originalHeight).toFixed(2);
-
   const aspectRatio = `${values.originalWidth / aspectGCD}:${values.originalHeight / aspectGCD}`;
 
   const { lower, higher } = suggestNearestIntegerDimensions(Number(values.originalWidth), Number(values.originalHeight), Number(values.newSize), values.selectedType);
 
   const suggestedValues = {
-    suggestedLowerWidth: String(lower?.width) ?? "",
-    suggestedLowerHeight: String(lower?.height) ?? "",
-    suggestedHigherWidth: String(higher?.width) ?? "",
-    suggestedHigherHeight: String(higher?.height) ?? "",
+    suggestedLowerWidth: lower?.width !== undefined && lower?.width !== "" ? String(lower.width) : "",
+    suggestedLowerHeight: lower?.height !== undefined && lower?.height !== "" ? String(lower.height) : "",
+    suggestedHigherWidth: higher?.width !== undefined && higher?.width !== "" ? String(higher.width) : "",
+    suggestedHigherHeight: higher?.height !== undefined && higher?.height !== "" ? String(higher.height) : "",
   };
 
   return { newWidth, newHeight, ...suggestedValues, aspectMultiplier, aspectRatio, dimensions };
@@ -63,11 +61,13 @@ function findNearestFromWidth(baseWidth, aspectRatio, direction) {
 
   while (width > 0) {
     const height = width * aspectRatio;
-    if (Number.isInteger(height)) {
+    if (Math.abs(height - Math.round(height)) < 0.000001) {
       return { width, height: Math.round(height) };
     }
     width += step;
   }
+
+  return { width: "", height: "" };
 }
 
 function findNearestFromHeight(baseHeight, aspectRatio, direction) {
@@ -76,9 +76,11 @@ function findNearestFromHeight(baseHeight, aspectRatio, direction) {
 
   while (height > 0) {
     const width = height / aspectRatio;
-    if (Number.isInteger(width)) {
+    if (Math.abs(width - Math.round(width)) < 0.000001) {
       return { width: Math.round(width), height };
     }
     height += step;
   }
+
+  return { width: "", height: "" };
 }

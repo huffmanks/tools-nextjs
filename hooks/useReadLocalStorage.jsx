@@ -1,42 +1,41 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from "react";
 
-import { useEventListener } from './useEventListener'
+import { useEventListener } from "./useEventListener";
 
 export const useReadLocalStorage = (key) => {
-    const readValue = useCallback(() => {
-        if (typeof window === 'undefined') {
-            return null
-        }
+  const [storedValue, setStoredValue] = useState(null);
 
-        try {
-            const item = window.localStorage.getItem(key)
-            return item ? JSON.parse(item) : null
-        } catch (error) {
-            console.warn(`Error reading localStorage key “${key}”:`, error)
-            return null
-        }
-    }, [key])
+  const readValue = useCallback(() => {
+    if (typeof window === "undefined") {
+      return null;
+    }
 
-    const [storedValue, setStoredValue] = useState(readValue)
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.parse(item) : null;
+    } catch (error) {
+      console.warn(`Error reading localStorage key “${key}”:`, error);
+      return null;
+    }
+  }, [key]);
 
-    useEffect(() => {
-        setStoredValue(readValue())
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+  useEffect(() => {
+    setStoredValue(readValue());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    const handleStorageChange = useCallback(
-        (event) => {
-            if (event?.key && event.key !== key) {
-                return
-            }
-            setStoredValue(readValue())
-        },
-        [key, readValue]
-    )
+  const handleStorageChange = useCallback(
+    (event) => {
+      if (event?.key && event.key !== key) {
+        return;
+      }
+      setStoredValue(readValue());
+    },
+    [key, readValue],
+  );
 
-    useEventListener('storage', handleStorageChange)
+  useEventListener("storage", handleStorageChange);
+  useEventListener("local-storage", handleStorageChange);
 
-    useEventListener('local-storage', handleStorageChange)
-
-    return storedValue
-}
+  return storedValue;
+};

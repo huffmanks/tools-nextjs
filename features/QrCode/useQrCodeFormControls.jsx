@@ -1,99 +1,183 @@
-import { createRef, useState } from 'react'
+import { useEffect, useRef, useState } from "react";
 
-import QRCode from 'easyqrcodejs'
+import QRCode from "easyqrcodejs";
 
-import { initialValues } from '../../constants/qrCode'
+import { initialColors, initialValues, QR_CODE_LS_KEY } from "../../constants/qrCode";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
-export const useQrCodeFormControls = (colors) => {
-    const codeRef = createRef()
+const combinedInitialValues = {
+  ...initialValues,
+  colors: initialColors,
+};
 
-    const [values, setValues] = useState(initialValues)
-    const [qrcode, setQrcode] = useState(null)
-    const [downloadUrl, setDownloadUrl] = useState('')
+export const useQrCodeFormControls = () => {
+  const codeRef = useRef();
 
-    const handleChange = (e) => {
-        const { checked, name, type, value, files } = e.target
+  const [values, setValues] = useLocalStorage(QR_CODE_LS_KEY, combinedInitialValues);
+  const [errors, setErrors] = useState({});
+  const [qrcode, setQrcode] = useState(null);
+  const [downloadUrl, setDownloadUrl] = useState("");
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
-        if (type === 'file') {
-            const file = files[0]
+  const colors = values.colors || initialColors;
 
-            const reader = new FileReader()
+  useEffect(() => {
+    if (hasSubmitted) {
+      const isValid = validate(values);
+      if (isValid) {
+        generateQRCode(values);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [colors, hasSubmitted]);
 
-            reader.onloadend = handleFile(file.name)
+  const isValidUrl = (url) => {
+    const urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/i;
+    return urlPattern.test(url);
+  };
 
-            if (file) {
-                reader.readAsDataURL(file)
-            }
-        } else if (type === 'checkbox') {
-            setValues({
-                ...values,
-                [name]: checked,
-            })
-        } else {
-            setValues({
-                ...values,
-                [name]: value,
-            })
+  const validate = () => {
+    let tempErrors = {};
+
+    if (!values.qrCodeName || values.qrCodeName.trim() === "") {
+      tempErrors.qrCodeName = "QR Code name is required.";
+    }
+
+    if (!values.websiteLink || values.websiteLink.trim() === "") {
+      tempErrors.websiteLink = "URL link is required.";
+    } else if (!isValidUrl(values.websiteLink)) {
+      tempErrors.websiteLink = "Please enter a valid URL.";
+    }
+
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
+
+  const generateQRCode = (currentValues) => {
+    if (qrcode) {
+      qrcode.clear();
+    }
+
+    const { websiteLink, outputSize, correctLevel, logoUpload, logoBackgroundTransparent } = currentValues;
+    const activeColors = currentValues.colors || initialColorValues;
+
+    const options = {
+      text: websiteLink,
+      width: Number(outputSize),
+      height: Number(outputSize),
+      logo: logoUpload,
+      logoBackgroundTransparent,
+      colorDark: activeColors.dotColor,
+      colorLight: activeColors.backgroundColor,
+      PO: activeColors.ringOuter,
+      PI: activeColors.ringInner,
+      correctLevel: Number(correctLevel),
+    };
+
+    const QRCodeCanvas = new QRCode(codeRef.current, options);
+    setQrcode(QRCodeCanvas);
+
+    setTimeout(() => {
+      const dataURL = QRCodeCanvas?._el.children[0].toDataURL("image/png");
+      const url = dataURL.replace(/^data:image\/png/, "data:application/octet-stream");
+
+      setDownloadUrl(url);
+    }, 100);
+  };
+
+  const handleChange = (e) => {
+    const { checked, name, type, value, files } = e.target;
+
+    if (type === "file") {
+      const file = files?.[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onloadend = (event) => {
+        const updatedWithFile = {
+          ...values,
+          logoUpload: event.target.result,
+          logoName: file.name,
+        };
+        setValues(updatedWithFile);
+
+        if (hasSubmitted && validate(updatedWithFile)) {
+          generateQRCode(updatedWithFile);
         }
-    }
-    const handleFile = (logoName) => (e) => {
-        const logoUpload = e.target.result
-        setValues({
-            ...values,
-            logoUpload,
-            logoName,
-        })
+      };
+
+      reader.readAsDataURL(file);
+      return;
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    let nextValues = { ...values };
 
-        if (qrcode) {
-            qrcode.clear()
-        }
-
-        const { websiteLink, logoUpload, logoBackgroundTransparent } = values
-
-        const options = {
-            text: websiteLink,
-            width: 600,
-            height: 600,
-            logo: logoUpload,
-            logoBackgroundTransparent,
-            colorDark: colors.dotColor,
-            colorLight: colors.backgroundColor,
-            PO: colors.ringOuter,
-            PI: colors.ringInner,
-            correctLevel: QRCode.CorrectLevel.H,
-        }
-
-        const QRCodeCanvas = new QRCode(codeRef.current, options)
-
-        setQrcode(QRCodeCanvas)
-
-        setTimeout(() => {
-            const dataURL = QRCodeCanvas?._el.children[0].toDataURL('image/png')
-            const url = dataURL.replace(/^data:image\/png/, 'data:application/octet-stream')
-
-            setDownloadUrl(url)
-        }, 100)
+    if (type === "checkbox") {
+      nextValues[name] = checked;
+    } else {
+      nextValues[name] = value;
     }
 
-    const handleReset = () => {
-        setValues(initialValues)
-        setDownloadUrl('')
-
-        if (qrcode) {
-            qrcode.clear()
-        }
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
 
-    return {
-        codeRef,
-        values,
-        downloadUrl,
-        handleChange,
-        handleSubmit,
-        handleReset,
+    setValues(nextValues);
+
+    if (hasSubmitted) {
+      const isValid = validate(nextValues);
+      if (isValid) {
+        generateQRCode(nextValues);
+      } else {
+        setDownloadUrl("");
+      }
     }
-}
+  };
+
+  const handleColorChange = (name, colorValue) => {
+    const updatedValues = {
+      ...values,
+      colors: {
+        ...(values.colors || initialColorValues),
+        [name]: colorValue,
+      },
+    };
+
+    setValues(updatedValues);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!validate()) {
+      setDownloadUrl("");
+      return;
+    }
+
+    setHasSubmitted(true);
+    generateQRCode(values);
+  };
+
+  const handleReset = () => {
+    setValues(initialValues);
+    setDownloadUrl("");
+    setErrors({});
+    setHasSubmitted(false);
+
+    if (qrcode) {
+      qrcode.clear();
+    }
+  };
+
+  return {
+    codeRef,
+    values,
+    colors,
+    errors,
+    downloadUrl,
+    handleChange,
+    handleColorChange,
+    handleSubmit,
+    handleReset,
+  };
+};

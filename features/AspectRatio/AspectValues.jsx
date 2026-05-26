@@ -7,7 +7,7 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Divider, Grid, IconButton, InputAdornment, TextField, Typography } from "@mui/material";
 import { Fragment } from "react";
 
-const AspectValues = ({ values }) => {
+const AspectValues = ({ values, errors }) => {
   const { addToast } = useGlobalState();
   const [copy] = useCopyToClipboard();
 
@@ -37,11 +37,21 @@ const AspectValues = ({ values }) => {
               focused
               readOnly
               variant="outlined"
+              sx={{
+                ...(!!errors[output.name] && {
+                  "& input::placeholder": {
+                    color: "#f44336",
+                    opacity: 1,
+                    fontSize: 14,
+                  },
+                }),
+              }}
               label={output.label}
               name={output.name}
-              placeholder={output.placeholder}
+              placeholder={!!errors[output.name] ? errors[output.name] : output.placeholder}
               value={values[output.name]}
               autoComplete="none"
+              error={!!errors[output.name]}
               InputProps={{
                 readOnly: true,
                 endAdornment: (

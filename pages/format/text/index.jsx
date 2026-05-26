@@ -1,36 +1,44 @@
-import { useTextFormatterFormControls } from '../../../features/TextFormatter/useTextFormatterFormControls'
+import { useTextFormatterFormControls } from "../../../features/TextFormatter/useTextFormatterFormControls";
 
-import { Grid, Typography } from '@mui/material'
+import { Grid, Typography } from "@mui/material";
 
-import SEO from '../../../components/common/SEO'
-import PageTitle from '../../../components/common/PageTitle'
+import PageTitle from "../../../components/common/PageTitle";
+import SEO from "../../../components/common/SEO";
 
-import Textarea from '../../../features/TextFormatter/Textarea'
-import ActionGroup from '../../../features/TextFormatter/ActionGroup'
-import Cards from '../../../features/TextFormatter/Cards'
+import ActionGroup from "../../../features/TextFormatter/ActionGroup";
+import Cards from "../../../features/TextFormatter/Cards";
+import Textarea from "../../../features/TextFormatter/Textarea";
 
 const TextFormatter = () => {
-    const { values, saved, checkedCards, checkAll, handleChange, handleSave, handleCheckAll, handleCopy, handleClear, handleReset } = useTextFormatterFormControls()
+  const { values, checkedCards, checkAll, handleChange, handleSave, handleCheckAll, handleCopy, handleClear, handleReset, handleDeleteSaved } = useTextFormatterFormControls();
 
-    return (
-        <>
-            <SEO description='Format text to any case.' title='Text Formatter' url='/format/text' imageUrl='/text-formatter.png' />
+  return (
+    <>
+      <SEO description="Format text to any case." title="Text Formatter" url="/format/text" imageUrl="/text-formatter.png" />
 
-            <PageTitle>Text Formatter</PageTitle>
+      <PageTitle>Text Formatter</PageTitle>
 
-            <Typography paragraph mb={5}>
-                Format text to any case.
-            </Typography>
+      <Typography paragraph mb={5}>
+        Format text to any case.
+      </Typography>
 
-            <Grid container spacing={5}>
-                <Textarea output={values.output} handleChange={handleChange} handleClear={handleClear} />
+      <Grid container spacing={5}>
+        <Textarea output={values.output} handleChange={handleChange} handleClear={handleClear} />
 
-                <ActionGroup values={values} saved={saved} checkAll={checkAll} handleChange={handleChange} handleCheckAll={handleCheckAll} handleReset={handleReset} handleSave={handleSave} />
+        <ActionGroup
+          values={values}
+          checkAll={checkAll}
+          handleChange={handleChange}
+          handleCheckAll={handleCheckAll}
+          handleReset={handleReset}
+          handleSave={handleSave}
+          handleDeleteSaved={handleDeleteSaved}
+        />
 
-                <Cards values={values} checkedCards={checkedCards} handleCopy={handleCopy} />
-            </Grid>
-        </>
-    )
-}
+        <Cards values={values} checkedCards={checkedCards} handleCopy={handleCopy} />
+      </Grid>
+    </>
+  );
+};
 
-export default TextFormatter
+export default TextFormatter;

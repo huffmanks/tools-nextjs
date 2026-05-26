@@ -1,115 +1,131 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
-import { camelCase, constantCase, headerCase, sentenceCase, snakeCase } from 'change-case'
+import { useGlobalState } from "../../hooks/useContext";
+import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
-import { useGlobalState } from '../../hooks/useContext'
-import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
-import { useLocalStorage } from '../../hooks/useLocalStorage'
-
-import { uniqueId } from '../../utilities/uniqueId'
-import { titleCase } from './titleCase'
-import { LOCAL_STORAGE_KEY, initialValues, checkAllValues, checkNoneValues, outputValues } from '../../constants/textFormatter'
+import { TEXT_FORMATTER_LS_KEY, checkAllValues, checkNoneValues, initialValues } from "../../constants/textFormatter";
+import { uniqueId } from "../../utilities/uniqueId";
+import { formatTextCases } from "./helpers";
 
 export const useTextFormatterFormControls = () => {
-    const uid = uniqueId()
+  const [values, setValues] = useLocalStorage(TEXT_FORMATTER_LS_KEY, initialValues);
+  const [checkedCards, setCheckedCards] = useState([]);
+  const [checkAll, setCheckAll] = useState(false);
 
-    const { addToast } = useGlobalState()
+  const uid = uniqueId();
+  const { addToast } = useGlobalState();
+  const [copy] = useCopyToClipboard();
 
-    const [saved, setSaved] = useLocalStorage(LOCAL_STORAGE_KEY, [])
-    const [copy] = useCopyToClipboard()
+  const currentSaved = values?.saved || [];
 
-    const [values, setValues] = useState(initialValues)
-    const [checkedCards, setCheckedCards] = useState([])
-    const [checkAll, setCheckAll] = useState(false)
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
 
-    const handleChange = (e) => {
-        const { name, value, type, checked } = e.target
-
-        if (type === 'checkbox') {
-            setValues({
-                ...values,
-                [name]: checked,
-            })
-        }
-
-        if (name === 'output' || name === 'selected') {
-            setValues({
-                ...values,
-                [name]: value,
-                output: value,
-                lowerCase: value.toLowerCase(),
-                upperCase: value.toUpperCase(),
-                capitalCase: titleCase(value.toLowerCase()),
-                sentenceCase: sentenceCase(value),
-                camelCase: camelCase(value),
-                snakeCase: snakeCase(value),
-                headerCase: headerCase(value).toLowerCase(),
-                constantCase: constantCase(value),
-            })
-        }
+    if (type === "checkbox") {
+      setValues({
+        ...values,
+        [name]: checked,
+      });
     }
 
-    const handleCheckAll = () => {
-        setCheckAll((prev) => !prev)
-        if (!checkAll) {
-            setValues({
-                ...values,
-                ...checkAllValues,
-            })
-        } else {
-            setValues({
-                ...values,
-                ...checkNoneValues,
-            })
-        }
+    if (name === "output" || name === "selectedId") {
+      const isSelect = name === "selectedId";
+      const targetText = isSelect ? currentSaved.find((i) => i.id === value)?.value || "" : value;
+
+      setValues({
+        ...values,
+        output: targetText,
+        selectedId: isSelect ? value : "",
+        ...formatTextCases(targetText),
+      });
+    }
+  };
+
+  const handleCheckAll = () => {
+    setCheckAll((prev) => !prev);
+    if (!checkAll) {
+      setValues({
+        ...values,
+        ...checkAllValues,
+      });
+    } else {
+      setValues({
+        ...values,
+        ...checkNoneValues,
+      });
+    }
+  };
+
+  const handleCopy = async (name) => {
+    const copySuccess = await copy(values[name]);
+
+    if (copySuccess) {
+      addToast("Copied to clipboard!");
+    }
+  };
+
+  const handleReset = () => {
+    setValues(initialValues);
+  };
+
+  const handleSave = () => {
+    if (!values.saved.some((item) => item.value === values.output)) {
+      const newId = uid;
+
+      setValues({
+        ...values,
+        selectedId: newId,
+        saved: [
+          ...values.saved,
+          {
+            id: newId,
+            value: values.output,
+            label: values.output,
+          },
+        ],
+      });
+
+      addToast("Item saved for later!");
+    }
+  };
+
+  const handleClear = () => {
+    setValues({
+      ...values,
+      output: "",
+      selectedId: "",
+    });
+  };
+
+  const handleDeleteSaved = (savedId) => {
+    const isCurrentActiveSelection = values?.selectedId === savedId;
+
+    if (isCurrentActiveSelection) {
+      setValues({
+        ...values,
+        selectedId: "",
+        output: "",
+      });
     }
 
-    const handleCopy = async (name) => {
-        const copySuccess = await copy(values[name])
+    setTimeout(() => {
+      setValues((currentValues) => ({
+        ...currentValues,
+        saved: (currentValues?.saved || []).filter((item) => item.id !== savedId),
+      }));
+    }, 0);
+  };
 
-        if (copySuccess) {
-            addToast('Copied to clipboard!')
-        }
-    }
+  useEffect(() => {
+    if (!values) return;
 
-    const handleReset = () => {
-        setValues({
-            ...values,
-            ...outputValues,
-        })
-        setSaved([])
-    }
+    const filtered = Object.fromEntries(Object.entries(values).filter(([key, value]) => key.startsWith("check_") && value === true));
 
-    const handleSave = () => {
-        if (!saved.some((item) => item.value === values.output)) {
-            setSaved([
-                ...saved,
-                {
-                    id: uid,
-                    value: values.output,
-                    label: values.output,
-                },
-            ])
+    const filtArr = Object.keys(filtered).map((item) => item.replace("check_", ""));
 
-            handleClear()
-            addToast('Item saved for later!')
-        }
-    }
+    setCheckedCards(filtArr);
+  }, [values]);
 
-    const handleClear = () => {
-        setValues({
-            ...values,
-            output: '',
-        })
-    }
-
-    useEffect(() => {
-        const filtered = Object.fromEntries(Object.entries(values).filter(([key, value]) => key.startsWith('check_') && value === true))
-
-        const filtArr = Object.keys(filtered).map((item) => item.replace('check_', ''))
-
-        setCheckedCards(filtArr)
-    }, [values])
-
-    return { values, saved, checkedCards, checkAll, handleChange, handleSave, handleCheckAll, handleCopy, handleClear, handleReset }
-}
+  return { values, checkedCards, checkAll, handleChange, handleSave, handleCheckAll, handleCopy, handleClear, handleReset, handleDeleteSaved };
+};

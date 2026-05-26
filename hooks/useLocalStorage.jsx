@@ -1,69 +1,68 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from "react";
 
-import { useEventCallback } from './useEventCallback'
-import { useEventListener } from './useEventListener'
+import { useEventCallback } from "./useEventCallback";
+import { useEventListener } from "./useEventListener";
 
 export const useLocalStorage = (key, initialValue) => {
-    const readValue = useCallback(() => {
-        if (typeof window === 'undefined') {
-            return initialValue
-        }
+  const [storedValue, setStoredValue] = useState(initialValue);
 
-        try {
-            const item = window.localStorage.getItem(key)
-            return item ? parseJSON(item) : initialValue
-        } catch (error) {
-            console.warn(`Error reading localStorage key “${key}”:`, error)
-            return initialValue
-        }
-    }, [initialValue, key])
+  const readValue = useCallback(() => {
+    if (typeof window === "undefined") {
+      return initialValue;
+    }
 
-    const [storedValue, setStoredValue] = useState(readValue)
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? parseJSON(item) : initialValue;
+    } catch (error) {
+      console.warn(`Error reading localStorage key “${key}”:`, error);
+      return initialValue;
+    }
+  }, [initialValue, key]);
 
-    const setValue = useEventCallback((value) => {
-        if (typeof window == 'undefined') {
-            console.warn(`Tried setting localStorage key “${key}” even though environment is not a client`)
-        }
+  useEffect(() => {
+    setStoredValue(readValue());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-        try {
-            const newValue = value instanceof Function ? value(storedValue) : value
+  const setValue = useEventCallback((value) => {
+    if (typeof window == "undefined") {
+      console.warn(`Tried setting localStorage key “${key}” even though environment is not a client`);
+    }
 
-            window.localStorage.setItem(key, JSON.stringify(newValue))
+    try {
+      const newValue = value instanceof Function ? value(storedValue) : value;
 
-            setStoredValue(newValue)
+      window.localStorage.setItem(key, JSON.stringify(newValue));
 
-            window.dispatchEvent(new Event('local-storage'))
-        } catch (error) {
-            console.warn(`Error setting localStorage key “${key}”:`, error)
-        }
-    })
+      setStoredValue(newValue);
 
-    useEffect(() => {
-        setStoredValue(readValue())
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+      window.dispatchEvent(new Event("local-storage"));
+    } catch (error) {
+      console.warn(`Error setting localStorage key “${key}”:`, error);
+    }
+  });
 
-    const handleStorageChange = useCallback(
-        (event) => {
-            if (event?.key && event.key !== key) {
-                return
-            }
-            setStoredValue(readValue())
-        },
-        [key, readValue]
-    )
+  const handleStorageChange = useCallback(
+    (event) => {
+      if (event?.key && event.key !== key) {
+        return;
+      }
+      setStoredValue(readValue());
+    },
+    [key, readValue],
+  );
 
-    useEventListener('storage', handleStorageChange)
+  useEventListener("storage", handleStorageChange);
+  useEventListener("local-storage", handleStorageChange);
 
-    useEventListener('local-storage', handleStorageChange)
-
-    return [storedValue, setValue]
-}
+  return [storedValue, setValue];
+};
 
 const parseJSON = (value) => {
-    try {
-        return value === 'undefined' ? undefined : JSON.parse(value ?? '')
-    } catch {
-        return undefined
-    }
-}
+  try {
+    return value === "undefined" ? undefined : JSON.parse(value ?? "");
+  } catch {
+    return undefined;
+  }
+};

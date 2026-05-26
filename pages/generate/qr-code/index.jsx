@@ -1,32 +1,51 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Typography } from "@mui/material";
 
-import { usePopoverColorPicker } from '../../../hooks/usePopoverColorPicker'
-import { useQrCodeFormControls } from '../../../features/QrCode/useQrCodeFormControls'
-import { initialValues } from '../../../constants/popoverColorPicker'
+import { useQrCodeFormControls } from "../../../features/QrCode/useQrCodeFormControls";
 
-import PageTitle from '../../../components/common/PageTitle'
-import SEO from '../../../components/common/SEO'
-import QrCodeForm from '../../../features/QrCode/QrCodeForm'
+import PageTitle from "../../../components/common/PageTitle";
+import SEO from "../../../components/common/SEO";
+import QrCodeForm from "../../../features/QrCode/QrCodeForm";
 
 const QrCode = () => {
-    const { colors, handleBlur } = usePopoverColorPicker(initialValues)
-    const { codeRef, values, downloadUrl, handleChange, handleSubmit, handleReset } = useQrCodeFormControls(colors)
+  const { codeRef, values, colors, errors, downloadUrl, handleChange, handleColorChange, handleSubmit, handleReset } = useQrCodeFormControls();
 
-    return (
-        <>
-            <SEO description='Create a QR code.' title='QR Code Generator' url='/generate/qr-code' imageUrl='/qr-code.png' />
+  return (
+    <>
+      <SEO description="Create a QR code." title="QR Code Generator" url="/generate/qr-code" imageUrl="/qr-code.png" />
 
-            <PageTitle>QR Code Generator</PageTitle>
+      <PageTitle>QR Code Generator</PageTitle>
 
-            <Typography paragraph mb={5}>
-                Create a QR code.
-            </Typography>
+      <Typography paragraph mb={5}>
+        Create a QR code.
+      </Typography>
 
-            <QrCodeForm values={values} colors={colors} downloadUrl={downloadUrl} handleChange={handleChange} handleBlur={handleBlur} handleSubmit={handleSubmit} handleReset={handleReset} />
+      <QrCodeForm
+        values={values}
+        errors={errors}
+        colors={colors}
+        downloadUrl={downloadUrl}
+        handleChange={handleChange}
+        handleBlur={handleColorChange}
+        handleSubmit={handleSubmit}
+        handleReset={handleReset}
+      />
 
-            <Box ref={codeRef} sx={{ '& canvas': { maxWidth: '100%' } }}></Box>
-        </>
-    )
-}
+      <Box
+        ref={codeRef}
+        sx={{
+          maxWidth: "100%",
+          overflow: "hidden",
+          "& canvas": {
+            display: "block",
+            width: values.outputSize === "200" ? 200 : 600,
+            height: values.outputSize === "200" ? 200 : 600,
+            maxWidth: "100%",
+            objectFit: "contain",
+            objectPosition: "top",
+          },
+        }}></Box>
+    </>
+  );
+};
 
-export default QrCode
+export default QrCode;
