@@ -10,28 +10,27 @@ import { uniqueId } from "../utilities/uniqueId";
 export const TodoStateContext = createContext();
 
 const TodoStateProvider = ({ children }) => {
-  const uid = uniqueId();
-
-  const { addToast } = useGlobalState();
-  const [copy] = useCopyToClipboard(true);
-
   const [screen, setScreen] = useState("");
-  const [savedLists, setSavedLists] = useLocalStorage(TODO_LISTS_LS_KEY, []);
-  const [lists, setLists] = useState(savedLists ?? []);
+  const [lists, setLists] = useLocalStorage(TODO_LISTS_LS_KEY, []);
   const [isFocused, setIsFocused] = useState(false);
   const [activeListId, setActiveListId] = useState(null);
   const [expanded, setExpanded] = useState(false);
+
+  const uid = uniqueId();
+  const { addToast } = useGlobalState();
+  const [copy] = useCopyToClipboard(true);
 
   const changeScreen = (e, newScreen) => {
     setScreen(newScreen);
   };
 
   useEffect(() => {
-    if (lists.length > 0) return setScreen("view");
-
-    setScreen("create");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (lists && lists.length > 0) {
+      setScreen("view");
+    } else {
+      setScreen("create");
+    }
+  }, [lists]);
 
   const handleFocus = () => {
     setIsFocused(true);
@@ -42,7 +41,8 @@ const TodoStateProvider = ({ children }) => {
   };
 
   const addList = ({ list, items }) => {
-    if (!lists.some((item) => item.title === list.title.trim())) {
+    const currentLists = lists || [];
+    if (!currentLists.some((item) => item.title === list.title.trim())) {
       const newList = {
         id: uid,
         type: list.type,
@@ -59,8 +59,7 @@ const TodoStateProvider = ({ children }) => {
         items,
       };
 
-      setLists([...lists, newList]);
-      setSavedLists([...lists, newList]);
+      setLists([...currentLists, newList]);
     }
   };
 
@@ -69,7 +68,8 @@ const TodoStateProvider = ({ children }) => {
   };
 
   const addListAsFavorite = (id) => {
-    const updatedList = lists.map((list) => {
+    const currentLists = lists || [];
+    const updatedList = currentLists.map((list) => {
       if (list.id === id) {
         addToast(`${!list.isFavorite ? "Added" : "Removed"} as favorite!`);
 
@@ -82,7 +82,6 @@ const TodoStateProvider = ({ children }) => {
     });
 
     setLists(updatedList);
-    setSavedLists(updatedList);
   };
 
   const copyList = async (ref) => {
@@ -104,38 +103,34 @@ const TodoStateProvider = ({ children }) => {
   };
 
   const updateList = (id, changedList) => {
-    const updatedList = [
-      ...lists.map((list) =>
-        list.id === id
-          ? {
-              ...changedList,
-              updatedAt: {
-                date: getTimestamp(),
-                time: getTimestamp("time"),
-              },
-            }
-          : list,
-      ),
-    ];
+    const currentLists = lists || [];
+    const updatedList = currentLists.map((list) =>
+      list.id === id
+        ? {
+            ...changedList,
+            updatedAt: {
+              date: getTimestamp(),
+              time: getTimestamp("time"),
+            },
+          }
+        : list,
+    );
 
     setLists(updatedList);
-    setSavedLists(updatedList);
-
     addToast("Updated successfully!");
   };
 
   const removeList = (id) => {
-    const updatedList = lists.filter((list) => list.id !== id);
+    const currentLists = lists || [];
+    const updatedList = currentLists.filter((list) => list.id !== id);
 
     setLists(updatedList);
-    setSavedLists(updatedList);
-
     addToast("Deleted successfully!");
   };
 
   const contextValue = {
     screen,
-    lists,
+    lists: lists || [],
     isFocused,
     activeListId,
     expanded,
