@@ -84,11 +84,28 @@ const TodoStateProvider = ({ children }) => {
     setLists(updatedList);
   };
 
-  const copyList = async (ref) => {
-    const copySuccess = await copy(ref.current);
+  const copyList = async (listToCopy) => {
+    if (!listToCopy || !listToCopy.items) return;
 
-    if (copySuccess) {
-      addToast("Copied to clipboard!");
+    const formattedText = listToCopy.items.map((item) => item.text).join("\r\n");
+
+    try {
+      if (navigator?.clipboard?.writeText) {
+        await navigator.clipboard.writeText(formattedText);
+        addToast("Copied to clipboard!");
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = formattedText;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        addToast("Copied to clipboard!");
+      }
+    } catch (err) {
+      console.error("Failed to copy list: ", err);
     }
   };
 

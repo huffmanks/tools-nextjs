@@ -1,5 +1,3 @@
-import { useRef } from "react";
-
 import { useLists } from "../../hooks/useContext";
 
 import { green, pink } from "@mui/material/colors";
@@ -27,8 +25,6 @@ const ExpandMore = styled((props) => {
 }));
 
 const ListCard = ({ list }) => {
-  const listRef = useRef();
-
   const { expanded, addListAsFavorite, copyList, expandList, editScreen, removeList } = useLists();
 
   return (
@@ -55,10 +51,10 @@ const ListCard = ({ list }) => {
               </ExpandMore>
             }
           />
-          <Collapse in={expanded === list.id} timeout="auto" unmountOnExit>
+          <Collapse in={expanded === list.id} timeout="auto">
             <CardContent sx={{ p: 0, "&.MuiCardContent-root:last-child": { pb: 0 } }}>
               <Box sx={{ maxHeight: 250, p: 3, backgroundColor: expanded ? "background.altTwo" : "background.alt", overflowY: "auto" }}>
-                <div ref={listRef}>
+                <div>
                   {list.items.map((item) => (
                     <div key={item.id}>
                       <Box
@@ -86,7 +82,7 @@ const ListCard = ({ list }) => {
               {list.isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
             </IconButton>
 
-            <IconButton aria-label="copy" onClick={() => copyList(listRef)}>
+            <IconButton aria-label="copy" onClick={() => copyList(list)}>
               <ContentCopyIcon />
             </IconButton>
 

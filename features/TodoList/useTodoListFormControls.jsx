@@ -125,8 +125,10 @@ export const useTodoListFormControls = () => {
         items: addedItem,
       });
 
+      if (!itemsRef || !itemsRef.current) return;
+
       setTimeout(() => {
-        itemsRef.current.lastChild.firstChild.firstChild.nextElementSibling.focus();
+        itemsRef.current?.lastChild.firstChild.firstChild.nextElementSibling?.focus();
       }, 1);
     }
   };
