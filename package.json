@@ -14,7 +14,8 @@
     "postbuild": "next-sitemap",
     "staging": "cross-env STAGING='true' next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gen": "node scripts/gen-dummy-data.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
@@ -35,6 +36,7 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
+    "@faker-js/faker": "^10.4.0",
     "cross-env": "^7.0.3",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.2"

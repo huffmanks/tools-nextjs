@@ -44,17 +44,10 @@ export const useTextFormatterFormControls = () => {
 
   const handleCheckAll = () => {
     setCheckAll((prev) => !prev);
-    if (!checkAll) {
-      setValues({
-        ...values,
-        ...checkAllValues,
-      });
-    } else {
-      setValues({
-        ...values,
-        ...checkNoneValues,
-      });
-    }
+    setValues((prev) => ({
+      ...prev,
+      ...(!checkAll ? checkAllValues : checkNoneValues),
+    }));
   };
 
   const handleCopy = async (name) => {

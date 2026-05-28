@@ -1,7 +1,41 @@
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+.global-scrollbar {
+  scrollbar-width: auto;
+  scrollbar-color: #8146dd transparent;
+}
+
+.global-scrollbar:hover,
+.global-scrollbar:active {
+  scrollbar-color: #5b21b6 transparent;
+}
+
+/* Chrome, Edge and Safari */
+.global-scrollbar::-webkit-scrollbar {
+  width: 18px;
+  overflow-y: scroll;
+}
+
+.global-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.global-scrollbar::-webkit-scrollbar-thumb {
+  background-clip: content-box;
+  background-color: #8146dd;
+  border-radius: 50px;
+  border: 6px solid transparent;
+}
+
+.global-scrollbar::-webkit-scrollbar-thumb:hover,
+.global-scrollbar::-webkit-scrollbar-thumb:active {
+  background-color: #5b21b6;
 }
