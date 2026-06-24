@@ -1,17 +1,15 @@
 import { useState } from "react";
 
 import { useGlobalState } from "../../hooks/useContext";
-import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
 
-import { checkAllValues, checkNoneValues, initialValues } from "../../constants/ipsum";
+import { checkAllValues, checkNoneValues, initialValues } from "../../constants/mockContent";
 import { generateFormats, getCheckedElements } from "./generate-formats";
 
-export const useIpsumFormControls = () => {
+export const useMockContentFormControls = () => {
   const [values, setValues] = useState(initialValues);
   const [checkAll, setCheckAll] = useState(false);
 
   const { addToast } = useGlobalState();
-  const [copy] = useCopyToClipboard();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -59,7 +57,7 @@ export const useIpsumFormControls = () => {
         }
       }
     } catch (err) {
-      console.error("Failed to copy generated ipsum layout: ", err);
+      console.error("Failed to copy text: ", err);
     }
   };
 

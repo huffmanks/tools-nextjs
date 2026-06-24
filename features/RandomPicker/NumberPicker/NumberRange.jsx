@@ -7,7 +7,9 @@ const NumberRange = ({ values, handleChange }) => {
 
   return (
     <>
-      <FieldsetContainer title="Number range" helperText={`The results will be between ${values.start} and ${values.end}`}>
+      <FieldsetContainer
+        title="Number range"
+        helperText={`The results will be between ${values.start} and ${values.end}`}>
         <FormGroup
           sx={{
             flexDirection: "row",
@@ -26,7 +28,6 @@ const NumberRange = ({ values, handleChange }) => {
             onChange={handleChange}
             autoComplete="none"
             sx={{
-              // flex: 1,
               "& fieldset": {
                 borderBottomLeftRadius: {
                   xs: 0,
@@ -53,7 +54,6 @@ const NumberRange = ({ values, handleChange }) => {
             onChange={handleChange}
             autoComplete="none"
             sx={{
-              // flex: 1,
               "& fieldset": {
                 borderTopLeftRadius: {
                   xs: 0,

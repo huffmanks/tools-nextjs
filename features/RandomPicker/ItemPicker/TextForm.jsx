@@ -15,6 +15,8 @@ const TextForm = ({ values, errorMessage, handleChange, handleBlur, handleDecrea
       </FieldsetContainer>
 
       <TextField
+        id="list"
+        className="global-scrollbar"
         fullWidth
         variant="filled"
         multiline
@@ -33,20 +35,6 @@ const TextForm = ({ values, errorMessage, handleChange, handleBlur, handleDecrea
         })}
         sx={{
           marginBottom: 1,
-          "& textarea::-webkit-scrollbar": {
-            width: 12,
-          },
-          "& textarea::-webkit-scrollbar-track": {
-            background: "#d5d7d8",
-            borderRadius: 2,
-          },
-          "& textarea::-webkit-scrollbar-thumb": {
-            background: "#676767",
-            borderRadius: 2,
-          },
-          "& textarea::-webkit-scrollbar-thumb:hover": {
-            backgroundColor: "primary.main",
-          },
         }}
       />
     </Grid>

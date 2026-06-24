@@ -1,12 +1,32 @@
 import { cards } from "../../constants/textFormatter";
 
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Button, ButtonGroup, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Grid, IconButton, MenuItem, TextField } from "@mui/material";
+import {
+  Button,
+  ButtonGroup,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  FormLabel,
+  Grid,
+  IconButton,
+  MenuItem,
+  TextField,
+} from "@mui/material";
 
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import SaveIcon from "@mui/icons-material/Save";
 
-const ActionGroup = ({ values, checkAll, handleChange, handleCheckAll, handleSave, handleReset, handleDeleteSaved }) => {
+const ActionGroup = ({
+  values,
+  checkAll,
+  handleChange,
+  handleCheckAll,
+  handleSave,
+  handleReset,
+  handleDeleteSaved,
+}) => {
   return (
     <>
       <Grid item lg={9} md={7} xs={12}>
@@ -28,9 +48,7 @@ const ActionGroup = ({ values, checkAll, handleChange, handleCheckAll, handleSav
             ".saved-items-dropdown & .MuiIconButton-root": {
               display: "flex",
             },
-          }}
-          // s
-        >
+          }}>
           {(values?.saved || []).map((option) => (
             <MenuItem key={option.id} value={option.id} sx={{ display: "flex", justifyContent: "space-between" }}>
               {option.label}
@@ -55,7 +73,13 @@ const ActionGroup = ({ values, checkAll, handleChange, handleCheckAll, handleSav
           <Button sx={{ height: "100%" }} onClick={handleSave} aria-label="save output" endIcon={<SaveIcon />}>
             Save
           </Button>
-          <Button fullWidth variant="contained" sx={{ height: "100%" }} onClick={handleReset} aria-label="reset form" endIcon={<RestartAltIcon />}>
+          <Button
+            fullWidth
+            variant="contained"
+            sx={{ height: "100%" }}
+            onClick={handleReset}
+            aria-label="reset form"
+            endIcon={<RestartAltIcon />}>
             Reset
           </Button>
         </ButtonGroup>
@@ -64,9 +88,18 @@ const ActionGroup = ({ values, checkAll, handleChange, handleCheckAll, handleSav
         <FormControl fullWidth component="fieldset" variant="outlined">
           <FormLabel component="legend">Select formats</FormLabel>
           <FormGroup row>
-            <FormControlLabel control={<Checkbox checked={checkAll} onChange={handleCheckAll} name="check_all" />} label="Select all" />
+            <FormControlLabel
+              control={<Checkbox checked={checkAll} onChange={handleCheckAll} name="check_all" />}
+              label="Select all"
+            />
             {cards.map((box) => (
-              <FormControlLabel key={box.name} control={<Checkbox checked={values[`check_${box.name}`]} onChange={handleChange} name={`check_${box.name}`} />} label={box.label} />
+              <FormControlLabel
+                key={box.name}
+                control={
+                  <Checkbox checked={values[`check_${box.name}`]} onChange={handleChange} name={`check_${box.name}`} />
+                }
+                label={box.label}
+              />
             ))}
           </FormGroup>
         </FormControl>

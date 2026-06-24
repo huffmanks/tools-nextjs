@@ -7,10 +7,23 @@ import PopoverColorPicker from "../../components/common/PopoverColorPicker";
 import ActionGroup from "./ActionGroup";
 import LogoUpload from "./LogoUpload";
 
-const QrCodeForm = ({ values, errors, downloadUrl, handleFocus, handleChange, handleBlur, handleSubmit, handleReset }) => {
+const QrCodeForm = ({
+  values,
+  errors,
+  downloadUrl,
+  handleFocus,
+  handleChange,
+  handleBlur,
+  handleSubmit,
+  handleReset,
+}) => {
   return (
     <Container maxWidth="sm" disableGutters sx={{ margin: 0 }}>
-      <Box component="form" onSubmit={handleSubmit} autoComplete="off" sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
+        autoComplete="off"
+        sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
         {qrCodeInputs.map((input) => (
           <TextField
             key={input.name}
@@ -32,7 +45,14 @@ const QrCodeForm = ({ values, errors, downloadUrl, handleFocus, handleChange, ha
         {qrCodeSelects.map((input) => (
           <FormControl key={input.name} fullWidth>
             <InputLabel id={`${input.name}-label`}>{input.label}</InputLabel>
-            <Select labelId={`${input.name}-label`} id={input.name} variant="outlined" label={input.label} name={input.name} value={values[input.name]} onChange={handleChange}>
+            <Select
+              labelId={`${input.name}-label`}
+              id={input.name}
+              variant="outlined"
+              label={input.label}
+              name={input.name}
+              value={values[input.name] || ""}
+              onChange={handleChange}>
               {input.options.map((option) => (
                 <MenuItem key={option.label} value={option.value}>
                   {option.label}
@@ -42,13 +62,25 @@ const QrCodeForm = ({ values, errors, downloadUrl, handleFocus, handleChange, ha
           </FormControl>
         ))}
 
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" }, alignItems: "end", gap: 3 }}>
+        <Box
+          sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" }, alignItems: "end", gap: 3 }}>
           {qrCodePickers.map((picker) => (
-            <PopoverColorPicker key={picker.name} label={picker?.label} name={picker.name} value={values.colors[picker.name]} helperText={picker?.helperText} handleBlur={handleBlur} />
+            <PopoverColorPicker
+              key={picker.name}
+              label={picker?.label}
+              name={picker.name}
+              value={values.colors[picker.name]}
+              helperText={picker?.helperText}
+              handleBlur={handleBlur}
+            />
           ))}
         </Box>
 
-        <LogoUpload logoBackgroundTransparent={values.logoBackgroundTransparent} logoName={values.logoName} handleChange={handleChange} />
+        <LogoUpload
+          logoBackgroundTransparent={values.logoBackgroundTransparent}
+          logoName={values.logoName}
+          handleChange={handleChange}
+        />
 
         <ActionGroup values={values} downloadUrl={downloadUrl} handleReset={handleReset} />
       </Box>

@@ -1,11 +1,13 @@
 // Page icons
 import AspectRatioIcon from "@mui/icons-material/AspectRatio";
+import CodeIcon from "@mui/icons-material/Code";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import FeedIcon from "@mui/icons-material/Feed";
 import HomeIcon from "@mui/icons-material/Home";
 import KeyIcon from "@mui/icons-material/Key";
 import LineAxisIcon from "@mui/icons-material/LineAxis";
+import MergeIcon from "@mui/icons-material/Merge";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import QrCodeIcon from "@mui/icons-material/QrCode";
 import ScaleIcon from "@mui/icons-material/Scale";
@@ -50,8 +52,25 @@ export const calculateRoutes = [
 
 export const formatRoutes = [
   {
+    path: "/format/code",
+    name: "Code Formatter",
+    homeName: "Code Formatter",
+    key: "code-formatter",
+    icon: <CodeIcon />,
+    description: "Minify, escape and encode data.",
+  },
+  {
+    path: "https://diff.huffmanks.com/",
+    name: "Diff Tool",
+    homeName: "Diff Tool",
+    key: "diff-tool",
+    icon: <MergeIcon />,
+    description: "Visualize differences between text.",
+    isExternal: true,
+  },
+  {
     path: "/format/text",
-    name: "Text",
+    name: "Text Formatter",
     homeName: "Text Formatter",
     key: "text-formatter",
     icon: <TextFieldsIcon />,
@@ -77,12 +96,12 @@ export const generateRoutes = [
     description: "Create an email signature.",
   },
   {
-    path: "/generate/ipsum",
-    name: "Ipsum",
-    homeName: "Ipsum",
-    key: "Ipsum",
+    path: "/generate/mock-content",
+    name: "Mock Content",
+    homeName: "Mock Content",
+    key: "mock-content",
     icon: <FeedIcon />,
-    description: "Mock content in multiple formats.",
+    description: "Placeholder text in many formats.",
   },
   {
     path: "/generate/password",

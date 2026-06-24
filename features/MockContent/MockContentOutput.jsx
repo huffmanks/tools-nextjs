@@ -2,9 +2,9 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Box, Button, Grid, Paper, Tab, Tabs, Typography } from "@mui/material";
 import { useState } from "react";
 
-import { ipsumFormatTabs } from "../../constants/ipsum";
+import { mockContentFormatTabs } from "../../constants/mockContent";
 
-const IpsumOutput = ({ values, handleCopy }) => {
+const MockContentOutput = ({ values, handleCopy }) => {
   const [activeTab, setActiveTab] = useState("plaintext");
 
   const handleTabChange = (event, newValue) => {
@@ -29,7 +29,7 @@ const IpsumOutput = ({ values, handleCopy }) => {
         }}>
         <Box sx={{ borderBottom: 1, mb: 2, borderColor: "divider", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 2 }}>
           <Tabs value={activeTab} onChange={handleTabChange} textColor="inherit" indicatorColor="primary" aria-label="output format tabs">
-            {ipsumFormatTabs.map((tab) => (
+            {mockContentFormatTabs.map((tab) => (
               <Tab key={tab.value} value={tab.value} label={tab.label} sx={{ fontWeight: "bold" }} />
             ))}
           </Tabs>
@@ -92,4 +92,4 @@ const IpsumOutput = ({ values, handleCopy }) => {
   );
 };
 
-export default IpsumOutput;
+export default MockContentOutput;

@@ -8,7 +8,7 @@ const TextDelimiters = ({ values, handleChange }) => {
       {delimiterSelects.map((select, i) => (
         <FormControl key={select.label} variant="outlined" sx={{ width: "100%" }}>
           <InputLabel>{select.label}</InputLabel>
-          <Select label={select.label} name={select.value} value={values[select.value]} onChange={handleChange}>
+          <Select label={select.label} name={select.value} value={values[select.value] || ""} onChange={handleChange}>
             {delimiterOptions.map((option, j) => (
               <MenuItem key={j} value={option.value}>
                 {option.label}

@@ -2,9 +2,9 @@ import FeedIcon from "@mui/icons-material/Feed";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Grid, Stack } from "@mui/material";
 
-import { elements } from "../../constants/ipsum";
+import { elements } from "../../constants/mockContent";
 
-const IpsumForm = ({ values, checkAll, handleChange, handleCheckAll, handleReset, handleSubmit }) => {
+const MockContentForm = ({ values, checkAll, handleChange, handleCheckAll, handleReset, handleSubmit }) => {
   return (
     <Grid item xs={12} md={5}>
       <Box component="form" onSubmit={handleSubmit} autoComplete="off" sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
@@ -40,10 +40,10 @@ const IpsumForm = ({ values, checkAll, handleChange, handleCheckAll, handleReset
         </FormControl>
 
         <Stack direction={{ xs: "column", sm: "row" }} gap={2} mb={2}>
-          <Button fullWidth type="submit" variant="contained" size="large" aria-label="generate ipsum" endIcon={<FeedIcon />}>
+          <Button fullWidth type="submit" variant="contained" size="large" aria-label="generate mock content" endIcon={<FeedIcon />}>
             Generate
           </Button>
-          <Button fullWidth type="button" variant="contained" size="large" aria-label="reset ipsum form" endIcon={<RestartAltIcon />} onClick={handleReset}>
+          <Button fullWidth type="button" variant="contained" size="large" aria-label="reset mock content form" endIcon={<RestartAltIcon />} onClick={handleReset}>
             Reset
           </Button>
         </Stack>
@@ -52,4 +52,4 @@ const IpsumForm = ({ values, checkAll, handleChange, handleCheckAll, handleReset
   );
 };
 
-export default IpsumForm;
+export default MockContentForm;

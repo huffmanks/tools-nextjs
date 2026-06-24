@@ -1,42 +1,42 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import { calculateRoutes, formatRoutes, generateRoutes, navItems, pickerRoutes } from '../constants/routes'
+import { calculateRoutes, formatRoutes, generateRoutes, navItems, pickerRoutes } from "../constants/routes";
 
-import { Typography } from '@mui/material'
+import { Typography } from "@mui/material";
 
-import SEO from '../components/common/SEO'
-import PageTitle from '../components/common/PageTitle'
+import PageTitle from "../components/common/PageTitle";
+import SEO from "../components/common/SEO";
 
-import CardLinks from '../features/Home/CardLinks'
-import BottomMenu from '../components/layout/BottomMenu'
+import BottomMenu from "../components/layout/BottomMenu";
+import CardLinks from "../features/Home/CardLinks";
 
 const Home = () => {
-    const [screen, setScreen] = useState('calculate')
+  const [screen, setScreen] = useState("calculate");
 
-    const handleScreen = (_, newScreen) => {
-        setScreen(newScreen)
-    }
-    return (
-        <>
-            <SEO description='List of tools to help speed web development.' title='Home' url='/' />
+  const handleScreen = (_, newScreen) => {
+    setScreen(newScreen);
+  };
+  return (
+    <>
+      <SEO description="List of tools to help speed web development." title="Home" url="/" />
 
-            <PageTitle>Home</PageTitle>
+      <PageTitle>Home</PageTitle>
 
-            <Typography paragraph mb={5}>
-                List of tools to help speed web development.
-            </Typography>
+      <Typography paragraph mb={5}>
+        List of tools to help speed web development.
+      </Typography>
 
-            <BottomMenu screen={screen} handleScreen={handleScreen} navItems={navItems}>
-                {screen === 'calculate' && <CardLinks routes={calculateRoutes} />}
+      <BottomMenu screen={screen} handleScreen={handleScreen} navItems={navItems}>
+        {screen === "calculate" && <CardLinks routes={calculateRoutes} />}
 
-                {screen === 'format' && <CardLinks routes={formatRoutes} />}
+        {screen === "format" && <CardLinks routes={formatRoutes} />}
 
-                {screen === 'generate' && <CardLinks routes={generateRoutes} />}
+        {screen === "generate" && <CardLinks routes={generateRoutes} />}
 
-                {screen === 'picker' && <CardLinks routes={pickerRoutes} />}
-            </BottomMenu>
-        </>
-    )
-}
+        {screen === "picker" && <CardLinks routes={pickerRoutes} />}
+      </BottomMenu>
+    </>
+  );
+};
 
-export default Home
+export default Home;

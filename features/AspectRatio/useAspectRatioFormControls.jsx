@@ -11,15 +11,24 @@ export const useAspectRatioFormControls = () => {
     let temp = { ...errors };
 
     if ("originalWidth" in fieldValues) {
-      temp.originalWidth = fieldValues.originalWidth.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.originalWidth === "" ? "" : "Must be a number.";
+      temp.originalWidth =
+        fieldValues.originalWidth.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.originalWidth === ""
+          ? ""
+          : "Must be a number.";
     }
 
     if ("originalHeight" in fieldValues) {
-      temp.originalHeight = fieldValues.originalHeight.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.originalHeight === "" ? "" : "Must be a number.";
+      temp.originalHeight =
+        fieldValues.originalHeight.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.originalHeight === ""
+          ? ""
+          : "Must be a number.";
     }
 
     if ("newSize" in fieldValues) {
-      temp.newSize = fieldValues.newSize.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.newSize === "" ? "" : "Must be a number.";
+      temp.newSize =
+        fieldValues.newSize.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.newSize === ""
+          ? ""
+          : "Must be a number.";
     }
 
     if (calculatedLowerBounds !== null) {
@@ -106,18 +115,6 @@ export const useAspectRatioFormControls = () => {
             aspectMultiplier: "",
             dimensions: "",
           });
-          // setValues({
-          //   ...currentUpdatedValues,
-          //   newWidth: hasValue ? values.newWidth : "",
-          //   newHeight: hasValue ? values.newHeight : "",
-          //   suggestedLowerWidth: hasValue ? values.suggestedLowerWidth : "",
-          //   suggestedLowerHeight: hasValue ? values.suggestedLowerHeight : "",
-          //   suggestedHigherWidth: hasValue ? values.suggestedHigherWidth : "",
-          //   suggestedHigherHeight: hasValue ? values.suggestedHigherHeight : "",
-          //   aspectRatio: !hasValue && isOriginal ? "" : values.aspectRatio,
-          //   aspectMultiplier: !hasValue && isOriginal ? "" : values.aspectMultiplier,
-          //   dimensions: values.newWidth && values.newHeight ? `${values.newWidth} x ${values.newHeight}` : "",
-          // });
         }
       } else {
         setValues((prev) => ({

@@ -1,67 +1,69 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-import { Box, Button, Card, CardActions, CardContent, IconButton, Typography } from '@mui/material'
+import { Box, Button, Card, CardActions, CardContent, IconButton, Typography } from "@mui/material";
 
 const CardLinks = ({ routes }) => {
-    return (
-        <Box
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: {
+          xs: "center",
+          sm: "flex-start",
+        },
+        flexWrap: "wrap",
+        gap: 3,
+      }}>
+      {routes.map(({ key, path, homeName, icon, description, isExternal }) => (
+        <Card
+          key={key}
+          color="secondary"
+          sx={{
+            flex: "0 0 100%",
+            maxWidth: 345,
+            padding: 3,
+            "@media (min-width:450px)": {
+              flex: "0 0 325px",
+            },
+          }}>
+          <Box
             sx={{
-                display: 'flex',
-                justifyContent: {
-                    xs: 'center',
-                    sm: 'flex-start',
-                },
-                flexWrap: 'wrap',
-                gap: 3,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}>
-            {routes.map(({ key, path, homeName, icon, description }) => (
-                <Card
-                    key={key}
-                    color='secondary'
-                    sx={{
-                        flex: '0 0 100%',
-                        maxWidth: 345,
-                        padding: 3,
-                        '@media (min-width:450px)': {
-                            flex: '0 0 325px',
-                        },
-                    }}>
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}>
-                        <Link href={path} passHref={true}>
-                            <IconButton
-                                aria-label={homeName}
-                                color='primary'
-                                sx={{
-                                    '& svg': {
-                                        fontSize: '55px',
-                                    },
-                                }}>
-                                {icon}
-                            </IconButton>
-                        </Link>
-                    </Box>
-                    <CardContent>
-                        <Typography gutterBottom variant='h5' component='div'>
-                            {homeName}
-                        </Typography>
-                        <Typography variant='body2'>{description}</Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Link href={path} passHref={true} style={{ width: '100%', textDecoration: 'none' }}>
-                            <Button variant='contained' fullWidth>
-                                View
-                            </Button>
-                        </Link>
-                    </CardActions>
-                </Card>
-            ))}
-        </Box>
-    )
-}
+            <Link href={path} passHref={true}>
+              <IconButton
+                aria-label={homeName}
+                color="primary"
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                sx={{
+                  "& svg": {
+                    fontSize: "55px",
+                  },
+                }}>
+                {icon}
+              </IconButton>
+            </Link>
+          </Box>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {homeName}
+            </Typography>
+            <Typography variant="body2">{description}</Typography>
+          </CardContent>
+          <CardActions>
+            <Link href={path} passHref={true} style={{ width: "100%", textDecoration: "none" }}>
+              <Button variant="contained" fullWidth target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined}>
+                View
+              </Button>
+            </Link>
+          </CardActions>
+        </Card>
+      ))}
+    </Box>
+  );
+};
 
-export default CardLinks
+export default CardLinks;

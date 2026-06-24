@@ -3,7 +3,6 @@
    - [ ] Focus select disable for mobile
    - [ ] Ignore public readme images
    - [ ] PWA \_redirects precache error
-   - [ ] Fix stale cache, sw issue.
 2. Item Picker
    - [ ] Upload add json, csv options
 3. New tools
@@ -12,3 +11,8 @@
      - [ ] Add bold, italics and links.
 4. Add links to external tools
    - [ ] [Diff checker](https://diff.huffmanks.com)
+5. Add images
+   - [ ] code formatter
+   - [ ] mock content
+6. Add LS to email signature form.
+7. Make code formatter auto detect language and auto validate syntax etc.

@@ -1,4 +1,4 @@
-import data from "./ipsum_data.json";
+import data from "./mock-content_data.json";
 
 const grabRandom = (arr, count = 1) => {
   return [...arr].sort(() => 0.5 - Math.random()).slice(0, count);

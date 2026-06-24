@@ -85,7 +85,7 @@ export const elements = [
   },
 ];
 
-export const ipsumFormatTabs = [
+export const mockContentFormatTabs = [
   {
     value: "plaintext",
     label: "Plain text",
