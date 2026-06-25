@@ -1,11 +1,11 @@
 export const codeTransformer = ({ codeInput, format, action }) => {
   if (!codeInput || !/\S/.test(codeInput)) return "";
 
-  if (action === "urlEncode") return encodeURIComponent(codeInput);
-  if (action === "urlDecode") return decodeURIComponent(codeInput);
+  if (action === "encode") return encodeURIComponent(codeInput);
+  if (action === "decode") return decodeURIComponent(codeInput);
 
   if (action === "stringify") return JSON.stringify(codeInput);
-  if (action === "unstringify") {
+  if (action === "un-stringify") {
     const parsed = JSON.parse(codeInput);
     return typeof parsed === "string" ? parsed : JSON.stringify(parsed, null, 2);
   }
@@ -14,7 +14,7 @@ export const codeTransformer = ({ codeInput, format, action }) => {
     return handleMinification({ codeInput, format });
   }
 
-  if (action === "unminify") {
+  if (action === "un-minify") {
     return handleBeautify({ codeInput, format });
   }
 
