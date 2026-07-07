@@ -16,3 +16,4 @@
    - [ ] mock content
 6. Add LS to email signature form.
 7. Make code formatter auto detect language and auto validate syntax etc.
+8. Take a list and perform action, e.g. alphabetize,reverse list,remove duplicates, etc.
