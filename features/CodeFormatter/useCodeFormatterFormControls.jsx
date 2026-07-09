@@ -1,29 +1,46 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { initialValues } from "../../constants/codeFormatter";
-import { codeTransformer } from "./codeTransformer";
+import { codeTransformer, detectFormat } from "./codeTransformer";
 
 export const useCodeFormatterFormControls = () => {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
 
+  const isManualOverride = useRef(false);
+
   const isStringEmpty = (str) => !str || !/\S/.test(str);
 
   useEffect(() => {
-    const isLanguageRequired = ["minify", "un-minify"].includes(values.action);
-
-    if (
-      isStringEmpty(values.codeInput) ||
-      isStringEmpty(values.action) ||
-      (isLanguageRequired && isStringEmpty(values.format))
-    ) {
+    if (isStringEmpty(values.codeInput) || isStringEmpty(values.action)) {
       setValues((prev) => ({ ...prev, codeOutput: "" }));
       return;
     }
+
+    const isLanguageRequired = ["minify", "un-minify"].includes(values.action);
+    let currentFormat = values.format;
+
+    if (isLanguageRequired) {
+      const autoDetected = detectFormat(values.codeInput);
+
+      if (!isManualOverride.current) {
+        if (autoDetected !== values.format) {
+          currentFormat = autoDetected;
+          setValues((prev) => ({ ...prev, format: autoDetected }));
+        }
+      } else if (values.format === "") {
+        isManualOverride.current = false;
+      }
+    }
+
+    if (isLanguageRequired && isStringEmpty(currentFormat)) {
+      return;
+    }
+
     try {
       const result = codeTransformer({
         codeInput: values.codeInput,
-        format: values.format,
+        format: currentFormat,
         action: values.action,
       });
 
@@ -58,8 +75,15 @@ export const useCodeFormatterFormControls = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setErrors((prev) => ({ ...prev, [name]: "", codeOutput: "" }));
+
+    if (name === "codeInput") {
+      isManualOverride.current = false;
+    }
+
+    if (name === "format") {
+      isManualOverride.current = true;
+    }
 
     setValues((prev) => ({
       ...prev,
@@ -69,6 +93,7 @@ export const useCodeFormatterFormControls = () => {
   };
 
   const handleReset = () => {
+    isManualOverride.current = false;
     setValues(initialValues);
     setErrors({});
   };

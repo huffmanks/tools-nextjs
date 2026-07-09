@@ -22,6 +22,7 @@ const CodeFormatForm = ({ values, errors, handleChange, handleReset }) => {
   const theme = useTheme();
 
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
+  const isNoWrap = ["minify"].includes(values.action);
   const isLanguageRequired = ["minify", "un-minify"].includes(values.action);
 
   return (
@@ -170,7 +171,7 @@ const CodeFormatForm = ({ values, errors, handleChange, handleReset }) => {
             }}
             sx={{
               "& .MuiInputBase-input": {
-                whiteSpace: "pre-wrap",
+                whiteSpace: isNoWrap ? "nowrap" : "pre-wrap",
                 overflowWrap: "anywhere",
                 wordBreak: "break-all",
               },
