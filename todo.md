@@ -7,13 +7,10 @@
    - [ ] Upload add json, csv options
 3. New tools
    - [ ] Image resizer using sharpjs. Take a photo and generate hero, thumb, etc. [High performance Node.js image processing](https://sharp.pixelplumbing.com)
-   - [ ] [Ipsum generator](features/Ipsum/useIpsumFormControls.jsx)
+   - [ ] Take a list and perform action, e.g. alphabetize,reverse list,remove duplicates, etc.
+   - [x] [Mock Content](features/MockContent)
      - [ ] Add bold, italics and links.
-4. Add links to external tools
-   - [ ] [Diff checker](https://diff.huffmanks.com)
-5. Add images
+4. Add preview images
    - [ ] code formatter
    - [ ] mock content
-6. Add LS to email signature form.
-7. Make code formatter auto detect language and auto validate syntax etc.
-8. Take a list and perform action, e.g. alphabetize,reverse list,remove duplicates, etc.
+5. Add local storage to email signature form.

@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { Box, Button, Card, CardActions, CardContent, IconButton, Typography } from "@mui/material";
 
 const CardLinks = ({ routes }) => {
@@ -55,7 +56,17 @@ const CardLinks = ({ routes }) => {
           </CardContent>
           <CardActions>
             <Link href={path} passHref={true} style={{ width: "100%", textDecoration: "none" }}>
-              <Button variant="contained" fullWidth target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined}>
+              <Button
+                variant="contained"
+                fullWidth
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                endIcon={isExternal ? <OpenInNewIcon /> : undefined}
+                sx={{
+                  "& .MuiButton-endIcon > *:nth-of-type(1)": {
+                    fontSize: 15,
+                  },
+                }}>
                 View
               </Button>
             </Link>

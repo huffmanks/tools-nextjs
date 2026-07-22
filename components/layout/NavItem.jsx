@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 
 import NavDivider from "./NavDivider";
@@ -30,16 +31,21 @@ const NavItem = ({ router, routes, open, setOpen, label, isHomePage }) => {
                   }}>
                   {icon}
                 </ListItemIcon>
-                <ListItemText
-                  primary={name}
-                  sx={{
-                    color: "#fff",
-                    opacity: open ? 1 : 0,
-                    "& .MuiListItemText-primary": {
-                      fontSize: "15px",
-                    },
-                  }}
-                />
+                {open && (
+                  <>
+                    <ListItemText
+                      primary={name}
+                      sx={{
+                        flex: "initial",
+                        color: "#fff",
+                        "& .MuiListItemText-primary": {
+                          fontSize: "15px",
+                        },
+                      }}
+                    />
+                    {isExternal && <OpenInNewIcon sx={{ fontSize: 13, color: "text.disabled", ml: 1 }} />}
+                  </>
+                )}
               </ListItemButton>
             </Link>
           </ListItem>

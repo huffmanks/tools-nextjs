@@ -119,7 +119,7 @@ const Layout = ({ children }) => {
           <AppBarLogo logoSize={38} textSize={24} open={open} />
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open} className="global-scrollbar">
         <DrawerHeader>
           <AppBarLogo logoSize={28} textSize={23} />
 
@@ -128,10 +128,24 @@ const Layout = ({ children }) => {
           </IconButton>
         </DrawerHeader>
 
-        <NavItem router={router} routes={mainRoutes} open={open} setOpen={setOpen} label={mainRoutes[0].name} isHomePage />
+        <NavItem
+          router={router}
+          routes={mainRoutes}
+          open={open}
+          setOpen={setOpen}
+          label={mainRoutes[0].name}
+          isHomePage
+        />
 
         {navItems.map((navItem, index) => (
-          <NavItem key={index} router={router} routes={navItem.routes} open={open} setOpen={setOpen} label={navItem.label} />
+          <NavItem
+            key={index}
+            router={router}
+            routes={navItem.routes}
+            open={open}
+            setOpen={setOpen}
+            label={navItem.label}
+          />
         ))}
       </Drawer>
       <Box
