@@ -5,7 +5,7 @@ const calculatedBasePath = isStagingExport ? "/huffmanks/out" : "";
 
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+  swcMinify: false,
   basePath: calculatedBasePath,
   images: {
     unoptimized: true,
