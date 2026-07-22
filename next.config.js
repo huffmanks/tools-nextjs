@@ -4,8 +4,9 @@ const isStagingExport = process.env.STAGING === "true";
 const calculatedBasePath = isStagingExport ? "/huffmanks/out" : "";
 
 const nextConfig = {
+  output: "export",
   reactStrictMode: true,
-  swcMinify: false,
+  swcMinify: true,
   basePath: calculatedBasePath,
   images: {
     unoptimized: true,

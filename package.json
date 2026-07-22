@@ -10,7 +10,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV='development' next dev -p 3001 -H 0.0.0.0",
-    "build": "next build && next export",
+    "build": "next build",
     "postbuild": "next-sitemap",
     "staging": "cross-env STAGING='true' next export",
     "start": "next start",
@@ -26,12 +26,12 @@
     "colord": "^2.9.2",
     "convert": "^4.5.0",
     "easyqrcodejs": "^4.4.12",
-    "next": "12.2.2",
+    "next": "14.2.35",
     "next-pwa": "^5.5.4",
     "next-sitemap": "^3.1.10",
-    "react": "18.2.0",
+    "react": "18.3.1",
     "react-colorful": "^5.5.1",
-    "react-dom": "18.2.0",
+    "react-dom": "18.3.1",
     "react-syntax-highlighter": "^15.5.0",
     "xlsx": "^0.18.5"
   },
@@ -39,7 +39,6 @@
     "@faker-js/faker": "^10.4.0",
     "cross-env": "^7.0.3",
     "eslint": "8.19.0",
-    "eslint-config-next": "12.2.2"
-  },
-  "packageManager": "pnpm@10.5.2"
+    "eslint-config-next": "14.2.35"
+  }
 }

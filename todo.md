@@ -3,6 +3,7 @@
    - [ ] Focus select disable for mobile
    - [ ] Ignore public readme images
    - [ ] PWA \_redirects precache error
+   - [ ] Switch to `pnpm add @serwist/next` and `pnpm add -D serwist`. `pnpm remove next-pwa`.
 2. Item Picker
    - [ ] Upload add json, csv options
 3. New tools
