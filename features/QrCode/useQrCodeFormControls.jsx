@@ -59,7 +59,7 @@ export const useQrCodeFormControls = () => {
     }
 
     const { websiteLink, outputSize, correctLevel, logoUpload, logoBackgroundTransparent } = currentValues;
-    const activeColors = currentValues.colors || initialColorValues;
+    const activeColors = currentValues?.colors || initialColors;
 
     const options = {
       text: websiteLink,
@@ -138,7 +138,7 @@ export const useQrCodeFormControls = () => {
     const updatedValues = {
       ...values,
       colors: {
-        ...(values.colors || initialColorValues),
+        ...(values?.colors || initialColors),
         [name]: colorValue,
       },
     };

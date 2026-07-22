@@ -69,7 +69,7 @@ const QrCodeForm = ({
               key={picker.name}
               label={picker?.label}
               name={picker.name}
-              value={values.colors[picker.name]}
+              value={values.colors?.[picker.name] || ""}
               helperText={picker?.helperText}
               handleBlur={handleBlur}
             />
