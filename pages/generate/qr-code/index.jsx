@@ -7,7 +7,8 @@ import SEO from "../../../components/common/SEO";
 import QrCodeForm from "../../../features/QrCode/QrCodeForm";
 
 const QrCode = () => {
-  const { codeRef, values, colors, errors, downloadUrl, handleChange, handleColorChange, handleSubmit, handleReset } = useQrCodeFormControls();
+  const { codeRef, values, colors, errors, downloadUrl, handleChange, handleColorChange, handleSubmit, handleReset } =
+    useQrCodeFormControls();
 
   return (
     <>

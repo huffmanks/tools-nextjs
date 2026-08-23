@@ -1,41 +1,57 @@
-import { usePopoverColorPicker } from '../../../hooks/usePopoverColorPicker'
-import { useEmailSignatureFormControls } from '../../../features/EmailSignature/useEmailSignatureFormControls'
+import { useEmailSignatureFormControls } from "../../../features/EmailSignature/useEmailSignatureFormControls";
 
-import SEO from '../../../components/common/SEO'
-import PageTitle from '../../../components/common/PageTitle'
+import PageTitle from "../../../components/common/PageTitle";
+import SEO from "../../../components/common/SEO";
 
-import IntroParagraph from '../../../features/EmailSignature/IntroParagraph'
-import EmailForm from '../../../features/EmailSignature/EmailForm'
-import EmailOutput from '../../../features/EmailSignature/EmailOutput'
-import OutputMessage from '../../../components/common/OutputMessage'
-import { initialValues } from '../../../constants/popoverColorPicker'
+import OutputMessage from "../../../components/common/OutputMessage";
+import EmailForm from "../../../features/EmailSignature/EmailForm";
+import EmailOutput from "../../../features/EmailSignature/EmailOutput";
+import IntroParagraph from "../../../features/EmailSignature/IntroParagraph";
 
 const EmailSignature = () => {
-    const { values, errors, formSubmitted, formIsValid, handleChange, handleBlur, handleSubmit } = useEmailSignatureFormControls()
+  const {
+    values,
+    errors,
+    formSubmitted,
+    formIsValid,
+    handleChange,
+    handleColorChange,
+    handleReset,
+    handleBlur,
+    handleSubmit,
+  } = useEmailSignatureFormControls();
 
-    const { colors, handleBlur: handleColorPickerBlur } = usePopoverColorPicker(initialValues)
+  return (
+    <>
+      <SEO
+        description="Create an email signature."
+        title="Email Signature"
+        url="/generate/email-signature"
+        imageUrl="/email-signature.png"
+      />
 
-    return (
-        <>
-            <SEO description='Create an email signature.' title='Email Signature' url='/generate/email-signature' imageUrl='/email-signature.png' />
+      <PageTitle>Email Signature</PageTitle>
 
-            <PageTitle>Email Signature</PageTitle>
+      <IntroParagraph />
 
-            <IntroParagraph />
+      <EmailForm
+        values={values}
+        errors={errors}
+        formIsValid={formIsValid}
+        handleChange={handleChange}
+        handleBlur={handleBlur}
+        handleColorChange={handleColorChange}
+        handleReset={handleReset}
+        handleSubmit={handleSubmit}
+      />
 
-            <EmailForm
-                values={values}
-                errors={errors}
-                formIsValid={formIsValid}
-                handleChange={handleChange}
-                handleBlur={handleBlur}
-                handleColorPickerBlur={handleColorPickerBlur}
-                handleSubmit={handleSubmit}
-            />
+      {formSubmitted ? (
+        <EmailOutput values={values} />
+      ) : (
+        <OutputMessage message="Email signature will appear here." extraMb />
+      )}
+    </>
+  );
+};
 
-            {formSubmitted ? <EmailOutput values={values} themeColor={colors.themeColor} /> : <OutputMessage message='Email signature will appear here.' extraMb />}
-        </>
-    )
-}
-
-export default EmailSignature
+export default EmailSignature;
