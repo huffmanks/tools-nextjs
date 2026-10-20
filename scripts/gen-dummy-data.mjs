@@ -8,14 +8,20 @@ const __dirname = path.dirname(__filename);
 
 const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 function generateData() {
-  const shortPhrases = Array.from({ length: 50 }, () => faker.helpers.fake("{{hacker.verb}} {{hacker.adjective}} {{hacker.noun}}")).map(capitalize);
+  const shortPhrases = Array.from({ length: 50 }, () =>
+    faker.helpers.fake("{{hacker.verb}} {{hacker.adjective}} {{hacker.noun}}"),
+  ).map(capitalize);
 
   const longPhrases = Array.from({ length: 50 }, () => {
     return capitalize(faker.company.buzzPhrase());
   });
 
   const sentences = Array.from({ length: 150 }, () => {
-    const pattern = faker.helpers.arrayElement(["{{hacker.phrase}}", "{{company.buzzPhrase}}. {{hacker.phrase}}", "{{company.catchPhrase}}. {{company.buzzPhrase}}"]);
+    const pattern = faker.helpers.arrayElement([
+      "{{hacker.phrase}}",
+      "{{company.buzzPhrase}}. {{hacker.phrase}}",
+      "{{company.catchPhrase}}. {{company.buzzPhrase}}",
+    ]);
     return capitalize(faker.helpers.fake(pattern));
   });
 

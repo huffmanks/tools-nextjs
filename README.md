@@ -39,12 +39,12 @@
 
 ## Built with
 
--   [Next.js](https://nextjs.org/)
--   [MUI](https://mui.com/)
--   [change-case](https://www.npmjs.com/package/change-case)
--   [colord](https://www.npmjs.com/package/colord)
--   [convert](https://www.npmjs.com/package/convert)
--   [react-colorful](https://www.npmjs.com/package/react-colorful)
+- [Next.js](https://nextjs.org/)
+- [MUI](https://mui.com/)
+- [change-case](https://www.npmjs.com/package/change-case)
+- [colord](https://www.npmjs.com/package/colord)
+- [convert](https://www.npmjs.com/package/convert)
+- [react-colorful](https://www.npmjs.com/package/react-colorful)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -52,17 +52,17 @@
 
 ## Tool list
 
--   [Aspect Ratio Calculator](https://tools.huffmanks.com/calculate/aspect-ratio)
--   [Unit Calculator](https://tools.huffmanks.com/calculate/units)
--   [Text Formatter](https://tools.huffmanks.com/format/text)
--   [CSS Scrollbar](https://tools.huffmanks.com/generate/css-scrollbar)
--   [Email Signature](https://tools.huffmanks.com/generate/email-signature)
--   [Password Generator](https://tools.huffmanks.com/generate/password)
--   [QR Code Generator](https://tools.huffmanks.com/generate/qr-code)
--   [Todo List](https://tools.huffmanks.com/generate/todo)
--   [Color Picker](https://tools.huffmanks.com/picker/color)
--   [Item Picker](https://tools.huffmanks.com/picker/item)
--   [Number Picker](https://tools.huffmanks.com/picker/number)
+- [Aspect Ratio Calculator](https://tools.huffmanks.com/calculate/aspect-ratio)
+- [Unit Calculator](https://tools.huffmanks.com/calculate/units)
+- [Text Formatter](https://tools.huffmanks.com/format/text)
+- [CSS Scrollbar](https://tools.huffmanks.com/generate/css-scrollbar)
+- [Email Signature](https://tools.huffmanks.com/generate/email-signature)
+- [Password Generator](https://tools.huffmanks.com/generate/password)
+- [QR Code Generator](https://tools.huffmanks.com/generate/qr-code)
+- [Todo List](https://tools.huffmanks.com/generate/todo)
+- [Color Picker](https://tools.huffmanks.com/picker/color)
+- [Item Picker](https://tools.huffmanks.com/picker/item)
+- [Number Picker](https://tools.huffmanks.com/picker/number)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -82,8 +82,8 @@ I built these tools to help speed my development process.
 \
 [Stratools Color Picker](https://tools.huffmanks.com/picker/color)
 
--   Option to copy any code not just HEX.
--   Similar shades displayed so I could pick lighter/darker versions.
+- Option to copy any code not just HEX.
+- Similar shades displayed so I could pick lighter/darker versions.
 
 <br />
 
@@ -95,7 +95,7 @@ I built these tools to help speed my development process.
 \
 [Stratools Unit Calculator](https://tools.huffmanks.com/calculate/units)
 
--   Wanted all the units to be displayed so I could see the differences.
+- Wanted all the units to be displayed so I could see the differences.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -107,21 +107,21 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
 
-    ```sh
-    git clone https://github.com/huffmanks/tools-nextjs.git .
-    ```
+   ```sh
+   git clone https://github.com/huffmanks/tools-nextjs.git .
+   ```
 
 2. Install packages
 
-    ```sh
-    yarn
-    ```
+   ```sh
+   yarn
+   ```
 
 3. Start
 
-    ```sh
-    yarn dev
-    ```
+   ```sh
+   yarn dev
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

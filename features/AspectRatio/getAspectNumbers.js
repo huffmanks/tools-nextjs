@@ -17,7 +17,12 @@ export const getAspectNumbers = (values) => {
   const aspectMultiplier = (values.originalWidth / values.originalHeight).toFixed(2);
   const aspectRatio = `${values.originalWidth / aspectGCD}:${values.originalHeight / aspectGCD}`;
 
-  const { lower, higher } = suggestNearestIntegerDimensions(Number(values.originalWidth), Number(values.originalHeight), Number(values.newSize), values.selectedType);
+  const { lower, higher } = suggestNearestIntegerDimensions(
+    Number(values.originalWidth),
+    Number(values.originalHeight),
+    Number(values.newSize),
+    values.selectedType,
+  );
 
   const suggestedValues = {
     suggestedLowerWidth: lower?.width !== undefined && lower?.width !== "" ? String(lower.width) : "",

@@ -12,11 +12,13 @@ const NavItem = ({ router, routes, open, setOpen, label, isHomePage }) => {
       <List>
         {routes.map(({ key, path, name, icon, isExternal }) => (
           <ListItem key={key} disablePadding sx={{ display: "block" }}>
-            <Link href={path} passHref={true} style={{ textDecoration: "none" }}>
+            <Link
+              href={path}
+              target={isExternal ? "_blank" : undefined}
+              rel={isExternal ? "noopener noreferrer" : undefined}
+              style={{ textDecoration: "none" }}>
               <ListItemButton
                 selected={router.pathname === path ? true : false}
-                target={isExternal ? "_blank" : undefined}
-                rel={isExternal ? "noopener noreferrer" : undefined}
                 onClick={() => setOpen(false)}
                 sx={{
                   minHeight: 48,

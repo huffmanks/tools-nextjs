@@ -9,12 +9,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV='development' next dev -p 3001 -H 0.0.0.0",
-    "build": "next build",
-    "postbuild": "next-sitemap",
-    "staging": "cross-env STAGING='true' next export",
-    "start": "next start",
-    "lint": "next lint",
+    "dev": "cross-env NODE_ENV='development' next dev --webpack -p 3011 -H 0.0.0.0",
+    "build": "cross-env NODE_ENV='production' next build --webpack",
+    "build:staging": "cross-env NODE_ENV='production' STAGING='true' next build --webpack",
+    "postbuild": "next-sitemap --config next-sitemap.config.mjs",
+    "preview": "cross-env NODE_ENV='development' pnpm dlx serve out -l 3012",
+    "lint": "eslint .",
     "gen": "node scripts/gen-dummy-data.mjs"
   },
   "dependencies": {
@@ -22,23 +22,25 @@
     "@emotion/styled": "^11.9.3",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.7",
+    "@serwist/next": "^9.5.13",
     "change-case": "^4.1.2",
     "colord": "^2.9.2",
     "convert": "^4.5.0",
     "easyqrcodejs": "^4.4.12",
-    "next": "14.2.35",
-    "next-pwa": "^5.5.4",
+    "next": "16.4.2",
     "next-sitemap": "^3.1.10",
-    "react": "18.3.1",
+    "react": "19.3.1",
     "react-colorful": "^5.5.1",
-    "react-dom": "18.3.1",
+    "react-dom": "19.3.1",
     "react-syntax-highlighter": "^15.5.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@faker-js/faker": "^10.4.0",
+    "@types/react": "^19.3.0",
     "cross-env": "^7.0.3",
-    "eslint": "8.19.0",
-    "eslint-config-next": "14.2.35"
+    "eslint": "^10.13.0",
+    "eslint-config-next": "16.4.2",
+    "serwist": "^9.5.13"
   }
 }

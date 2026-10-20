@@ -1,0 +1,80 @@
+export type InitialColors = {
+  dotColor: string;
+  backgroundColor: string;
+  ringOuter: string;
+  ringInner: string;
+  themeColor: string;
+  trackBg: string;
+  trackBorderColor: string;
+  trackBgHover: string;
+  thumbBg: string;
+  thumbBorderColor: string;
+  thumbBgHover: string;
+};
+
+export const initialValues: InitialColors = {
+  dotColor: "#5b21b6",
+  backgroundColor: "#fff",
+  ringOuter: "#222",
+  ringInner: "#222",
+  themeColor: "#5b21b6",
+  trackBg: "#e7e7e7",
+  trackBorderColor: "#cacaca",
+  trackBgHover: "#cfcfcf",
+  thumbBg: "#d55959",
+  thumbBorderColor: "#ffc0cb",
+  thumbBgHover: "#cf3f3f",
+};
+
+export const qrCodePickers = [
+  {
+    label: "Primary Colors",
+    name: "dotColor",
+    helperText: "Dot Color",
+  },
+  {
+    name: "backgroundColor",
+    helperText: "Background Color",
+  },
+  {
+    label: "Ring Colors",
+    name: "ringOuter",
+    helperText: "Outer Color",
+  },
+  {
+    name: "ringInner",
+    helperText: "Inner Color",
+  },
+];
+
+export const scrollbarTrackPickers = [
+  {
+    label: "Track styles",
+    name: "trackBg",
+    helperText: "Background Color",
+  },
+  {
+    name: "trackBorderColor",
+    helperText: "Border Color",
+  },
+  {
+    name: "trackBgHover",
+    helperText: "Hover Background Color",
+  },
+];
+
+export const scrollbarThumbPickers = [
+  {
+    label: "Thumb Styles",
+    name: "thumbBg",
+    helperText: "Background Color",
+  },
+  {
+    name: "thumbBorderColor",
+    helperText: "Border Color",
+  },
+  {
+    name: "thumbBgHover",
+    helperText: "Hover Background Color",
+  },
+];
