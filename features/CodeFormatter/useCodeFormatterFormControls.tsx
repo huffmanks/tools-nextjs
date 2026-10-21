@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
-import { SelectChangeEvent } from "@mui/material";
-import { CodeFormatterValues, initialCodeFormatterValues } from "./constants";
+import { type SelectChangeEvent } from "@mui/material";
+
+import { type CodeFormatterValues, initialCodeFormatterValues } from "./constants";
 import { codeTransformer, detectFormat } from "./utils";
 
 export interface CodeFormatterErrors {
@@ -65,7 +66,8 @@ export const useCodeFormatterFormControls = () => {
   }, [values.codeInput, values.format, values.action]);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement, Element> | SelectChangeEvent<string>,
+    e:
+      React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement, Element> | SelectChangeEvent<string>
   ) => {
     const name = e.target.name as keyof CodeFormatterValues;
     const value = e.target.value as string;

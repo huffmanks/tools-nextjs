@@ -2,7 +2,10 @@ interface CounterValues {
   total: number | string;
 }
 
-export const useCounter = <T extends CounterValues>(_values: T, setValues: React.Dispatch<React.SetStateAction<T>>) => {
+export const useCounter = <T extends CounterValues>(
+  _values: T,
+  setValues: React.Dispatch<React.SetStateAction<T>>
+) => {
   const handleDecrease = () => {
     setValues((prev) => ({
       ...prev,

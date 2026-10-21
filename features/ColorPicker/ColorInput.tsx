@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
-import { useGlobalState } from "../../hooks/useGlobalState";
-
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
+
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { useGlobalState } from "@/hooks/useGlobalState";
 
 interface ColorInputProps {
   inputLabel: string;

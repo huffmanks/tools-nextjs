@@ -1,9 +1,9 @@
 import { forwardRef } from "react";
 
-import { useGlobalState } from "../../hooks/useGlobalState";
+import MuiAlert, { type AlertProps } from "@mui/material/Alert";
+import Snackbar, { type SnackbarCloseReason } from "@mui/material/Snackbar";
 
-import MuiAlert, { AlertProps } from "@mui/material/Alert";
-import Snackbar, { SnackbarCloseReason } from "@mui/material/Snackbar";
+import { useGlobalState } from "@/hooks/useGlobalState";
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -12,7 +12,7 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) 
 const Toast = () => {
   const { toastOpen, toastMessage, removeToast } = useGlobalState();
 
-  const handleClose = (_event: Event | React.SyntheticEvent<any, Event>, reason?: SnackbarCloseReason) => {
+  const handleClose = (_event: React.SyntheticEvent | Event, reason?: SnackbarCloseReason) => {
     if (reason === "clickaway") {
       return;
     }

@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+
 import ColorInput from "./ColorInput";
 
 export interface ConvertedColors {

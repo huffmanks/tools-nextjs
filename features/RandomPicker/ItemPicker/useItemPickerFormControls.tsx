@@ -1,20 +1,23 @@
 import { useRef, useState } from "react";
+
+import { type SelectChangeEvent } from "@mui/material";
 import * as XLSX from "xlsx";
 
-import { useCopyToClipboard } from "../../../hooks/useCopyToClipboard";
-import { useGlobalState } from "../../../hooks/useGlobalState";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { useGlobalState } from "@/hooks/useGlobalState";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { generateSeparatedStrings } from "@/utils";
+import { generateRandomNumbers } from "@/utils/generateRandomNumbers";
 
-import { generateRandomNumbers } from "../../../utilities/generateRandomNumbers";
-import { generateSeparatedStrings } from "../utils";
-
-import { SelectChangeEvent } from "@mui/material";
-import { useLocalStorage } from "../../../hooks/useLocalStorage";
-import { ITEM_PICKER_LS_KEY, ItemPickerValues, initialItemPickerValues } from "./constants";
+import { ITEM_PICKER_LS_KEY, type ItemPickerValues, initialItemPickerValues } from "./constants";
 
 type SpreadsheetRow = unknown[];
 
 export const useItemPickerFormControls = () => {
-  const [values, setValues] = useLocalStorage<ItemPickerValues>(ITEM_PICKER_LS_KEY, initialItemPickerValues);
+  const [values, setValues] = useLocalStorage<ItemPickerValues>(
+    ITEM_PICKER_LS_KEY,
+    initialItemPickerValues
+  );
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const { addToast } = useGlobalState();
@@ -24,7 +27,7 @@ export const useItemPickerFormControls = () => {
   const resultRef = useRef<HTMLElement>(null);
 
   const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>,
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>
   ): void => {
     const { name, value } = event.target;
 

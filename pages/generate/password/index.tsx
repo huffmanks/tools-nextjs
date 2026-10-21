@@ -1,20 +1,20 @@
-import { usePasswordGeneratorFormControls } from "../../../features/PasswordGenerator/usePasswordGeneratorFormControls";
-
 import KeyIcon from "@mui/icons-material/Key";
 import { Button, Typography } from "@mui/material";
 
-import PageTitle from "../../../components/common/PageTitle";
-import SEO from "../../../components/common/SEO";
+import PasswordContainer from "@/features/PasswordGenerator/PasswordContainer";
+import PasswordOptions from "@/features/PasswordGenerator/PasswordOptions";
+import PasswordOutput from "@/features/PasswordGenerator/PasswordOutput";
+import PasswordType from "@/features/PasswordGenerator/PasswordType";
+import RandomKeyGens from "@/features/PasswordGenerator/RandomKeyGens";
+import SliderInput from "@/features/PasswordGenerator/SliderInput";
+import { usePasswordGeneratorFormControls } from "@/features/PasswordGenerator/usePasswordGeneratorFormControls";
 
-import PasswordContainer from "../../../features/PasswordGenerator/PasswordContainer";
-import PasswordOptions from "../../../features/PasswordGenerator/PasswordOptions";
-import PasswordOutput from "../../../features/PasswordGenerator/PasswordOutput";
-import PasswordType from "../../../features/PasswordGenerator/PasswordType";
-import RandomKeyGens from "../../../features/PasswordGenerator/RandomKeyGens";
-import SliderInput from "../../../features/PasswordGenerator/SliderInput";
+import PageTitle from "@/components/common/PageTitle";
+import SEO from "@/components/common/SEO";
 
 const PasswordGenerator = () => {
-  const { values, handleChange, handleSlider, handleClick, handleShowPassword } = usePasswordGeneratorFormControls();
+  const { values, handleChange, handleSlider, handleClick, handleShowPassword } =
+    usePasswordGeneratorFormControls();
 
   return (
     <>

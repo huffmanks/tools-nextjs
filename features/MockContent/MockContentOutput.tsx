@@ -1,8 +1,9 @@
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import { Box, Button, Grid, Paper, Tab, Tabs, Typography } from "@mui/material";
 import { useState } from "react";
 
-import { mockContentFormatTabs, MockContentValues } from "./constants";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { Box, Button, Grid, Paper, Tab, Tabs, Typography } from "@mui/material";
+
+import { type MockContentValues, mockContentFormatTabs } from "./constants";
 
 interface MockContentOutputProps {
   values: MockContentValues;
@@ -50,7 +51,12 @@ const MockContentOutput = ({ values, handleCopy }: MockContentOutputProps) => {
             indicatorColor="primary"
             aria-label="output format tabs">
             {mockContentFormatTabs.map((tab) => (
-              <Tab key={tab.value} value={tab.value} label={tab.label} sx={{ fontWeight: "bold" }} />
+              <Tab
+                key={tab.value}
+                value={tab.value}
+                label={tab.label}
+                sx={{ fontWeight: "bold" }}
+              />
             ))}
           </Tabs>
 
@@ -81,7 +87,9 @@ const MockContentOutput = ({ values, handleCopy }: MockContentOutputProps) => {
             maxHeight: "400px",
             color: "inherit",
           }}>
-          <code>{currentDisplayContent || "Select elements and hit 'Generate' to create mockups..."}</code>
+          <code>
+            {currentDisplayContent || "Select elements and hit 'Generate' to create mockups..."}
+          </code>
         </Box>
 
         {activeTab !== "plaintext" && values.output?.html && (

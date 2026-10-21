@@ -1,5 +1,6 @@
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
-import { TodoListForm } from "./useTodoListFormControls";
+
+import { type TodoListForm } from "./useTodoListFormControls";
 
 interface ListTypeProps {
   list: TodoListForm;

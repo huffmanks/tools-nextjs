@@ -1,12 +1,14 @@
 import { Grid, Stack } from "@mui/material";
 
-import OutputMessage from "../../../components/common/OutputMessage";
-import ActionGroup from "../ActionGroup";
-import { NumberPickerValues } from "./constants";
+import ActionGroup from "@/ActionGroup";
+
+import OutputMessage from "@/components/common/OutputMessage";
+
 import NumberOptions from "./NumberOptions";
 import NumberRange from "./NumberRange";
 import Output from "./Output";
 import Presets from "./Presets";
+import { type NumberPickerValues } from "./constants";
 
 interface NumberFormProps {
   resultRef: React.RefObject<HTMLDivElement | null>;
@@ -67,7 +69,11 @@ const NumberForm = ({
                   <Output key={index} number={number} isLottery={values.isLottery} />
                 ))}
                 {values?.lotteryPower && (
-                  <Output number={values.lotteryPower} isLottery={values.isLottery} isLotteryPower={true} />
+                  <Output
+                    number={values.lotteryPower}
+                    isLottery={values.isLottery}
+                    isLotteryPower={true}
+                  />
                 )}
               </>
             ) : (

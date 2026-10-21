@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 
 import { BottomNavigation, BottomNavigationAction, Box, CssBaseline, Paper } from "@mui/material";
-import { NavItem } from "../../constants/routes";
+
+import { type NavItem } from "@/constants/routes";
 
 interface BottomMenuProps {
   screen: string;
@@ -12,7 +13,14 @@ interface BottomMenuProps {
   children: React.ReactNode;
 }
 
-const BottomMenu = ({ screen, handleScreen, navItems, isFocused, activeListId, children }: BottomMenuProps) => {
+const BottomMenu = ({
+  screen,
+  handleScreen,
+  navItems,
+  isFocused,
+  activeListId,
+  children,
+}: BottomMenuProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,7 +36,13 @@ const BottomMenu = ({ screen, handleScreen, navItems, isFocused, activeListId, c
       {children}
 
       <Paper
-        sx={{ position: "fixed", bottom: isFocused ? "-56px" : 0, left: { xs: 57, sm: 65 }, right: 0, zIndex: 2 }}
+        sx={{
+          position: "fixed",
+          bottom: isFocused ? "-56px" : 0,
+          left: { xs: 57, sm: 65 },
+          right: 0,
+          zIndex: 2,
+        }}
         elevation={3}>
         <BottomNavigation showLabels value={screen} onChange={handleScreen}>
           {navItems.map((item) => (

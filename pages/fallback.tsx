@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-import ErrorTitle from "../components/common/ErrorTitle";
+import ErrorTitle from "@/components/common/ErrorTitle";
 
 const Fallback = () => {
   const router = useRouter();

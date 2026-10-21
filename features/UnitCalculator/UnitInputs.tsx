@@ -1,15 +1,16 @@
-import { unitCalculatorMeasurements, UnitCalculatorValues, UnitItems } from "./constants";
-
-import { MenuItem, SelectChangeEvent, TextField } from "@mui/material";
+import { MenuItem, type SelectChangeEvent, TextField } from "@mui/material";
 
 import InputContainer from "./InputContainer";
 import NumberInput from "./NumberInput";
 import UnitSelect from "./UnitSelect";
+import { type UnitCalculatorValues, type UnitItems, unitCalculatorMeasurements } from "./constants";
 
 interface UnitInputsProps {
   values: UnitCalculatorValues;
   currentUnits: UnitItems;
-  handleChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent) => void;
+  handleChange: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent
+  ) => void;
   handleFocus: (event: React.FocusEvent<HTMLInputElement>) => void;
 }
 

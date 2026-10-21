@@ -1,6 +1,5 @@
 /// <reference lib="esnext" />
 /// <reference lib="webworker" />
-
 import type { PrecacheEntry, SerwistGlobalConfig } from "serwist";
 import { CacheFirst, Serwist, StaleWhileRevalidate } from "serwist";
 
@@ -26,7 +25,9 @@ const serwist = new Serwist({
     },
     {
       matcher: ({ request }) =>
-        request.destination === "style" || request.destination === "script" || request.destination === "worker",
+        request.destination === "style" ||
+        request.destination === "script" ||
+        request.destination === "worker",
       handler: new StaleWhileRevalidate({
         cacheName: "stratools-static-assets",
       }),

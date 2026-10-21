@@ -1,8 +1,8 @@
-import { variantColorPickerRadios } from "./constants";
-
 import { Box, FormControl, FormControlLabel, Radio, RadioGroup } from "@mui/material";
-import { ConvertedColors } from "./ColorForm";
+
+import { type ConvertedColors } from "./ColorForm";
 import ColorItem from "./ColorItem";
+import { variantColorPickerRadios } from "./constants";
 
 interface ColorVariantsProps {
   convertedColors: ConvertedColors;
@@ -14,7 +14,12 @@ const ColorVariants = ({ convertedColors, tintType, handleTintType }: ColorVaria
   return (
     <>
       <FormControl component="fieldset" sx={{ marginBottom: 3 }}>
-        <RadioGroup row defaultValue="hex" name="selectedType" value={tintType} onChange={handleTintType}>
+        <RadioGroup
+          row
+          defaultValue="hex"
+          name="selectedType"
+          value={tintType}
+          onChange={handleTintType}>
           {variantColorPickerRadios.map(({ value, label }, index) => (
             <FormControlLabel
               key={index}

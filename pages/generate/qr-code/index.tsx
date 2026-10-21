@@ -1,18 +1,31 @@
 import { Box, Typography } from "@mui/material";
 
-import { useQrCodeFormControls } from "../../../features/QrCode/useQrCodeFormControls";
+import QrCodeForm from "@/features/QrCode/QrCodeForm";
+import { useQrCodeFormControls } from "@/features/QrCode/useQrCodeFormControls";
 
-import PageTitle from "../../../components/common/PageTitle";
-import SEO from "../../../components/common/SEO";
-import QrCodeForm from "../../../features/QrCode/QrCodeForm";
+import PageTitle from "@/components/common/PageTitle";
+import SEO from "@/components/common/SEO";
 
 const QrCode = () => {
-  const { codeRef, values, errors, downloadUrl, handleChange, handleColorChange, handleSubmit, handleReset } =
-    useQrCodeFormControls();
+  const {
+    codeRef,
+    values,
+    errors,
+    downloadUrl,
+    handleChange,
+    handleColorChange,
+    handleSubmit,
+    handleReset,
+  } = useQrCodeFormControls();
 
   return (
     <>
-      <SEO description="Create a QR code." title="QR Code Generator" url="/generate/qr-code" imageUrl="/qr-code.png" />
+      <SEO
+        description="Create a QR code."
+        title="QR Code Generator"
+        url="/generate/qr-code"
+        imageUrl="/qr-code.png"
+      />
 
       <PageTitle>QR Code Generator</PageTitle>
 

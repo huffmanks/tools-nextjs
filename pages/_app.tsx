@@ -3,13 +3,13 @@ import Head from "next/head";
 import Script from "next/script";
 
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "../theme";
 
-import Toast from "../components/common/Toast";
-import Layout from "../components/layout";
-import GlobalStateProvider from "../context/GlobalContext";
+import GlobalStateProvider from "@/context/GlobalContext";
+import "@/styles/globals.css";
+import theme from "@/theme";
 
-import "../styles/globals.css";
+import Toast from "@/components/common/Toast";
+import Layout from "@/components/layout";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (

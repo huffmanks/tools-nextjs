@@ -1,7 +1,7 @@
-import { UnitCalculatorValues, UnitItems } from "./constants";
-import { formatConvertNumber } from "./utils";
-
 import { Box } from "@mui/material";
+
+import { type UnitCalculatorValues, type UnitItems } from "./constants";
+import { formatConvertNumber } from "./utils";
 
 interface UnitOutputProps {
   values: UnitCalculatorValues;
@@ -16,7 +16,7 @@ const UnitOutput = ({ values, currentUnits }: UnitOutputProps) => {
           .filter(
             (item) =>
               item.unit !== values.unitSelection &&
-              formatConvertNumber(values.numInput, values.unitSelection, item.unit) !== 0,
+              formatConvertNumber(values.numInput, values.unitSelection, item.unit) !== 0
           )
           .map((option) => (
             <Box
@@ -48,7 +48,9 @@ const UnitOutput = ({ values, currentUnits }: UnitOutputProps) => {
                   borderBottomLeftRadius: 50,
                 }}>
                 {values.numInput && (
-                  <div>{formatConvertNumber(values.numInput, values.unitSelection, option.unit)}</div>
+                  <div>
+                    {formatConvertNumber(values.numInput, values.unitSelection, option.unit)}
+                  </div>
                 )}
                 <div>{option.short}</div>
               </Box>

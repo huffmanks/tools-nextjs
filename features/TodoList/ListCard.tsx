@@ -1,8 +1,11 @@
-import { useLists } from "../../hooks/useLists";
-
-import { green, pink } from "@mui/material/colors";
-import { styled } from "@mui/material/styles";
-
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import {
   Avatar,
   Box,
@@ -14,16 +17,11 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
+import { green, pink } from "@mui/material/colors";
+import { styled } from "@mui/material/styles";
 
-import AssignmentIcon from "@mui/icons-material/Assignment";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { TodoList } from "../../context/TodoContext";
+import { type TodoList } from "@/context/TodoContext";
+import { useLists } from "@/hooks/useLists";
 
 const ExpandMore = styled(IconButton, {
   shouldForwardProp: (prop) => prop !== "expand",
@@ -44,7 +42,13 @@ const ListCard = ({ list }: ListCardProps) => {
   return (
     <>
       {list && (
-        <Card sx={{ width: 300, height: "100%", backgroundColor: "background.alt", backgroundImage: "none" }}>
+        <Card
+          sx={{
+            width: 300,
+            height: "100%",
+            backgroundColor: "background.alt",
+            backgroundImage: "none",
+          }}>
           <CardHeader
             avatar={
               list?.type === "shopping" ? (
@@ -104,9 +108,16 @@ const ListCard = ({ list }: ListCardProps) => {
           <CardActions
             disableSpacing
             sx={{
-              bgcolor: list.isFavorite ? "primary.main" : expanded === list.id ? "background.alt" : "background.altTwo",
+              bgcolor: list.isFavorite
+                ? "primary.main"
+                : expanded === list.id
+                  ? "background.alt"
+                  : "background.altTwo",
             }}>
-            <IconButton value="favorite" aria-label="favorite" onClick={() => addListAsFavorite(list.id)}>
+            <IconButton
+              value="favorite"
+              aria-label="favorite"
+              onClick={() => addListAsFavorite(list.id)}>
               {list.isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
             </IconButton>
 
@@ -118,7 +129,11 @@ const ListCard = ({ list }: ListCardProps) => {
               <EditIcon />
             </IconButton>
 
-            <IconButton value="delete" aria-label="delete" onClick={() => removeList(list.id)} sx={{ ml: "auto" }}>
+            <IconButton
+              value="delete"
+              aria-label="delete"
+              onClick={() => removeList(list.id)}
+              sx={{ ml: "auto" }}>
               <DeleteIcon />
             </IconButton>
           </CardActions>

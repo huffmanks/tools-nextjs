@@ -1,4 +1,4 @@
-import { GLOBAL_SITE_LS_KEY_PREFIX } from "../../../constants/global";
+import { GLOBAL_SITE_LS_KEY_PREFIX } from "@/constants/global";
 
 export const ITEM_PICKER_LS_KEY = `${GLOBAL_SITE_LS_KEY_PREFIX}_item-picker`;
 

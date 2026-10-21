@@ -1,12 +1,12 @@
-import { Box, Button, Grid, Stack } from "@mui/material";
-
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
+import { Box, Button, Grid, Stack } from "@mui/material";
 
-import PopoverColorPicker from "../../components/common/PopoverColorPicker";
-import { EmailSignatureValues } from "./constants";
+import PopoverColorPicker from "@/components/common/PopoverColorPicker";
+
 import EmailInputs from "./EmailInputs";
-import { EmailErrors } from "./useEmailSignatureFormControls";
+import { type EmailSignatureValues } from "./constants";
+import { type EmailErrors } from "./useEmailSignatureFormControls";
 
 interface EmailFormProps {
   values: EmailSignatureValues;
@@ -33,7 +33,12 @@ const EmailForm = ({
     <>
       <Box component="form" onSubmit={handleSubmit} autoComplete="off">
         <Grid container spacing={2} sx={{ marginBottom: 3 }}>
-          <EmailInputs values={values} errors={errors} handleChange={handleChange} handleBlur={handleBlur} />
+          <EmailInputs
+            values={values}
+            errors={errors}
+            handleChange={handleChange}
+            handleBlur={handleBlur}
+          />
         </Grid>
 
         <PopoverColorPicker

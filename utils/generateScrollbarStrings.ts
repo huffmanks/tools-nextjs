@@ -1,9 +1,14 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { InitialColors } from "../constants/popoverColorPicker";
-import { InitialCssScrollbarValues } from "../features/CSSScrollbar/constants";
 
-export const generateScrollbarStrings = (values: InitialCssScrollbarValues, colors: InitialColors) => {
+import { type InitialColors } from "@/constants/popoverColorPicker";
+
+import { type InitialCssScrollbarValues } from "@/features/CSSScrollbar/constants";
+
+export const generateScrollbarStrings = (
+  values: InitialCssScrollbarValues,
+  colors: InitialColors
+) => {
   const scrollBarHover = !values.isTrackTransparent
     ? `
 .scrollbar::-webkit-scrollbar-track:hover,
@@ -13,7 +18,9 @@ export const generateScrollbarStrings = (values: InitialCssScrollbarValues, colo
 `
     : "";
 
-  const trackRadius = !values.isTrackTransparent ? `\n    border-radius: ${values.trackRadius}px;` : "";
+  const trackRadius = !values.isTrackTransparent
+    ? `\n    border-radius: ${values.trackRadius}px;`
+    : "";
   const trackBorder = !values.isTrackTransparent
     ? `\n    border: ${values.trackBorderWidth}px solid ${colors.trackBorderColor};`
     : "";
@@ -22,7 +29,8 @@ export const generateScrollbarStrings = (values: InitialCssScrollbarValues, colo
     ? `\n    border: ${Math.floor(values.thickness / 3)}px solid transparent;`
     : `\n    border: ${values.thumbBorderWidth}px solid ${colors.thumbBorderColor};`;
 
-  const thickness = values.axis === "y" ? `width: ${values.thickness}px;` : `height: ${values.thickness}px;`;
+  const thickness =
+    values.axis === "y" ? `width: ${values.thickness}px;` : `height: ${values.thickness}px;`;
 
   const DemoBox = styled(Box)`
     height: 200px;
@@ -34,7 +42,8 @@ export const generateScrollbarStrings = (values: InitialCssScrollbarValues, colo
 
     :hover,
     :active {
-      scrollbar-color: ${colors.thumbBgHover} ${values.isTrackTransparent ? "transparent" : colors.trackBg};
+      scrollbar-color: ${colors.thumbBgHover}
+        ${values.isTrackTransparent ? "transparent" : colors.trackBg};
     }
 
     ::-webkit-scrollbar {
@@ -47,13 +56,15 @@ export const generateScrollbarStrings = (values: InitialCssScrollbarValues, colo
       ${trackBorder}
     }
 
-    ${!values.isTrackTransparent
-      ? "::-webkit-scrollbar-track:hover," +
-        "::-webkit-scrollbar-track:active{" +
-        "background-color: " +
-        colors.trackBgHover +
-        ";}"
-      : ""}
+    ${
+      !values.isTrackTransparent
+        ? "::-webkit-scrollbar-track:hover," +
+          "::-webkit-scrollbar-track:active{" +
+          "background-color: " +
+          colors.trackBgHover +
+          ";}"
+        : ""
+    }
 
     ::-webkit-scrollbar-thumb {
       ${thumbBgClip}

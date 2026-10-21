@@ -1,9 +1,9 @@
 import { Fragment } from "react";
 
-import { textFormatterCards, TextFormatterValues } from "./constants";
-
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Card, CardContent, CardHeader, Grid, IconButton, Typography } from "@mui/material";
+
+import { type TextFormatterValues, textFormatterCards } from "./constants";
 
 interface CardsProps {
   values: TextFormatterValues;
@@ -24,7 +24,9 @@ const Cards = ({ values, checkedCards, handleCopy }: CardsProps) => {
                   action={
                     <>
                       {values?.output && (
-                        <IconButton aria-label="copy value to clipboard" onClick={() => handleCopy(card.name)}>
+                        <IconButton
+                          aria-label="copy value to clipboard"
+                          onClick={() => handleCopy(card.name)}>
                           <ContentCopyIcon />
                         </IconButton>
                       )}

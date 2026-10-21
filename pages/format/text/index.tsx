@@ -1,13 +1,12 @@
-import { useTextFormatterFormControls } from "../../../features/TextFormatter/useTextFormatterFormControls";
-
 import { Grid, Typography } from "@mui/material";
 
-import PageTitle from "../../../components/common/PageTitle";
-import SEO from "../../../components/common/SEO";
+import ActionGroup from "@/features/TextFormatter/ActionGroup";
+import Cards from "@/features/TextFormatter/Cards";
+import Textarea from "@/features/TextFormatter/Textarea";
+import { useTextFormatterFormControls } from "@/features/TextFormatter/useTextFormatterFormControls";
 
-import ActionGroup from "../../../features/TextFormatter/ActionGroup";
-import Cards from "../../../features/TextFormatter/Cards";
-import Textarea from "../../../features/TextFormatter/Textarea";
+import PageTitle from "@/components/common/PageTitle";
+import SEO from "@/components/common/SEO";
 
 const TextFormatter = () => {
   const {

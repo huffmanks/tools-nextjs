@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-import { useGlobalState } from "../../hooks/useGlobalState";
+import { useGlobalState } from "@/hooks/useGlobalState";
 
 import {
+  type MockContentValues,
   initialMockContentValues,
   mockContentCheckAllValues,
   mockContentCheckNoneValues,
-  MockContentValues,
 } from "./constants";
 import { generateFormats, getCheckedElements } from "./utils";
 
@@ -81,7 +81,7 @@ export const useMockContentFormControls = () => {
       return;
     }
 
-    const generatedBundle = generateFormats(activeElements, values.tableDataType);
+    const generatedBundle = generateFormats(activeElements);
     setValues((prev) => ({ ...prev, output: generatedBundle }));
   }
 

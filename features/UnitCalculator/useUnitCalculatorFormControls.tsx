@@ -1,8 +1,14 @@
 import { useRouter } from "next/router";
 import { useMemo, useState } from "react";
 
-import { SelectChangeEvent } from "@mui/material";
-import { initialUnitCalculatorValues, unitCalculatorMeasurements, UnitCalculatorValues, UnitItems } from "./constants";
+import { type SelectChangeEvent } from "@mui/material";
+
+import {
+  type UnitCalculatorValues,
+  type UnitItems,
+  initialUnitCalculatorValues,
+  unitCalculatorMeasurements,
+} from "./constants";
 
 type UnitCalculatorFormState = {
   queryKey: string | null;
@@ -33,7 +39,7 @@ export function useUnitCalculatorFormControls() {
     if (!typeQuery) return null;
 
     const level = unitCalculatorMeasurements.find(
-      (item) => item.type.startsWith(typeQuery) || Number.parseInt(typeQuery, 10) === item.id,
+      (item) => item.type.startsWith(typeQuery) || Number.parseInt(typeQuery, 10) === item.id
     );
 
     const levelType = level?.type;
@@ -45,7 +51,9 @@ export function useUnitCalculatorFormControls() {
       unitTemp = levelUnits
         .find(
           (item) =>
-            item.label.toLowerCase().startsWith(unitQuery) || item.short === unitQuery || String(item.id) === unitQuery,
+            item.label.toLowerCase().startsWith(unitQuery) ||
+            item.short === unitQuery ||
+            String(item.id) === unitQuery
         )
         ?.unit.toString();
 
@@ -59,8 +67,10 @@ export function useUnitCalculatorFormControls() {
     return {
       values: {
         measurement: levelType ?? initialUnitCalculatorValues.measurement,
-        numInput: numQuery != null && !Number.isNaN(Number.parseInt(String(numQuery), 10)) ? numQuery : "",
-        unitSelection: unitTemp ?? levelUnits?.[0].unit ?? initialUnitCalculatorValues.unitSelection,
+        numInput:
+          numQuery != null && !Number.isNaN(Number.parseInt(String(numQuery), 10)) ? numQuery : "",
+        unitSelection:
+          unitTemp ?? levelUnits?.[0].unit ?? initialUnitCalculatorValues.unitSelection,
       },
       currentUnits: levelUnits,
     };
@@ -80,7 +90,9 @@ export function useUnitCalculatorFormControls() {
     }));
   }
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent
+  ) => {
     const { name, value } = event.target;
 
     setFormState((previous) => {

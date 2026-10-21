@@ -1,14 +1,14 @@
 import { Grid, Typography } from "@mui/material";
 
-import { useCSSScrollbarFormControls } from "../../../features/CSSScrollbar/useCSSScrollbarFormControls";
-import { usePopoverColorPicker } from "../../../hooks/usePopoverColorPicker";
+import { initialPopoverColorPickerValues } from "@/constants/popoverColorPicker";
+import { usePopoverColorPicker } from "@/hooks/usePopoverColorPicker";
 
-import PageTitle from "../../../components/common/PageTitle";
-import SEO from "../../../components/common/SEO";
+import ScrollbarForm from "@/features/CSSScrollbar/ScrollbarForm";
+import ScrollbarOutput from "@/features/CSSScrollbar/ScrollbarOutput";
+import { useCSSScrollbarFormControls } from "@/features/CSSScrollbar/useCSSScrollbarFormControls";
 
-import { initialPopoverColorPickerValues } from "../../../constants/popoverColorPicker";
-import ScrollbarForm from "../../../features/CSSScrollbar/ScrollbarForm";
-import ScrollbarOutput from "../../../features/CSSScrollbar/ScrollbarOutput";
+import PageTitle from "@/components/common/PageTitle";
+import SEO from "@/components/common/SEO";
 
 const CSSScrollbar = () => {
   const { colors, handleBlur } = usePopoverColorPicker(initialPopoverColorPickerValues);
@@ -30,7 +30,12 @@ const CSSScrollbar = () => {
       </Typography>
 
       <Grid container spacing={5}>
-        <ScrollbarForm values={values} colors={colors} handleBlur={handleBlur} handleChange={handleChange} />
+        <ScrollbarForm
+          values={values}
+          colors={colors}
+          handleBlur={handleBlur}
+          handleChange={handleChange}
+        />
 
         <ScrollbarOutput values={values} colors={colors} />
       </Grid>

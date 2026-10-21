@@ -1,13 +1,16 @@
 import { useMemo } from "react";
-import { RgbaStringColorPicker } from "react-colorful";
 
 import { Box } from "@mui/material";
-
 import { colord, extend } from "colord";
 import namesPlugin from "colord/plugins/names";
+import { RgbaStringColorPicker } from "react-colorful";
+
 extend([namesPlugin]);
 
-interface ColordProps extends Omit<React.ComponentProps<typeof RgbaStringColorPicker>, "color" | "onChange"> {
+interface ColordProps extends Omit<
+  React.ComponentProps<typeof RgbaStringColorPicker>,
+  "color" | "onChange"
+> {
   color: string;
   onChange: (color: string) => void;
 }

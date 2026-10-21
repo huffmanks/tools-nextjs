@@ -19,10 +19,29 @@ const Document = () => {
         <link rel="shortcut icon" href={baseUrl + "/logos/favicon.ico"} />
         <link rel="icon" href={baseUrl + "/logos/favicon.ico"} />
 
-        <link rel="icon" type="image/png" sizes="1200x630" href={baseUrl + "/logos/stratools-stacked.png"} />
-        <link rel="icon" type="image/png" sizes="192x192" href={baseUrl + "/logos/logo-192x192.png"} />
-        <link rel="icon" type="image/png" sizes="512x512" href={baseUrl + "/logos/logo-512x512.png"} />
-        <link rel="apple-touch-icon" sizes="1200x630" href={baseUrl + "/logos/stratools-stacked.png"} />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="1200x630"
+          href={baseUrl + "/logos/stratools-stacked.png"}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href={baseUrl + "/logos/logo-192x192.png"}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+          href={baseUrl + "/logos/logo-512x512.png"}
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="1200x630"
+          href={baseUrl + "/logos/stratools-stacked.png"}
+        />
         <link rel="apple-touch-icon" sizes="192x192" href={baseUrl + "/logos/logo-192x192.png"} />
         <link rel="apple-touch-icon" sizes="512x512" href={baseUrl + "/logos/logo-512x512.png"} />
 

@@ -15,7 +15,7 @@ function parseJSON<T>(value: string | null, fallback: T): T {
 export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
   const getInitialValue = useCallback(
     () => (typeof initialValue === "function" ? (initialValue as () => T)() : initialValue),
-    [initialValue],
+    [initialValue]
   );
 
   const subscribe = useCallback(
@@ -37,7 +37,7 @@ export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
         window.removeEventListener("local-storage", handleStorageChange);
       };
     },
-    [key],
+    [key]
   );
 
   const getSnapshot = useCallback(() => {

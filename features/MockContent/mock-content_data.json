@@ -289,725 +289,113 @@
   ],
   "tables": {
     "tech": {
-      "headers": [
-        "ID",
-        "Resource Module",
-        "Status",
-        "Throughput",
-        "Deployment Node"
-      ],
+      "headers": ["ID", "Resource Module", "Status", "Throughput", "Deployment Node"],
       "rows": [
-        [
-          "0QVZH",
-          "Transmitter",
-          "Standby",
-          "731 Mb/s",
-          "PNG"
-        ],
-        [
-          "ML9PM",
-          "Transmitter",
-          "Optimized",
-          "346 Mb/s",
-          "VGA"
-        ],
-        [
-          "NROLD",
-          "Microchip",
-          "Optimized",
-          "581 Mb/s",
-          "FTP"
-        ],
-        [
-          "XOIQG",
-          "Pixel",
-          "Standby",
-          "963 Mb/s",
-          "CSS"
-        ],
-        [
-          "NHFRD",
-          "Transmitter",
-          "Standby",
-          "728 Mb/s",
-          "ASCII"
-        ],
-        [
-          "6TUI0",
-          "Alarm",
-          "Active",
-          "709 Mb/s",
-          "RAM"
-        ],
-        [
-          "2IPYQ",
-          "Transmitter",
-          "Standby",
-          "733 Mb/s",
-          "UTF8"
-        ],
-        [
-          "Q07GX",
-          "Port",
-          "Deprecated",
-          "464 Mb/s",
-          "HTTP"
-        ],
-        [
-          "U36P2",
-          "Bandwidth",
-          "Deprecated",
-          "671 Mb/s",
-          "DNS"
-        ],
-        [
-          "U6ZO5",
-          "Alarm",
-          "Active",
-          "336 Mb/s",
-          "SDD"
-        ],
-        [
-          "66E49",
-          "Feed",
-          "Optimized",
-          "708 Mb/s",
-          "UDP"
-        ],
-        [
-          "FLVK4",
-          "Firewall",
-          "Deprecated",
-          "217 Mb/s",
-          "DNS"
-        ],
-        [
-          "FEBCP",
-          "Feed",
-          "Active",
-          "982 Mb/s",
-          "TLS"
-        ],
-        [
-          "4X6SA",
-          "Application",
-          "Active",
-          "433 Mb/s",
-          "AI"
-        ],
-        [
-          "9L7U2",
-          "Hard drive",
-          "Standby",
-          "333 Mb/s",
-          "CSS"
-        ],
-        [
-          "CM6D3",
-          "Application",
-          "Optimized",
-          "984 Mb/s",
-          "RAM"
-        ],
-        [
-          "7DMHE",
-          "Hard drive",
-          "Active",
-          "607 Mb/s",
-          "COM"
-        ],
-        [
-          "D8XZD",
-          "Capacitor",
-          "Optimized",
-          "754 Mb/s",
-          "API"
-        ],
-        [
-          "REMPV",
-          "Monitor",
-          "Standby",
-          "129 Mb/s",
-          "DNS"
-        ],
-        [
-          "MWNU6",
-          "Alarm",
-          "Deprecated",
-          "456 Mb/s",
-          "DRAM"
-        ],
-        [
-          "C16P1",
-          "Pixel",
-          "Active",
-          "795 Mb/s",
-          "EXE"
-        ],
-        [
-          "SXSR3",
-          "Transmitter",
-          "Deprecated",
-          "559 Mb/s",
-          "JBOD"
-        ],
-        [
-          "DHGS7",
-          "Panel",
-          "Standby",
-          "981 Mb/s",
-          "FTP"
-        ],
-        [
-          "KVCGT",
-          "Bus",
-          "Standby",
-          "250 Mb/s",
-          "AI"
-        ],
-        [
-          "17CLI",
-          "Application",
-          "Deprecated",
-          "448 Mb/s",
-          "SSL"
-        ],
-        [
-          "3XR6K",
-          "Circuit",
-          "Deprecated",
-          "524 Mb/s",
-          "TCP"
-        ],
-        [
-          "M8VIF",
-          "Matrix",
-          "Deprecated",
-          "976 Mb/s",
-          "SMS"
-        ],
-        [
-          "3QD79",
-          "Interface",
-          "Standby",
-          "155 Mb/s",
-          "RSS"
-        ],
-        [
-          "211RK",
-          "Panel",
-          "Standby",
-          "197 Mb/s",
-          "ADP"
-        ],
-        [
-          "X3K0N",
-          "Array",
-          "Standby",
-          "361 Mb/s",
-          "XML"
-        ],
-        [
-          "L6KBU",
-          "Pixel",
-          "Deprecated",
-          "149 Mb/s",
-          "JBOD"
-        ],
-        [
-          "C5A6G",
-          "Port",
-          "Active",
-          "863 Mb/s",
-          "SDD"
-        ],
-        [
-          "6IFT6",
-          "Driver",
-          "Optimized",
-          "866 Mb/s",
-          "DNS"
-        ],
-        [
-          "6OJYJ",
-          "Hard drive",
-          "Deprecated",
-          "938 Mb/s",
-          "CLI"
-        ],
-        [
-          "G2ERD",
-          "Panel",
-          "Optimized",
-          "129 Mb/s",
-          "EXE"
-        ],
-        [
-          "6EHZY",
-          "Pixel",
-          "Active",
-          "278 Mb/s",
-          "IP"
-        ],
-        [
-          "LHKAT",
-          "Pixel",
-          "Standby",
-          "654 Mb/s",
-          "TCP"
-        ],
-        [
-          "AB5F8",
-          "Matrix",
-          "Optimized",
-          "800 Mb/s",
-          "VGA"
-        ],
-        [
-          "SAXG9",
-          "Pixel",
-          "Active",
-          "673 Mb/s",
-          "TLS"
-        ],
-        [
-          "LC1MJ",
-          "Alarm",
-          "Optimized",
-          "976 Mb/s",
-          "UDP"
-        ],
-        [
-          "4HVGH",
-          "Protocol",
-          "Standby",
-          "959 Mb/s",
-          "HTTP"
-        ],
-        [
-          "APMOB",
-          "Application",
-          "Standby",
-          "133 Mb/s",
-          "XSS"
-        ],
-        [
-          "1LUBN",
-          "Monitor",
-          "Optimized",
-          "676 Mb/s",
-          "RSS"
-        ],
-        [
-          "GWV4E",
-          "Matrix",
-          "Deprecated",
-          "180 Mb/s",
-          "HEX"
-        ],
-        [
-          "KK6P7",
-          "Application",
-          "Standby",
-          "253 Mb/s",
-          "SCSI"
-        ],
-        [
-          "BHUDD",
-          "Port",
-          "Standby",
-          "889 Mb/s",
-          "JBOD"
-        ],
-        [
-          "RV3FX",
-          "Interface",
-          "Deprecated",
-          "247 Mb/s",
-          "SCSI"
-        ],
-        [
-          "PPQD9",
-          "Capacitor",
-          "Optimized",
-          "589 Mb/s",
-          "HEX"
-        ],
-        [
-          "S6B9N",
-          "Transmitter",
-          "Standby",
-          "788 Mb/s",
-          "RAM"
-        ],
-        [
-          "AXFEH",
-          "System",
-          "Deprecated",
-          "394 Mb/s",
-          "CSS"
-        ]
+        ["0QVZH", "Transmitter", "Standby", "731 Mb/s", "PNG"],
+        ["ML9PM", "Transmitter", "Optimized", "346 Mb/s", "VGA"],
+        ["NROLD", "Microchip", "Optimized", "581 Mb/s", "FTP"],
+        ["XOIQG", "Pixel", "Standby", "963 Mb/s", "CSS"],
+        ["NHFRD", "Transmitter", "Standby", "728 Mb/s", "ASCII"],
+        ["6TUI0", "Alarm", "Active", "709 Mb/s", "RAM"],
+        ["2IPYQ", "Transmitter", "Standby", "733 Mb/s", "UTF8"],
+        ["Q07GX", "Port", "Deprecated", "464 Mb/s", "HTTP"],
+        ["U36P2", "Bandwidth", "Deprecated", "671 Mb/s", "DNS"],
+        ["U6ZO5", "Alarm", "Active", "336 Mb/s", "SDD"],
+        ["66E49", "Feed", "Optimized", "708 Mb/s", "UDP"],
+        ["FLVK4", "Firewall", "Deprecated", "217 Mb/s", "DNS"],
+        ["FEBCP", "Feed", "Active", "982 Mb/s", "TLS"],
+        ["4X6SA", "Application", "Active", "433 Mb/s", "AI"],
+        ["9L7U2", "Hard drive", "Standby", "333 Mb/s", "CSS"],
+        ["CM6D3", "Application", "Optimized", "984 Mb/s", "RAM"],
+        ["7DMHE", "Hard drive", "Active", "607 Mb/s", "COM"],
+        ["D8XZD", "Capacitor", "Optimized", "754 Mb/s", "API"],
+        ["REMPV", "Monitor", "Standby", "129 Mb/s", "DNS"],
+        ["MWNU6", "Alarm", "Deprecated", "456 Mb/s", "DRAM"],
+        ["C16P1", "Pixel", "Active", "795 Mb/s", "EXE"],
+        ["SXSR3", "Transmitter", "Deprecated", "559 Mb/s", "JBOD"],
+        ["DHGS7", "Panel", "Standby", "981 Mb/s", "FTP"],
+        ["KVCGT", "Bus", "Standby", "250 Mb/s", "AI"],
+        ["17CLI", "Application", "Deprecated", "448 Mb/s", "SSL"],
+        ["3XR6K", "Circuit", "Deprecated", "524 Mb/s", "TCP"],
+        ["M8VIF", "Matrix", "Deprecated", "976 Mb/s", "SMS"],
+        ["3QD79", "Interface", "Standby", "155 Mb/s", "RSS"],
+        ["211RK", "Panel", "Standby", "197 Mb/s", "ADP"],
+        ["X3K0N", "Array", "Standby", "361 Mb/s", "XML"],
+        ["L6KBU", "Pixel", "Deprecated", "149 Mb/s", "JBOD"],
+        ["C5A6G", "Port", "Active", "863 Mb/s", "SDD"],
+        ["6IFT6", "Driver", "Optimized", "866 Mb/s", "DNS"],
+        ["6OJYJ", "Hard drive", "Deprecated", "938 Mb/s", "CLI"],
+        ["G2ERD", "Panel", "Optimized", "129 Mb/s", "EXE"],
+        ["6EHZY", "Pixel", "Active", "278 Mb/s", "IP"],
+        ["LHKAT", "Pixel", "Standby", "654 Mb/s", "TCP"],
+        ["AB5F8", "Matrix", "Optimized", "800 Mb/s", "VGA"],
+        ["SAXG9", "Pixel", "Active", "673 Mb/s", "TLS"],
+        ["LC1MJ", "Alarm", "Optimized", "976 Mb/s", "UDP"],
+        ["4HVGH", "Protocol", "Standby", "959 Mb/s", "HTTP"],
+        ["APMOB", "Application", "Standby", "133 Mb/s", "XSS"],
+        ["1LUBN", "Monitor", "Optimized", "676 Mb/s", "RSS"],
+        ["GWV4E", "Matrix", "Deprecated", "180 Mb/s", "HEX"],
+        ["KK6P7", "Application", "Standby", "253 Mb/s", "SCSI"],
+        ["BHUDD", "Port", "Standby", "889 Mb/s", "JBOD"],
+        ["RV3FX", "Interface", "Deprecated", "247 Mb/s", "SCSI"],
+        ["PPQD9", "Capacitor", "Optimized", "589 Mb/s", "HEX"],
+        ["S6B9N", "Transmitter", "Standby", "788 Mb/s", "RAM"],
+        ["AXFEH", "System", "Deprecated", "394 Mb/s", "CSS"]
       ]
     },
     "finance": {
-      "headers": [
-        "Ticker",
-        "Asset Class",
-        "Volume",
-        "Market Cap",
-        "Yield"
-      ],
+      "headers": ["Ticker", "Asset Class", "Volume", "Market Cap", "Yield"],
       "rows": [
-        [
-          "SLE",
-          "Fixed Income",
-          "177,568",
-          "$642B",
-          "0.7%"
-        ],
-        [
-          "BND",
-          "Commodity",
-          "174,754",
-          "$606B",
-          "5.21%"
-        ],
-        [
-          "MOP",
-          "Derivative",
-          "71,225",
-          "$821B",
-          "4.61%"
-        ],
-        [
-          "DOP",
-          "Fixed Income",
-          "241,035",
-          "$773B",
-          "7.92%"
-        ],
-        [
-          "AZN",
-          "Derivative",
-          "27,013",
-          "$176B",
-          "1.42%"
-        ],
-        [
-          "PKR",
-          "Derivative",
-          "155,300",
-          "$805B",
-          "1.13%"
-        ],
-        [
-          "PLN",
-          "Derivative",
-          "136,604",
-          "$675B",
-          "4.23%"
-        ],
-        [
-          "GEL",
-          "Commodity",
-          "107,305",
-          "$820B",
-          "4.77%"
-        ],
-        [
-          "NPR",
-          "Derivative",
-          "164,749",
-          "$160B",
-          "8.03%"
-        ],
-        [
-          "PHP",
-          "Fixed Income",
-          "59,423",
-          "$314B",
-          "1.4%"
-        ],
-        [
-          "GTQ",
-          "Equity",
-          "231,359",
-          "$288B",
-          "5.67%"
-        ],
-        [
-          "UAH",
-          "Derivative",
-          "67,277",
-          "$61B",
-          "3.53%"
-        ],
-        [
-          "GNF",
-          "Equity",
-          "147,140",
-          "$511B",
-          "0.82%"
-        ],
-        [
-          "CAD",
-          "Fixed Income",
-          "121,744",
-          "$61B",
-          "3.91%"
-        ],
-        [
-          "UAH",
-          "Commodity",
-          "203,105",
-          "$710B",
-          "3.36%"
-        ],
-        [
-          "UZS",
-          "Derivative",
-          "219,966",
-          "$776B",
-          "7.4%"
-        ],
-        [
-          "SOS",
-          "Fixed Income",
-          "22,322",
-          "$416B",
-          "2.5%"
-        ],
-        [
-          "NIO",
-          "Equity",
-          "206,117",
-          "$443B",
-          "2.39%"
-        ],
-        [
-          "UAH",
-          "Fixed Income",
-          "182,023",
-          "$740B",
-          "1.68%"
-        ],
-        [
-          "ZWL",
-          "Derivative",
-          "226,299",
-          "$452B",
-          "4.7%"
-        ],
-        [
-          "KGS",
-          "Derivative",
-          "160,567",
-          "$566B",
-          "2.77%"
-        ],
-        [
-          "SZL",
-          "Fixed Income",
-          "102,339",
-          "$812B",
-          "1.45%"
-        ],
-        [
-          "TJS",
-          "Equity",
-          "199,679",
-          "$257B",
-          "3.36%"
-        ],
-        [
-          "TND",
-          "Fixed Income",
-          "37,325",
-          "$810B",
-          "3.73%"
-        ],
-        [
-          "ETB",
-          "Derivative",
-          "192,041",
-          "$177B",
-          "1.59%"
-        ],
-        [
-          "SRD",
-          "Derivative",
-          "140,438",
-          "$517B",
-          "8.43%"
-        ],
-        [
-          "PGK",
-          "Derivative",
-          "59,503",
-          "$628B",
-          "2.64%"
-        ],
-        [
-          "TTD",
-          "Equity",
-          "201,550",
-          "$714B",
-          "2.63%"
-        ],
-        [
-          "GYD",
-          "Equity",
-          "220,506",
-          "$676B",
-          "2.27%"
-        ],
-        [
-          "KHR",
-          "Commodity",
-          "218,439",
-          "$295B",
-          "8.22%"
-        ],
-        [
-          "XOF",
-          "Derivative",
-          "65,251",
-          "$32B",
-          "4.56%"
-        ],
-        [
-          "ETB",
-          "Equity",
-          "141,212",
-          "$54B",
-          "3.65%"
-        ],
-        [
-          "TOP",
-          "Equity",
-          "242,174",
-          "$25B",
-          "1.39%"
-        ],
-        [
-          "MNT",
-          "Equity",
-          "59,072",
-          "$341B",
-          "8.27%"
-        ],
-        [
-          "TJS",
-          "Fixed Income",
-          "143,036",
-          "$201B",
-          "5.22%"
-        ],
-        [
-          "SYP",
-          "Derivative",
-          "87,811",
-          "$512B",
-          "3.51%"
-        ],
-        [
-          "CVE",
-          "Derivative",
-          "231,600",
-          "$205B",
-          "4.32%"
-        ],
-        [
-          "CNY",
-          "Derivative",
-          "105,822",
-          "$212B",
-          "3.2%"
-        ],
-        [
-          "TJS",
-          "Equity",
-          "107,182",
-          "$427B",
-          "7.44%"
-        ],
-        [
-          "GBP",
-          "Equity",
-          "28,421",
-          "$81B",
-          "1.15%"
-        ],
-        [
-          "DJF",
-          "Equity",
-          "144,992",
-          "$400B",
-          "5.04%"
-        ],
-        [
-          "GMD",
-          "Equity",
-          "125,037",
-          "$793B",
-          "5.05%"
-        ],
-        [
-          "TTD",
-          "Equity",
-          "173,265",
-          "$212B",
-          "0.71%"
-        ],
-        [
-          "UYU",
-          "Commodity",
-          "45,580",
-          "$368B",
-          "6.35%"
-        ],
-        [
-          "HNL",
-          "Fixed Income",
-          "161,108",
-          "$891B",
-          "5.56%"
-        ],
-        [
-          "CRC",
-          "Commodity",
-          "83,913",
-          "$412B",
-          "6.77%"
-        ],
-        [
-          "KRW",
-          "Derivative",
-          "186,740",
-          "$926B",
-          "3.96%"
-        ],
-        [
-          "ALL",
-          "Commodity",
-          "206,747",
-          "$97B",
-          "8.3%"
-        ],
-        [
-          "XPF",
-          "Derivative",
-          "186,265",
-          "$409B",
-          "7.08%"
-        ],
-        [
-          "PYG",
-          "Commodity",
-          "112,967",
-          "$243B",
-          "4.71%"
-        ]
+        ["SLE", "Fixed Income", "177,568", "$642B", "0.7%"],
+        ["BND", "Commodity", "174,754", "$606B", "5.21%"],
+        ["MOP", "Derivative", "71,225", "$821B", "4.61%"],
+        ["DOP", "Fixed Income", "241,035", "$773B", "7.92%"],
+        ["AZN", "Derivative", "27,013", "$176B", "1.42%"],
+        ["PKR", "Derivative", "155,300", "$805B", "1.13%"],
+        ["PLN", "Derivative", "136,604", "$675B", "4.23%"],
+        ["GEL", "Commodity", "107,305", "$820B", "4.77%"],
+        ["NPR", "Derivative", "164,749", "$160B", "8.03%"],
+        ["PHP", "Fixed Income", "59,423", "$314B", "1.4%"],
+        ["GTQ", "Equity", "231,359", "$288B", "5.67%"],
+        ["UAH", "Derivative", "67,277", "$61B", "3.53%"],
+        ["GNF", "Equity", "147,140", "$511B", "0.82%"],
+        ["CAD", "Fixed Income", "121,744", "$61B", "3.91%"],
+        ["UAH", "Commodity", "203,105", "$710B", "3.36%"],
+        ["UZS", "Derivative", "219,966", "$776B", "7.4%"],
+        ["SOS", "Fixed Income", "22,322", "$416B", "2.5%"],
+        ["NIO", "Equity", "206,117", "$443B", "2.39%"],
+        ["UAH", "Fixed Income", "182,023", "$740B", "1.68%"],
+        ["ZWL", "Derivative", "226,299", "$452B", "4.7%"],
+        ["KGS", "Derivative", "160,567", "$566B", "2.77%"],
+        ["SZL", "Fixed Income", "102,339", "$812B", "1.45%"],
+        ["TJS", "Equity", "199,679", "$257B", "3.36%"],
+        ["TND", "Fixed Income", "37,325", "$810B", "3.73%"],
+        ["ETB", "Derivative", "192,041", "$177B", "1.59%"],
+        ["SRD", "Derivative", "140,438", "$517B", "8.43%"],
+        ["PGK", "Derivative", "59,503", "$628B", "2.64%"],
+        ["TTD", "Equity", "201,550", "$714B", "2.63%"],
+        ["GYD", "Equity", "220,506", "$676B", "2.27%"],
+        ["KHR", "Commodity", "218,439", "$295B", "8.22%"],
+        ["XOF", "Derivative", "65,251", "$32B", "4.56%"],
+        ["ETB", "Equity", "141,212", "$54B", "3.65%"],
+        ["TOP", "Equity", "242,174", "$25B", "1.39%"],
+        ["MNT", "Equity", "59,072", "$341B", "8.27%"],
+        ["TJS", "Fixed Income", "143,036", "$201B", "5.22%"],
+        ["SYP", "Derivative", "87,811", "$512B", "3.51%"],
+        ["CVE", "Derivative", "231,600", "$205B", "4.32%"],
+        ["CNY", "Derivative", "105,822", "$212B", "3.2%"],
+        ["TJS", "Equity", "107,182", "$427B", "7.44%"],
+        ["GBP", "Equity", "28,421", "$81B", "1.15%"],
+        ["DJF", "Equity", "144,992", "$400B", "5.04%"],
+        ["GMD", "Equity", "125,037", "$793B", "5.05%"],
+        ["TTD", "Equity", "173,265", "$212B", "0.71%"],
+        ["UYU", "Commodity", "45,580", "$368B", "6.35%"],
+        ["HNL", "Fixed Income", "161,108", "$891B", "5.56%"],
+        ["CRC", "Commodity", "83,913", "$412B", "6.77%"],
+        ["KRW", "Derivative", "186,740", "$926B", "3.96%"],
+        ["ALL", "Commodity", "206,747", "$97B", "8.3%"],
+        ["XPF", "Derivative", "186,265", "$409B", "7.08%"],
+        ["PYG", "Commodity", "112,967", "$243B", "4.71%"]
       ]
     }
   }

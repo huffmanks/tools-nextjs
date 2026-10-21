@@ -1,11 +1,10 @@
-import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
-import { useGlobalState } from "../../hooks/useGlobalState";
-
-import { FormGroup, IconButton, InputAdornment, TextField } from "@mui/material";
-
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { FormGroup, IconButton, InputAdornment, TextField } from "@mui/material";
+
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { useGlobalState } from "@/hooks/useGlobalState";
 
 interface PasswordOutputProps {
   password: string;
@@ -51,7 +50,10 @@ const PasswordOutput = ({ password, showPassword, handleShowPassword }: Password
           readOnly: true,
           startAdornment: (
             <InputAdornment position="start">
-              <IconButton aria-label="toggle password visibility" onClick={handleShowPassword} edge="start">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={handleShowPassword}
+                edge="start">
                 {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
               </IconButton>
             </InputAdornment>

@@ -1,17 +1,27 @@
-import { Box, Button, Grid, IconButton, InputAdornment, Stack, TextField, Typography } from "@mui/material";
-
 import AddIcon from "@mui/icons-material/Add";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
+import {
+  Box,
+  Button,
+  Grid,
+  IconButton,
+  InputAdornment,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 
-import { useLists } from "../../hooks/useLists";
+import { useLists } from "@/hooks/useLists";
 
-import OutputMessage from "../../components/common/OutputMessage";
+import OutputMessage from "@/components/common/OutputMessage";
+
 import ListType from "./ListType";
 import { useTodoListFormControls } from "./useTodoListFormControls";
 
 const Create = () => {
   const { handleFocus, handleBlur } = useLists();
-  const { list, items, errors, formIsValid, handleChange, handleAddItem, handleSubmit } = useTodoListFormControls();
+  const { list, items, errors, formIsValid, handleChange, handleAddItem, handleSubmit } =
+    useTodoListFormControls();
 
   return (
     <>
@@ -56,7 +66,9 @@ const Create = () => {
             onKeyDown={handleAddItem}
             autoComplete="none"
             error={errors.tempItem}
-            helperText={items?.length ? "Add another item." : "Enter at least one item to the list."}
+            helperText={
+              items?.length ? "Add another item." : "Enter at least one item to the list."
+            }
             {...(errors.tempItem && {
               error: true,
               helperText: "One item is required.",

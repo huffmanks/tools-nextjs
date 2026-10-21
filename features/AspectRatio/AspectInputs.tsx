@@ -1,8 +1,17 @@
 import { Fragment } from "react";
 
-import { aspectInputs, AspectRatioErrors, AspectRatioValues } from "./constants";
+import {
+  Chip,
+  Divider,
+  FormControl,
+  FormControlLabel,
+  Grid,
+  Radio,
+  RadioGroup,
+  TextField,
+} from "@mui/material";
 
-import { Chip, Divider, FormControl, FormControlLabel, Grid, Radio, RadioGroup, TextField } from "@mui/material";
+import { type AspectRatioErrors, type AspectRatioValues, aspectInputs } from "./constants";
 
 interface AspectInputsProps {
   values: AspectRatioValues;
@@ -12,7 +21,13 @@ interface AspectInputsProps {
   handleBlur: () => void;
 }
 
-const AspectInputs = ({ values, errors, handleFocus, handleChange, handleBlur }: AspectInputsProps) => {
+const AspectInputs = ({
+  values,
+  errors,
+  handleFocus,
+  handleChange,
+  handleBlur,
+}: AspectInputsProps) => {
   return (
     <>
       {aspectInputs.map((input, index) => (
@@ -54,8 +69,16 @@ const AspectInputs = ({ values, errors, handleFocus, handleChange, handleBlur }:
                     name="selectedType"
                     value={values.selectedType}
                     onChange={handleChange}>
-                    <FormControlLabel value="width" control={<Radio color="primary" />} label="Width" />
-                    <FormControlLabel value="height" control={<Radio color="primary" />} label="Height" />
+                    <FormControlLabel
+                      value="width"
+                      control={<Radio color="primary" />}
+                      label="Width"
+                    />
+                    <FormControlLabel
+                      value="height"
+                      control={<Radio color="primary" />}
+                      label="Height"
+                    />
                   </RadioGroup>
                 </FormControl>
               </Grid>

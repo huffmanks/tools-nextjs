@@ -1,4 +1,5 @@
 import { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } from "next/constants.js";
+
 import { spawnSync } from "node:child_process";
 
 /** @type {(phase: string, defaultConfig: import("next").NextConfig) => Promise<import("next").NextConfig>} */
@@ -38,9 +39,14 @@ const nextConfigExport = async (phase) => {
     }),
   };
 
-  if (phase === PHASE_DEVELOPMENT_SERVER || phase === PHASE_PRODUCTION_BUILD || process.env.NODE_ENV === "production") {
+  if (
+    phase === PHASE_DEVELOPMENT_SERVER ||
+    phase === PHASE_PRODUCTION_BUILD ||
+    process.env.NODE_ENV === "production"
+  ) {
     const revision =
-      spawnSync("git", ["rev-parse", "HEAD"], { encoding: "utf-8" }).stdout?.trim() ?? crypto.randomUUID();
+      spawnSync("git", ["rev-parse", "HEAD"], { encoding: "utf-8" }).stdout?.trim() ??
+      crypto.randomUUID();
 
     const withSerwist = (await import("@serwist/next")).default({
       additionalPrecacheEntries: [{ url: "/fallback", revision }],

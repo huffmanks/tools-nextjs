@@ -1,10 +1,11 @@
+import type { MockContentValues } from "./constants";
 import data from "./mock-content_data.json";
 
 const grabRandom = <T>(arr: T[], count = 1): T[] => {
   return [...arr].sort(() => 0.5 - Math.random()).slice(0, count);
 };
 
-export const generateFormats = (elements: string[], tableDataType = "tech") => {
+export const generateFormats = (elements: string[]) => {
   const has = new Set(elements);
 
   const htmlOutput: string[] = [];
@@ -73,7 +74,7 @@ export const generateFormats = (elements: string[], tableDataType = "tech") => {
       })
       .join("\n");
     htmlOutput.push(
-      `<table>\n  <thead>\n    <tr>\n${ths}\n    </tr>\n  </thead>\n  <tbody>\n${htmlRows}\n  </tbody>\n</table>`,
+      `<table>\n  <thead>\n    <tr>\n${ths}\n    </tr>\n  </thead>\n  <tbody>\n${htmlRows}\n  </tbody>\n</table>`
     );
 
     const mdHeader = `| ${selectedTable.headers.join(" | ")} |`;
@@ -105,7 +106,7 @@ export const generateFormats = (elements: string[], tableDataType = "tech") => {
     const liMarkup = items.map((li) => `  <li>${li}</li>`).join("\n");
     htmlOutput.push(`<ul>\n${liMarkup}\n</ul>`);
 
-    const mdMarkup = items.map((li, i) => `- ${li}`).join("\n");
+    const mdMarkup = items.map((li) => `- ${li}`).join("\n");
     markdownOutput.push(`${mdMarkup}\n`);
   }
 
@@ -150,7 +151,7 @@ export const generateFormats = (elements: string[], tableDataType = "tech") => {
       })
       .join("\n");
     htmlOutput.push(
-      `<table>\n  <thead>\n    <tr>\n${ths}\n    </tr>\n  </thead>\n  <tbody>\n${htmlRows}\n  </tbody>\n</table>`,
+      `<table>\n  <thead>\n    <tr>\n${ths}\n    </tr>\n  </thead>\n  <tbody>\n${htmlRows}\n  </tbody>\n</table>`
     );
 
     const mdHeader = `| ${selectedTable.headers.join(" | ")} |`;
@@ -207,7 +208,7 @@ export const generateFormats = (elements: string[], tableDataType = "tech") => {
   };
 };
 
-export const getCheckedElements = (currentValues: Record<string, any>): string[] => {
+export const getCheckedElements = (currentValues: MockContentValues): string[] => {
   return Object.keys(currentValues)
     .filter((key) => key.startsWith("check_") && currentValues[key] === true)
     .map((key) => key.replace("check_", ""));

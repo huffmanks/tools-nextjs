@@ -1,8 +1,10 @@
 import { FormControlLabel, FormGroup, Switch } from "@mui/material";
 
-import Counter from "../../../components/common/Counter";
-import FieldsetContainer from "../FieldsetContainer";
-import { NumberPickerValues } from "./constants";
+import FieldsetContainer from "@/FieldsetContainer";
+
+import Counter from "@/components/common/Counter";
+
+import { type NumberPickerValues } from "./constants";
 
 interface NumberOptionsProps {
   values: NumberPickerValues;
@@ -11,7 +13,12 @@ interface NumberOptionsProps {
   handleIncrease: () => void;
 }
 
-const NumberOptions = ({ values, handleChange, handleDecrease, handleIncrease }: NumberOptionsProps) => {
+const NumberOptions = ({
+  values,
+  handleChange,
+  handleDecrease,
+  handleIncrease,
+}: NumberOptionsProps) => {
   const isDisabled = values.isLottery;
 
   return (
@@ -43,11 +50,25 @@ const NumberOptions = ({ values, handleChange, handleDecrease, handleIncrease }:
           />
 
           <FormControlLabel
-            control={<Switch disabled={isDisabled} checked={values.unique} onChange={handleChange} name="unique" />}
+            control={
+              <Switch
+                disabled={isDisabled}
+                checked={values.unique}
+                onChange={handleChange}
+                name="unique"
+              />
+            }
             label="Unique"
           />
           <FormControlLabel
-            control={<Switch disabled={isDisabled} checked={values.sorted} onChange={handleChange} name="sorted" />}
+            control={
+              <Switch
+                disabled={isDisabled}
+                checked={values.sorted}
+                onChange={handleChange}
+                name="sorted"
+              />
+            }
             label="Sorted"
           />
         </FormGroup>

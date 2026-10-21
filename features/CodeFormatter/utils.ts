@@ -124,10 +124,12 @@ const JS_PROTECT_PATTERNS = [
 const CSS_PROTECT_PATTERNS = [/\/\*[\s\S]*?\*\//g, /"(?:\\.|[^"\\])*"/g, /'(?:\\.|[^'\\])*'/g];
 
 function safePlusMinusSpacing(str: string): string {
-  return str.replace(/\s*([+\-](?:\s*[+\-])*)\s*/g, (_, run) => (/\s/.test(run) ? run.replace(/\s+/g, " ") : run));
+  return str.replace(/\s*([+\-](?:\s*[+\-])*)\s*/g, (_, run) =>
+    /\s/.test(run) ? run.replace(/\s+/g, " ") : run
+  );
 }
 
-function tryParseJson(code: string): { ok: boolean; value: any } {
+function tryParseJson(code: string): { ok: boolean; value: unknown } {
   try {
     return { ok: true, value: JSON.parse(code) };
   } catch {}
@@ -296,8 +298,10 @@ const handleBeautify = ({ codeInput, format }: { codeInput: string; format: stri
 
         const closingTag = /^<\/([a-zA-Z0-9-]+)/.exec(trimmed);
         const openingTag = /^<([a-zA-Z0-9-]+)/.exec(trimmed);
-        const isSelfClosing = /\/>\s*$/.test(trimmed) || (openingTag && voidTags.has(openingTag[1].toLowerCase()));
-        const isFullTagOnOneLine = openingTag && new RegExp(`</${openingTag[1]}>\\s*$`, "i").test(trimmed);
+        const isSelfClosing =
+          /\/>\s*$/.test(trimmed) || (openingTag && voidTags.has(openingTag[1].toLowerCase()));
+        const isFullTagOnOneLine =
+          openingTag && new RegExp(`</${openingTag[1]}>\\s*$`, "i").test(trimmed);
 
         if (closingTag) indentLevel = Math.max(0, indentLevel - 1);
 

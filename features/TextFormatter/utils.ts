@@ -17,7 +17,8 @@ const titleCase = (input: string): string => {
     if (
       !IS_MANUAL_CASE.test(token) &&
       (!SMALL_WORDS.test(token) || index === 0 || index + token.length === input.length) &&
-      (input.charAt(index + token.length) !== ":" || WHITESPACE.test(input.charAt(index + token.length + 1)))
+      (input.charAt(index + token.length) !== ":" ||
+        WHITESPACE.test(input.charAt(index + token.length + 1)))
     ) {
       result += token.replace(ALPHANUMERIC_PATTERN, (m) => m.toUpperCase());
       continue;

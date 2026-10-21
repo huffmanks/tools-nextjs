@@ -1,11 +1,12 @@
-import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
-import { useGlobalState } from "../../hooks/useGlobalState";
-
-import { aspectOutput, AspectRatioErrors, AspectRatioValues } from "./constants";
+import { Fragment } from "react";
 
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Divider, Grid, IconButton, InputAdornment, TextField, Typography } from "@mui/material";
-import { Fragment } from "react";
+
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { useGlobalState } from "@/hooks/useGlobalState";
+
+import { type AspectRatioErrors, type AspectRatioValues, aspectOutput } from "./constants";
 
 interface AspectValuesProps {
   values: AspectRatioValues;

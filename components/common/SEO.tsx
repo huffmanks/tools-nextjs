@@ -10,7 +10,9 @@ interface SEOProps {
 const SEO = ({ description, title, url, imageUrl }: SEOProps) => {
   const baseUrl = "https://tools.huffmanks.com";
   const pageUrl = `${baseUrl}${url}`;
-  const image = imageUrl ? `${baseUrl}/previews${imageUrl}` : `${baseUrl}/logos/stratools-stacked.png`;
+  const image = imageUrl
+    ? `${baseUrl}/previews${imageUrl}`
+    : `${baseUrl}/logos/stratools-stacked.png`;
 
   return (
     <Head>

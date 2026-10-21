@@ -10,16 +10,17 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  SelectChangeEvent,
+  type SelectChangeEvent,
   TextField,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
 
-import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+
 import { codeActionSelect, codeFormatSelect } from "./constants";
-import { CodeFormatterErrors } from "./useCodeFormatterFormControls";
+import { type CodeFormatterErrors } from "./useCodeFormatterFormControls";
 
 interface CodeFormatFormProps {
   values: {
@@ -30,7 +31,8 @@ interface CodeFormatFormProps {
   };
   errors: CodeFormatterErrors;
   handleChange: (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement, Element> | SelectChangeEvent<string>,
+    event:
+      React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement, Element> | SelectChangeEvent<string>
   ) => void;
   handleReset: () => void;
 }
@@ -81,7 +83,10 @@ const CodeFormatForm = ({ values, errors, handleChange, handleReset }: CodeForma
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <FormControl fullWidth disabled={!isLanguageRequired} error={!!errors[codeFormatSelect.name]}>
+            <FormControl
+              fullWidth
+              disabled={!isLanguageRequired}
+              error={!!errors[codeFormatSelect.name]}>
               <InputLabel id={`${codeFormatSelect.name}-label`} shrink>
                 {codeFormatSelect.label}
               </InputLabel>

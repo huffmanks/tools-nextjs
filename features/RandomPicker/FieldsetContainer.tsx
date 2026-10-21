@@ -8,7 +8,13 @@ interface FieldsetContainerProps {
   children: React.ReactNode;
 }
 
-const FieldsetContainer = ({ title, helperText, size, isFullWidth, children }: FieldsetContainerProps) => {
+const FieldsetContainer = ({
+  title,
+  helperText,
+  size,
+  isFullWidth,
+  children,
+}: FieldsetContainerProps) => {
   const styles = {
     control: {
       display: size === "small" ? "block" : "initial",

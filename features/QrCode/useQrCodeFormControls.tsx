@@ -1,16 +1,17 @@
 import { useCallback, useRef, useState } from "react";
 
+import { type SelectChangeEvent } from "@mui/material";
 import QRCode from "easyqrcodejs";
 
-import { SelectChangeEvent } from "@mui/material";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+
 import {
+  QR_CODE_LS_KEY,
+  type QrCodeColors,
+  type QrCodeErrors,
+  type QrCodeValues,
   combinedInitialQrCodeValues,
   initialQrCodeColors,
-  QR_CODE_LS_KEY,
-  QrCodeColors,
-  QrCodeErrors,
-  QrCodeValues,
 } from "./constants";
 
 type QRCodeInstance = InstanceType<typeof QRCode> & {
@@ -38,7 +39,10 @@ export const useQrCodeFormControls = () => {
   const codeRef = useRef<HTMLDivElement>(null);
   const qrcodeRef = useRef<QRCodeInstance | null>(null);
 
-  const [values, setValues] = useLocalStorage<QrCodeValues>(QR_CODE_LS_KEY, combinedInitialQrCodeValues);
+  const [values, setValues] = useLocalStorage<QrCodeValues>(
+    QR_CODE_LS_KEY,
+    combinedInitialQrCodeValues
+  );
   const [errors, setErrors] = useState<QrCodeErrors>({});
   const [downloadUrl, setDownloadUrl] = useState("");
   const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -51,13 +55,14 @@ export const useQrCodeFormControls = () => {
       setErrors(nextErrors);
       return Object.keys(nextErrors).length === 0;
     },
-    [values],
+    [values]
   );
 
   const generateQRCode = useCallback((currentValues: QrCodeValues) => {
     qrcodeRef.current?.clear();
 
-    const { websiteLink, outputSize, correctLevel, logoUpload, logoBackgroundTransparent } = currentValues;
+    const { websiteLink, outputSize, correctLevel, logoUpload, logoBackgroundTransparent } =
+      currentValues;
 
     const activeColors = currentValues.colors || initialQrCodeColors;
     if (!codeRef.current) return;
@@ -88,7 +93,8 @@ export const useQrCodeFormControls = () => {
   }, []);
 
   const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string | number>,
+    event:
+      React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string | number>
   ) => {
     const target = event.target;
     const name = target.name as keyof QrCodeValues;

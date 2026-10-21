@@ -1,11 +1,15 @@
-import { useState, type RefObject } from "react";
+import { type RefObject, useState } from "react";
 
-import { TodoItem, TodoList } from "../../context/TodoContext";
-import { useLists } from "../../hooks/useLists";
-import { uniqueId } from "../../utilities/uniqueId";
+import { type TodoItem, type TodoList } from "@/context/TodoContext";
+import { useLists } from "@/hooks/useLists";
+import { uniqueId } from "@/utils/uniqueId";
+
 import { initialTodoListErrors, initialTodoListValues } from "./constants";
 
-export type TodoListForm = Omit<TodoList, "id" | "createdAt" | "updatedAt" | "isFavorite" | "items"> & {
+export type TodoListForm = Omit<
+  TodoList,
+  "id" | "createdAt" | "updatedAt" | "isFavorite" | "items"
+> & {
   id?: TodoList["id"];
   createdAt?: TodoList["createdAt"];
   updatedAt?: TodoList["updatedAt"];
@@ -75,13 +79,18 @@ export const useTodoListFormControls = () => {
     }
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, _value?: string): void => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    _value?: string
+  ): void => {
     const { id, name, value } = event.target;
 
     validate(name, value);
 
     if (screen === "edit" && id) {
-      const updatedItems = list.items.map((item) => (item.id === id ? { ...item, text: value } : item));
+      const updatedItems = list.items.map((item) =>
+        item.id === id ? { ...item, text: value } : item
+      );
 
       if (updatedItems.every((item) => item.text.length > 0)) {
         setFormIsValid(true);
@@ -99,7 +108,7 @@ export const useTodoListFormControls = () => {
 
   const handleCompleted = (event: React.ChangeEvent<HTMLInputElement>, itemId: string): void => {
     const updatedItems = list.items.map((item) =>
-      item.id === itemId ? { ...item, completed: event.target.checked } : item,
+      item.id === itemId ? { ...item, completed: event.target.checked } : item
     );
 
     if (updatedItems.every((item) => item.text.length > 0)) {
@@ -133,7 +142,11 @@ export const useTodoListFormControls = () => {
     }
   };
 
-  const handleAddInput = (event: AddInputEvent, index: number, itemsRef?: RefObject<HTMLElement | null>): void => {
+  const handleAddInput = (
+    event: AddInputEvent,
+    index: number,
+    itemsRef?: RefObject<HTMLElement | null>
+  ): void => {
     const { id } = event.currentTarget;
     const isEnter = "key" in event && event.key === "Enter";
 

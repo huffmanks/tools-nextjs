@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { NextRouter } from "next/router";
+import { type NextRouter } from "next/router";
 
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 
-import { RouteItem } from "../../constants/routes";
+import { type RouteItem } from "@/constants/routes";
+
 import NavDivider from "./NavDivider";
 
 interface NavItemProps {
@@ -56,7 +57,9 @@ const NavItem = ({ router, routes, open, setOpen, label, isHomePage }: NavItemPr
                         },
                       }}
                     />
-                    {isExternal && <OpenInNewIcon sx={{ fontSize: 13, color: "text.disabled", ml: 1 }} />}
+                    {isExternal && (
+                      <OpenInNewIcon sx={{ fontSize: 13, color: "text.disabled", ml: 1 }} />
+                    )}
                   </>
                 )}
               </ListItemButton>

@@ -1,12 +1,12 @@
-import { useNumberPickerFormControls } from "../../../features/RandomPicker/NumberPicker/useNumberPickerFormControls";
-import { useCounter } from "../../../hooks/useCounter";
-
 import { Typography } from "@mui/material";
 
-import PageTitle from "../../../components/common/PageTitle";
-import SEO from "../../../components/common/SEO";
+import { useCounter } from "@/hooks/useCounter";
 
-import NumberForm from "../../../features/RandomPicker/NumberPicker/NumberForm";
+import NumberForm from "@/features/RandomPicker/NumberPicker/NumberForm";
+import { useNumberPickerFormControls } from "@/features/RandomPicker/NumberPicker/useNumberPickerFormControls";
+
+import PageTitle from "@/components/common/PageTitle";
+import SEO from "@/components/common/SEO";
 
 const NumberPicker = () => {
   const { resultRef, values, setValues, handleChange, handleClick, handleCopy, handleReset } =

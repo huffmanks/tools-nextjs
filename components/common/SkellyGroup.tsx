@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-import Skelly, { SkellyType } from "./Skelly";
+import Skelly, { type SkellyType } from "@/components/common/Skelly";
 
 interface SkellyGroupProps {
   type: SkellyType;

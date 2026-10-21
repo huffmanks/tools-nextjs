@@ -1,7 +1,8 @@
 import { FormControlLabel, FormGroup, Switch } from "@mui/material";
 
-import FieldsetContainer from "../FieldsetContainer";
-import { NumberPickerValues } from "./constants";
+import FieldsetContainer from "@/FieldsetContainer";
+
+import { type NumberPickerValues } from "./constants";
 
 interface PresetsProps {
   values: NumberPickerValues;
@@ -31,11 +32,15 @@ const Presets = ({ values, handleChange }: PresetsProps) => {
             marginBottom: 1,
           }}>
           <FormControlLabel
-            control={<Switch checked={values.isPowerball} onChange={handleChange} name="powerball" />}
+            control={
+              <Switch checked={values.isPowerball} onChange={handleChange} name="powerball" />
+            }
             label="Powerball"
           />
           <FormControlLabel
-            control={<Switch checked={values.isMegaMillions} onChange={handleChange} name="megaMillions" />}
+            control={
+              <Switch checked={values.isMegaMillions} onChange={handleChange} name="megaMillions" />
+            }
             label="Mega Millions"
           />
         </FormGroup>

@@ -1,9 +1,18 @@
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { Button, Grid, Stack } from "@mui/material";
-import Counter from "../../../components/common/Counter";
-import FieldsetContainer from "../FieldsetContainer";
 
-const UploadForm = ({ fileRef, values, handleChange, handleFileUpload, handleDecrease, handleIncrease }) => {
+import FieldsetContainer from "@/FieldsetContainer";
+
+import Counter from "@/components/common/Counter";
+
+const UploadForm = ({
+  fileRef,
+  values,
+  handleChange,
+  handleFileUpload,
+  handleDecrease,
+  handleIncrease,
+}) => {
   return (
     <Grid item xs={12} md={7}>
       <div>
@@ -12,7 +21,11 @@ const UploadForm = ({ fileRef, values, handleChange, handleFileUpload, handleDec
           size="large"
           isFullWidth
           helperText={`There will be ${values.total} item${values.total > 1 ? "s" : ""} selected from the spreadsheet.`}>
-          <Stack direction={{ xs: "column", sm: "row" }} alignItems={{ xs: "start", sm: "center" }} gap={2} mb={2}>
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            alignItems={{ xs: "start", sm: "center" }}
+            gap={2}
+            mb={2}>
             <Counter
               values={values}
               handleChange={handleChange}

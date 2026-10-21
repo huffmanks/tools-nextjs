@@ -31,7 +31,7 @@ export const useCopyToClipboard = (isElement: boolean, isRich?: boolean) => {
       }
 
       return false;
-    } catch (error) {
+    } catch (_error) {
       setCopiedText(null);
       return false;
     }

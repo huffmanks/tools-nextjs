@@ -1,9 +1,10 @@
-import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
-import { useGlobalState } from "../../hooks/useGlobalState";
-import { PasswordGeneratorValues } from "./constants";
-
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { FormGroup, IconButton, InputAdornment, TextField } from "@mui/material";
+
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { useGlobalState } from "@/hooks/useGlobalState";
+
+import { type PasswordGeneratorValues } from "./constants";
 
 interface RandomKeyGensProps {
   values: PasswordGeneratorValues;
@@ -49,7 +50,10 @@ const RandomKeyGens = ({ values }: RandomKeyGensProps) => {
 
               endAdornment: (
                 <InputAdornment position="end">
-                  <IconButton aria-label="copy value to clipboard" onClick={() => handleCopy(key)} edge="end">
+                  <IconButton
+                    aria-label="copy value to clipboard"
+                    onClick={() => handleCopy(key)}
+                    edge="end">
                     <ContentCopyIcon />
                   </IconButton>
                 </InputAdornment>

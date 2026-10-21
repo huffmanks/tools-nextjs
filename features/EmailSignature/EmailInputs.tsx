@@ -1,7 +1,7 @@
-import { emailInputs, EmailSignatureValues } from "./constants";
-
 import { Grid, TextField } from "@mui/material";
-import { EmailErrors } from "./useEmailSignatureFormControls";
+
+import { type EmailSignatureValues, emailInputs } from "./constants";
+import { type EmailErrors } from "./useEmailSignatureFormControls";
 
 interface EmailInputsProps {
   values: EmailSignatureValues;

@@ -1,6 +1,6 @@
-import { passwordGeneratorOptions, PasswordGeneratorValues } from "./constants";
-
 import { Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel } from "@mui/material";
+
+import { type PasswordGeneratorValues, passwordGeneratorOptions } from "./constants";
 
 interface PasswordOptionsProps {
   values: PasswordGeneratorValues;
@@ -17,7 +17,9 @@ const PasswordOptions = ({ values, handleChange }: PasswordOptionsProps) => {
         {passwordGeneratorOptions.map((option) => (
           <FormControlLabel
             key={option.id}
-            control={<Checkbox checked={values[option.name]} onChange={handleChange} name={option.name} />}
+            control={
+              <Checkbox checked={values[option.name]} onChange={handleChange} name={option.name} />
+            }
             label={option.label}
             labelPlacement="end"
           />

@@ -1,19 +1,27 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
 
-import PopoverColorPicker from "../../components/common/PopoverColorPicker";
-import { InitialColors, scrollbarThumbPickers, scrollbarTrackPickers } from "../../constants/popoverColorPicker";
-import { InitialCssScrollbarValues } from "./constants";
+import {
+  type InitialColors,
+  scrollbarThumbPickers,
+  scrollbarTrackPickers,
+} from "@/constants/popoverColorPicker";
+
+import PopoverColorPicker from "@/components/common/PopoverColorPicker";
+
 import Demo from "./Demo";
 import PixelInput from "./PixelInput";
 import ScrollbarRadios from "./ScrollbarRadios";
 import ScrollbarSelect from "./ScrollbarSelect";
+import { type InitialCssScrollbarValues } from "./constants";
 
 interface ScrollbarFormProps {
   values: InitialCssScrollbarValues;
   colors: InitialColors;
   handleBlur: (name: string, color: string) => void;
   handleChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | { target: { name: string; value: unknown } },
+    e:
+      | React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+      | { target: { name: string; value: unknown } }
   ) => void;
 }
 

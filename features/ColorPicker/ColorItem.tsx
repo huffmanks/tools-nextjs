@@ -1,7 +1,7 @@
-import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
-import { useGlobalState } from "../../hooks/useGlobalState";
-
 import { Box } from "@mui/material";
+
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { useGlobalState } from "@/hooks/useGlobalState";
 
 interface ColorItemProps {
   colorValue: string;

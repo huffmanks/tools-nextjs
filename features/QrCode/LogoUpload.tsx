@@ -1,6 +1,5 @@
-import { Button, Checkbox, FormControlLabel, Stack, Typography } from "@mui/material";
-
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import { Button, Checkbox, FormControlLabel, Stack, Typography } from "@mui/material";
 
 interface LogoUploadProps {
   logoBackgroundTransparent: boolean;
@@ -14,7 +13,11 @@ const LogoUpload = ({ logoBackgroundTransparent, logoName, handleChange }: LogoU
       <Typography variant="subtitle1" sx={{ marginBottom: 2 }}>
         Logo Upload
       </Typography>
-      <Stack direction={{ xs: "column", sm: "row" }} alignItems={{ xs: "start", sm: "center" }} gap={2} mb={2}>
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        alignItems={{ xs: "start", sm: "center" }}
+        gap={2}
+        mb={2}>
         <Button
           component="label"
           variant="outlined"

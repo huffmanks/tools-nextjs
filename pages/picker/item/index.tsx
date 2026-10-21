@@ -1,12 +1,12 @@
-import { useItemPickerFormControls } from "../../../features/RandomPicker/ItemPicker/useItemPickerFormControls";
-import { useCounter } from "../../../hooks/useCounter";
-
 import { Typography } from "@mui/material";
 
-import PageTitle from "../../../components/common/PageTitle";
-import SEO from "../../../components/common/SEO";
+import { useCounter } from "@/hooks/useCounter";
 
-import ItemForm from "../../../features/RandomPicker/ItemPicker/ItemForm";
+import ItemForm from "@/features/RandomPicker/ItemPicker/ItemForm";
+import { useItemPickerFormControls } from "@/features/RandomPicker/ItemPicker/useItemPickerFormControls";
+
+import PageTitle from "@/components/common/PageTitle";
+import SEO from "@/components/common/SEO";
 
 const ItemPicker = () => {
   const {

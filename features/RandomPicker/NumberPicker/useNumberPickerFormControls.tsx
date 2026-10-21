@@ -1,9 +1,15 @@
 import { useRef, useState } from "react";
 
-import { useCopyToClipboard } from "../../../hooks/useCopyToClipboard";
-import { useGlobalState } from "../../../hooks/useGlobalState";
-import { generateRandomNumbers } from "../../../utilities/generateRandomNumbers";
-import { initialNumberPickerValues, megaMillionsValues, NumberPickerValues, powerballValues } from "./constants";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { useGlobalState } from "@/hooks/useGlobalState";
+import { generateRandomNumbers } from "@/utils/generateRandomNumbers";
+
+import {
+  type NumberPickerValues,
+  initialNumberPickerValues,
+  megaMillionsValues,
+  powerballValues,
+} from "./constants";
 
 export const useNumberPickerFormControls = () => {
   const resultRef = useRef<HTMLDivElement>(null);
@@ -67,7 +73,9 @@ export const useNumberPickerFormControls = () => {
 
     let resultIsCentered = false;
     if (resultRef.current) {
-      const resultChildren = [...resultRef.current.children].map((child) => (child as HTMLElement).offsetWidth + 16);
+      const resultChildren = [...resultRef.current.children].map(
+        (child) => (child as HTMLElement).offsetWidth + 16
+      );
       const resultChildrenWidth = resultChildren.reduce((prev, val) => prev + val, 0);
       const resultWidth = resultRef.current.offsetWidth;
       resultIsCentered = resultChildrenWidth > resultWidth;

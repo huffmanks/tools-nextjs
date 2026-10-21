@@ -1,6 +1,13 @@
-import { delimiterOptions, delimiterSelects, ItemPickerValues } from "./constants";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  type SelectChangeEvent,
+  Stack,
+} from "@mui/material";
 
-import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, Stack } from "@mui/material";
+import { type ItemPickerValues, delimiterOptions, delimiterSelects } from "./constants";
 
 interface TextDelimitersProps {
   values: ItemPickerValues;
@@ -10,10 +17,14 @@ interface TextDelimitersProps {
 const TextDelimiters = ({ values, handleChange }: TextDelimitersProps) => {
   return (
     <Stack direction={{ xs: "column", xms: "row" }} gap={2} sx={{ flex: 1, maxWidth: "100%" }}>
-      {delimiterSelects.map((select, i) => (
+      {delimiterSelects.map((select) => (
         <FormControl key={select.label} variant="outlined" sx={{ width: "100%" }}>
           <InputLabel>{select.label}</InputLabel>
-          <Select label={select.label} name={select.value} value={values[select.value] || ""} onChange={handleChange}>
+          <Select
+            label={select.label}
+            name={select.value}
+            value={values[select.value] || ""}
+            onChange={handleChange}>
             {delimiterOptions.map((option, j) => (
               <MenuItem key={j} value={option.value}>
                 {option.label}

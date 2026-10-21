@@ -15,7 +15,6 @@ export interface MockContentValues {
   ul: string;
   ol: string;
   table: string;
-  tableDataType?: string;
   [key: `check_${string}`]: boolean;
 }
 

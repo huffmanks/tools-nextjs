@@ -1,20 +1,37 @@
 import { useRef } from "react";
 
-import { useLists } from "../../hooks/useLists";
-import { useTodoListFormControls } from "./useTodoListFormControls";
-
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SaveIcon from "@mui/icons-material/Save";
-import { Box, Button, Checkbox, IconButton, InputAdornment, Stack, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Checkbox,
+  IconButton,
+  InputAdornment,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
+
+import { useLists } from "@/hooks/useLists";
 
 import ListType from "./ListType";
+import { useTodoListFormControls } from "./useTodoListFormControls";
 
 const Edit = () => {
   const itemsRef = useRef<HTMLDivElement>(null);
   const { handleFocus, handleBlur } = useLists();
-  const { list, errors, formIsValid, handleChange, handleCompleted, handleAddInput, handleRemoveItem, handleSubmit } =
-    useTodoListFormControls();
+  const {
+    list,
+    errors,
+    formIsValid,
+    handleChange,
+    handleCompleted,
+    handleAddInput,
+    handleRemoveItem,
+    handleSubmit,
+  } = useTodoListFormControls();
 
   return (
     <>

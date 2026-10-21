@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 export const useClickOutside = <T extends HTMLElement = HTMLElement>(
   ref: React.RefObject<T | null>,
-  handler: (event: MouseEvent | TouchEvent) => void,
+  handler: (event: MouseEvent | TouchEvent) => void
 ) => {
   useEffect(() => {
     let startedInside = false;
@@ -17,7 +17,11 @@ export const useClickOutside = <T extends HTMLElement = HTMLElement>(
 
     const validateEventStart = (event: MouseEvent | TouchEvent) => {
       startedWhenMounted = !!ref.current;
-      startedInside = !!(ref.current && event.target instanceof Node && ref.current.contains(event.target));
+      startedInside = !!(
+        ref.current &&
+        event.target instanceof Node &&
+        ref.current.contains(event.target)
+      );
     };
 
     document.addEventListener("mousedown", validateEventStart);

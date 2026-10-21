@@ -1,18 +1,35 @@
-import { Box, Container, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
+import {
+  Box,
+  Container,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  type SelectChangeEvent,
+  TextField,
+} from "@mui/material";
 
-import { qrCodePickers } from "../../constants/popoverColorPicker";
-import { QrCodeColors, QrCodeErrors, qrCodeInputs, qrCodeSelects, QrCodeValues } from "./constants";
+import { qrCodePickers } from "@/constants/popoverColorPicker";
 
-import PopoverColorPicker from "../../components/common/PopoverColorPicker";
+import PopoverColorPicker from "@/components/common/PopoverColorPicker";
+
 import ActionGroup from "./ActionGroup";
 import LogoUpload from "./LogoUpload";
+import {
+  type QrCodeColors,
+  type QrCodeErrors,
+  type QrCodeValues,
+  qrCodeInputs,
+  qrCodeSelects,
+} from "./constants";
 
 interface QrCodeFormProps {
   values: QrCodeValues;
   errors: QrCodeErrors;
   downloadUrl: string;
   handleChange: (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string | number>,
+    event:
+      React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string | number>
   ) => void;
   handleBlur: (name: keyof QrCodeColors, value: string) => void;
   handleSubmit: (event: React.SubmitEvent<HTMLFormElement>) => void;
@@ -73,7 +90,12 @@ const QrCodeForm = ({
         ))}
 
         <Box
-          sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" }, alignItems: "end", gap: 3 }}>
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" },
+            alignItems: "end",
+            gap: 3,
+          }}>
           {qrCodePickers.map((picker) => (
             <PopoverColorPicker
               key={picker.name}

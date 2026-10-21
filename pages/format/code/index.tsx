@@ -1,10 +1,10 @@
 import { Grid, Typography } from "@mui/material";
 
-import PageTitle from "../../../components/common/PageTitle";
-import SEO from "../../../components/common/SEO";
+import CodeFormatForm from "@/features/CodeFormatter/CodeFormatForm";
+import { useCodeFormatterFormControls } from "@/features/CodeFormatter/useCodeFormatterFormControls";
 
-import CodeFormatForm from "../../../features/CodeFormatter/CodeFormatForm";
-import { useCodeFormatterFormControls } from "../../../features/CodeFormatter/useCodeFormatterFormControls";
+import PageTitle from "@/components/common/PageTitle";
+import SEO from "@/components/common/SEO";
 
 const CodeFormatter = () => {
   const { values, errors, handleChange, handleReset } = useCodeFormatterFormControls();
@@ -25,7 +25,12 @@ const CodeFormatter = () => {
       </Typography>
 
       <Grid container spacing={3}>
-        <CodeFormatForm values={values} errors={errors} handleChange={handleChange} handleReset={handleReset} />
+        <CodeFormatForm
+          values={values}
+          errors={errors}
+          handleChange={handleChange}
+          handleReset={handleReset}
+        />
       </Grid>
     </>
   );

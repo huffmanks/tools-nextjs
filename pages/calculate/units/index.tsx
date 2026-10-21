@@ -1,18 +1,18 @@
-import { useUnitCalculatorFormControls } from "../../../features/UnitCalculator/useUnitCalculatorFormControls";
-
 import { Typography } from "@mui/material";
 
-import PageTitle from "../../../components/common/PageTitle";
-import SEO from "../../../components/common/SEO";
+import InputContainer from "@/features/UnitCalculator/InputContainer";
+import UnitInputs from "@/features/UnitCalculator/UnitInputs";
+import UnitOutput from "@/features/UnitCalculator/UnitOutput";
+import { useUnitCalculatorFormControls } from "@/features/UnitCalculator/useUnitCalculatorFormControls";
 
-import Skelly from "../../../components/common/Skelly";
-import SkellyGroup from "../../../components/common/SkellyGroup";
-import InputContainer from "../../../features/UnitCalculator/InputContainer";
-import UnitInputs from "../../../features/UnitCalculator/UnitInputs";
-import UnitOutput from "../../../features/UnitCalculator/UnitOutput";
+import PageTitle from "@/components/common/PageTitle";
+import SEO from "@/components/common/SEO";
+import Skelly from "@/components/common/Skelly";
+import SkellyGroup from "@/components/common/SkellyGroup";
 
 const UnitCalculator = () => {
-  const { isLoading, values, currentUnits, handleChange, handleFocus } = useUnitCalculatorFormControls();
+  const { isLoading, values, currentUnits, handleChange, handleFocus } =
+    useUnitCalculatorFormControls();
 
   return (
     <>

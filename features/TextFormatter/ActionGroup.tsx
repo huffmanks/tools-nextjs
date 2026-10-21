@@ -1,6 +1,6 @@
-import { textFormatterCards, TextFormatterValues } from "./constants";
-
 import DeleteIcon from "@mui/icons-material/Delete";
+import RestartAltIcon from "@mui/icons-material/RestartAlt";
+import SaveIcon from "@mui/icons-material/Save";
 import {
   Button,
   ButtonGroup,
@@ -15,8 +15,7 @@ import {
   TextField,
 } from "@mui/material";
 
-import RestartAltIcon from "@mui/icons-material/RestartAlt";
-import SaveIcon from "@mui/icons-material/Save";
+import { type TextFormatterValues, textFormatterCards } from "./constants";
 
 interface ActionGroupProps {
   values: TextFormatterValues;
@@ -60,7 +59,10 @@ const ActionGroup = ({
             },
           }}>
           {(values?.saved || []).map((option) => (
-            <MenuItem key={option.id} value={option.id} sx={{ display: "flex", justifyContent: "space-between" }}>
+            <MenuItem
+              key={option.id}
+              value={option.id}
+              sx={{ display: "flex", justifyContent: "space-between" }}>
               {option.label}
               <IconButton
                 edge="start"
@@ -78,7 +80,11 @@ const ActionGroup = ({
       </Grid>
       <Grid item lg={3} md={5} xs={12}>
         <ButtonGroup fullWidth variant="contained" sx={{ height: "100%" }}>
-          <Button sx={{ height: "100%" }} onClick={handleSave} aria-label="save output" endIcon={<SaveIcon />}>
+          <Button
+            sx={{ height: "100%" }}
+            onClick={handleSave}
+            aria-label="save output"
+            endIcon={<SaveIcon />}>
             Save
           </Button>
           <Button
@@ -104,7 +110,11 @@ const ActionGroup = ({
               <FormControlLabel
                 key={box.name}
                 control={
-                  <Checkbox checked={values[`check_${box.name}`]} onChange={handleChange} name={`check_${box.name}`} />
+                  <Checkbox
+                    checked={values[`check_${box.name}`]}
+                    onChange={handleChange}
+                    name={`check_${box.name}`}
+                  />
                 }
                 label={box.label}
               />

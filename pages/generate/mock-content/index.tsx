@@ -1,12 +1,11 @@
 import { Grid, Typography } from "@mui/material";
 
-import { useMockContentFormControls } from "../../../features/MockContent/useMockContentFormControls";
+import MockContentForm from "@/features/MockContent/MockContentForm";
+import MockContentOutput from "@/features/MockContent/MockContentOutput";
+import { useMockContentFormControls } from "@/features/MockContent/useMockContentFormControls";
 
-import PageTitle from "../../../components/common/PageTitle";
-import SEO from "../../../components/common/SEO";
-
-import MockContentForm from "../../../features/MockContent/MockContentForm";
-import MockContentOutput from "../../../features/MockContent/MockContentOutput";
+import PageTitle from "@/components/common/PageTitle";
+import SEO from "@/components/common/SEO";
 
 const MockContent = () => {
   const { values, checkAll, handleChange, handleCheckAll, handleCopy, handleReset, handleSubmit } =

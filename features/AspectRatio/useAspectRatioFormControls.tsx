@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-import { AspectRatioErrors, AspectRatioValues, initialAspectRatioValues } from "./constants";
+import {
+  type AspectRatioErrors,
+  type AspectRatioValues,
+  initialAspectRatioValues,
+} from "./constants";
 import { getAspectNumbers } from "./utils";
 
 type AspectRatioField = keyof AspectRatioValues;
@@ -16,20 +20,22 @@ export const useAspectRatioFormControls = () => {
 
   const validate = (
     fieldValues: Partial<AspectRatioValues> = values,
-    calculatedLowerBounds: CalculatedLowerBounds | null = null,
+    calculatedLowerBounds: CalculatedLowerBounds | null = null
   ): boolean => {
     const temp: AspectRatioErrors = { ...errors };
 
     if (fieldValues.originalWidth !== undefined) {
       temp.originalWidth =
-        fieldValues.originalWidth.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.originalWidth === ""
+        fieldValues.originalWidth.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) ||
+        fieldValues.originalWidth === ""
           ? ""
           : "Must be a number.";
     }
 
     if (fieldValues.originalHeight !== undefined) {
       temp.originalHeight =
-        fieldValues.originalHeight.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.originalHeight === ""
+        fieldValues.originalHeight.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) ||
+        fieldValues.originalHeight === ""
           ? ""
           : "Must be a number.";
     }
@@ -43,7 +49,8 @@ export const useAspectRatioFormControls = () => {
 
     if (calculatedLowerBounds !== null) {
       const { width, height } = calculatedLowerBounds;
-      const currentNewSize = fieldValues.newSize !== undefined ? fieldValues.newSize : values.newSize;
+      const currentNewSize =
+        fieldValues.newSize !== undefined ? fieldValues.newSize : values.newSize;
 
       if (currentNewSize !== "" && (!width || !height)) {
         temp.suggestedLowerWidth = "Result below zero.";
@@ -63,7 +70,9 @@ export const useAspectRatioFormControls = () => {
     event.target.select();
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement, Element>): void => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement, Element>
+  ): void => {
     const { name, value } = event.target;
     const field = name as AspectRatioField;
 
@@ -92,8 +101,10 @@ export const useAspectRatioFormControls = () => {
           [field]: value,
         };
 
-        const hasNewSize = !!currentUpdatedValues.newSize && !isNaN(Number(currentUpdatedValues.newSize));
-        const hasOriginalDims = !!currentUpdatedValues.originalWidth && !!currentUpdatedValues.originalHeight;
+        const hasNewSize =
+          !!currentUpdatedValues.newSize && !isNaN(Number(currentUpdatedValues.newSize));
+        const hasOriginalDims =
+          !!currentUpdatedValues.originalWidth && !!currentUpdatedValues.originalHeight;
         const isCalculable = hasValue && hasNewSize && hasOriginalDims;
 
         if (isCalculable) {

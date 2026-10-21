@@ -1,17 +1,15 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-import { mainRoutes, navItems } from "../../constants/routes";
-
-import { Box, Container, CssBaseline, IconButton, Toolbar } from "@mui/material";
-import { styled, Theme, useTheme } from "@mui/material/styles";
-
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
-import MuiDrawer from "@mui/material/Drawer";
-
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Box, Container, CssBaseline, IconButton, Toolbar } from "@mui/material";
+import MuiAppBar, { type AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
+import MuiDrawer from "@mui/material/Drawer";
+import { type Theme, styled, useTheme } from "@mui/material/styles";
+
+import { mainRoutes, navItems } from "@/constants/routes";
 
 import AppBarLogo from "./AppBarLogo";
 import NavItem from "./NavItem";

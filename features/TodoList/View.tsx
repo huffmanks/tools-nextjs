@@ -1,8 +1,9 @@
-import { useLists } from "../../hooks/useLists";
-
 import { Stack, Typography } from "@mui/material";
 
-import OutputMessage from "../../components/common/OutputMessage";
+import { useLists } from "@/hooks/useLists";
+
+import OutputMessage from "@/components/common/OutputMessage";
+
 import ListCard from "./ListCard";
 
 const View = () => {

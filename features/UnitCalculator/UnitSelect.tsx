@@ -1,10 +1,13 @@
-import { MenuItem, SelectChangeEvent, TextField } from "@mui/material";
-import { UnitItems } from "./constants";
+import { MenuItem, type SelectChangeEvent, TextField } from "@mui/material";
+
+import { type UnitItems } from "./constants";
 
 interface UnitSelectProps {
   selectName: string;
   selectValue: string;
-  changeHandler: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent) => void;
+  changeHandler: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent
+  ) => void;
   unitList: UnitItems;
 }
 

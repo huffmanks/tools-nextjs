@@ -2,7 +2,8 @@ import Link from "next/link";
 
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { Box, Button, Card, CardActions, CardContent, IconButton, Typography } from "@mui/material";
-import { RouteItem } from "../../constants/routes";
+
+import { type RouteItem } from "@/constants/routes";
 
 interface CardLinksProps {
   routes: RouteItem[];

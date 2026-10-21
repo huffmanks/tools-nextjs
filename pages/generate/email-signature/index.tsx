@@ -1,12 +1,11 @@
-import { useEmailSignatureFormControls } from "../../../features/EmailSignature/useEmailSignatureFormControls";
+import EmailForm from "@/features/EmailSignature/EmailForm";
+import EmailOutput from "@/features/EmailSignature/EmailOutput";
+import IntroParagraph from "@/features/EmailSignature/IntroParagraph";
+import { useEmailSignatureFormControls } from "@/features/EmailSignature/useEmailSignatureFormControls";
 
-import PageTitle from "../../../components/common/PageTitle";
-import SEO from "../../../components/common/SEO";
-
-import OutputMessage from "../../../components/common/OutputMessage";
-import EmailForm from "../../../features/EmailSignature/EmailForm";
-import EmailOutput from "../../../features/EmailSignature/EmailOutput";
-import IntroParagraph from "../../../features/EmailSignature/IntroParagraph";
+import OutputMessage from "@/components/common/OutputMessage";
+import PageTitle from "@/components/common/PageTitle";
+import SEO from "@/components/common/SEO";
 
 const EmailSignature = () => {
   const {

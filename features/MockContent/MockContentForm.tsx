@@ -1,8 +1,18 @@
 import FeedIcon from "@mui/icons-material/Feed";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Grid, Stack } from "@mui/material";
+import {
+  Box,
+  Button,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  FormLabel,
+  Grid,
+  Stack,
+} from "@mui/material";
 
-import { mockContentElements, MockContentValues } from "./constants";
+import { type MockContentValues, mockContentElements } from "./constants";
 
 interface MockContentFormProps {
   values: MockContentValues;
@@ -31,7 +41,11 @@ const MockContentForm = ({
         <FormControl fullWidth component="fieldset" variant="outlined">
           <FormLabel component="legend">Elements</FormLabel>
           <FormGroup>
-            <Grid container display="grid" gridTemplateColumns={{ xs: "1fr", md: "repeat(2, 1fr)" }} rowGap={1}>
+            <Grid
+              container
+              display="grid"
+              gridTemplateColumns={{ xs: "1fr", md: "repeat(2, 1fr)" }}
+              rowGap={1}>
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 {mockContentElements
                   .slice(0, 5)
@@ -39,7 +53,9 @@ const MockContentForm = ({
                     box.isSelectAll ? (
                       <FormControlLabel
                         key="check_all"
-                        control={<Checkbox checked={checkAll} onChange={handleCheckAll} name="check_all" />}
+                        control={
+                          <Checkbox checked={checkAll} onChange={handleCheckAll} name="check_all" />
+                        }
                         label={box.label}
                       />
                     ) : (
@@ -54,7 +70,7 @@ const MockContentForm = ({
                         }
                         label={box.label}
                       />
-                    ),
+                    )
                   )}
               </Box>
 
@@ -65,7 +81,9 @@ const MockContentForm = ({
                     box.isSelectAll ? (
                       <FormControlLabel
                         key="check_all"
-                        control={<Checkbox checked={checkAll} onChange={handleCheckAll} name="check_all" />}
+                        control={
+                          <Checkbox checked={checkAll} onChange={handleCheckAll} name="check_all" />
+                        }
                         label={box.label}
                       />
                     ) : (
@@ -80,7 +98,7 @@ const MockContentForm = ({
                         }
                         label={box.label}
                       />
-                    ),
+                    )
                   )}
               </Box>
             </Grid>

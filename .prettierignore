@@ -1,0 +1,17 @@
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lockb
+
+*.gen.*
+generated/
+*-env.d.ts
+
+public/
+assets/
+migrations/
+uploads/
+out/
+.next/
+.fallow/

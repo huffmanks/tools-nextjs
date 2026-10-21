@@ -1,5 +1,6 @@
 import { colord, extend } from "colord";
 import mixPlugin from "colord/plugins/mix";
+
 extend([mixPlugin]);
 
 export const generateColorVariants = (color: string, tintType: string): (string | undefined)[] => {

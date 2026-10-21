@@ -1,11 +1,11 @@
 import { FormControl, FormControlLabel, Grid, Radio, RadioGroup } from "@mui/material";
 
-import ActionGroup from "../ActionGroup";
+import ActionGroup from "@/ActionGroup";
 
-import { ItemPickerValues, itemPickerRadios } from "./constants";
 import TextForm from "./TextForm";
 import TextOutput from "./TextOutput";
 import UploadForm from "./UploadForm";
+import { type ItemPickerValues, itemPickerRadios } from "./constants";
 
 interface ItemFormProps {
   fileRef: React.RefObject<HTMLInputElement | null>;
@@ -90,7 +90,9 @@ const ItemForm = ({
         <Grid item xs={12} md={!isUpload ? 5 : 12}>
           <ActionGroup
             isCopyDisabled={!isUpload && !values?.output?.length}
-            isGenerateDisabled={(isUpload && values?.selectedRows?.length === 0) || values?.isProcessing}
+            isGenerateDisabled={
+              (isUpload && values?.selectedRows?.length === 0) || values?.isProcessing
+            }
             isUpload={isUpload}
             generateAria="pick items from a list"
             handleRandomSelection={handleRandomSelection}

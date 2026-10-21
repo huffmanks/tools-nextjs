@@ -2,7 +2,11 @@ import convert from "convert";
 
 type ConvertUnit = Parameters<typeof convert>[1];
 
-export const formatConvertNumber = (value: string | number, fromNum: string, toNum: string): number => {
+export const formatConvertNumber = (
+  value: string | number,
+  fromNum: string,
+  toNum: string
+): number => {
   const maxDecimals = 3;
   const numValue = typeof value === "string" ? parseFloat(value) : value;
 
@@ -18,6 +22,6 @@ export const formatConvertNumber = (value: string | number, fromNum: string, toN
   return parseFloat(
     convert(numValue, fromNum as ConvertUnit)
       .to(toNum as ConvertUnit)
-      .toFixed(maxDecimals),
+      .toFixed(maxDecimals)
   );
 };

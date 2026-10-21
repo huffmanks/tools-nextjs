@@ -1,9 +1,15 @@
 // Page icons
+import { type JSX } from "react/jsx-runtime";
+
 import AspectRatioIcon from "@mui/icons-material/AspectRatio";
+// Group icons
+import CalculateIcon from "@mui/icons-material/Calculate";
 import CodeIcon from "@mui/icons-material/Code";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
+import FactoryIcon from "@mui/icons-material/Factory";
 import FeedIcon from "@mui/icons-material/Feed";
+import FormatPaintIcon from "@mui/icons-material/FormatPaint";
 import HomeIcon from "@mui/icons-material/Home";
 import KeyIcon from "@mui/icons-material/Key";
 import LineAxisIcon from "@mui/icons-material/LineAxis";
@@ -11,16 +17,10 @@ import MergeIcon from "@mui/icons-material/Merge";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import QrCodeIcon from "@mui/icons-material/QrCode";
 import ScaleIcon from "@mui/icons-material/Scale";
+import SelectAllIcon from "@mui/icons-material/SelectAll";
 import ShuffleIcon from "@mui/icons-material/Shuffle";
 import TagIcon from "@mui/icons-material/Tag";
 import TextFieldsIcon from "@mui/icons-material/TextFields";
-
-// Group icons
-import CalculateIcon from "@mui/icons-material/Calculate";
-import FactoryIcon from "@mui/icons-material/Factory";
-import FormatPaintIcon from "@mui/icons-material/FormatPaint";
-import SelectAllIcon from "@mui/icons-material/SelectAll";
-import { JSX } from "react/jsx-runtime";
 
 export interface RouteItem {
   path: string;

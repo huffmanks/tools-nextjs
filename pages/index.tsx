@@ -1,14 +1,20 @@
 import { useState } from "react";
 
-import { calculateRoutes, formatRoutes, generateRoutes, navItems, pickerRoutes } from "../constants/routes";
-
 import { Typography } from "@mui/material";
 
-import PageTitle from "../components/common/PageTitle";
-import SEO from "../components/common/SEO";
+import {
+  calculateRoutes,
+  formatRoutes,
+  generateRoutes,
+  navItems,
+  pickerRoutes,
+} from "@/constants/routes";
 
-import BottomMenu from "../components/layout/BottomMenu";
-import CardLinks from "../features/Home/CardLinks";
+import CardLinks from "@/features/Home/CardLinks";
+
+import PageTitle from "@/components/common/PageTitle";
+import SEO from "@/components/common/SEO";
+import BottomMenu from "@/components/layout/BottomMenu";
 
 const Home = () => {
   const [screen, setScreen] = useState("calculate");

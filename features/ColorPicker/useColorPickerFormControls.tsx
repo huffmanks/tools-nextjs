@@ -1,9 +1,10 @@
 import { startTransition, useMemo, useState } from "react";
 
-import { generateColorVariants } from "./utils";
-
 import { colord, extend } from "colord";
 import namesPlugin from "colord/plugins/names";
+
+import { generateColorVariants } from "./utils";
+
 extend([namesPlugin]);
 
 export const useColorPickerFormControls = () => {

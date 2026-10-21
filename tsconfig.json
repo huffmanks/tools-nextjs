@@ -13,7 +13,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "types": ["@serwist/next/typings"]
+    "types": ["@serwist/next/typings"],
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.mts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "public/sw.js"]

@@ -1,14 +1,18 @@
-import { Grid, SelectChangeEvent, Stack, TextField } from "@mui/material";
+import { Grid, type SelectChangeEvent, Stack, TextField } from "@mui/material";
 
-import Counter from "../../../components/common/Counter";
-import FieldsetContainer from "../FieldsetContainer";
-import { ItemPickerValues } from "./constants";
+import FieldsetContainer from "@/FieldsetContainer";
+
+import Counter from "@/components/common/Counter";
+
 import TextDelimiters from "./TextDelimiters";
+import { type ItemPickerValues } from "./constants";
 
 interface TextFormProps {
   values: ItemPickerValues;
   errorMessage?: string;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>) => void;
+  handleChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>
+  ) => void;
   handleBlur?: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   handleDecrease: () => void;
   handleIncrease: () => void;

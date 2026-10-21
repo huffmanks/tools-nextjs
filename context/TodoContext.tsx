@@ -1,11 +1,11 @@
 import { createContext, useState } from "react";
 
-import { TODO_LISTS_LS_KEY } from "../features/TodoList/constants";
-import { useCopyToClipboard } from "../hooks/useCopyToClipboard";
-import { useGlobalState } from "../hooks/useGlobalState";
-import { useLocalStorage } from "../hooks/useLocalStorage";
-import { getTimestamp } from "../utilities/getTimestamp";
-import { uniqueId } from "../utilities/uniqueId";
+import { useGlobalState } from "@/hooks/useGlobalState";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { getTimestamp } from "@/utils/getTimestamp";
+import { uniqueId } from "@/utils/uniqueId";
+
+import { TODO_LISTS_LS_KEY } from "@/features/TodoList/constants";
 
 export interface TodoItem {
   id: string;
@@ -57,7 +57,6 @@ const TodoStateProvider = ({ children }: TodoStateProviderProps) => {
 
   const uid = uniqueId();
   const { addToast } = useGlobalState();
-  const [copy] = useCopyToClipboard(true);
 
   const changeScreen = (_: unknown, newScreen: string) => {
     setScreen(newScreen);
@@ -71,7 +70,13 @@ const TodoStateProvider = ({ children }: TodoStateProviderProps) => {
     setIsFocused(false);
   };
 
-  const addList = ({ list, items }: { list: { title: string; type: string }; items: TodoItem[] }) => {
+  const addList = ({
+    list,
+    items,
+  }: {
+    list: { title: string; type: string };
+    items: TodoItem[];
+  }) => {
     const currentLists = lists || [];
     if (!currentLists.some((item) => item.title === list.title.trim())) {
       const newList: TodoList = {
@@ -162,7 +167,7 @@ const TodoStateProvider = ({ children }: TodoStateProviderProps) => {
               time: getTimestamp("time"),
             },
           }
-        : list,
+        : list
     );
 
     setLists(updatedList);

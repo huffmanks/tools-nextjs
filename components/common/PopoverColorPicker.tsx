@@ -1,10 +1,10 @@
 import { forwardRef, useCallback, useRef, useState } from "react";
-import { HexColorInput, HexColorPicker } from "react-colorful";
 
 import { Box, InputAdornment, Stack, TextField, Typography } from "@mui/material";
+import { HexColorInput, HexColorPicker } from "react-colorful";
 
-import { initialPopoverColorPickerValues } from "../../constants/popoverColorPicker";
-import { useClickOutside } from "../../hooks/useClickOutside";
+import { initialPopoverColorPickerValues } from "@/constants/popoverColorPicker";
+import { useClickOutside } from "@/hooks/useClickOutside";
 
 type HexColorInputCustomProps = {
   value?: string;
@@ -17,22 +17,23 @@ type HexColorInputCustomProps = {
   placeholder?: string;
 };
 
-const HexColorInputCustom = forwardRef<HTMLInputElement, HexColorInputCustomProps>(function HexColorInputCustom(
-  { value, onChange, ...props },
-  ref,
-) {
-  return (
-    <HexColorInput
-      {...props}
-      color={value ?? ""}
-      onChange={(newColor) => {
-        onChange?.({
-          target: { value: newColor, name: props.name ?? "" },
-        } as React.ChangeEvent<HTMLInputElement>);
-      }}
-    />
-  );
-});
+const HexColorInputCustom = forwardRef<HTMLInputElement, HexColorInputCustomProps>(
+  function HexColorInputCustom({ value, onChange, ...props }, ref) {
+    return (
+      <HexColorInput
+        {...props}
+        color={value ?? ""}
+        onChange={(newColor) => {
+          onChange?.({
+            target: { value: newColor, name: props.name ?? "" },
+          } as React.ChangeEvent<HTMLInputElement>);
+        }}
+        // @ts-expect-error - react-colorful types omit internal ref forwarding prop
+        inputRef={ref}
+      />
+    );
+  }
+);
 
 type PopoverColorPickerProps = {
   label?: string;
@@ -42,7 +43,13 @@ type PopoverColorPickerProps = {
   handleBlur?: (name?: string, color?: string) => void;
 };
 
-function PopoverColorPicker({ label, name, value, helperText, handleBlur }: PopoverColorPickerProps) {
+function PopoverColorPicker({
+  label,
+  name,
+  value,
+  helperText,
+  handleBlur,
+}: PopoverColorPickerProps) {
   const popover = useRef<HTMLDivElement>(null);
 
   const [color, setColor] = useState(value || initialPopoverColorPickerValues[name] || "#5b21b6");

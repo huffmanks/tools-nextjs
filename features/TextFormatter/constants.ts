@@ -1,4 +1,4 @@
-import { GLOBAL_SITE_LS_KEY_PREFIX } from "../../constants/global";
+import { GLOBAL_SITE_LS_KEY_PREFIX } from "@/constants/global";
 
 export const TEXT_FORMATTER_LS_KEY = `${GLOBAL_SITE_LS_KEY_PREFIX}_text-formatter`;
 

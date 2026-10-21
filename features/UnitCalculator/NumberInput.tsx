@@ -1,14 +1,22 @@
-import { SelectChangeEvent, TextField } from "@mui/material";
+import { type SelectChangeEvent, TextField } from "@mui/material";
 
 interface NumberInputProps {
   inputLabel: string;
   inputName: string;
   inputValue: string;
   focusHandler: (event: React.FocusEvent<HTMLInputElement>) => void;
-  changeHandler: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent) => void;
+  changeHandler: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent
+  ) => void;
 }
 
-const NumberInput = ({ inputLabel, inputName, inputValue, focusHandler, changeHandler }: NumberInputProps) => {
+const NumberInput = ({
+  inputLabel,
+  inputName,
+  inputValue,
+  focusHandler,
+  changeHandler,
+}: NumberInputProps) => {
   return (
     <>
       <TextField

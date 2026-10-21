@@ -1,9 +1,9 @@
-import { IconButton, InputAdornment, TextField } from "@mui/material";
-
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { ItemPickerValues } from "../../features/RandomPicker/ItemPicker/constants";
-import { NumberPickerValues } from "../../features/RandomPicker/NumberPicker/constants";
+import { IconButton, InputAdornment, TextField } from "@mui/material";
+
+import { type ItemPickerValues } from "@/features/RandomPicker/ItemPicker/constants";
+import { type NumberPickerValues } from "@/features/RandomPicker/NumberPicker/constants";
 
 interface CounterProps {
   isDisabled?: boolean;
@@ -13,7 +13,13 @@ interface CounterProps {
   handleIncrease: () => void;
 }
 
-const Counter = ({ isDisabled, values, handleChange, handleDecrease, handleIncrease }: CounterProps) => {
+const Counter = ({
+  isDisabled,
+  values,
+  handleChange,
+  handleDecrease,
+  handleIncrease,
+}: CounterProps) => {
   return (
     <>
       <TextField

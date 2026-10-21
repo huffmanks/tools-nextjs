@@ -19,7 +19,9 @@ const getRandomNumber: RandomGeneratorFunc = (excludeSimilar) => {
 
 const getRandomLower: RandomGeneratorFunc = (excludeSimilar) => {
   if (excludeSimilar) {
-    return passwordGeneratorIncludedItems[Math.floor(Math.random() * passwordGeneratorIncludedItems.length)];
+    return passwordGeneratorIncludedItems[
+      Math.floor(Math.random() * passwordGeneratorIncludedItems.length)
+    ];
   } else {
     return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
   }
@@ -50,11 +52,13 @@ export const generatePassword = (
   lowerCase: boolean,
   upperCase: boolean,
   excludeSimilar: boolean,
-  length: number,
+  length: number
 ): string => {
   const typesCount = Number(symbols) + Number(numbers) + Number(lowerCase) + Number(upperCase);
 
-  const typesArr = [{ symbols }, { numbers }, { lowerCase }, { upperCase }].filter((item) => Object.values(item)[0]);
+  const typesArr = [{ symbols }, { numbers }, { lowerCase }, { upperCase }].filter(
+    (item) => Object.values(item)[0]
+  );
 
   if (typesCount === 0) {
     return "";

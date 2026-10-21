@@ -1,16 +1,16 @@
-import { useColorPickerFormControls } from "../../../features/ColorPicker/useColorPickerFormControls";
-
 import { Grid, Typography } from "@mui/material";
 
-import PageTitle from "../../../components/common/PageTitle";
-import SEO from "../../../components/common/SEO";
+import ColorForm from "@/features/ColorPicker/ColorForm";
+import ColorVariants from "@/features/ColorPicker/ColorVariants";
+import Colord from "@/features/ColorPicker/Colord";
+import { useColorPickerFormControls } from "@/features/ColorPicker/useColorPickerFormControls";
 
-import Colord from "../../../features/ColorPicker/Colord";
-import ColorForm from "../../../features/ColorPicker/ColorForm";
-import ColorVariants from "../../../features/ColorPicker/ColorVariants";
+import PageTitle from "@/components/common/PageTitle";
+import SEO from "@/components/common/SEO";
 
 const ColorPicker = () => {
-  const { color, convertedColors, tintType, setColor, handleColor, handleTintType } = useColorPickerFormControls();
+  const { color, convertedColors, tintType, setColor, handleColor, handleTintType } =
+    useColorPickerFormControls();
 
   return (
     <>
@@ -51,7 +51,11 @@ const ColorPicker = () => {
             Tints
           </Typography>
 
-          <ColorVariants convertedColors={convertedColors} tintType={tintType} handleTintType={handleTintType} />
+          <ColorVariants
+            convertedColors={convertedColors}
+            tintType={tintType}
+            handleTintType={handleTintType}
+          />
         </Grid>
       </Grid>
     </>

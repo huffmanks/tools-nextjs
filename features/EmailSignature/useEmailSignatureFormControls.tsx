@@ -1,27 +1,35 @@
 import { useState } from "react";
 
-import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { EMAIL_SIGNATURE_LS_KEY, EmailSignatureValues, initialEmailSignatureValues } from "./constants";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+
+import {
+  EMAIL_SIGNATURE_LS_KEY,
+  type EmailSignatureValues,
+  initialEmailSignatureValues,
+} from "./constants";
 
 export type EmailErrors = Partial<Record<keyof EmailSignatureValues, string>>;
 
 export const useEmailSignatureFormControls = () => {
   const [values, setValues] = useLocalStorage<EmailSignatureValues>(
     EMAIL_SIGNATURE_LS_KEY,
-    initialEmailSignatureValues,
+    initialEmailSignatureValues
   );
   const [errors, setErrors] = useState<EmailErrors>({});
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const validate = (fieldValues: Partial<EmailSignatureValues> = values) => {
-    let temp: EmailErrors = { ...errors };
+    const temp: EmailErrors = { ...errors };
 
-    if ("fullName" in fieldValues) temp.fullName = fieldValues.fullName ? "" : "This field is required.";
+    if ("fullName" in fieldValues)
+      temp.fullName = fieldValues.fullName ? "" : "This field is required.";
 
     if ("email" in fieldValues) {
       temp.email = fieldValues.email ? "" : "This field is required.";
       if (fieldValues.email)
-        temp.email = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(fieldValues.email) ? "" : "Email is not valid.";
+        temp.email = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(fieldValues.email)
+          ? ""
+          : "Email is not valid.";
     }
 
     if ("title" in fieldValues) temp.title = fieldValues.title ? "" : "This field is required.";
@@ -36,14 +44,16 @@ export const useEmailSignatureFormControls = () => {
 
     if ("cellPhone" in fieldValues) {
       temp.cellPhone =
-        fieldValues.cellPhone.match(/^(\(\d{3}\)\s?|\d{3}[-.]?)?\d{3}[-.]?\d{4}$/g) || fieldValues.cellPhone === ""
+        fieldValues.cellPhone.match(/^(\(\d{3}\)\s?|\d{3}[-.]?)?\d{3}[-.]?\d{4}$/g) ||
+        fieldValues.cellPhone === ""
           ? ""
           : "Cell number is not valid.";
     }
 
     if ("fax" in fieldValues) {
       temp.fax =
-        fieldValues.fax.match(/^(\(\d{3}\)\s?|\d{3}[-.]?)?\d{3}[-.]?\d{4}$/g) || fieldValues.fax === ""
+        fieldValues.fax.match(/^(\(\d{3}\)\s?|\d{3}[-.]?)?\d{3}[-.]?\d{4}$/g) ||
+        fieldValues.fax === ""
           ? ""
           : "Fax number is not valid.";
     }
@@ -51,7 +61,7 @@ export const useEmailSignatureFormControls = () => {
     if ("website" in fieldValues) {
       temp.website =
         fieldValues.website.match(
-          /[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)?/gi,
+          /[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)?/gi
         ) || fieldValues.website === ""
           ? ""
           : "Website URL is not valid.";

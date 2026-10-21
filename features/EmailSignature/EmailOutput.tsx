@@ -1,13 +1,13 @@
 import { useRef } from "react";
 
-import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
-import { useGlobalState } from "../../hooks/useGlobalState";
-
-import { Box } from "@mui/material";
-
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { Box } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-import { EmailSignatureValues } from "./constants";
+
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { useGlobalState } from "@/hooks/useGlobalState";
+
+import { type EmailSignatureValues } from "./constants";
 
 interface EmailOutputProps {
   values: EmailSignatureValues;
@@ -49,12 +49,19 @@ const EmailOutput = ({ values }: EmailOutputProps) => {
             }}>
             {values.fullName}
           </div>
-          <div style={{ fontWeight: "bold", fontSize: "16px", fontFamily: '"Montserrat", sans-serif' }}>
+          <div
+            style={{
+              fontWeight: "bold",
+              fontSize: "16px",
+              fontFamily: '"Montserrat", sans-serif',
+            }}>
             {values.title}
           </div>
           <div style={{ marginBottom: "16px" }}>
             <div>
-              <span style={{ fontSize: "14px", fontFamily: '"Montserrat", sans-serif' }}>Email: </span>
+              <span style={{ fontSize: "14px", fontFamily: '"Montserrat", sans-serif' }}>
+                Email:{" "}
+              </span>
               <a
                 href={`mailto:${values.email}`}
                 style={{
@@ -76,7 +83,9 @@ const EmailOutput = ({ values }: EmailOutputProps) => {
             </div>
 
             <div>
-              <span style={{ fontSize: "14px", fontFamily: '"Montserrat", sans-serif' }}>Phone: </span>
+              <span style={{ fontSize: "14px", fontFamily: '"Montserrat", sans-serif' }}>
+                Phone:{" "}
+              </span>
               <a
                 href={`tel:${values.phone}`}
                 style={{
@@ -99,7 +108,9 @@ const EmailOutput = ({ values }: EmailOutputProps) => {
 
             {values.cellPhone && (
               <div>
-                <span style={{ fontSize: "14px", fontFamily: '"Montserrat", sans-serif' }}>Cell: </span>
+                <span style={{ fontSize: "14px", fontFamily: '"Montserrat", sans-serif' }}>
+                  Cell:{" "}
+                </span>
                 <a
                   href={`tel:${values.cellPhone}`}
                   style={{
@@ -122,7 +133,9 @@ const EmailOutput = ({ values }: EmailOutputProps) => {
             )}
             {values.fax && (
               <div>
-                <span style={{ fontSize: "14px", fontFamily: '"Montserrat", sans-serif' }}>Fax: </span>
+                <span style={{ fontSize: "14px", fontFamily: '"Montserrat", sans-serif' }}>
+                  Fax:{" "}
+                </span>
                 <a
                   href={`tel:${values.fax}`}
                   style={{
@@ -145,9 +158,15 @@ const EmailOutput = ({ values }: EmailOutputProps) => {
             )}
             {values.website && (
               <div>
-                <span style={{ fontSize: "14px", fontFamily: '"Montserrat", sans-serif' }}>Web: </span>
+                <span style={{ fontSize: "14px", fontFamily: '"Montserrat", sans-serif' }}>
+                  Web:{" "}
+                </span>
                 <a
-                  href={!values.website.startsWith("http") ? `https://${values.website}` : values.website}
+                  href={
+                    !values.website.startsWith("http")
+                      ? `https://${values.website}`
+                      : values.website
+                  }
                   style={{
                     color: values.themeColor,
                     fontSize: "14px",
@@ -168,14 +187,29 @@ const EmailOutput = ({ values }: EmailOutputProps) => {
             )}
           </div>
 
-          <div style={{ color: values.themeColor, fontSize: "14px", fontFamily: '"Montserrat", sans-serif' }}>
+          <div
+            style={{
+              color: values.themeColor,
+              fontSize: "14px",
+              fontFamily: '"Montserrat", sans-serif',
+            }}>
             {values.companyName}{" "}
           </div>
-          <div style={{ color: values.themeColor, fontSize: "14px", fontFamily: '"Montserrat", sans-serif' }}>
+          <div
+            style={{
+              color: values.themeColor,
+              fontSize: "14px",
+              fontFamily: '"Montserrat", sans-serif',
+            }}>
             {" "}
             {values.department}
           </div>
-          <div style={{ color: values.themeColor, fontSize: "14px", fontFamily: '"Montserrat", sans-serif' }}>
+          <div
+            style={{
+              color: values.themeColor,
+              fontSize: "14px",
+              fontFamily: '"Montserrat", sans-serif',
+            }}>
             {values.address} {values.cityState} {values.zipCode}
           </div>
         </div>

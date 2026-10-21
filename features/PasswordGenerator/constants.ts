@@ -1,4 +1,4 @@
-import { generateKey } from "../../utilities/generateKey";
+import { generateKey } from "@/utils/generateKey";
 
 export type PasswordBooleanKey = {
   [K in keyof PasswordGeneratorValues]: PasswordGeneratorValues[K] extends boolean ? K : never;

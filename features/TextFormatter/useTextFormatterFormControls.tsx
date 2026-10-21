@@ -1,16 +1,16 @@
 import { useMemo, useState } from "react";
 
-import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
-import { useGlobalState } from "../../hooks/useGlobalState";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
+import { useGlobalState } from "@/hooks/useGlobalState";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { uniqueId } from "@/utils/uniqueId";
 
-import { uniqueId } from "../../utilities/uniqueId";
 import {
-  initialTextFormatterValues,
   TEXT_FORMATTER_LS_KEY,
+  type TextFormatterValues,
+  initialTextFormatterValues,
   textFormatterCheckAllValues,
   textFormatterCheckNoneValues,
-  TextFormatterValues,
 } from "./constants";
 import { formatTextCases } from "./utils";
 
@@ -21,7 +21,10 @@ interface SavedItem {
 }
 
 export const useTextFormatterFormControls = () => {
-  const [values, setValues] = useLocalStorage<TextFormatterValues>(TEXT_FORMATTER_LS_KEY, initialTextFormatterValues);
+  const [values, setValues] = useLocalStorage<TextFormatterValues>(
+    TEXT_FORMATTER_LS_KEY,
+    initialTextFormatterValues
+  );
   const [checkAll, setCheckAll] = useState(false);
 
   const uid = uniqueId();
@@ -34,13 +37,15 @@ export const useTextFormatterFormControls = () => {
     if (!values) return [];
 
     const filtered = Object.fromEntries(
-      Object.entries(values).filter(([key, value]) => key.startsWith("check_") && value === true),
+      Object.entries(values).filter(([key, value]) => key.startsWith("check_") && value === true)
     );
 
     return Object.keys(filtered).map((item) => item.replace("check_", ""));
   }, [values]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value, type } = e.target;
     const checked = (e.target as HTMLInputElement).checked;
 

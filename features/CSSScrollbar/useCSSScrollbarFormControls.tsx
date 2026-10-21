@@ -1,12 +1,15 @@
 import { useState } from "react";
 
-import { SelectChangeEvent } from "@mui/material";
-import { InitialCssScrollbarValues, initialCssScrollbarValues } from "./constants";
+import { type SelectChangeEvent } from "@mui/material";
+
+import { type InitialCssScrollbarValues, initialCssScrollbarValues } from "./constants";
 
 export const useCSSScrollbarFormControls = () => {
   const [values, setValues] = useState<InitialCssScrollbarValues>(initialCssScrollbarValues);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>
+  ) => {
     const { name, value } = e.target;
 
     if (!name) return;
