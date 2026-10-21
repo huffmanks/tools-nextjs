@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useGlobalState } from "@/hooks/useGlobalState";
 
 import {
-  type MockContentValues,
   initialMockContentValues,
   mockContentCheckAllValues,
   mockContentCheckNoneValues,
 } from "@/features/MockContent/constants";
+import type { MockContentValues } from "@/features/MockContent/types";
 import { generateFormats, getCheckedElements } from "@/features/MockContent/utils";
 
 export const useMockContentFormControls = () => {

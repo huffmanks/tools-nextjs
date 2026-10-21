@@ -2,8 +2,8 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 
-import { type ItemPickerValues } from "@/features/RandomPicker/ItemPicker/constants";
-import { type NumberPickerValues } from "@/features/RandomPicker/NumberPicker/constants";
+import type { ItemPickerValues } from "@/features/RandomPicker/ItemPicker/types";
+import type { NumberPickerValues } from "@/features/RandomPicker/NumberPicker/types";
 
 interface CounterProps {
   isDisabled?: boolean;

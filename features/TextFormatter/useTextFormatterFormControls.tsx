@@ -7,18 +7,12 @@ import { uniqueId } from "@/utils/uniqueId";
 
 import {
   TEXT_FORMATTER_LS_KEY,
-  type TextFormatterValues,
   initialTextFormatterValues,
   textFormatterCheckAllValues,
   textFormatterCheckNoneValues,
 } from "@/features/TextFormatter/constants";
+import type { SavedItem, TextFormatterValues } from "@/features/TextFormatter/types";
 import { formatTextCases } from "@/features/TextFormatter/utils";
-
-interface SavedItem {
-  id: string;
-  value: string;
-  label: string;
-}
 
 export const useTextFormatterFormControls = () => {
   const [values, setValues] = useLocalStorage<TextFormatterValues>(

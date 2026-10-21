@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-import { type InitialColors } from "@/constants/popoverColorPicker";
+import type { InitialColors } from "@/constants/popoverColorPicker";
 
-import { type InitialCssScrollbarValues } from "@/features/CSSScrollbar/constants";
+import type { InitialCssScrollbarValues } from "@/features/CSSScrollbar/types";
 
 export const generateScrollbarStrings = (
   values: InitialCssScrollbarValues,

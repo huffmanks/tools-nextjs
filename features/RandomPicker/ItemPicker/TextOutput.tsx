@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-import { type ItemPickerValues } from "@/features/RandomPicker/ItemPicker/constants";
+import type { ItemPickerValues } from "@/features/RandomPicker/ItemPicker/types";
 
 import OutputMessage from "@/components/common/OutputMessage";
 

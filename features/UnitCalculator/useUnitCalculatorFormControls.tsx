@@ -1,24 +1,14 @@
 import { useRouter } from "next/router";
 import { useMemo, useState } from "react";
 
-import { type SelectChangeEvent } from "@mui/material";
+import type { SelectChangeEvent } from "@mui/material";
 
 import {
-  type UnitCalculatorValues,
-  type UnitItems,
   initialUnitCalculatorValues,
   unitCalculatorMeasurements,
 } from "@/features/UnitCalculator/constants";
-
-type UnitCalculatorFormState = {
-  queryKey: string | null;
-  values: UnitCalculatorValues;
-  currentUnits: UnitItems;
-};
-
-function getQueryValue(value: string | string[] | undefined): string | undefined {
-  return Array.isArray(value) ? value[0] : value;
-}
+import type { UnitCalculatorFormState } from "@/features/UnitCalculator/types";
+import { getQueryValue } from "@/features/UnitCalculator/utils";
 
 export function useUnitCalculatorFormControls() {
   const router = useRouter();

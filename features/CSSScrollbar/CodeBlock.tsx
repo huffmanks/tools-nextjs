@@ -3,10 +3,10 @@ import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
 import oneDark from "react-syntax-highlighter/dist/cjs/styles/prism/one-dark";
 
-import { type InitialColors } from "@/constants/popoverColorPicker";
-import { generateScrollbarStrings } from "@/utils/generateScrollbarStrings";
+import type { InitialColors } from "@/constants/popoverColorPicker";
 
-import { type InitialCssScrollbarValues } from "@/features/CSSScrollbar/constants";
+import type { InitialCssScrollbarValues } from "@/features/CSSScrollbar/types";
+import { generateScrollbarStrings } from "@/features/CSSScrollbar/utils";
 
 SyntaxHighlighter.registerLanguage("css", css);
 

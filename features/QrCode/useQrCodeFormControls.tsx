@@ -1,18 +1,16 @@
 import { useCallback, useRef, useState } from "react";
 
-import { type SelectChangeEvent } from "@mui/material";
+import type { SelectChangeEvent } from "@mui/material";
 import QRCode from "easyqrcodejs";
 
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 import {
   QR_CODE_LS_KEY,
-  type QrCodeColors,
-  type QrCodeErrors,
-  type QrCodeValues,
   combinedInitialQrCodeValues,
   initialQrCodeColors,
 } from "@/features/QrCode/constants";
+import type { QrCodeColors, QrCodeErrors, QrCodeValues } from "@/features/QrCode/types";
 
 type QRCodeInstance = InstanceType<typeof QRCode> & {
   _el: HTMLElement;

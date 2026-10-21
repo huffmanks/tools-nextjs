@@ -1,30 +1,8 @@
 import { GLOBAL_SITE_LS_KEY_PREFIX } from "@/constants/global";
 
+import type { EmailInputConfig, EmailSignatureValues } from "@/features/EmailSignature/types";
+
 export const EMAIL_SIGNATURE_LS_KEY = `${GLOBAL_SITE_LS_KEY_PREFIX}_email-signature`;
-
-export interface EmailSignatureValues {
-  fullName: string;
-  email: string;
-  phone: string;
-  cellPhone: string;
-  fax: string;
-  title: string;
-  website: string;
-  companyName: string;
-  department: string;
-  address: string;
-  cityState: string;
-  zipCode: string;
-  themeColor: string;
-}
-
-export interface EmailInputConfig {
-  name: keyof EmailSignatureValues;
-  label: string;
-  placeholder: string;
-  required: boolean;
-  gridSm: number;
-}
 
 export const initialEmailSignatureValues: EmailSignatureValues = {
   fullName: "",

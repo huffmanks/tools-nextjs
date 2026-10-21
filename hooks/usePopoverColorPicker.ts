@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { type InitialColors } from "@/constants/popoverColorPicker";
+import type { InitialColors } from "@/constants/popoverColorPicker";
 
 export const usePopoverColorPicker = (initialValues: InitialColors) => {
   const [colors, setColors] = useState(initialValues);

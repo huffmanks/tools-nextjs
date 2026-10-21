@@ -1,28 +1,10 @@
 import { type RefObject, useState } from "react";
 
-import { type TodoItem, type TodoList } from "@/context/TodoContext";
 import { useLists } from "@/hooks/useLists";
 import { uniqueId } from "@/utils/uniqueId";
 
 import { initialTodoListErrors, initialTodoListValues } from "@/features/TodoList/constants";
-
-export type TodoListForm = Omit<
-  TodoList,
-  "id" | "createdAt" | "updatedAt" | "isFavorite" | "items"
-> & {
-  id?: TodoList["id"];
-  createdAt?: TodoList["createdAt"];
-  updatedAt?: TodoList["updatedAt"];
-  isFavorite?: TodoList["isFavorite"];
-  tempItem: string;
-  items: TodoItem[];
-};
-
-type FormErrors = {
-  title: boolean;
-  item: boolean;
-  tempItem?: boolean;
-};
+import type { TodoItem, TodoListForm, TodoListFormErrors } from "@/features/TodoList/types";
 
 type AddInputEvent =
   | React.KeyboardEvent<HTMLDivElement>
@@ -49,7 +31,7 @@ export const useTodoListFormControls = () => {
     };
   });
   const [items, setItems] = useState<TodoItem[]>([]);
-  const [errors, setErrors] = useState<FormErrors>(initialTodoListErrors);
+  const [errors, setErrors] = useState<TodoListFormErrors>(initialTodoListErrors);
   const [formIsValid, setFormIsValid] = useState(false);
 
   const validate = (name: string, value: string): void => {

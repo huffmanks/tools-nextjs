@@ -1,8 +1,8 @@
 import { Box, FormControl, FormControlLabel, Radio, RadioGroup } from "@mui/material";
 
-import { type ConvertedColors } from "@/features/ColorPicker/ColorForm";
 import ColorItem from "@/features/ColorPicker/ColorItem";
 import { variantColorPickerRadios } from "@/features/ColorPicker/constants";
+import type { ConvertedColors } from "@/features/ColorPicker/types";
 
 interface ColorVariantsProps {
   convertedColors: ConvertedColors;

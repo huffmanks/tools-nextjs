@@ -1,11 +1,9 @@
 import { useState } from "react";
 
-import { type SelectChangeEvent } from "@mui/material";
+import type { SelectChangeEvent } from "@mui/material";
 
-import {
-  type InitialCssScrollbarValues,
-  initialCssScrollbarValues,
-} from "@/features/CSSScrollbar/constants";
+import { initialCssScrollbarValues } from "@/features/CSSScrollbar/constants";
+import type { InitialCssScrollbarValues } from "@/features/CSSScrollbar/types";
 
 export const useCSSScrollbarFormControls = () => {
   const [values, setValues] = useState<InitialCssScrollbarValues>(initialCssScrollbarValues);

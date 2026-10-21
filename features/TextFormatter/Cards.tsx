@@ -3,7 +3,8 @@ import { Fragment } from "react";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Card, CardContent, CardHeader, Grid, IconButton, Typography } from "@mui/material";
 
-import { type TextFormatterValues, textFormatterCards } from "@/features/TextFormatter/constants";
+import { textFormatterCards } from "@/features/TextFormatter/constants";
+import type { TextFormatterValues } from "@/features/TextFormatter/types";
 
 interface CardsProps {
   values: TextFormatterValues;

@@ -2,26 +2,11 @@ import { createContext, useState } from "react";
 
 import { useGlobalState } from "@/hooks/useGlobalState";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { getTimestamp } from "@/utils/getTimestamp";
 import { uniqueId } from "@/utils/uniqueId";
 
 import { TODO_LISTS_LS_KEY } from "@/features/TodoList/constants";
-
-export interface TodoItem {
-  id: string;
-  text: string;
-  completed: boolean;
-}
-
-export interface TodoList {
-  id: string;
-  type: string;
-  createdAt: { date: string; time: string };
-  updatedAt: { date: string; time: string };
-  title: string;
-  isFavorite: boolean;
-  items: TodoItem[];
-}
+import type { TodoItem, TodoList } from "@/features/TodoList/types";
+import { getTimestamp } from "@/features/TodoList/utils";
 
 interface TodoStateContextType {
   screen: string;

@@ -1,21 +1,4 @@
-export interface CodeOption {
-  label: string;
-  value: string;
-}
-
-export interface CodeSelectConfig {
-  label: string;
-  placeholder: string;
-  name: string;
-  options: CodeOption[];
-}
-
-export interface CodeFormatterValues {
-  action: string;
-  format: string;
-  codeInput: string;
-  codeOutput: string;
-}
+import type { CodeFormatterValues, CodeSelectConfig } from "@/features/CodeFormatter/types";
 
 export const initialCodeFormatterValues: CodeFormatterValues = {
   action: "",
@@ -83,3 +66,20 @@ export const codeFormatSelect: CodeSelectConfig = {
     },
   ],
 };
+
+export const VOID_TAGS = new Set([
+  "area",
+  "base",
+  "br",
+  "col",
+  "embed",
+  "hr",
+  "img",
+  "input",
+  "link",
+  "meta",
+  "param",
+  "source",
+  "track",
+  "wbr",
+]);

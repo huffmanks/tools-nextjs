@@ -1,4 +1,4 @@
-import { type AspectRatioValues } from "@/features/AspectRatio/constants";
+import type { AspectRatioValues } from "@/features/AspectRatio/types";
 
 interface DimensionResult {
   width: number | string;

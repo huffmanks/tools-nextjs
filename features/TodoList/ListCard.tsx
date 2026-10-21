@@ -20,8 +20,9 @@ import {
 import { green, pink } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 
-import { type TodoList } from "@/context/TodoContext";
 import { useLists } from "@/hooks/useLists";
+
+import type { TodoList } from "@/features/TodoList/types";
 
 const ExpandMore = styled(IconButton, {
   shouldForwardProp: (prop) => prop !== "expand",

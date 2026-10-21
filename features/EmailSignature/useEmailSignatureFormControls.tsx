@@ -4,11 +4,9 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 import {
   EMAIL_SIGNATURE_LS_KEY,
-  type EmailSignatureValues,
   initialEmailSignatureValues,
 } from "@/features/EmailSignature/constants";
-
-export type EmailErrors = Partial<Record<keyof EmailSignatureValues, string>>;
+import type { EmailErrors, EmailSignatureValues } from "@/features/EmailSignature/types";
 
 export const useEmailSignatureFormControls = () => {
   const [values, setValues] = useLocalStorage<EmailSignatureValues>(

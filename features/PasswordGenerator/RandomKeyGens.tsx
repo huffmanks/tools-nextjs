@@ -4,7 +4,7 @@ import { FormGroup, IconButton, InputAdornment, TextField } from "@mui/material"
 import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import { useGlobalState } from "@/hooks/useGlobalState";
 
-import { type PasswordGeneratorValues } from "@/features/PasswordGenerator/constants";
+import type { PasswordGeneratorValues } from "@/features/PasswordGenerator/types";
 
 interface RandomKeyGensProps {
   values: PasswordGeneratorValues;

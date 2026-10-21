@@ -1,21 +1,9 @@
-export interface MockContentOutputBundle {
-  html: string;
-  markdown: string;
-  plaintext: string;
-}
-
-export interface MockContentOutputValues {
-  output: MockContentOutputBundle;
-  h1: string;
-  h2: string;
-  h3: string;
-  h4: string;
-  p: string;
-  blockquote: string;
-  ul: string;
-  ol: string;
-  table: string;
-}
+import type {
+  MockContentCheckValues,
+  MockContentElement,
+  MockContentOutputValues,
+  MockContentValues,
+} from "@/features/MockContent/types";
 
 const mockContentOutputValues: MockContentOutputValues = {
   output: { html: "", markdown: "", plaintext: "" },
@@ -29,21 +17,6 @@ const mockContentOutputValues: MockContentOutputValues = {
   ol: "",
   table: "",
 };
-
-export interface MockContentCheckValues {
-  check_h1: boolean;
-  check_h2: boolean;
-  check_h3: boolean;
-  check_h4: boolean;
-  check_p: boolean;
-  check_blockquote: boolean;
-  check_ul: boolean;
-  check_ol: boolean;
-  check_table: boolean;
-  check_inline_bold: boolean;
-  check_inline_italic: boolean;
-  check_inline_links: boolean;
-}
 
 export const mockContentCheckAllValues: MockContentCheckValues = {
   check_h1: true,
@@ -75,19 +48,11 @@ export const mockContentCheckNoneValues: MockContentCheckValues = {
   check_inline_links: false,
 };
 
-export type MockContentValues = MockContentOutputValues & MockContentCheckValues;
-
 export const initialMockContentValues: MockContentValues = {
   ...mockContentOutputValues,
   ...mockContentCheckNoneValues,
   check_p: true,
 };
-
-export interface MockContentElement {
-  name: string;
-  label: string;
-  isSelectAll?: boolean;
-}
 
 export const mockContentElements: MockContentElement[] = [
   {

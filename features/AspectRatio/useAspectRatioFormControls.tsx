@@ -1,18 +1,13 @@
 import { useState } from "react";
 
-import {
-  type AspectRatioErrors,
-  type AspectRatioValues,
-  initialAspectRatioValues,
-} from "@/features/AspectRatio/constants";
+import { initialAspectRatioValues } from "@/features/AspectRatio/constants";
+import type {
+  AspectRatioErrors,
+  AspectRatioField,
+  AspectRatioValues,
+  CalculatedLowerBounds,
+} from "@/features/AspectRatio/types";
 import { getAspectNumbers } from "@/features/AspectRatio/utils";
-
-type AspectRatioField = keyof AspectRatioValues;
-
-interface CalculatedLowerBounds {
-  width: string;
-  height: string;
-}
 
 export const useAspectRatioFormControls = () => {
   const [values, setValues] = useState<AspectRatioValues>(initialAspectRatioValues);

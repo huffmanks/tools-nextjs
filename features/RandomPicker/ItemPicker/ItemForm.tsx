@@ -4,10 +4,8 @@ import ActionGroup from "@/features/RandomPicker/ActionGroup";
 import TextForm from "@/features/RandomPicker/ItemPicker/TextForm";
 import TextOutput from "@/features/RandomPicker/ItemPicker/TextOutput";
 import UploadForm from "@/features/RandomPicker/ItemPicker/UploadForm";
-import {
-  type ItemPickerValues,
-  itemPickerRadios,
-} from "@/features/RandomPicker/ItemPicker/constants";
+import { itemPickerRadios } from "@/features/RandomPicker/ItemPicker/constants";
+import type { ItemPickerValues } from "@/features/RandomPicker/ItemPicker/types";
 
 interface ItemFormProps {
   fileRef: React.RefObject<HTMLInputElement | null>;

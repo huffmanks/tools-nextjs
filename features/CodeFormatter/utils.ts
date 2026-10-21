@@ -1,4 +1,5 @@
-export type CodeFormat = "plaintext" | "json" | "html" | "css" | "js";
+import { VOID_TAGS } from "@/features/CodeFormatter/constants";
+import type { CodeFormat } from "@/features/CodeFormatter/types";
 
 export function detectFormat(input: string): CodeFormat {
   const code = input.trim();
@@ -273,22 +274,6 @@ const handleBeautify = ({ codeInput, format }: { codeInput: string; format: stri
   if (format === "html") {
     const { code: safe, restore } = extractProtected(code, [/<!--[\s\S]*?-->/g]);
     const withBreaks = safe.replace(/>\s*</g, ">\n<").trim();
-    const voidTags = new Set([
-      "area",
-      "base",
-      "br",
-      "col",
-      "embed",
-      "hr",
-      "img",
-      "input",
-      "link",
-      "meta",
-      "param",
-      "source",
-      "track",
-      "wbr",
-    ]);
 
     const lines = withBreaks
       .split("\n")
@@ -299,7 +284,7 @@ const handleBeautify = ({ codeInput, format }: { codeInput: string; format: stri
         const closingTag = /^<\/([a-zA-Z0-9-]+)/.exec(trimmed);
         const openingTag = /^<([a-zA-Z0-9-]+)/.exec(trimmed);
         const isSelfClosing =
-          /\/>\s*$/.test(trimmed) || (openingTag && voidTags.has(openingTag[1].toLowerCase()));
+          /\/>\s*$/.test(trimmed) || (openingTag && VOID_TAGS.has(openingTag[1].toLowerCase()));
         const isFullTagOnOneLine =
           openingTag && new RegExp(`</${openingTag[1]}>\\s*$`, "i").test(trimmed);
 

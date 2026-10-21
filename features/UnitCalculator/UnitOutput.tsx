@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-import { type UnitCalculatorValues, type UnitItems } from "@/features/UnitCalculator/constants";
+import type { UnitCalculatorValues, UnitItems } from "@/features/UnitCalculator/types";
 import { formatConvertNumber } from "@/features/UnitCalculator/utils";
 
 interface UnitOutputProps {

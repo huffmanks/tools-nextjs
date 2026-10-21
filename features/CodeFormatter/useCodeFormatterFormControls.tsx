@@ -1,20 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
-import { type SelectChangeEvent } from "@mui/material";
+import type { SelectChangeEvent } from "@mui/material";
 
-import {
-  type CodeFormatterValues,
-  initialCodeFormatterValues,
-} from "@/features/CodeFormatter/constants";
+import { initialCodeFormatterValues } from "@/features/CodeFormatter/constants";
+import type { CodeFormatterErrors, CodeFormatterValues } from "@/features/CodeFormatter/types";
 import { codeTransformer, detectFormat } from "@/features/CodeFormatter/utils";
-
-export interface CodeFormatterErrors {
-  codeInput?: string;
-  action?: string;
-  format?: string;
-  codeOutput?: string;
-  [key: string]: string | undefined;
-}
 
 export const useCodeFormatterFormControls = () => {
   const [values, setValues] = useState<CodeFormatterValues>(initialCodeFormatterValues);

@@ -1,6 +1,5 @@
-import TodoStateProvider from "@/context/TodoContext";
-
 import Screens from "@/features/TodoList/Screens";
+import TodoStateProvider from "@/features/TodoList/TodoContext";
 
 import PageTitle from "@/components/common/PageTitle";
 import SEO from "@/components/common/SEO";

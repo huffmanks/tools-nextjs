@@ -1,24 +1,7 @@
-export interface UnitCalculatorValues {
-  measurement: string;
-  numInput: string;
-  unitSelection: string;
-}
-
-export interface UnitItem {
-  id: string;
-  unit: string;
-  label: string;
-  short: string;
-}
-
-export type UnitItems = readonly UnitItem[];
-
-export interface UnitCalculatorMeasurement {
-  id: number;
-  type: string;
-  label: string;
-  units: UnitItems;
-}
+import type {
+  UnitCalculatorMeasurement,
+  UnitCalculatorValues,
+} from "@/features/UnitCalculator/types";
 
 export const initialUnitCalculatorValues: UnitCalculatorValues = {
   measurement: "digitalStorage",

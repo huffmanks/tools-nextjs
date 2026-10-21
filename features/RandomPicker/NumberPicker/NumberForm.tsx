@@ -5,7 +5,7 @@ import NumberOptions from "@/features/RandomPicker/NumberPicker/NumberOptions";
 import NumberRange from "@/features/RandomPicker/NumberPicker/NumberRange";
 import Output from "@/features/RandomPicker/NumberPicker/Output";
 import Presets from "@/features/RandomPicker/NumberPicker/Presets";
-import { type NumberPickerValues } from "@/features/RandomPicker/NumberPicker/constants";
+import type { NumberPickerValues } from "@/features/RandomPicker/NumberPicker/types";
 
 import OutputMessage from "@/components/common/OutputMessage";
 

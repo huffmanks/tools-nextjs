@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 import { BottomNavigation, BottomNavigationAction, Box, CssBaseline, Paper } from "@mui/material";
 
-import { type NavItem } from "@/constants/routes";
+import type { NavItem } from "@/constants/routes";
 
 interface BottomMenuProps {
   screen: string;

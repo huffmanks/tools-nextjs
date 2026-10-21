@@ -2,7 +2,7 @@ import { Grid, type SelectChangeEvent, Stack, TextField } from "@mui/material";
 
 import FieldsetContainer from "@/features/RandomPicker/FieldsetContainer";
 import TextDelimiters from "@/features/RandomPicker/ItemPicker/TextDelimiters";
-import { type ItemPickerValues } from "@/features/RandomPicker/ItemPicker/constants";
+import type { ItemPickerValues } from "@/features/RandomPicker/ItemPicker/types";
 
 import Counter from "@/components/common/Counter";
 

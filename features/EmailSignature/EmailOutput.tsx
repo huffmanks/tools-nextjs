@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import { useGlobalState } from "@/hooks/useGlobalState";
 
-import { type EmailSignatureValues } from "@/features/EmailSignature/constants";
+import type { EmailSignatureValues } from "@/features/EmailSignature/types";
 
 interface EmailOutputProps {
   values: EmailSignatureValues;

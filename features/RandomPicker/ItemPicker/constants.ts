@@ -1,18 +1,8 @@
 import { GLOBAL_SITE_LS_KEY_PREFIX } from "@/constants/global";
 
-export const ITEM_PICKER_LS_KEY = `${GLOBAL_SITE_LS_KEY_PREFIX}_item-picker`;
+import type { ItemPickerValues } from "@/features/RandomPicker/ItemPicker/types";
 
-export interface ItemPickerValues {
-  total: number;
-  listType: string;
-  selectedRows: unknown[][];
-  isProcessing: boolean;
-  fileName: string;
-  inputDelimiter: string;
-  outputDelimiter: string;
-  list: string;
-  output: string[];
-}
+export const ITEM_PICKER_LS_KEY = `${GLOBAL_SITE_LS_KEY_PREFIX}_item-picker`;
 
 export const initialItemPickerValues: ItemPickerValues = {
   total: 1,

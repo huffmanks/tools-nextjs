@@ -3,8 +3,7 @@ import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import { Box, Button, Grid, Stack } from "@mui/material";
 
 import EmailInputs from "@/features/EmailSignature/EmailInputs";
-import { type EmailSignatureValues } from "@/features/EmailSignature/constants";
-import { type EmailErrors } from "@/features/EmailSignature/useEmailSignatureFormControls";
+import type { EmailErrors, EmailSignatureValues } from "@/features/EmailSignature/types";
 
 import PopoverColorPicker from "@/components/common/PopoverColorPicker";
 

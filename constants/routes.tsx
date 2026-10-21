@@ -1,5 +1,5 @@
 // Page icons
-import { type JSX } from "react/jsx-runtime";
+import type { JSX } from "react/jsx-runtime";
 
 import AspectRatioIcon from "@mui/icons-material/AspectRatio";
 // Group icons

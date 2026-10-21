@@ -1,26 +1,8 @@
 import { GLOBAL_SITE_LS_KEY_PREFIX } from "@/constants/global";
 
+import type { QrCodeColors, QrCodeValues } from "@/features/QrCode/types";
+
 export const QR_CODE_LS_KEY = `${GLOBAL_SITE_LS_KEY_PREFIX}_qr-code`;
-
-export interface QrCodeColors {
-  dotColor: string;
-  backgroundColor: string;
-  ringOuter: string;
-  ringInner: string;
-}
-
-export interface QrCodeValues {
-  colors: QrCodeColors;
-  qrCodeName: string;
-  websiteLink: string;
-  outputSize: number;
-  correctLevel: number;
-  logoBackgroundTransparent: boolean;
-  logoUpload: string;
-  logoName: string;
-}
-
-export type QrCodeErrors = Partial<Record<keyof QrCodeValues | string, string>>;
 
 const initialQrCodeValues: Omit<QrCodeValues, "colors"> = {
   qrCodeName: "",

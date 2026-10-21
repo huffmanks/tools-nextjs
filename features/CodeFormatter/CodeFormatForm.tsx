@@ -20,7 +20,7 @@ import {
 import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 
 import { codeActionSelect, codeFormatSelect } from "@/features/CodeFormatter/constants";
-import { type CodeFormatterErrors } from "@/features/CodeFormatter/useCodeFormatterFormControls";
+import type { CodeFormatterErrors } from "@/features/CodeFormatter/types";
 
 interface CodeFormatFormProps {
   values: {

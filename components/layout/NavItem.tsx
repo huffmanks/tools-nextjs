@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { type NextRouter } from "next/router";
+import type { NextRouter } from "next/router";
 
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 
-import { type RouteItem } from "@/constants/routes";
+import type { RouteItem } from "@/constants/routes";
 
 import NavDivider from "@/components/layout/NavDivider";
 

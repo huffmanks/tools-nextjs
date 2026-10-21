@@ -13,13 +13,8 @@ import { qrCodePickers } from "@/constants/popoverColorPicker";
 
 import ActionGroup from "@/features/QrCode/ActionGroup";
 import LogoUpload from "@/features/QrCode/LogoUpload";
-import {
-  type QrCodeColors,
-  type QrCodeErrors,
-  type QrCodeValues,
-  qrCodeInputs,
-  qrCodeSelects,
-} from "@/features/QrCode/constants";
+import { qrCodeInputs, qrCodeSelects } from "@/features/QrCode/constants";
+import type { QrCodeColors, QrCodeErrors, QrCodeValues } from "@/features/QrCode/types";
 
 import PopoverColorPicker from "@/components/common/PopoverColorPicker";
 
