@@ -16,8 +16,8 @@ import {
 
 import { useLists } from "@/hooks/useLists";
 
-import ListType from "./ListType";
-import { useTodoListFormControls } from "./useTodoListFormControls";
+import ListType from "@/features/TodoList/ListType";
+import { useTodoListFormControls } from "@/features/TodoList/useTodoListFormControls";
 
 const Edit = () => {
   const itemsRef = useRef<HTMLDivElement>(null);

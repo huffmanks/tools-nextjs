@@ -11,8 +11,8 @@ import { type Theme, styled, useTheme } from "@mui/material/styles";
 
 import { mainRoutes, navItems } from "@/constants/routes";
 
-import AppBarLogo from "./AppBarLogo";
-import NavItem from "./NavItem";
+import AppBarLogo from "@/components/layout/AppBarLogo";
+import NavItem from "@/components/layout/NavItem";
 
 const drawerWidth = 240;
 

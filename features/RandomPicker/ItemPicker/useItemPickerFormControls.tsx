@@ -9,7 +9,11 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { generateSeparatedStrings } from "@/utils";
 import { generateRandomNumbers } from "@/utils/generateRandomNumbers";
 
-import { ITEM_PICKER_LS_KEY, type ItemPickerValues, initialItemPickerValues } from "./constants";
+import {
+  ITEM_PICKER_LS_KEY,
+  type ItemPickerValues,
+  initialItemPickerValues,
+} from "@/features/RandomPicker/ItemPicker/constants";
 
 type SpreadsheetRow = unknown[];
 

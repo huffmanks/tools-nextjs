@@ -13,10 +13,10 @@ import {
 
 import { useLists } from "@/hooks/useLists";
 
-import OutputMessage from "@/components/common/OutputMessage";
+import ListType from "@/features/TodoList/ListType";
+import { useTodoListFormControls } from "@/features/TodoList/useTodoListFormControls";
 
-import ListType from "./ListType";
-import { useTodoListFormControls } from "./useTodoListFormControls";
+import OutputMessage from "@/components/common/OutputMessage";
 
 const Create = () => {
   const { handleFocus, handleBlur } = useLists();

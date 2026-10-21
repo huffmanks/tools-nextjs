@@ -7,7 +7,11 @@ import {
   Stack,
 } from "@mui/material";
 
-import { type ItemPickerValues, delimiterOptions, delimiterSelects } from "./constants";
+import {
+  type ItemPickerValues,
+  delimiterOptions,
+  delimiterSelects,
+} from "@/features/RandomPicker/ItemPicker/constants";
 
 interface TextDelimitersProps {
   values: ItemPickerValues;

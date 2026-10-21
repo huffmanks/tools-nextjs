@@ -11,8 +11,8 @@ import {
   initialTextFormatterValues,
   textFormatterCheckAllValues,
   textFormatterCheckNoneValues,
-} from "./constants";
-import { formatTextCases } from "./utils";
+} from "@/features/TextFormatter/constants";
+import { formatTextCases } from "@/features/TextFormatter/utils";
 
 interface SavedItem {
   id: string;

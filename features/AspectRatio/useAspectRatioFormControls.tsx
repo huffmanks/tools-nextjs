@@ -4,8 +4,8 @@ import {
   type AspectRatioErrors,
   type AspectRatioValues,
   initialAspectRatioValues,
-} from "./constants";
-import { getAspectNumbers } from "./utils";
+} from "@/features/AspectRatio/constants";
+import { getAspectNumbers } from "@/features/AspectRatio/utils";
 
 type AspectRatioField = keyof AspectRatioValues;
 

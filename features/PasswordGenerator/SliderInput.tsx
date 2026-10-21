@@ -1,7 +1,7 @@
 import StraightenIcon from "@mui/icons-material/Straighten";
 import { Box, Grid, Slider, Typography } from "@mui/material";
 
-import { passwordGeneratorMarks } from "./constants";
+import { passwordGeneratorMarks } from "@/features/PasswordGenerator/constants";
 
 interface SliderInputProps {
   slider: number;

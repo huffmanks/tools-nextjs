@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-import ColorInput from "./ColorInput";
+import ColorInput from "@/features/ColorPicker/ColorInput";
 
 export interface ConvertedColors {
   hexColor: string;

@@ -6,13 +6,13 @@ import {
   scrollbarTrackPickers,
 } from "@/constants/popoverColorPicker";
 
-import PopoverColorPicker from "@/components/common/PopoverColorPicker";
+import Demo from "@/features/CSSScrollbar/Demo";
+import PixelInput from "@/features/CSSScrollbar/PixelInput";
+import ScrollbarRadios from "@/features/CSSScrollbar/ScrollbarRadios";
+import ScrollbarSelect from "@/features/CSSScrollbar/ScrollbarSelect";
+import { type InitialCssScrollbarValues } from "@/features/CSSScrollbar/constants";
 
-import Demo from "./Demo";
-import PixelInput from "./PixelInput";
-import ScrollbarRadios from "./ScrollbarRadios";
-import ScrollbarSelect from "./ScrollbarSelect";
-import { type InitialCssScrollbarValues } from "./constants";
+import PopoverColorPicker from "@/components/common/PopoverColorPicker";
 
 interface ScrollbarFormProps {
   values: InitialCssScrollbarValues;

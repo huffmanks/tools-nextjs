@@ -6,7 +6,7 @@ import oneDark from "react-syntax-highlighter/dist/cjs/styles/prism/one-dark";
 import { type InitialColors } from "@/constants/popoverColorPicker";
 import { generateScrollbarStrings } from "@/utils/generateScrollbarStrings";
 
-import { type InitialCssScrollbarValues } from "./constants";
+import { type InitialCssScrollbarValues } from "@/features/CSSScrollbar/constants";
 
 SyntaxHighlighter.registerLanguage("css", css);
 

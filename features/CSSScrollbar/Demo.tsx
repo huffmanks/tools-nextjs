@@ -1,7 +1,7 @@
 import { type InitialColors } from "@/constants/popoverColorPicker";
 import { generateScrollbarStrings } from "@/utils/generateScrollbarStrings";
 
-import { type InitialCssScrollbarValues } from "./constants";
+import { type InitialCssScrollbarValues } from "@/features/CSSScrollbar/constants";
 
 const DummyText = () => {
   return (

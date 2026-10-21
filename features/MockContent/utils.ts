@@ -1,5 +1,5 @@
-import type { MockContentValues } from "./constants";
-import data from "./mock-content_data.json";
+import type { MockContentValues } from "@/features/MockContent/constants";
+import data from "@/features/MockContent/mock-content_data.json";
 
 const grabRandom = <T>(arr: T[], count = 1): T[] => {
   return [...arr].sort(() => 0.5 - Math.random()).slice(0, count);

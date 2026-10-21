@@ -2,8 +2,11 @@ import { useEffect, useRef, useState } from "react";
 
 import { type SelectChangeEvent } from "@mui/material";
 
-import { type CodeFormatterValues, initialCodeFormatterValues } from "./constants";
-import { codeTransformer, detectFormat } from "./utils";
+import {
+  type CodeFormatterValues,
+  initialCodeFormatterValues,
+} from "@/features/CodeFormatter/constants";
+import { codeTransformer, detectFormat } from "@/features/CodeFormatter/utils";
 
 export interface CodeFormatterErrors {
   codeInput?: string;

@@ -3,7 +3,7 @@ import { startTransition, useMemo, useState } from "react";
 import { colord, extend } from "colord";
 import namesPlugin from "colord/plugins/names";
 
-import { generateColorVariants } from "./utils";
+import { generateColorVariants } from "@/features/ColorPicker/utils";
 
 extend([namesPlugin]);
 

@@ -1,6 +1,6 @@
 import { MenuItem, type SelectChangeEvent, TextField } from "@mui/material";
 
-import { type UnitItems } from "./constants";
+import { type UnitItems } from "@/features/UnitCalculator/constants";
 
 interface UnitSelectProps {
   selectName: string;

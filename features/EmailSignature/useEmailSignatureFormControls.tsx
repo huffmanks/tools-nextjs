@@ -6,7 +6,7 @@ import {
   EMAIL_SIGNATURE_LS_KEY,
   type EmailSignatureValues,
   initialEmailSignatureValues,
-} from "./constants";
+} from "@/features/EmailSignature/constants";
 
 export type EmailErrors = Partial<Record<keyof EmailSignatureValues, string>>;
 

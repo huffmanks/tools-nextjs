@@ -9,7 +9,7 @@ import {
   initialNumberPickerValues,
   megaMillionsValues,
   powerballValues,
-} from "./constants";
+} from "@/features/RandomPicker/NumberPicker/constants";
 
 export const useNumberPickerFormControls = () => {
   const resultRef = useRef<HTMLDivElement>(null);

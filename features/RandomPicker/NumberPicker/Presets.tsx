@@ -2,7 +2,7 @@ import { FormControlLabel, FormGroup, Switch } from "@mui/material";
 
 import FieldsetContainer from "@/FieldsetContainer";
 
-import { type NumberPickerValues } from "./constants";
+import { type NumberPickerValues } from "@/features/RandomPicker/NumberPicker/constants";
 
 interface PresetsProps {
   values: NumberPickerValues;

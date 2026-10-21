@@ -1,8 +1,8 @@
 import { Chip, Grid } from "@mui/material";
 
-import AspectPreview from "./AspectPreview";
-import AspectValues from "./AspectValues";
-import { type AspectRatioErrors, type AspectRatioValues } from "./constants";
+import AspectPreview from "@/features/AspectRatio/AspectPreview";
+import AspectValues from "@/features/AspectRatio/AspectValues";
+import { type AspectRatioErrors, type AspectRatioValues } from "@/features/AspectRatio/constants";
 
 interface AspectOutputProps {
   values: AspectRatioValues;

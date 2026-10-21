@@ -19,8 +19,8 @@ import {
 
 import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 
-import { codeActionSelect, codeFormatSelect } from "./constants";
-import { type CodeFormatterErrors } from "./useCodeFormatterFormControls";
+import { codeActionSelect, codeFormatSelect } from "@/features/CodeFormatter/constants";
+import { type CodeFormatterErrors } from "@/features/CodeFormatter/useCodeFormatterFormControls";
 
 interface CodeFormatFormProps {
   values: {

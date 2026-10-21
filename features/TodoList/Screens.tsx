@@ -1,13 +1,13 @@
 import { useLists } from "@/hooks/useLists";
 
+import Create from "@/features/TodoList/Create";
+import Edit from "@/features/TodoList/Edit";
+import View from "@/features/TodoList/View";
+import { todoListNavItems } from "@/features/TodoList/constants";
+
 import Skelly from "@/components/common/Skelly";
 import SkellyGroup from "@/components/common/SkellyGroup";
 import BottomMenu from "@/components/layout/BottomMenu";
-
-import Create from "./Create";
-import Edit from "./Edit";
-import View from "./View";
-import { todoListNavItems } from "./constants";
 
 const Screens = () => {
   const { screen, isFocused, activeListId, changeScreen } = useLists();

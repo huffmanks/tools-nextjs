@@ -2,9 +2,9 @@ import { Box, Grid } from "@mui/material";
 
 import { type InitialColors } from "@/constants/popoverColorPicker";
 
-import ActionGroup from "./ActionGroup";
-import CodeBlock from "./CodeBlock";
-import { type InitialCssScrollbarValues } from "./constants";
+import ActionGroup from "@/features/CSSScrollbar/ActionGroup";
+import CodeBlock from "@/features/CSSScrollbar/CodeBlock";
+import { type InitialCssScrollbarValues } from "@/features/CSSScrollbar/constants";
 
 interface ScrollbarOutputProps {
   values: InitialCssScrollbarValues;

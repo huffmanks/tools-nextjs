@@ -1,6 +1,6 @@
 import { useCallback, useSyncExternalStore } from "react";
 
-import { useEventCallback } from "./useEventCallback";
+import { useEventCallback } from "@/hooks/useEventCallback";
 
 function parseJSON<T>(value: string | null, fallback: T): T {
   if (value === null) return fallback;

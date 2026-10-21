@@ -4,7 +4,7 @@ import { type TodoItem, type TodoList } from "@/context/TodoContext";
 import { useLists } from "@/hooks/useLists";
 import { uniqueId } from "@/utils/uniqueId";
 
-import { initialTodoListErrors, initialTodoListValues } from "./constants";
+import { initialTodoListErrors, initialTodoListValues } from "@/features/TodoList/constants";
 
 export type TodoListForm = Omit<
   TodoList,

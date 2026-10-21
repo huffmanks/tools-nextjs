@@ -11,7 +11,11 @@ import {
   TextField,
 } from "@mui/material";
 
-import { type AspectRatioErrors, type AspectRatioValues, aspectInputs } from "./constants";
+import {
+  type AspectRatioErrors,
+  type AspectRatioValues,
+  aspectInputs,
+} from "@/features/AspectRatio/constants";
 
 interface AspectInputsProps {
   values: AspectRatioValues;

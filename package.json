@@ -14,7 +14,7 @@
     "build:staging": "cross-env NODE_ENV='production' STAGING='true' next build --webpack",
     "postbuild": "next-sitemap --config next-sitemap.config.mjs",
     "preview": "cross-env NODE_ENV='development' pnpm dlx serve out -l 3012",
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
     "format": "prettier --write .",
     "gen": "node scripts/gen-dummy-data.mjs"
   },

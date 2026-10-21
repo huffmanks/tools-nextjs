@@ -2,9 +2,9 @@ import { Stack, Typography } from "@mui/material";
 
 import { useLists } from "@/hooks/useLists";
 
-import OutputMessage from "@/components/common/OutputMessage";
+import ListCard from "@/features/TodoList/ListCard";
 
-import ListCard from "./ListCard";
+import OutputMessage from "@/components/common/OutputMessage";
 
 const View = () => {
   const { lists } = useLists();

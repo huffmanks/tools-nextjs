@@ -6,7 +6,11 @@ import { Divider, Grid, IconButton, InputAdornment, TextField, Typography } from
 import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import { useGlobalState } from "@/hooks/useGlobalState";
 
-import { type AspectRatioErrors, type AspectRatioValues, aspectOutput } from "./constants";
+import {
+  type AspectRatioErrors,
+  type AspectRatioValues,
+  aspectOutput,
+} from "@/features/AspectRatio/constants";
 
 interface AspectValuesProps {
   values: AspectRatioValues;

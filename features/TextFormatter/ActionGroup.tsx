@@ -15,7 +15,7 @@ import {
   TextField,
 } from "@mui/material";
 
-import { type TextFormatterValues, textFormatterCards } from "./constants";
+import { type TextFormatterValues, textFormatterCards } from "@/features/TextFormatter/constants";
 
 interface ActionGroupProps {
   values: TextFormatterValues;

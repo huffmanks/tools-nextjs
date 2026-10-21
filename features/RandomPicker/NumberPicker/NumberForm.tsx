@@ -2,13 +2,13 @@ import { Grid, Stack } from "@mui/material";
 
 import ActionGroup from "@/ActionGroup";
 
-import OutputMessage from "@/components/common/OutputMessage";
+import NumberOptions from "@/features/RandomPicker/NumberPicker/NumberOptions";
+import NumberRange from "@/features/RandomPicker/NumberPicker/NumberRange";
+import Output from "@/features/RandomPicker/NumberPicker/Output";
+import Presets from "@/features/RandomPicker/NumberPicker/Presets";
+import { type NumberPickerValues } from "@/features/RandomPicker/NumberPicker/constants";
 
-import NumberOptions from "./NumberOptions";
-import NumberRange from "./NumberRange";
-import Output from "./Output";
-import Presets from "./Presets";
-import { type NumberPickerValues } from "./constants";
+import OutputMessage from "@/components/common/OutputMessage";
 
 interface NumberFormProps {
   resultRef: React.RefObject<HTMLDivElement | null>;

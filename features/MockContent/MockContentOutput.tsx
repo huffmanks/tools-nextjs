@@ -3,7 +3,7 @@ import { useState } from "react";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Box, Button, Grid, Paper, Tab, Tabs, Typography } from "@mui/material";
 
-import { type MockContentValues, mockContentFormatTabs } from "./constants";
+import { type MockContentValues, mockContentFormatTabs } from "@/features/MockContent/constants";
 
 interface MockContentOutputProps {
   values: MockContentValues;

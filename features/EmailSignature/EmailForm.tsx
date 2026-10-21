@@ -2,11 +2,11 @@ import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import { Box, Button, Grid, Stack } from "@mui/material";
 
-import PopoverColorPicker from "@/components/common/PopoverColorPicker";
+import EmailInputs from "@/features/EmailSignature/EmailInputs";
+import { type EmailSignatureValues } from "@/features/EmailSignature/constants";
+import { type EmailErrors } from "@/features/EmailSignature/useEmailSignatureFormControls";
 
-import EmailInputs from "./EmailInputs";
-import { type EmailSignatureValues } from "./constants";
-import { type EmailErrors } from "./useEmailSignatureFormControls";
+import PopoverColorPicker from "@/components/common/PopoverColorPicker";
 
 interface EmailFormProps {
   values: EmailSignatureValues;

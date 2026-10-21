@@ -1,7 +1,7 @@
 import { Chip, Grid } from "@mui/material";
 
-import AspectInputs from "./AspectInputs";
-import { type AspectRatioErrors, type AspectRatioValues } from "./constants";
+import AspectInputs from "@/features/AspectRatio/AspectInputs";
+import { type AspectRatioErrors, type AspectRatioValues } from "@/features/AspectRatio/constants";
 
 interface AspectFormProps {
   values: AspectRatioValues;

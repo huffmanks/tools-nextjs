@@ -1,6 +1,6 @@
 import { Box, Grid, Stack } from "@mui/material";
 
-import { type AspectRatioValues } from "./constants";
+import { type AspectRatioValues } from "@/features/AspectRatio/constants";
 
 interface AspectPreviewProps {
   values: AspectRatioValues;

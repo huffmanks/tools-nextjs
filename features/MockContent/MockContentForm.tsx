@@ -12,7 +12,7 @@ import {
   Stack,
 } from "@mui/material";
 
-import { type MockContentValues, mockContentElements } from "./constants";
+import { type MockContentValues, mockContentElements } from "@/features/MockContent/constants";
 
 interface MockContentFormProps {
   values: MockContentValues;

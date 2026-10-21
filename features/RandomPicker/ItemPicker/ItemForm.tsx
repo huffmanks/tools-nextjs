@@ -2,10 +2,13 @@ import { FormControl, FormControlLabel, Grid, Radio, RadioGroup } from "@mui/mat
 
 import ActionGroup from "@/ActionGroup";
 
-import TextForm from "./TextForm";
-import TextOutput from "./TextOutput";
-import UploadForm from "./UploadForm";
-import { type ItemPickerValues, itemPickerRadios } from "./constants";
+import TextForm from "@/features/RandomPicker/ItemPicker/TextForm";
+import TextOutput from "@/features/RandomPicker/ItemPicker/TextOutput";
+import UploadForm from "@/features/RandomPicker/ItemPicker/UploadForm";
+import {
+  type ItemPickerValues,
+  itemPickerRadios,
+} from "@/features/RandomPicker/ItemPicker/constants";
 
 interface ItemFormProps {
   fileRef: React.RefObject<HTMLInputElement | null>;

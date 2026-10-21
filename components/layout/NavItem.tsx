@@ -6,7 +6,7 @@ import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui
 
 import { type RouteItem } from "@/constants/routes";
 
-import NavDivider from "./NavDivider";
+import NavDivider from "@/components/layout/NavDivider";
 
 interface NavItemProps {
   router: NextRouter;

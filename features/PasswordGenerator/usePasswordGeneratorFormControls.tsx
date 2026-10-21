@@ -2,8 +2,11 @@ import { useState } from "react";
 
 import { generateKey } from "@/utils/generateKey";
 
-import { type PasswordGeneratorValues, initialPasswordGeneratorValues } from "./constants";
-import { generatePassword } from "./utils";
+import {
+  type PasswordGeneratorValues,
+  initialPasswordGeneratorValues,
+} from "@/features/PasswordGenerator/constants";
+import { generatePassword } from "@/features/PasswordGenerator/utils";
 
 export const usePasswordGeneratorFormControls = () => {
   const [values, setValues] = useState<PasswordGeneratorValues>(initialPasswordGeneratorValues);

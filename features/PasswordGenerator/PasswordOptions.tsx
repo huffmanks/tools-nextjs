@@ -1,6 +1,9 @@
 import { Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel } from "@mui/material";
 
-import { type PasswordGeneratorValues, passwordGeneratorOptions } from "./constants";
+import {
+  type PasswordGeneratorValues,
+  passwordGeneratorOptions,
+} from "@/features/PasswordGenerator/constants";
 
 interface PasswordOptionsProps {
   values: PasswordGeneratorValues;

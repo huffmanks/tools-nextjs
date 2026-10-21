@@ -12,7 +12,7 @@ import {
   type QrCodeValues,
   combinedInitialQrCodeValues,
   initialQrCodeColors,
-} from "./constants";
+} from "@/features/QrCode/constants";
 
 type QRCodeInstance = InstanceType<typeof QRCode> & {
   _el: HTMLElement;

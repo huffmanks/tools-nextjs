@@ -6,7 +6,7 @@ import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import { useGlobalState } from "@/hooks/useGlobalState";
 import { generateScrollbarStrings } from "@/utils/generateScrollbarStrings";
 
-import { type InitialCssScrollbarValues } from "./constants";
+import { type InitialCssScrollbarValues } from "@/features/CSSScrollbar/constants";
 
 interface ActionGroupProps {
   values: InitialCssScrollbarValues;

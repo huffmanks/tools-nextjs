@@ -1,6 +1,6 @@
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
 
-import { type PasswordGeneratorValues } from "./constants";
+import { type PasswordGeneratorValues } from "@/features/PasswordGenerator/constants";
 
 interface PasswordTypeProps {
   values: PasswordGeneratorValues;

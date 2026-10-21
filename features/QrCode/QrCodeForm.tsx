@@ -11,17 +11,17 @@ import {
 
 import { qrCodePickers } from "@/constants/popoverColorPicker";
 
-import PopoverColorPicker from "@/components/common/PopoverColorPicker";
-
-import ActionGroup from "./ActionGroup";
-import LogoUpload from "./LogoUpload";
+import ActionGroup from "@/features/QrCode/ActionGroup";
+import LogoUpload from "@/features/QrCode/LogoUpload";
 import {
   type QrCodeColors,
   type QrCodeErrors,
   type QrCodeValues,
   qrCodeInputs,
   qrCodeSelects,
-} from "./constants";
+} from "@/features/QrCode/constants";
+
+import PopoverColorPicker from "@/components/common/PopoverColorPicker";
 
 interface QrCodeFormProps {
   values: QrCodeValues;
