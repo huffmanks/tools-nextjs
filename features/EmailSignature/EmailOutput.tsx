@@ -7,7 +7,7 @@ import { Box } from "@mui/material";
 
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import IconButton from "@mui/material/IconButton";
-import { EmailSignatureValues } from "../../constants/emailSignature";
+import { EmailSignatureValues } from "./constants";
 
 interface EmailOutputProps {
   values: EmailSignatureValues;

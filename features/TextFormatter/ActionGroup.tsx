@@ -1,4 +1,4 @@
-import { textFormatterCards, TextFormatterValues } from "../../constants/textFormatter";
+import { textFormatterCards, TextFormatterValues } from "./constants";
 
 import DeleteIcon from "@mui/icons-material/Delete";
 import {

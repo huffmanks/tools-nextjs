@@ -1,5 +1,5 @@
-import { UnitCalculatorValues, UnitItems } from "../../constants/unitCalculator";
-import { formatConvertNumber } from "./formatConvertNumber";
+import { UnitCalculatorValues, UnitItems } from "./constants";
+import { formatConvertNumber } from "./utils";
 
 import { Box } from "@mui/material";
 

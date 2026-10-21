@@ -1,4 +1,4 @@
-import { passwordGeneratorOptions, PasswordGeneratorValues } from "../../constants/passwordGenerator";
+import { passwordGeneratorOptions, PasswordGeneratorValues } from "./constants";
 
 import { Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel } from "@mui/material";
 

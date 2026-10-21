@@ -4,9 +4,9 @@ import oneDark from "react-syntax-highlighter/dist/cjs/styles/prism/one-dark";
 
 import { Box } from "@mui/material";
 
-import { InitialCssScrollbarValues } from "../../constants/cssScrollbar";
 import { InitialColors } from "../../constants/popoverColorPicker";
 import { generateScrollbarStrings } from "../../utilities/generateScrollbarStrings";
+import { InitialCssScrollbarValues } from "./constants";
 
 SyntaxHighlighter.registerLanguage("css", css);
 

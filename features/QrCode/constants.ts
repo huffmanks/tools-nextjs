@@ -1,4 +1,4 @@
-import { GLOBAL_SITE_LS_KEY_PREFIX } from "./global";
+import { GLOBAL_SITE_LS_KEY_PREFIX } from "../../constants/global";
 
 export const QR_CODE_LS_KEY = `${GLOBAL_SITE_LS_KEY_PREFIX}_qr-code`;
 
@@ -22,7 +22,7 @@ export interface QrCodeValues {
 
 export type QrCodeErrors = Partial<Record<keyof QrCodeValues | string, string>>;
 
-export const initialQrCodeValues: Omit<QrCodeValues, "colors"> = {
+const initialQrCodeValues: Omit<QrCodeValues, "colors"> = {
   qrCodeName: "",
   websiteLink: "",
   outputSize: 600,

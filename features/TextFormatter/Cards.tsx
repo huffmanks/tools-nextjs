@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import { textFormatterCards, TextFormatterValues } from "../../constants/textFormatter";
+import { textFormatterCards, TextFormatterValues } from "./constants";
 
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Card, CardContent, CardHeader, Grid, IconButton, Typography } from "@mui/material";

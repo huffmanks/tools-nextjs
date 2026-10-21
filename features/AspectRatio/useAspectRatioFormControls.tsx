@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { AspectRatioErrors, AspectRatioValues, initialAspectRatioValues } from "../../constants/aspectRatio";
-import { getAspectNumbers } from "./getAspectNumbers";
+import { AspectRatioErrors, AspectRatioValues, initialAspectRatioValues } from "./constants";
+import { getAspectNumbers } from "./utils";
 
 type AspectRatioField = keyof AspectRatioValues;
 

@@ -1,15 +1,15 @@
 import { useRef, useState } from "react";
 import * as XLSX from "xlsx";
 
-import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
-import { useGlobalState } from "../../hooks/useGlobalState";
+import { useCopyToClipboard } from "../../../hooks/useCopyToClipboard";
+import { useGlobalState } from "../../../hooks/useGlobalState";
 
-import { generateRandomNumbers } from "../../utilities/generateRandomNumbers";
-import { generateSeparatedStrings } from "./generateSeparatedStrings";
+import { generateRandomNumbers } from "../../../utilities/generateRandomNumbers";
+import { generateSeparatedStrings } from "../utils";
 
 import { SelectChangeEvent } from "@mui/material";
-import { ITEM_PICKER_LS_KEY, ItemPickerValues, initialItemPickerValues } from "../../constants/itemPicker";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import { ITEM_PICKER_LS_KEY, ItemPickerValues, initialItemPickerValues } from "./constants";
 
 type SpreadsheetRow = unknown[];
 

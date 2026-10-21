@@ -1,8 +1,8 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
 
 import PopoverColorPicker from "../../components/common/PopoverColorPicker";
-import { InitialCssScrollbarValues } from "../../constants/cssScrollbar";
 import { InitialColors, scrollbarThumbPickers, scrollbarTrackPickers } from "../../constants/popoverColorPicker";
+import { InitialCssScrollbarValues } from "./constants";
 import Demo from "./Demo";
 import PixelInput from "./PixelInput";
 import ScrollbarRadios from "./ScrollbarRadios";
@@ -108,7 +108,7 @@ const ScrollbarForm = ({ values, colors, handleBlur, handleChange }: ScrollbarFo
           <Box sx={{ display: "grid", alignItems: "end", gap: 3 }}>
             {values.isTrackTransparent
               ? scrollbarThumbPickers
-                  .filter((picker, index) => index !== 1)
+                  .filter((_picker, index) => index !== 1)
                   .map((picker) => (
                     <PopoverColorPicker
                       key={picker.name}

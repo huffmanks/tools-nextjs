@@ -2,12 +2,7 @@ import { useRouter } from "next/router";
 import { useMemo, useState } from "react";
 
 import { SelectChangeEvent } from "@mui/material";
-import {
-  initialUnitCalculatorValues,
-  unitCalculatorMeasurements,
-  UnitCalculatorValues,
-  UnitItems,
-} from "../../constants/unitCalculator";
+import { initialUnitCalculatorValues, unitCalculatorMeasurements, UnitCalculatorValues, UnitItems } from "./constants";
 
 type UnitCalculatorFormState = {
   queryKey: string | null;

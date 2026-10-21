@@ -4,7 +4,7 @@ import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 
 import PopoverColorPicker from "../../components/common/PopoverColorPicker";
-import { EmailSignatureValues } from "../../constants/emailSignature";
+import { EmailSignatureValues } from "./constants";
 import EmailInputs from "./EmailInputs";
 import { EmailErrors } from "./useEmailSignatureFormControls";
 

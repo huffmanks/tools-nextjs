@@ -2,7 +2,7 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Box, Button, Grid, Paper, Tab, Tabs, Typography } from "@mui/material";
 import { useState } from "react";
 
-import { mockContentFormatTabs, MockContentValues } from "../../constants/mockContent";
+import { mockContentFormatTabs, MockContentValues } from "./constants";
 
 interface MockContentOutputProps {
   values: MockContentValues;

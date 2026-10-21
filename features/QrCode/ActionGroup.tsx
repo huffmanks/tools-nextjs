@@ -3,7 +3,7 @@ import { Button, Link, Stack } from "@mui/material";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import QrCodeIcon from "@mui/icons-material/QrCode";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
-import { QrCodeValues } from "../../constants/qrCode";
+import { QrCodeValues } from "./constants";
 
 interface ActionGroupProps {
   values: QrCodeValues;

@@ -1,6 +1,6 @@
 import { startTransition, useMemo, useState } from "react";
 
-import { generateColorVariants } from "./generateColorVariants";
+import { generateColorVariants } from "./utils";
 
 import { colord, extend } from "colord";
 import namesPlugin from "colord/plugins/names";

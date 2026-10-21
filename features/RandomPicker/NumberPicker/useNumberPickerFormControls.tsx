@@ -1,14 +1,9 @@
 import { useRef, useState } from "react";
 
-import {
-  initialNumberPickerValues,
-  megaMillionsValues,
-  NumberPickerValues,
-  powerballValues,
-} from "../../constants/numberPicker";
-import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
-import { useGlobalState } from "../../hooks/useGlobalState";
-import { generateRandomNumbers } from "../../utilities/generateRandomNumbers";
+import { useCopyToClipboard } from "../../../hooks/useCopyToClipboard";
+import { useGlobalState } from "../../../hooks/useGlobalState";
+import { generateRandomNumbers } from "../../../utilities/generateRandomNumbers";
+import { initialNumberPickerValues, megaMillionsValues, NumberPickerValues, powerballValues } from "./constants";
 
 export const useNumberPickerFormControls = () => {
   const resultRef = useRef<HTMLDivElement>(null);

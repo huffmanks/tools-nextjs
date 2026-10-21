@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-import { TODO_LISTS_LS_KEY } from "../constants/todoList";
+import { TODO_LISTS_LS_KEY } from "../features/TodoList/constants";
 import { useCopyToClipboard } from "../hooks/useCopyToClipboard";
 import { useGlobalState } from "../hooks/useGlobalState";
 import { useLocalStorage } from "../hooks/useLocalStorage";

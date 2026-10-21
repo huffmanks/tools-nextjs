@@ -1,4 +1,4 @@
-import { unitCalculatorMeasurements, UnitCalculatorValues, UnitItems } from "../../constants/unitCalculator";
+import { unitCalculatorMeasurements, UnitCalculatorValues, UnitItems } from "./constants";
 
 import { MenuItem, SelectChangeEvent, TextField } from "@mui/material";
 

@@ -1,8 +1,8 @@
 import { Grid, Stack } from "@mui/material";
 
 import OutputMessage from "../../../components/common/OutputMessage";
-import { NumberPickerValues } from "../../../constants/numberPicker";
 import ActionGroup from "../ActionGroup";
+import { NumberPickerValues } from "./constants";
 import NumberOptions from "./NumberOptions";
 import NumberRange from "./NumberRange";
 import Output from "./Output";

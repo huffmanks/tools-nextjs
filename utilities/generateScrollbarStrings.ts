@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { InitialCssScrollbarValues } from "../constants/cssScrollbar";
 import { InitialColors } from "../constants/popoverColorPicker";
+import { InitialCssScrollbarValues } from "../features/CSSScrollbar/constants";
 
 export const generateScrollbarStrings = (values: InitialCssScrollbarValues, colors: InitialColors) => {
   const scrollBarHover = !values.isTrackTransparent

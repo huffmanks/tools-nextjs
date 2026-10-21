@@ -1,5 +1,5 @@
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
-import { directionRadios, trackTransparentRadios } from "../../constants/cssScrollbar";
+import { directionRadios, trackTransparentRadios } from "./constants";
 
 interface ScrollbarRadiosProps {
   radioGroup: "directionRadios" | "trackTransparentRadios";

@@ -7,15 +7,8 @@ interface ToastState {
   removeToast: () => void;
 }
 
-interface ModalState {
-  modalOpen: boolean;
-  addModal: () => void;
-  removeModal: () => void;
-}
-
 interface GlobalStateContextType {
   toasts: ToastState;
-  modal: ModalState;
 }
 
 export const GlobalStateContext = createContext<GlobalStateContextType>({
@@ -24,11 +17,6 @@ export const GlobalStateContext = createContext<GlobalStateContextType>({
     toastMessage: "",
     addToast: () => {},
     removeToast: () => {},
-  },
-  modal: {
-    modalOpen: false,
-    addModal: () => {},
-    removeModal: () => {},
   },
 });
 
@@ -39,7 +27,6 @@ interface GlobalStateProviderProps {
 const GlobalStateProvider = ({ children }: GlobalStateProviderProps) => {
   const [toastOpen, setToastOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
-  const [modalOpen, setModalOpen] = useState(false);
 
   const addToast = (text: string) => {
     setToastMessage(text);
@@ -51,25 +38,12 @@ const GlobalStateProvider = ({ children }: GlobalStateProviderProps) => {
     setToastMessage("");
   };
 
-  const addModal = () => {
-    setModalOpen(true);
-  };
-
-  const removeModal = () => {
-    setModalOpen(false);
-  };
-
   const contextValue = {
     toasts: {
       toastOpen,
       toastMessage,
       addToast: useCallback((text: string) => addToast(text), []),
       removeToast: useCallback(() => removeToast(), []),
-    },
-    modal: {
-      modalOpen,
-      addModal: useCallback(() => addModal(), []),
-      removeModal: useCallback(() => removeModal(), []),
     },
   };
 

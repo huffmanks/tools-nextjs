@@ -2,7 +2,7 @@ import FeedIcon from "@mui/icons-material/Feed";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Grid, Stack } from "@mui/material";
 
-import { mockContentElements, MockContentValues } from "../../constants/mockContent";
+import { mockContentElements, MockContentValues } from "./constants";
 
 interface MockContentFormProps {
   values: MockContentValues;

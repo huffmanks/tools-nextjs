@@ -1,9 +1,9 @@
 import { Box, Grid } from "@mui/material";
 
-import { InitialCssScrollbarValues } from "../../constants/cssScrollbar";
 import { InitialColors } from "../../constants/popoverColorPicker";
 import ActionGroup from "./ActionGroup";
 import CodeBlock from "./CodeBlock";
+import { InitialCssScrollbarValues } from "./constants";
 
 interface ScrollbarOutputProps {
   values: InitialCssScrollbarValues;

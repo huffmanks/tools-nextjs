@@ -1,9 +1,9 @@
 import { useState, type RefObject } from "react";
 
-import { initialTodoListErrors, initialTodoListValues } from "../../constants/todoList";
 import { TodoItem, TodoList } from "../../context/TodoContext";
 import { useLists } from "../../hooks/useLists";
 import { uniqueId } from "../../utilities/uniqueId";
+import { initialTodoListErrors, initialTodoListValues } from "./constants";
 
 export type TodoListForm = Omit<TodoList, "id" | "createdAt" | "updatedAt" | "isFavorite" | "items"> & {
   id?: TodoList["id"];

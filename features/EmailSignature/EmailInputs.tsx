@@ -1,4 +1,4 @@
-import { emailInputs, EmailSignatureValues } from "../../constants/emailSignature";
+import { emailInputs, EmailSignatureValues } from "./constants";
 
 import { Grid, TextField } from "@mui/material";
 import { EmailErrors } from "./useEmailSignatureFormControls";

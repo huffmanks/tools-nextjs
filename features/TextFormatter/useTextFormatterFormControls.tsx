@@ -4,15 +4,15 @@ import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
 import { useGlobalState } from "../../hooks/useGlobalState";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
+import { uniqueId } from "../../utilities/uniqueId";
 import {
   initialTextFormatterValues,
   TEXT_FORMATTER_LS_KEY,
   textFormatterCheckAllValues,
   textFormatterCheckNoneValues,
   TextFormatterValues,
-} from "../../constants/textFormatter";
-import { uniqueId } from "../../utilities/uniqueId";
-import { formatTextCases } from "./helpers";
+} from "./constants";
+import { formatTextCases } from "./utils";
 
 interface SavedItem {
   id: string;

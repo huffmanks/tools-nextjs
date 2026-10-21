@@ -1,4 +1,4 @@
-import { delimiterOptions, delimiterSelects, ItemPickerValues } from "../../../constants/itemPicker";
+import { delimiterOptions, delimiterSelects, ItemPickerValues } from "./constants";
 
 import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, Stack } from "@mui/material";
 

@@ -1,8 +1,8 @@
 import { Grid, SelectChangeEvent, Stack, TextField } from "@mui/material";
 
 import Counter from "../../../components/common/Counter";
-import { ItemPickerValues } from "../../../constants/itemPicker";
 import FieldsetContainer from "../FieldsetContainer";
+import { ItemPickerValues } from "./constants";
 import TextDelimiters from "./TextDelimiters";
 
 interface TextFormProps {

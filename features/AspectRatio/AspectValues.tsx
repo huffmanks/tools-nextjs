@@ -1,7 +1,7 @@
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
 import { useGlobalState } from "../../hooks/useGlobalState";
 
-import { aspectOutput, AspectRatioErrors, AspectRatioValues } from "../../constants/aspectRatio";
+import { aspectOutput, AspectRatioErrors, AspectRatioValues } from "./constants";
 
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Divider, Grid, IconButton, InputAdornment, TextField, Typography } from "@mui/material";

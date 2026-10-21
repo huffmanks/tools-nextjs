@@ -1,7 +1,7 @@
 import { Box, Container, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
 
 import { qrCodePickers } from "../../constants/popoverColorPicker";
-import { QrCodeColors, QrCodeErrors, qrCodeInputs, qrCodeSelects, QrCodeValues } from "../../constants/qrCode";
+import { QrCodeColors, QrCodeErrors, qrCodeInputs, qrCodeSelects, QrCodeValues } from "./constants";
 
 import PopoverColorPicker from "../../components/common/PopoverColorPicker";
 import ActionGroup from "./ActionGroup";

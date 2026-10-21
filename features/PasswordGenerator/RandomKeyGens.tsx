@@ -1,6 +1,6 @@
-import { PasswordGeneratorValues } from "../../constants/passwordGenerator";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
 import { useGlobalState } from "../../hooks/useGlobalState";
+import { PasswordGeneratorValues } from "./constants";
 
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { FormGroup, IconButton, InputAdornment, TextField } from "@mui/material";

@@ -1,6 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from "@mui/material";
 
-import { firefoxWidthSelect } from "../../constants/cssScrollbar";
+import { firefoxWidthSelect } from "./constants";
 
 interface ScrollbarSelectProps {
   selectGroup: "firefoxWidthSelect";

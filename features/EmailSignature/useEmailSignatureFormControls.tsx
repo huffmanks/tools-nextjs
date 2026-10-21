@@ -1,11 +1,7 @@
 import { useState } from "react";
 
-import {
-  EMAIL_SIGNATURE_LS_KEY,
-  EmailSignatureValues,
-  initialEmailSignatureValues,
-} from "../../constants/emailSignature";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { EMAIL_SIGNATURE_LS_KEY, EmailSignatureValues, initialEmailSignatureValues } from "./constants";
 
 export type EmailErrors = Partial<Record<keyof EmailSignatureValues, string>>;
 

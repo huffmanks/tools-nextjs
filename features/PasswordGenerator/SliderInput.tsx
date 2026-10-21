@@ -1,4 +1,4 @@
-import { passwordGeneratorMarks } from "../../constants/passwordGenerator";
+import { passwordGeneratorMarks } from "./constants";
 
 import StraightenIcon from "@mui/icons-material/Straighten";
 import { Box, Grid, Slider, Typography } from "@mui/material";

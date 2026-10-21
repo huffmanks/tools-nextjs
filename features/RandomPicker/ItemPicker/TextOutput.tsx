@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 
 import OutputMessage from "../../../components/common/OutputMessage";
-import { ItemPickerValues } from "../../../constants/itemPicker";
+import { ItemPickerValues } from "./constants";
 
 interface TextOutputProps {
   resultRef: React.RefObject<HTMLElement | null>;

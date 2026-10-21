@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import { aspectInputs, AspectRatioErrors, AspectRatioValues } from "../../constants/aspectRatio";
+import { aspectInputs, AspectRatioErrors, AspectRatioValues } from "./constants";
 
 import { Chip, Divider, FormControl, FormControlLabel, Grid, Radio, RadioGroup, TextField } from "@mui/material";
 

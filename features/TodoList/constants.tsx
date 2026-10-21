@@ -2,7 +2,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import NoteAddIcon from "@mui/icons-material/NoteAdd";
 import ViewListIcon from "@mui/icons-material/ViewList";
 
-import { GLOBAL_SITE_LS_KEY_PREFIX } from "./global";
+import { GLOBAL_SITE_LS_KEY_PREFIX } from "../../constants/global";
 
 export const TODO_LISTS_LS_KEY = `${GLOBAL_SITE_LS_KEY_PREFIX}_todo-lists`;
 

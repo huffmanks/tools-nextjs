@@ -7,6 +7,5 @@ export const useGlobalState = () => {
 
   return {
     ...context.toasts,
-    ...context.modal,
   };
 };

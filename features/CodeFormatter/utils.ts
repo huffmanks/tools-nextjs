@@ -1,5 +1,4 @@
 export type CodeFormat = "plaintext" | "json" | "html" | "css" | "js";
-export type CodeAction = "decode" | "encode" | "minify" | "un-minify" | "stringify" | "un-stringify";
 
 export function detectFormat(input: string): CodeFormat {
   const code = input.trim();
@@ -186,7 +185,7 @@ const handleMinification = ({ codeInput, format }: { codeInput: string; format: 
   }
 };
 
-export const handleBeautify = ({ codeInput, format }: { codeInput: string; format: string }) => {
+const handleBeautify = ({ codeInput, format }: { codeInput: string; format: string }) => {
   const code = codeInput.trim();
   if (!code) return code;
 

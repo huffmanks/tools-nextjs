@@ -1,4 +1,4 @@
-import { variantColorPickerRadios } from "../../constants/colorPicker";
+import { variantColorPickerRadios } from "./constants";
 
 import { Box, FormControl, FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { ConvertedColors } from "./ColorForm";

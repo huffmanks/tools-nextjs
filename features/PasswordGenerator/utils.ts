@@ -1,4 +1,4 @@
-import { passwordGeneratorIncludedItems } from "../../constants/passwordGenerator";
+import { passwordGeneratorIncludedItems } from "./constants";
 
 type RandomGeneratorFunc = (excludeSimilar: boolean) => string | number;
 

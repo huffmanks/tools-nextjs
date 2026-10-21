@@ -2,7 +2,7 @@ import { FormControl, FormControlLabel, Grid, Radio, RadioGroup } from "@mui/mat
 
 import ActionGroup from "../ActionGroup";
 
-import { ItemPickerValues, itemPickerRadios } from "../../../constants/itemPicker";
+import { ItemPickerValues, itemPickerRadios } from "./constants";
 import TextForm from "./TextForm";
 import TextOutput from "./TextOutput";
 import UploadForm from "./UploadForm";

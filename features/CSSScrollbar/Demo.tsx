@@ -1,6 +1,6 @@
-import { InitialCssScrollbarValues } from "../../constants/cssScrollbar";
 import { InitialColors } from "../../constants/popoverColorPicker";
 import { generateScrollbarStrings } from "../../utilities/generateScrollbarStrings";
+import { InitialCssScrollbarValues } from "./constants";
 
 const DummyText = () => {
   return (

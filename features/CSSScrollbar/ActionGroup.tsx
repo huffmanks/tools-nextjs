@@ -1,11 +1,11 @@
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Box, Button } from "@mui/material";
 
-import { InitialCssScrollbarValues } from "../../constants/cssScrollbar";
 import { InitialColors } from "../../constants/popoverColorPicker";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
 import { useGlobalState } from "../../hooks/useGlobalState";
 import { generateScrollbarStrings } from "../../utilities/generateScrollbarStrings";
+import { InitialCssScrollbarValues } from "./constants";
 
 interface ActionGroupProps {
   values: InitialCssScrollbarValues;

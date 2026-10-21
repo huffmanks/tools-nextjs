@@ -7,8 +7,8 @@ import {
   mockContentCheckAllValues,
   mockContentCheckNoneValues,
   MockContentValues,
-} from "../../constants/mockContent";
-import { generateFormats, getCheckedElements } from "./generate-formats";
+} from "./constants";
+import { generateFormats, getCheckedElements } from "./utils";
 
 export const useMockContentFormControls = () => {
   const [values, setValues] = useState<MockContentValues>(initialMockContentValues);

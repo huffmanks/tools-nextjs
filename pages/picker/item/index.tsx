@@ -1,4 +1,4 @@
-import { useItemPickerFormControls } from "../../../features/RandomPicker/useItemPickerFormControls";
+import { useItemPickerFormControls } from "../../../features/RandomPicker/ItemPicker/useItemPickerFormControls";
 import { useCounter } from "../../../hooks/useCounter";
 
 import { Typography } from "@mui/material";

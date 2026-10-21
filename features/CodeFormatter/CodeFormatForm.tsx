@@ -17,8 +17,8 @@ import {
   useTheme,
 } from "@mui/material";
 
-import { codeActionSelect, codeFormatSelect } from "../../constants/codeFormatter";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
+import { codeActionSelect, codeFormatSelect } from "./constants";
 import { CodeFormatterErrors } from "./useCodeFormatterFormControls";
 
 interface CodeFormatFormProps {
