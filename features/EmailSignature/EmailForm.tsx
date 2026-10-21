@@ -4,7 +4,20 @@ import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 
 import PopoverColorPicker from "../../components/common/PopoverColorPicker";
+import { EmailSignatureValues } from "../../constants/emailSignature";
 import EmailInputs from "./EmailInputs";
+import { EmailErrors } from "./useEmailSignatureFormControls";
+
+interface EmailFormProps {
+  values: EmailSignatureValues;
+  errors: EmailErrors;
+  formIsValid: (fieldValues?: Partial<EmailSignatureValues>) => boolean;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  handleBlur: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  handleColorChange: (name?: string, colorValue?: string) => void;
+  handleReset: () => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+}
 
 const EmailForm = ({
   values,
@@ -15,7 +28,7 @@ const EmailForm = ({
   handleColorChange,
   handleReset,
   handleSubmit,
-}) => {
+}: EmailFormProps) => {
   return (
     <>
       <Box component="form" onSubmit={handleSubmit} autoComplete="off">

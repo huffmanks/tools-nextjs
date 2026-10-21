@@ -37,7 +37,7 @@ interface TodoStateContextType {
   addListAsFavorite: (id: string) => void;
   copyList: (listToCopy: TodoList) => Promise<void>;
   expandList: (id: string) => void;
-  editScreen: (e: any, id: string) => void;
+  editScreen: (e: unknown, id: string) => void;
   updateList: (id: string, changedList: TodoList) => void;
   removeList: (id: string) => void;
 }
@@ -146,7 +146,7 @@ const TodoStateProvider = ({ children }: TodoStateProviderProps) => {
     setExpanded(id);
   };
 
-  const editScreen = (e: any, id: string) => {
+  const editScreen = (e: unknown, id: string) => {
     setId(id);
     changeScreen(e, "edit");
   };

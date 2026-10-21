@@ -1,8 +1,16 @@
-import { emailInputs } from "../../constants/emailSignature";
+import { emailInputs, EmailSignatureValues } from "../../constants/emailSignature";
 
 import { Grid, TextField } from "@mui/material";
+import { EmailErrors } from "./useEmailSignatureFormControls";
 
-const EmailInputs = ({ values, errors, handleChange, handleBlur }) => {
+interface EmailInputsProps {
+  values: EmailSignatureValues;
+  errors: EmailErrors;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  handleBlur: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+}
+
+const EmailInputs = ({ values, errors, handleChange, handleBlur }: EmailInputsProps) => {
   return (
     <>
       {emailInputs.map((field) => (
@@ -19,8 +27,6 @@ const EmailInputs = ({ values, errors, handleChange, handleBlur }) => {
             onChange={handleChange}
             onBlur={handleBlur}
             error={!!errors[field.name]}
-            multiline={field.multiline ?? false}
-            rows={field.rows ?? 1}
             autoComplete="none"
             {...(errors[field.name] && {
               error: true,

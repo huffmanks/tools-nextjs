@@ -2,7 +2,31 @@ import { GLOBAL_SITE_LS_KEY_PREFIX } from "./global";
 
 export const EMAIL_SIGNATURE_LS_KEY = `${GLOBAL_SITE_LS_KEY_PREFIX}_email-signature`;
 
-export const initialEmailSignatureValues = {
+export interface EmailSignatureValues {
+  fullName: string;
+  email: string;
+  phone: string;
+  cellPhone: string;
+  fax: string;
+  title: string;
+  website: string;
+  companyName: string;
+  department: string;
+  address: string;
+  cityState: string;
+  zipCode: string;
+  themeColor: string;
+}
+
+export interface EmailInputConfig {
+  name: keyof EmailSignatureValues;
+  label: string;
+  placeholder: string;
+  required: boolean;
+  gridSm: number;
+}
+
+export const initialEmailSignatureValues: EmailSignatureValues = {
   fullName: "",
   email: "",
   phone: "",
@@ -18,7 +42,7 @@ export const initialEmailSignatureValues = {
   themeColor: "#5b21b6",
 };
 
-export const emailInputs = [
+export const emailInputs: EmailInputConfig[] = [
   {
     name: "fullName",
     label: "Full Name",

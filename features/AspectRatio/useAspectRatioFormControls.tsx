@@ -1,4 +1,3 @@
-import type { ChangeEvent, FocusEvent } from "react";
 import { useState } from "react";
 
 import { AspectRatioErrors, AspectRatioValues, initialAspectRatioValues } from "../../constants/aspectRatio";
@@ -11,7 +10,7 @@ interface CalculatedLowerBounds {
   height: string;
 }
 
-type AspectRatioChangeEvent = ChangeEvent<HTMLInputElement | HTMLSelectElement>;
+type AspectRatioChangeEvent = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement, Element>;
 
 export const useAspectRatioFormControls = () => {
   const [values, setValues] = useState<AspectRatioValues>(initialAspectRatioValues);
@@ -62,7 +61,7 @@ export const useAspectRatioFormControls = () => {
     return !temp.originalWidth && !temp.originalHeight && !temp.newSize;
   };
 
-  const handleFocus = (event: FocusEvent<HTMLInputElement>): void => {
+  const handleFocus = (event: React.FocusEvent<HTMLInputElement>): void => {
     event.target.select();
   };
 

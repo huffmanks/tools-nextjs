@@ -7,8 +7,13 @@ import { Box } from "@mui/material";
 
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import IconButton from "@mui/material/IconButton";
+import { EmailSignatureValues } from "../../constants/emailSignature";
 
-const EmailOutput = ({ values }) => {
+interface EmailOutputProps {
+  values: EmailSignatureValues;
+}
+
+const EmailOutput = ({ values }: EmailOutputProps) => {
   const resultRef = useRef(null);
 
   const { addToast } = useGlobalState();

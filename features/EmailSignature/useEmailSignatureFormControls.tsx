@@ -1,15 +1,24 @@
 import { useState } from "react";
 
-import { EMAIL_SIGNATURE_LS_KEY, initialEmailSignatureValues } from "../../constants/emailSignature";
+import {
+  EMAIL_SIGNATURE_LS_KEY,
+  EmailSignatureValues,
+  initialEmailSignatureValues,
+} from "../../constants/emailSignature";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
+export type EmailErrors = Partial<Record<keyof EmailSignatureValues, string>>;
+
 export const useEmailSignatureFormControls = () => {
-  const [values, setValues] = useLocalStorage(EMAIL_SIGNATURE_LS_KEY, initialEmailSignatureValues);
-  const [errors, setErrors] = useState({});
+  const [values, setValues] = useLocalStorage<EmailSignatureValues>(
+    EMAIL_SIGNATURE_LS_KEY,
+    initialEmailSignatureValues,
+  );
+  const [errors, setErrors] = useState<EmailErrors>({});
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const validate = (fieldValues = values) => {
-    let temp = { ...errors };
+  const validate = (fieldValues: Partial<EmailSignatureValues> = values) => {
+    let temp: EmailErrors = { ...errors };
 
     if ("fullName" in fieldValues) temp.fullName = fieldValues.fullName ? "" : "This field is required.";
 
@@ -57,7 +66,7 @@ export const useEmailSignatureFormControls = () => {
     });
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
 
     setFormSubmitted(false);
@@ -68,31 +77,29 @@ export const useEmailSignatureFormControls = () => {
     });
   };
 
-  const handleColorChange = (name, colorValue) => {
+  const handleColorChange = (_name?: string, colorValue?: string) => {
     setValues((prev) => ({
       ...prev,
-      themeColor: colorValue || initialValues.themeColor,
+      themeColor: colorValue || initialEmailSignatureValues.themeColor,
     }));
   };
 
-  const handleBlur = (e) => {
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-
-    validate({ [name]: value });
+    validate({ [name]: value } as Partial<EmailSignatureValues>);
   };
 
-  const formIsValid = (fieldValues = values) => {
+  const formIsValid = (fieldValues: Partial<EmailSignatureValues> = values) => {
     const isValid =
-      fieldValues?.fullName &&
-      fieldValues?.email &&
-      fieldValues?.title &&
-      fieldValues?.phone &&
+      Boolean(fieldValues?.fullName) &&
+      Boolean(fieldValues?.email) &&
+      Boolean(fieldValues?.title) &&
+      Boolean(fieldValues?.phone) &&
       Object.values(errors).every((x) => x === "");
-
-    return isValid;
+    return Boolean(isValid);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (formIsValid()) {
@@ -103,7 +110,7 @@ export const useEmailSignatureFormControls = () => {
   };
 
   const handleReset = () => {
-    setValues(initialValues);
+    setValues(initialEmailSignatureValues);
     setErrors({});
     setFormSubmitted(false);
   };
