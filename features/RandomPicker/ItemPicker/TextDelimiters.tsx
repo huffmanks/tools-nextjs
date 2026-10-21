@@ -1,8 +1,13 @@
-import { delimiterOptions, delimiterSelects } from "../../../constants/itemPicker";
+import { delimiterOptions, delimiterSelects, ItemPickerValues } from "../../../constants/itemPicker";
 
-import { FormControl, InputLabel, MenuItem, Select, Stack } from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, Stack } from "@mui/material";
 
-const TextDelimiters = ({ values, handleChange }) => {
+interface TextDelimitersProps {
+  values: ItemPickerValues;
+  handleChange: (e: SelectChangeEvent<string>) => void;
+}
+
+const TextDelimiters = ({ values, handleChange }: TextDelimitersProps) => {
   return (
     <Stack direction={{ xs: "column", xms: "row" }} gap={2} sx={{ flex: 1, maxWidth: "100%" }}>
       {delimiterSelects.map((select, i) => (

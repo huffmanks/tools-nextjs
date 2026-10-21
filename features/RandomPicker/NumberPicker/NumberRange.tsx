@@ -1,8 +1,14 @@
 import { FormGroup, TextField } from "@mui/material";
 
+import { NumberPickerValues } from "../../../constants/numberPicker";
 import FieldsetContainer from "../FieldsetContainer";
 
-const NumberRange = ({ values, handleChange }) => {
+interface NumberRangeProps {
+  values: NumberPickerValues;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+}
+
+const NumberRange = ({ values, handleChange }: NumberRangeProps) => {
   const isDisabled = values.isLottery;
 
   return (

@@ -1,6 +1,5 @@
 ## Issues
 
-- [ ] /picker/number completely broken.
 - [ ] /generate/css-scrollbar Minified React error # 418;
 
 ## Global changes

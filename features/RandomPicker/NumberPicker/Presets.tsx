@@ -1,8 +1,14 @@
 import { FormControlLabel, FormGroup, Switch } from "@mui/material";
 
+import { NumberPickerValues } from "../../../constants/numberPicker";
 import FieldsetContainer from "../FieldsetContainer";
 
-const Presets = ({ values, handleChange }) => {
+interface PresetsProps {
+  values: NumberPickerValues;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+}
+
+const Presets = ({ values, handleChange }: PresetsProps) => {
   return (
     <>
       <FieldsetContainer
@@ -24,8 +30,14 @@ const Presets = ({ values, handleChange }) => {
             },
             marginBottom: 1,
           }}>
-          <FormControlLabel control={<Switch checked={values.isPowerball} onChange={handleChange} name="powerball" />} label="Powerball" />
-          <FormControlLabel control={<Switch checked={values.isMegaMillions} onChange={handleChange} name="megaMillions" />} label="Mega Millions" />
+          <FormControlLabel
+            control={<Switch checked={values.isPowerball} onChange={handleChange} name="powerball" />}
+            label="Powerball"
+          />
+          <FormControlLabel
+            control={<Switch checked={values.isMegaMillions} onChange={handleChange} name="megaMillions" />}
+            label="Mega Millions"
+          />
         </FormGroup>
       </FieldsetContainer>
     </>

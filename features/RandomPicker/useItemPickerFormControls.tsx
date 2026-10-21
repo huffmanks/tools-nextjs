@@ -7,13 +7,14 @@ import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
 import { generateRandomNumbers } from "../../utilities/generateRandomNumbers";
 import { generateSeparatedStrings } from "./generateSeparatedStrings";
 
-import { ITEM_PICKER_LS_KEY, initialValues } from "../../constants/itemPicker";
+import { SelectChangeEvent } from "@mui/material";
+import { ITEM_PICKER_LS_KEY, ItemPickerValues, initialValues } from "../../constants/itemPicker";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 type SpreadsheetRow = unknown[];
 
 export const useItemPickerFormControls = () => {
-  const [values, setValues] = useLocalStorage(ITEM_PICKER_LS_KEY, initialValues);
+  const [values, setValues] = useLocalStorage<ItemPickerValues>(ITEM_PICKER_LS_KEY, initialValues);
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const { addToast } = useGlobalState();
@@ -22,7 +23,9 @@ export const useItemPickerFormControls = () => {
   const fileRef = useRef<HTMLInputElement>(null);
   const resultRef = useRef<HTMLElement>(null);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>,
+  ): void => {
     const { name, value } = event.target;
 
     if (errorMessage) {
@@ -91,7 +94,7 @@ export const useItemPickerFormControls = () => {
     reader.readAsArrayBuffer(file);
   };
 
-  const handleRandomSelection = (event) => {
+  const handleRandomSelection = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     const headerRow = values.selectedRows[0];
@@ -124,7 +127,7 @@ export const useItemPickerFormControls = () => {
   const handleClick = () => {
     const items = generateSeparatedStrings(values);
 
-    if (items.isError) return setErrorMessage(items.message);
+    if ("isError" in items) return setErrorMessage(items.message);
 
     const lines = items.length;
 

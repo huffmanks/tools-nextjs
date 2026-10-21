@@ -2,7 +2,19 @@ import { GLOBAL_SITE_LS_KEY_PREFIX } from "./global";
 
 export const ITEM_PICKER_LS_KEY = `${GLOBAL_SITE_LS_KEY_PREFIX}_item-picker`;
 
-export const initialValues = {
+export interface ItemPickerValues {
+  total: number;
+  listType: string;
+  selectedRows: unknown[][];
+  isProcessing: boolean;
+  fileName: string;
+  inputDelimiter: string;
+  outputDelimiter: string;
+  list: string;
+  output: string[];
+}
+
+export const initialValues: ItemPickerValues = {
   total: 1,
   listType: "upload",
   selectedRows: [],
@@ -27,11 +39,11 @@ export const itemRadios = [
 
 export const delimiterSelects = [
   {
-    value: "inputDelimiter",
+    value: "inputDelimiter" as const,
     label: "Input",
   },
   {
-    value: "outputDelimiter",
+    value: "outputDelimiter" as const,
     label: "Output",
   },
 ];

@@ -1,5 +1,18 @@
-export const generateSeparatedStrings = (items) => {
-  let values = { isError: true, message: `The inserted items do not contain any ${items.inputDelimiter}s.` };
+interface SeparatedStringsInput {
+  inputDelimiter: "newline" | "comma" | "pipe" | string;
+  list: string;
+}
+
+interface ErrorResult {
+  isError: boolean;
+  message: string;
+}
+
+export const generateSeparatedStrings = (items: SeparatedStringsInput): string[] | ErrorResult => {
+  let values: string[] | ErrorResult = {
+    isError: true,
+    message: `The inserted items do not contain any ${items.inputDelimiter}s.`,
+  };
 
   if (items.inputDelimiter === "newline") {
     if (!items.list.includes("\n")) return values;

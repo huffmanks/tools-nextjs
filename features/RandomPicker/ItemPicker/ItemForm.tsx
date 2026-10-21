@@ -2,22 +2,15 @@ import { FormControl, FormControlLabel, Grid, Radio, RadioGroup } from "@mui/mat
 
 import ActionGroup from "../ActionGroup";
 
-import { itemRadios } from "../../../constants/itemPicker";
+import { ItemPickerValues, itemRadios } from "../../../constants/itemPicker";
 import TextForm from "./TextForm";
 import TextOutput from "./TextOutput";
 import UploadForm from "./UploadForm";
 
-type ItemFormValues = {
-  listType: string;
-  output: unknown[];
-  selectedRows: unknown[];
-  isProcessing: boolean;
-};
-
-type ItemFormProps = {
+interface ItemFormProps {
   fileRef: React.RefObject<HTMLInputElement | null>;
   resultRef: React.RefObject<HTMLElement | null>;
-  values: ItemFormValues;
+  values: ItemPickerValues;
   errorMessage?: string;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleBlur?: () => void;
@@ -28,7 +21,7 @@ type ItemFormProps = {
   handleReset: () => void;
   handleDecrease: () => void;
   handleIncrease: () => void;
-};
+}
 
 const ItemForm = ({
   fileRef,

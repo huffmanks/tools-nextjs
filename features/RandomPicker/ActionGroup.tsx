@@ -4,11 +4,11 @@ import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import { Button, Stack } from "@mui/material";
 
 interface ActionGroupProps {
-  isCopyDisabled: boolean;
-  isGenerateDisabled: boolean;
-  isUpload: boolean;
+  isCopyDisabled?: boolean;
+  isGenerateDisabled?: boolean;
+  isUpload?: boolean;
   generateAria: string;
-  handleRandomSelection: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  handleRandomSelection?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   handleClick: () => void;
   handleCopy: () => void;
   handleReset: () => void;

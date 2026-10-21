@@ -1,6 +1,14 @@
 import { FormControl, FormHelperText, FormLabel } from "@mui/material";
 
-const FieldsetContainer = ({ title, helperText, size, isFullWidth, children }) => {
+interface FieldsetContainerProps {
+  title: string;
+  helperText: string;
+  size?: "small" | "medium" | "large";
+  isFullWidth?: boolean;
+  children: React.ReactNode;
+}
+
+const FieldsetContainer = ({ title, helperText, size, isFullWidth, children }: FieldsetContainerProps) => {
   const styles = {
     control: {
       display: size === "small" ? "block" : "initial",

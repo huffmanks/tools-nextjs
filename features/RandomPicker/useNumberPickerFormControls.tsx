@@ -1,20 +1,21 @@
 import { useRef, useState } from "react";
 
-import { initialValues, megaMillionsValues, powerballValues } from "../../constants/numberPicker";
+import { initialValues, megaMillionsValues, NumberPickerValues, powerballValues } from "../../constants/numberPicker";
 import { useGlobalState } from "../../hooks/useContext";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
 import { generateRandomNumbers } from "../../utilities/generateRandomNumbers";
 
 export const useNumberPickerFormControls = () => {
-  const resultRef = useRef(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const { addToast } = useGlobalState();
   const [copy] = useCopyToClipboard(true);
 
-  const [values, setValues] = useState(initialValues);
+  const [values, setValues] = useState<NumberPickerValues>(initialValues);
 
-  const handleChange = (e) => {
-    const { value, name, type, checked } = e.target;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const target = e.target as HTMLInputElement;
+    const { value, name, type, checked } = target;
 
     if (name === "total" || name === "start" || name === "end") {
       setValues((prev) => ({
@@ -46,26 +47,52 @@ export const useNumberPickerFormControls = () => {
   const handleClick = () => {
     const { total, unique, sorted, start, end, isPowerball, isMegaMillions } = values;
 
-    const lowerNumber = start < end ? start : end;
-    const higherNumber = start > end ? start : end;
+    const numTotal = typeof total === "number" ? total : parseInt(total || "0", 10);
+    const numStart = typeof start === "number" ? start : parseInt(start || "0", 10);
+    const numEnd = typeof end === "number" ? end : parseInt(end || "0", 10);
+
+    const lowerNumber = numStart < numEnd ? numStart : numEnd;
+    const higherNumber = numStart > numEnd ? numStart : numEnd;
 
     const isLottery = (isPowerball || isMegaMillions) ?? false;
-    const output = generateRandomNumbers(total, lowerNumber, higherNumber, unique, sorted, isLottery);
 
-    const resultChildren = [...resultRef.current.children].map((child) => child.offsetWidth + 16);
-    const resultChildrenWidth = resultChildren.reduce((prev, value) => prev + value, 0);
-    const resultWidth = resultRef.current.offsetWidth;
+    const output = generateRandomNumbers({
+      total: numTotal,
+      lowerNumber,
+      higherNumber,
+      unique,
+      sorted,
+      isLottery,
+    });
 
-    setValues({
-      ...values,
+    let resultIsCentered = false;
+    if (resultRef.current) {
+      const resultChildren = [...resultRef.current.children].map((child) => (child as HTMLElement).offsetWidth + 16);
+      const resultChildrenWidth = resultChildren.reduce((prev, val) => prev + val, 0);
+      const resultWidth = resultRef.current.offsetWidth;
+      resultIsCentered = resultChildrenWidth > resultWidth;
+    }
+
+    const lotteryPowerOutput = isLottery
+      ? generateRandomNumbers({
+          total: 1,
+          lowerNumber: 1,
+          higherNumber: isPowerball ? 26 : 25,
+        })
+      : "";
+
+    setValues((prev) => ({
+      ...prev,
       randomNumber: output,
       isLottery,
-      lotteryPower: isLottery ? generateRandomNumbers(1, 1, isPowerball ? 26 : 25) : "",
-      resultIsCentered: resultChildrenWidth > resultWidth,
-    });
+      lotteryPower: Array.isArray(lotteryPowerOutput) ? lotteryPowerOutput[0] : "",
+      resultIsCentered,
+    }));
   };
 
   const handleCopy = async () => {
+    if (!resultRef.current) return;
+
     const copySuccess = await copy(resultRef.current);
 
     if (copySuccess) {
