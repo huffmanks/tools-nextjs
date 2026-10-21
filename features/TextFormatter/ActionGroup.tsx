@@ -1,4 +1,4 @@
-import { textFormatterCards } from "../../constants/textFormatter";
+import { textFormatterCards, TextFormatterValues } from "../../constants/textFormatter";
 
 import DeleteIcon from "@mui/icons-material/Delete";
 import {
@@ -18,6 +18,16 @@ import {
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import SaveIcon from "@mui/icons-material/Save";
 
+interface ActionGroupProps {
+  values: TextFormatterValues;
+  checkAll: boolean;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  handleCheckAll: (e: React.ChangeEvent<HTMLInputElement>, checked: boolean) => void;
+  handleSave: () => void;
+  handleReset: () => void;
+  handleDeleteSaved: (id: string) => void;
+}
+
 const ActionGroup = ({
   values,
   checkAll,
@@ -26,7 +36,7 @@ const ActionGroup = ({
   handleSave,
   handleReset,
   handleDeleteSaved,
-}) => {
+}: ActionGroupProps) => {
   return (
     <>
       <Grid item lg={9} md={7} xs={12}>
@@ -52,9 +62,7 @@ const ActionGroup = ({
           {(values?.saved || []).map((option) => (
             <MenuItem key={option.id} value={option.id} sx={{ display: "flex", justifyContent: "space-between" }}>
               {option.label}
-
               <IconButton
-                variant="contained"
                 edge="start"
                 aria-label="remove saved item"
                 color="error"

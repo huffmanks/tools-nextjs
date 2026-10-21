@@ -2,6 +2,44 @@ import { GLOBAL_SITE_LS_KEY_PREFIX } from "./global";
 
 export const TEXT_FORMATTER_LS_KEY = `${GLOBAL_SITE_LS_KEY_PREFIX}_text-formatter`;
 
+export interface SavedItem {
+  id: string;
+  value: string;
+  label: string;
+}
+
+export type TextFormatterCardName =
+  | "lowerCase"
+  | "upperCase"
+  | "capitalCase"
+  | "sentenceCase"
+  | "camelCase"
+  | "snakeCase"
+  | "headerCase"
+  | "constantCase";
+
+export interface TextFormatterValues {
+  output: string;
+  selectedId: string;
+  lowerCase: string;
+  upperCase: string;
+  capitalCase: string;
+  sentenceCase: string;
+  camelCase: string;
+  snakeCase: string;
+  headerCase: string;
+  constantCase: string;
+  saved: SavedItem[];
+  check_lowerCase: boolean;
+  check_upperCase: boolean;
+  check_capitalCase: boolean;
+  check_sentenceCase: boolean;
+  check_camelCase: boolean;
+  check_snakeCase: boolean;
+  check_headerCase: boolean;
+  check_constantCase: boolean;
+}
+
 export const textFormatterOutputValues = {
   output: "",
   selectedId: "",
@@ -16,7 +54,7 @@ export const textFormatterOutputValues = {
   saved: [],
 };
 
-export const textFormatterCheckAllValues = {
+export const textFormatterCheckAllValues: Record<`check_${TextFormatterCardName}`, boolean> = {
   check_lowerCase: true,
   check_upperCase: true,
   check_capitalCase: true,
@@ -27,7 +65,7 @@ export const textFormatterCheckAllValues = {
   check_constantCase: true,
 };
 
-export const textFormatterCheckNoneValues = {
+export const textFormatterCheckNoneValues: Record<`check_${TextFormatterCardName}`, boolean> = {
   check_lowerCase: false,
   check_upperCase: false,
   check_capitalCase: false,
@@ -38,14 +76,19 @@ export const textFormatterCheckNoneValues = {
   check_constantCase: false,
 };
 
-export const initialTextFormatterValues = {
+export const initialTextFormatterValues: TextFormatterValues = {
   ...textFormatterOutputValues,
   ...textFormatterCheckNoneValues,
   check_capitalCase: true,
   check_headerCase: true,
 };
 
-export const textFormatterCards = [
+export interface TextFormatterCardInfo {
+  name: TextFormatterCardName;
+  label: string;
+}
+
+export const textFormatterCards: TextFormatterCardInfo[] = [
   {
     name: "lowerCase",
     label: "Lowercase",

@@ -1,11 +1,17 @@
 import { Fragment } from "react";
 
-import { textFormatterCards } from "../../constants/textFormatter";
+import { textFormatterCards, TextFormatterValues } from "../../constants/textFormatter";
 
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Card, CardContent, CardHeader, Grid, IconButton, Typography } from "@mui/material";
 
-const Cards = ({ values, checkedCards, handleCopy }) => {
+interface CardsProps {
+  values: TextFormatterValues;
+  checkedCards: string[];
+  handleCopy: (name: string) => void;
+}
+
+const Cards = ({ values, checkedCards, handleCopy }: CardsProps) => {
   return (
     <>
       {textFormatterCards.map((card) => (

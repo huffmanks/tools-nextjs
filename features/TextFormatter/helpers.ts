@@ -1,14 +1,15 @@
 import { camelCase, constantCase, headerCase, sentenceCase, snakeCase } from "change-case";
 
-const SMALL_WORDS = /\b(?:an?d?|a[st]|because|but|or|of|is|by|en|for|i[fn]|neither|nor|o[fnr]|only|over|per|so|some|tha[tn]|the|to|up|upon|vs?\.?|versus|via|when|with|without|yet)\b/i;
+const SMALL_WORDS =
+  /\b(?:an?d?|a[st]|because|but|or|of|is|by|en|for|i[fn]|neither|nor|o[fnr]|only|over|per|so|some|tha[tn]|the|to|up|upon|vs?\.?|versus|via|when|with|without|yet)\b/i;
 const TOKENS = /[^\s:–—-]+|./g;
 const WHITESPACE = /\s/;
 const IS_MANUAL_CASE = /.(?=[A-Z]|\..)/;
 const ALPHANUMERIC_PATTERN = /[A-Za-z0-9\u00C0-\u00FF]/;
 
-const titleCase = (input) => {
+const titleCase = (input: string): string => {
   let result = "";
-  let m;
+  let m: RegExpExecArray | null;
 
   while ((m = TOKENS.exec(input)) !== null) {
     const { 0: token, index } = m;
@@ -28,7 +29,7 @@ const titleCase = (input) => {
   return result;
 };
 
-export const formatTextCases = (text) => ({
+export const formatTextCases = (text: string) => ({
   lowerCase: text.toLowerCase(),
   upperCase: text.toUpperCase(),
   capitalCase: titleCase(text.toLowerCase()),

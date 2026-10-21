@@ -9,6 +9,7 @@ import {
   TEXT_FORMATTER_LS_KEY,
   textFormatterCheckAllValues,
   textFormatterCheckNoneValues,
+  TextFormatterValues,
 } from "../../constants/textFormatter";
 import { uniqueId } from "../../utilities/uniqueId";
 import { formatTextCases } from "./helpers";
@@ -20,14 +21,14 @@ interface SavedItem {
 }
 
 export const useTextFormatterFormControls = () => {
-  const [values, setValues] = useLocalStorage(TEXT_FORMATTER_LS_KEY, initialTextFormatterValues);
+  const [values, setValues] = useLocalStorage<TextFormatterValues>(TEXT_FORMATTER_LS_KEY, initialTextFormatterValues);
   const [checkAll, setCheckAll] = useState(false);
 
   const uid = uniqueId();
   const { addToast } = useGlobalState();
   const [copy] = useCopyToClipboard(false);
 
-  const currentSaved: SavedItem[] = values?.saved || [];
+  const currentSaved: SavedItem[] = (values?.saved as SavedItem[]) || [];
 
   const checkedCards = useMemo(() => {
     if (!values) return [];
@@ -72,7 +73,7 @@ export const useTextFormatterFormControls = () => {
   };
 
   const handleCopy = async (name: string) => {
-    const copySuccess = await copy(values[name]);
+    const copySuccess = await copy(String(values[name]));
 
     if (copySuccess) {
       addToast("Copied to clipboard!");
