@@ -1,39 +1,23 @@
-import { Box, Container, FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import { Box, Container, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
 
 import { qrCodePickers } from "../../constants/popoverColorPicker";
-import { qrCodeInputs, qrCodeSelects } from "../../constants/qrCode";
+import { QrCodeColors, QrCodeErrors, qrCodeInputs, qrCodeSelects, QrCodeValues } from "../../constants/qrCode";
 
 import PopoverColorPicker from "../../components/common/PopoverColorPicker";
 import ActionGroup from "./ActionGroup";
 import LogoUpload from "./LogoUpload";
 
-type QrCodeValues = {
-  colors: {
-    dotColor: string;
-    backgroundColor: string;
-    ringOuter: string;
-    ringInner: string;
-  };
-  qrCodeName: string;
-  websiteLink: string;
-  outputSize: number;
-  correctLevel: number;
-  logoBackgroundTransparent: boolean;
-  logoUpload: string;
-  logoName: string;
-};
-
-type QrCodeErrors = Partial<Record<keyof QrCodeValues, string>>;
-
-type QrCodeFormProps = {
+interface QrCodeFormProps {
   values: QrCodeValues;
   errors: QrCodeErrors;
   downloadUrl: string;
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleBlur: (name: string, value: string) => void;
+  handleChange: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string | number>,
+  ) => void;
+  handleBlur: (name: keyof QrCodeColors, value: string) => void;
   handleSubmit: (event: React.SubmitEvent<HTMLFormElement>) => void;
   handleReset: () => void;
-};
+}
 
 const QrCodeForm = ({
   values,

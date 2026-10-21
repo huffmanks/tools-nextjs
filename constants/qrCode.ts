@@ -2,7 +2,27 @@ import { GLOBAL_SITE_LS_KEY_PREFIX } from "./global";
 
 export const QR_CODE_LS_KEY = `${GLOBAL_SITE_LS_KEY_PREFIX}_qr-code`;
 
-export const initialQrCodeValues = {
+export interface QrCodeColors {
+  dotColor: string;
+  backgroundColor: string;
+  ringOuter: string;
+  ringInner: string;
+}
+
+export interface QrCodeValues {
+  colors: QrCodeColors;
+  qrCodeName: string;
+  websiteLink: string;
+  outputSize: number;
+  correctLevel: number;
+  logoBackgroundTransparent: boolean;
+  logoUpload: string;
+  logoName: string;
+}
+
+export type QrCodeErrors = Partial<Record<keyof QrCodeValues | string, string>>;
+
+export const initialQrCodeValues: Omit<QrCodeValues, "colors"> = {
   qrCodeName: "",
   websiteLink: "",
   outputSize: 600,
@@ -12,22 +32,27 @@ export const initialQrCodeValues = {
   logoName: "",
 };
 
-export const initialQrCodeColors = {
+export const initialQrCodeColors: QrCodeColors = {
   dotColor: "#5b21b6",
   backgroundColor: "#fff",
   ringOuter: "#222",
   ringInner: "#222",
 };
 
+export const combinedInitialQrCodeValues: QrCodeValues = {
+  ...initialQrCodeValues,
+  colors: initialQrCodeColors,
+};
+
 export const qrCodeInputs = [
   {
     label: "QR Code Name",
-    name: "qrCodeName",
+    name: "qrCodeName" as const,
     placeholder: "qr-code",
   },
   {
     label: "Website Link",
-    name: "websiteLink",
+    name: "websiteLink" as const,
     placeholder: "https://tools.huffmanks.com/generate/qr-code",
   },
 ];
@@ -35,7 +60,7 @@ export const qrCodeInputs = [
 export const qrCodeSelects = [
   {
     label: "Correction Level",
-    name: "correctLevel",
+    name: "correctLevel" as const,
     options: [
       {
         label: "Level L (Low)",
@@ -57,7 +82,7 @@ export const qrCodeSelects = [
   },
   {
     label: "Output size",
-    name: "outputSize",
+    name: "outputSize" as const,
     options: [
       {
         label: "Small",

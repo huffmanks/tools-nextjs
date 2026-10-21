@@ -1,23 +1,24 @@
-import { useCallback, useRef, useState, type ChangeEvent, type SyntheticEvent } from "react";
+import { useCallback, useRef, useState } from "react";
 
 import QRCode from "easyqrcodejs";
 
-import { initialQrCodeColors, initialQrCodeValues, QR_CODE_LS_KEY } from "../../constants/qrCode";
+import { SelectChangeEvent } from "@mui/material";
+import {
+  combinedInitialQrCodeValues,
+  initialQrCodeColors,
+  QR_CODE_LS_KEY,
+  QrCodeColors,
+  QrCodeErrors,
+  QrCodeValues,
+} from "../../constants/qrCode";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
-const combinedInitialValues = {
-  ...initialQrCodeValues,
-  colors: initialQrCodeColors,
-};
-
-type FormValues = typeof combinedInitialValues;
-type FormErrors = Partial<Record<keyof FormValues | string, string>>;
 type QRCodeInstance = InstanceType<typeof QRCode> & {
   _el: HTMLElement;
 };
 
-function getErrors(values: FormValues): FormErrors {
-  const errors: FormErrors = {};
+function getErrors(values: QrCodeValues): QrCodeErrors {
+  const errors: QrCodeErrors = {};
   const urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/i;
 
   if (!values.qrCodeName || values.qrCodeName.trim() === "") {
@@ -37,15 +38,15 @@ export const useQrCodeFormControls = () => {
   const codeRef = useRef<HTMLDivElement>(null);
   const qrcodeRef = useRef<QRCodeInstance | null>(null);
 
-  const [values, setValues] = useLocalStorage(QR_CODE_LS_KEY, combinedInitialValues);
-  const [errors, setErrors] = useState<FormErrors>({});
+  const [values, setValues] = useLocalStorage<QrCodeValues>(QR_CODE_LS_KEY, combinedInitialQrCodeValues);
+  const [errors, setErrors] = useState<QrCodeErrors>({});
   const [downloadUrl, setDownloadUrl] = useState("");
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const colors = values.colors || initialQrCodeColors;
 
   const validate = useCallback(
-    (currentValues: FormValues = values) => {
+    (currentValues: QrCodeValues = values) => {
       const nextErrors = getErrors(currentValues);
       setErrors(nextErrors);
       return Object.keys(nextErrors).length === 0;
@@ -53,7 +54,7 @@ export const useQrCodeFormControls = () => {
     [values],
   );
 
-  const generateQRCode = useCallback((currentValues: FormValues) => {
+  const generateQRCode = useCallback((currentValues: QrCodeValues) => {
     qrcodeRef.current?.clear();
 
     const { websiteLink, outputSize, correctLevel, logoUpload, logoBackgroundTransparent } = currentValues;
@@ -86,10 +87,16 @@ export const useQrCodeFormControls = () => {
     }, 100);
   }, []);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string | number>,
+  ) => {
     const target = event.target;
-    const { name, type, value } = target;
-    const checked = target instanceof HTMLInputElement ? target.checked : false;
+    const name = target.name as keyof QrCodeValues;
+    if (!name) return;
+
+    const value = target.value;
+    const type = "type" in target ? target.type : undefined;
+    const checked = "checked" in target ? Boolean((target as HTMLInputElement).checked) : false;
 
     if (type === "file") {
       const file = target instanceof HTMLInputElement ? target.files?.[0] : undefined;
@@ -138,7 +145,7 @@ export const useQrCodeFormControls = () => {
     }
   };
 
-  const handleColorChange = (name: keyof typeof initialQrCodeColors, colorValue: string) => {
+  const handleColorChange = (name: keyof QrCodeColors, colorValue: string) => {
     const nextValues = {
       ...values,
       colors: {
@@ -154,7 +161,7 @@ export const useQrCodeFormControls = () => {
     }
   };
 
-  const handleSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!validate()) {
@@ -167,7 +174,7 @@ export const useQrCodeFormControls = () => {
   };
 
   const handleReset = () => {
-    setValues(combinedInitialValues);
+    setValues(combinedInitialQrCodeValues);
     setDownloadUrl("");
     setErrors({});
     setHasSubmitted(false);

@@ -10,8 +10,6 @@ interface CalculatedLowerBounds {
   height: string;
 }
 
-type AspectRatioChangeEvent = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement, Element>;
-
 export const useAspectRatioFormControls = () => {
   const [values, setValues] = useState<AspectRatioValues>(initialAspectRatioValues);
   const [errors, setErrors] = useState<AspectRatioErrors>({});
@@ -65,7 +63,7 @@ export const useAspectRatioFormControls = () => {
     event.target.select();
   };
 
-  const handleChange = (event: AspectRatioChangeEvent): void => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement, Element>): void => {
     const { name, value } = event.target;
     const field = name as AspectRatioField;
 

@@ -1,4 +1,4 @@
-export type InitialCssScrollbarValues = {
+export interface InitialCssScrollbarValues {
   axis: string;
   widthFirefox: string;
   thickness: number;
@@ -7,7 +7,7 @@ export type InitialCssScrollbarValues = {
   trackBorderWidth: number;
   thumbRadius: number;
   thumbBorderWidth: number;
-};
+}
 
 export const initialCssScrollbarValues: InitialCssScrollbarValues = {
   axis: "y",

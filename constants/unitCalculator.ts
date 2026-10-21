@@ -1,10 +1,32 @@
-export const initialUnitCalculatorValues = {
+export interface UnitCalculatorValues {
+  measurement: string;
+  numInput: string;
+  unitSelection: string;
+}
+
+export interface UnitItem {
+  id: string;
+  unit: string;
+  label: string;
+  short: string;
+}
+
+export type UnitItems = readonly UnitItem[];
+
+export interface UnitCalculatorMeasurement {
+  id: number;
+  type: string;
+  label: string;
+  units: UnitItems;
+}
+
+export const initialUnitCalculatorValues: UnitCalculatorValues = {
   measurement: "digitalStorage",
   numInput: "",
   unitSelection: "terabytes",
-};
+} as const;
 
-export const unitCalculatorMeasurements = [
+export const unitCalculatorMeasurements: UnitCalculatorMeasurement[] = [
   {
     id: 1,
     type: "digitalStorage",
@@ -287,4 +309,4 @@ export const unitCalculatorMeasurements = [
       },
     ],
   },
-];
+] as const;

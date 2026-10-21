@@ -1,15 +1,19 @@
+// features/UnitCalculator/useUnitCalculatorFormControls.tsx
+
 import { useRouter } from "next/router";
 import { useMemo, useState } from "react";
 
-import { initialUnitCalculatorValues, unitCalculatorMeasurements } from "../../constants/unitCalculator";
+import {
+  initialUnitCalculatorValues,
+  unitCalculatorMeasurements,
+  UnitCalculatorValues,
+  UnitItems,
+} from "../../constants/unitCalculator";
 
-type FormValues = typeof initialUnitCalculatorValues;
-type Measurement = (typeof unitCalculatorMeasurements)[number];
-
-type FormState = {
+type UnitCalculatorFormState = {
   queryKey: string | null;
-  values: FormValues;
-  currentUnits: Measurement["units"];
+  values: UnitCalculatorValues;
+  currentUnits: UnitItems;
 };
 
 function getQueryValue(value: string | string[] | undefined): string | undefined {
@@ -68,7 +72,7 @@ export function useUnitCalculatorFormControls() {
     };
   }, [typeQuery, numQuery, unitQuery]);
 
-  const [formState, setFormState] = useState<FormState>({
+  const [formState, setFormState] = useState<UnitCalculatorFormState>({
     queryKey: null,
     values: initialUnitCalculatorValues,
     currentUnits: unitCalculatorMeasurements[0].units,
