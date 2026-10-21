@@ -1,11 +1,22 @@
 import Link from "next/link";
+import { NextRouter } from "next/router";
 
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 
+import { RouteItem } from "../../constants/routes";
 import NavDivider from "./NavDivider";
 
-const NavItem = ({ router, routes, open, setOpen, label, isHomePage }) => {
+interface NavItemProps {
+  router: NextRouter;
+  routes: RouteItem[];
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  label?: string;
+  isHomePage?: boolean;
+}
+
+const NavItem = ({ router, routes, open, setOpen, label, isHomePage }: NavItemProps) => {
   return (
     <>
       {!isHomePage && <NavDivider open={open} label={label} />}

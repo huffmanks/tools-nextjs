@@ -4,9 +4,9 @@ import { useState } from "react";
 import { mainRoutes, navItems } from "../../constants/routes";
 
 import { Box, Container, CssBaseline, IconButton, Toolbar } from "@mui/material";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled, Theme, useTheme } from "@mui/material/styles";
 
-import MuiAppBar from "@mui/material/AppBar";
+import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import MuiDrawer from "@mui/material/Drawer";
 
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -18,21 +18,21 @@ import NavItem from "./NavItem";
 
 const drawerWidth = 240;
 
-const openedMixin = (theme) => ({
+const openedMixin = (theme: Theme) => ({
   width: drawerWidth,
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,
   }),
-  overflowX: "hidden",
+  overflowX: "hidden" as const,
 });
 
-const closedMixin = (theme) => ({
+const closedMixin = (theme: Theme) => ({
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
-  overflowX: "hidden",
+  overflowX: "hidden" as const,
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up("sm")]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
@@ -48,7 +48,13 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const AppBar = styled(MuiAppBar)(({ theme, open }) => ({
+interface AppBarProps extends MuiAppBarProps {
+  open?: boolean;
+}
+
+const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== "open",
+})<AppBarProps>(({ theme, open }) => ({
   backgroundImage: "none",
   borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
   zIndex: theme.zIndex.drawer + 1,
@@ -66,7 +72,9 @@ const AppBar = styled(MuiAppBar)(({ theme, open }) => ({
   }),
 }));
 
-const Drawer = styled(MuiDrawer)(({ theme, open }) => ({
+const Drawer = styled(MuiDrawer, {
+  shouldForwardProp: (prop) => prop !== "open",
+})<{ open?: boolean }>(({ theme, open }) => ({
   width: drawerWidth,
   flexShrink: 0,
   whiteSpace: "nowrap",
@@ -81,7 +89,11 @@ const Drawer = styled(MuiDrawer)(({ theme, open }) => ({
   }),
 }));
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout = ({ children }: LayoutProps) => {
   const router = useRouter();
   const theme = useTheme();
   const [open, setOpen] = useState(false);

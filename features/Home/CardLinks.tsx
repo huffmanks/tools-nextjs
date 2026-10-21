@@ -2,8 +2,13 @@ import Link from "next/link";
 
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { Box, Button, Card, CardActions, CardContent, IconButton, Typography } from "@mui/material";
+import { RouteItem } from "../../constants/routes";
 
-const CardLinks = ({ routes }) => {
+interface CardLinksProps {
+  routes: RouteItem[];
+}
+
+const CardLinks = ({ routes }: CardLinksProps) => {
   return (
     <Box
       sx={{
@@ -33,12 +38,15 @@ const CardLinks = ({ routes }) => {
               justifyContent: "center",
               alignItems: "center",
             }}>
-            <Link href={path} passHref={true}>
+            <Link
+              href={path}
+              target={isExternal ? "_blank" : undefined}
+              rel={isExternal ? "noopener noreferrer" : undefined}
+              style={{ textDecoration: "none" }}>
               <IconButton
                 aria-label={homeName}
                 color="primary"
-                target={isExternal ? "_blank" : undefined}
-                rel={isExternal ? "noopener noreferrer" : undefined}
+                component="span"
                 sx={{
                   "& svg": {
                     fontSize: "55px",
@@ -55,12 +63,14 @@ const CardLinks = ({ routes }) => {
             <Typography variant="body2">{description}</Typography>
           </CardContent>
           <CardActions>
-            <Link href={path} passHref={true} style={{ width: "100%", textDecoration: "none" }}>
+            <Link
+              href={path}
+              target={isExternal ? "_blank" : undefined}
+              rel={isExternal ? "noopener noreferrer" : undefined}
+              style={{ width: "100%", textDecoration: "none" }}>
               <Button
                 variant="contained"
                 fullWidth
-                target={isExternal ? "_blank" : undefined}
-                rel={isExternal ? "noopener noreferrer" : undefined}
                 endIcon={isExternal ? <OpenInNewIcon /> : undefined}
                 sx={{
                   "& .MuiButton-endIcon > *:nth-of-type(1)": {

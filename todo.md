@@ -1,10 +1,10 @@
 ## Global changes
 
-- [ ] Bundle analyzer remove unused code
+- [ ] Bundle analyzer remove unused code, `pnpx fallow`.
 - [ ] Focus select disable for mobile
-- [ ] Ignore public readme images
-- [?] PWA \_redirects precache error
-- [x] Switch to `pnpm add @serwist/next` and `pnpm add -D serwist`. `pnpm remove next-pwa`.
+- [ ] @serwist/next
+  - [ ] doesnt work offline and refresh cause its a spa.
+  - [ ] Ignore public readme images
 
 ## New features
 
