@@ -1,6 +1,5 @@
 ## Issues
 
-- [ ] /picker/color if click picker too many times in short period breaks it.
 - [ ] /picker/number completely broken.
 - [ ] /generate/css-scrollbar Minified React error # 418;
 
