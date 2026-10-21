@@ -1,11 +1,13 @@
 import { passwordGeneratorIncludedItems } from "../../constants/passwordGenerator";
 
-const getRandomSymbol = () => {
+type RandomGeneratorFunc = (excludeSimilar: boolean) => string | number;
+
+const getRandomSymbol: RandomGeneratorFunc = () => {
   const symbols = "!@#$%&*";
   return symbols[Math.floor(Math.random() * symbols.length)];
 };
 
-const getRandomNumber = (excludeSimilar) => {
+const getRandomNumber: RandomGeneratorFunc = (excludeSimilar) => {
   const items = [3, 4, 6, 7, 9];
 
   if (excludeSimilar) {
@@ -15,7 +17,7 @@ const getRandomNumber = (excludeSimilar) => {
   }
 };
 
-const getRandomLower = (excludeSimilar) => {
+const getRandomLower: RandomGeneratorFunc = (excludeSimilar) => {
   if (excludeSimilar) {
     return passwordGeneratorIncludedItems[Math.floor(Math.random() * passwordGeneratorIncludedItems.length)];
   } else {
@@ -23,7 +25,7 @@ const getRandomLower = (excludeSimilar) => {
   }
 };
 
-const getRandomUpper = (excludeSimilar) => {
+const getRandomUpper: RandomGeneratorFunc = (excludeSimilar) => {
   const items = passwordGeneratorIncludedItems.map((letter) => letter.toUpperCase());
 
   if (excludeSimilar) {
@@ -33,17 +35,24 @@ const getRandomUpper = (excludeSimilar) => {
   }
 };
 
-const randomGenerator = {
+const randomGenerator: Record<string, RandomGeneratorFunc> = {
   symbols: getRandomSymbol,
   numbers: getRandomNumber,
   lowerCase: getRandomLower,
   upperCase: getRandomUpper,
 };
 
-const shuffle = (str) => [...str].sort(() => Math.random() - 0.5).join("");
+const shuffle = (str: string) => [...str].sort(() => Math.random() - 0.5).join("");
 
-export const generatePassword = (symbols, numbers, lowerCase, upperCase, excludeSimilar, length) => {
-  const typesCount = symbols + numbers + lowerCase + upperCase;
+export const generatePassword = (
+  symbols: boolean,
+  numbers: boolean,
+  lowerCase: boolean,
+  upperCase: boolean,
+  excludeSimilar: boolean,
+  length: number,
+): string => {
+  const typesCount = Number(symbols) + Number(numbers) + Number(lowerCase) + Number(upperCase);
 
   const typesArr = [{ symbols }, { numbers }, { lowerCase }, { upperCase }].filter((item) => Object.values(item)[0]);
 
@@ -58,7 +67,7 @@ export const generatePassword = (symbols, numbers, lowerCase, upperCase, exclude
     typesArr.map((type) => {
       const name = Object.keys(type)[0];
 
-      generatedPassword += randomGenerator[name](excludeSimilar);
+      generatedPassword += String(randomGenerator[name](excludeSimilar));
     });
   });
 

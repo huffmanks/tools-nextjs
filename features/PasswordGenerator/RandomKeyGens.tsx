@@ -1,14 +1,19 @@
+import { PasswordGeneratorValues } from "../../constants/passwordGenerator";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
 import { useGlobalState } from "../../hooks/useGlobalState";
 
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { FormGroup, IconButton, InputAdornment, TextField } from "@mui/material";
 
-const RandomKeyGens = ({ values }) => {
-  const { addToast } = useGlobalState();
-  const [copy] = useCopyToClipboard();
+interface RandomKeyGensProps {
+  values: PasswordGeneratorValues;
+}
 
-  const handleCopy = async (key) => {
+const RandomKeyGens = ({ values }: RandomKeyGensProps) => {
+  const { addToast } = useGlobalState();
+  const [copy] = useCopyToClipboard(false);
+
+  const handleCopy = async (key: string) => {
     const copySuccess = await copy(key);
 
     if (copySuccess) {

@@ -7,9 +7,15 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-const PasswordOutput = ({ password, showPassword, handleShowPassword }) => {
+interface PasswordOutputProps {
+  password: string;
+  showPassword: boolean;
+  handleShowPassword: () => void;
+}
+
+const PasswordOutput = ({ password, showPassword, handleShowPassword }: PasswordOutputProps) => {
   const { addToast } = useGlobalState();
-  const [copy] = useCopyToClipboard();
+  const [copy] = useCopyToClipboard(false);
 
   const handleCopy = async () => {
     const copySuccess = await copy(password);

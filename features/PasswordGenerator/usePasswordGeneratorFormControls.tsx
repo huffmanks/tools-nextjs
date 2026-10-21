@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { initialPasswordGeneratorValues } from "../../constants/passwordGenerator";
+import { initialPasswordGeneratorValues, PasswordGeneratorValues } from "../../constants/passwordGenerator";
 import { generateKey } from "../../utilities/generateKey";
 
 import { generatePassword } from "./generatePassword";
 
 export const usePasswordGeneratorFormControls = () => {
-  const [values, setValues] = useState(initialPasswordGeneratorValues);
+  const [values, setValues] = useState<PasswordGeneratorValues>(initialPasswordGeneratorValues);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
 
     setValues({
@@ -16,7 +16,7 @@ export const usePasswordGeneratorFormControls = () => {
     });
   };
 
-  const handleSlider = (e, newValue) => {
+  const handleSlider = (_e: Event, newValue: number | number[]) => {
     setValues({
       ...values,
       slider: Number(newValue),

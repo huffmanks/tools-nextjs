@@ -1,8 +1,13 @@
-import { passwordGeneratorOptions } from "../../constants/passwordGenerator";
+import { passwordGeneratorOptions, PasswordGeneratorValues } from "../../constants/passwordGenerator";
 
 import { Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel } from "@mui/material";
 
-const PasswordOptions = ({ values, handleChange }) => {
+interface PasswordOptionsProps {
+  values: PasswordGeneratorValues;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const PasswordOptions = ({ values, handleChange }: PasswordOptionsProps) => {
   return (
     <FormControl component="fieldset">
       <FormLabel component="legend" sx={{ marginBottom: 2 }}>

@@ -33,7 +33,7 @@ export const generateKey = () => {
     return algorithm(outerKey + innerData);
   };
 
-  const hexKeys = [];
+  const hexKeys: string[] = [];
 
   for (let i = 0; i < numKeys; i++) {
     const uniqueSecret = secret + Math.random().toString();
