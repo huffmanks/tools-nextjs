@@ -16,24 +16,26 @@ const serwist = new Serwist({
   skipWaiting: true,
   clientsClaim: true,
   navigationPreload: true,
+  precacheOptions: {
+    navigateFallback: "/",
+  },
   runtimeCaching: [
     {
-      matcher: ({ request }) => request.mode === "navigate" || request.destination === "document",
-      handler: new StaleWhileRevalidate({
-        cacheName: "stratools-pages-cache",
-      }),
-    },
-    {
-      matcher: ({ request }) =>
-        request.destination === "style" ||
-        request.destination === "script" ||
-        request.destination === "worker",
+      matcher: ({ request, url }) =>
+        url.pathname.includes("/previews/") || url.pathname.includes("/readme/")
+          ? false
+          : request.destination === "style" ||
+            request.destination === "script" ||
+            request.destination === "worker",
       handler: new StaleWhileRevalidate({
         cacheName: "stratools-static-assets",
       }),
     },
     {
-      matcher: ({ request }) => request.destination === "image",
+      matcher: ({ request, url }) =>
+        url.pathname.includes("/previews/") || url.pathname.includes("/readme/")
+          ? false
+          : request.destination === "image",
       handler: new CacheFirst({
         cacheName: "stratools-image-cache",
       }),

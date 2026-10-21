@@ -1,7 +1,6 @@
 import { FormControlLabel, FormGroup, Switch } from "@mui/material";
 
-import FieldsetContainer from "@/FieldsetContainer";
-
+import FieldsetContainer from "@/features/RandomPicker/FieldsetContainer";
 import { type NumberPickerValues } from "@/features/RandomPicker/NumberPicker/constants";
 
 import Counter from "@/components/common/Counter";

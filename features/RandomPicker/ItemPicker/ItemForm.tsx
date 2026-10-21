@@ -1,7 +1,6 @@
 import { FormControl, FormControlLabel, Grid, Radio, RadioGroup } from "@mui/material";
 
-import ActionGroup from "@/ActionGroup";
-
+import ActionGroup from "@/features/RandomPicker/ActionGroup";
 import TextForm from "@/features/RandomPicker/ItemPicker/TextForm";
 import TextOutput from "@/features/RandomPicker/ItemPicker/TextOutput";
 import UploadForm from "@/features/RandomPicker/ItemPicker/UploadForm";

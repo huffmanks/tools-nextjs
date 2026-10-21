@@ -1,7 +1,6 @@
 import { FormGroup, TextField } from "@mui/material";
 
-import FieldsetContainer from "@/FieldsetContainer";
-
+import FieldsetContainer from "@/features/RandomPicker/FieldsetContainer";
 import { type NumberPickerValues } from "@/features/RandomPicker/NumberPicker/constants";
 
 interface NumberRangeProps {

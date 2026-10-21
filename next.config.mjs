@@ -49,7 +49,10 @@ const nextConfigExport = async (phase) => {
       crypto.randomUUID();
 
     const withSerwist = (await import("@serwist/next")).default({
-      additionalPrecacheEntries: [{ url: "/fallback", revision }],
+      additionalPrecacheEntries: [
+        { url: "/", revision },
+        { url: "/fallback", revision },
+      ],
       swSrc: "sw.ts",
       swDest: "public/sw.js",
       disable: isDev,

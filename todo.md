@@ -1,10 +1,7 @@
 ## Global changes
 
 - [ ] Bundle analyzer remove unused code, `pnpx fallow`.
-- [ ] Focus select disable for mobile
-- [ ] @serwist/next
-  - [ ] doesnt work offline and refresh cause its a spa.
-  - [ ] Ignore public readme images
+- [ ] Focus select disable for mobile.
 
 ## New features
 

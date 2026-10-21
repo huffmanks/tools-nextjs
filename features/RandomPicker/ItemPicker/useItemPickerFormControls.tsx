@@ -6,7 +6,6 @@ import * as XLSX from "xlsx";
 import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import { useGlobalState } from "@/hooks/useGlobalState";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { generateSeparatedStrings } from "@/utils";
 import { generateRandomNumbers } from "@/utils/generateRandomNumbers";
 
 import {
@@ -14,6 +13,7 @@ import {
   type ItemPickerValues,
   initialItemPickerValues,
 } from "@/features/RandomPicker/ItemPicker/constants";
+import { generateSeparatedStrings } from "@/features/RandomPicker/utils";
 
 type SpreadsheetRow = unknown[];
 

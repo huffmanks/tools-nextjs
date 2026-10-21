@@ -1,7 +1,7 @@
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { Button, Grid, Stack } from "@mui/material";
 
-import FieldsetContainer from "@/FieldsetContainer";
+import FieldsetContainer from "@/features/RandomPicker/FieldsetContainer";
 
 import Counter from "@/components/common/Counter";
 

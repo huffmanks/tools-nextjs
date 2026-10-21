@@ -1,7 +1,6 @@
 import { Grid, Stack } from "@mui/material";
 
-import ActionGroup from "@/ActionGroup";
-
+import ActionGroup from "@/features/RandomPicker/ActionGroup";
 import NumberOptions from "@/features/RandomPicker/NumberPicker/NumberOptions";
 import NumberRange from "@/features/RandomPicker/NumberPicker/NumberRange";
 import Output from "@/features/RandomPicker/NumberPicker/Output";
