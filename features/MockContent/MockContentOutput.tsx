@@ -2,12 +2,17 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Box, Button, Grid, Paper, Tab, Tabs, Typography } from "@mui/material";
 import { useState } from "react";
 
-import { mockContentFormatTabs } from "../../constants/mockContent";
+import { mockContentFormatTabs, MockContentValues } from "../../constants/mockContent";
 
-const MockContentOutput = ({ values, handleCopy }) => {
+interface MockContentOutputProps {
+  values: MockContentValues;
+  handleCopy: (textToCopy: string) => Promise<void>;
+}
+
+const MockContentOutput = ({ values, handleCopy }: MockContentOutputProps) => {
   const [activeTab, setActiveTab] = useState("plaintext");
 
-  const handleTabChange = (event, newValue) => {
+  const handleTabChange = (_event: React.SyntheticEvent, newValue: string) => {
     setActiveTab(newValue);
   };
 
@@ -27,14 +32,34 @@ const MockContentOutput = ({ values, handleCopy }) => {
           minHeight: "500px",
           backgroundColor: "#2a2a2a",
         }}>
-        <Box sx={{ borderBottom: 1, mb: 2, borderColor: "divider", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 2 }}>
-          <Tabs value={activeTab} onChange={handleTabChange} textColor="inherit" indicatorColor="primary" aria-label="output format tabs">
+        <Box
+          sx={{
+            borderBottom: 1,
+            mb: 2,
+            borderColor: "divider",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: 2,
+          }}>
+          <Tabs
+            value={activeTab}
+            onChange={handleTabChange}
+            textColor="inherit"
+            indicatorColor="primary"
+            aria-label="output format tabs">
             {mockContentFormatTabs.map((tab) => (
               <Tab key={tab.value} value={tab.value} label={tab.label} sx={{ fontWeight: "bold" }} />
             ))}
           </Tabs>
 
-          <Button variant="contained" color="primary" startIcon={<ContentCopyIcon />} onClick={() => handleCopy(currentDisplayContent)} disabled={!currentDisplayContent}>
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<ContentCopyIcon />}
+            onClick={() => handleCopy(currentDisplayContent)}
+            disabled={!currentDisplayContent}>
             Copy
           </Button>
         </Box>
@@ -79,9 +104,21 @@ const MockContentOutput = ({ values, handleCopy }) => {
                 "& ol": { mb: 4, pl: 4 },
                 "& ul": { mb: 4, pl: 4 },
                 "& table": { width: "100%", borderCollapse: "collapse", mb: 4 },
-                "& th, & td": { border: "1px solid rgba(255, 255, 255, 0.15)", p: "8px 12px", textAlign: "left", fontSize: "0.85rem" },
+                "& th, & td": {
+                  border: "1px solid rgba(255, 255, 255, 0.15)",
+                  p: "8px 12px",
+                  textAlign: "left",
+                  fontSize: "0.85rem",
+                },
                 "& th": { backgroundColor: "rgba(255, 255, 255, 0.05)" },
-                "& blockquote": { borderLeft: "4px solid currentColor", pl: 2, mx: 0, mb: 4, opacity: 0.85, fontStyle: "italic" },
+                "& blockquote": {
+                  borderLeft: "4px solid currentColor",
+                  pl: 2,
+                  mx: 0,
+                  mb: 4,
+                  opacity: 0.85,
+                  fontStyle: "italic",
+                },
               }}
               dangerouslySetInnerHTML={{ __html: values.output?.html }}
             />

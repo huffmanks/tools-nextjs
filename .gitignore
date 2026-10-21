@@ -19,6 +19,7 @@
 .DS_Store
 *.pem
 .fallow
+repomix-output.xml
 
 # debug
 npm-debug.log*

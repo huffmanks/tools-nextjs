@@ -1,15 +1,15 @@
 import data from "./mock-content_data.json";
 
-const grabRandom = (arr, count = 1) => {
+const grabRandom = <T>(arr: T[], count = 1): T[] => {
   return [...arr].sort(() => 0.5 - Math.random()).slice(0, count);
 };
 
-export const generateFormats = (elements, tableDataType = "tech") => {
+export const generateFormats = (elements: string[], tableDataType = "tech") => {
   const has = new Set(elements);
 
-  const htmlOutput = [];
-  const markdownOutput = [];
-  const plainTextOutput = [];
+  const htmlOutput: string[] = [];
+  const markdownOutput: string[] = [];
+  const plainTextOutput: string[] = [];
 
   if (has.has("h1")) {
     const title = grabRandom(data.longPhrases)[0];
@@ -72,7 +72,9 @@ export const generateFormats = (elements, tableDataType = "tech") => {
         return `    <tr>\n${tds}\n    </tr>`;
       })
       .join("\n");
-    htmlOutput.push(`<table>\n  <thead>\n    <tr>\n${ths}\n    </tr>\n  </thead>\n  <tbody>\n${htmlRows}\n  </tbody>\n</table>`);
+    htmlOutput.push(
+      `<table>\n  <thead>\n    <tr>\n${ths}\n    </tr>\n  </thead>\n  <tbody>\n${htmlRows}\n  </tbody>\n</table>`,
+    );
 
     const mdHeader = `| ${selectedTable.headers.join(" | ")} |`;
     const mdDivider = `| ${selectedTable.headers.map(() => "---").join(" | ")} |`;
@@ -147,7 +149,9 @@ export const generateFormats = (elements, tableDataType = "tech") => {
         return `    <tr>\n${tds}\n    </tr>`;
       })
       .join("\n");
-    htmlOutput.push(`<table>\n  <thead>\n    <tr>\n${ths}\n    </tr>\n  </thead>\n  <tbody>\n${htmlRows}\n  </tbody>\n</table>`);
+    htmlOutput.push(
+      `<table>\n  <thead>\n    <tr>\n${ths}\n    </tr>\n  </thead>\n  <tbody>\n${htmlRows}\n  </tbody>\n</table>`,
+    );
 
     const mdHeader = `| ${selectedTable.headers.join(" | ")} |`;
     const mdDivider = `| ${selectedTable.headers.map(() => "---").join(" | ")} |`;
@@ -203,7 +207,7 @@ export const generateFormats = (elements, tableDataType = "tech") => {
   };
 };
 
-export const getCheckedElements = (currentValues) => {
+export const getCheckedElements = (currentValues: Record<string, any>): string[] => {
   return Object.keys(currentValues)
     .filter((key) => key.startsWith("check_") && currentValues[key] === true)
     .map((key) => key.replace("check_", ""));

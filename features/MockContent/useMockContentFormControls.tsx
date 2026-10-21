@@ -6,16 +6,17 @@ import {
   initialMockContentValues,
   mockContentCheckAllValues,
   mockContentCheckNoneValues,
+  MockContentValues,
 } from "../../constants/mockContent";
 import { generateFormats, getCheckedElements } from "./generate-formats";
 
 export const useMockContentFormControls = () => {
-  const [values, setValues] = useState(initialMockContentValues);
+  const [values, setValues] = useState<MockContentValues>(initialMockContentValues);
   const [checkAll, setCheckAll] = useState(false);
 
   const { addToast } = useGlobalState();
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
 
     setValues((prev) => ({
@@ -32,7 +33,7 @@ export const useMockContentFormControls = () => {
     }));
   };
 
-  const handleCopy = async (textToCopy) => {
+  const handleCopy = async (textToCopy: string) => {
     if (!textToCopy) return;
 
     try {
@@ -66,10 +67,10 @@ export const useMockContentFormControls = () => {
   };
 
   const handleReset = () => {
-    setValues(initialValues);
+    setValues(initialMockContentValues);
   };
 
-  function handleSubmit(e) {
+  function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!values) return;
 

@@ -1,4 +1,25 @@
-const mockContentOutputValues = {
+export interface MockContentOutputBundle {
+  html: string;
+  markdown: string;
+  plaintext: string;
+}
+
+export interface MockContentValues {
+  output: MockContentOutputBundle;
+  h1: string;
+  h2: string;
+  h3: string;
+  h4: string;
+  p: string;
+  blockquote: string;
+  ul: string;
+  ol: string;
+  table: string;
+  tableDataType?: string;
+  [key: `check_${string}`]: boolean;
+}
+
+const mockContentOutputValues: MockContentValues = {
   output: { html: "", markdown: "", plaintext: "" },
   h1: "",
   h2: "",
@@ -11,7 +32,7 @@ const mockContentOutputValues = {
   table: "",
 };
 
-export const mockContentCheckAllValues = {
+export const mockContentCheckAllValues: Record<string, boolean> = {
   check_h1: true,
   check_h2: true,
   check_h3: true,
@@ -23,7 +44,7 @@ export const mockContentCheckAllValues = {
   check_table: true,
 };
 
-export const mockContentCheckNoneValues = {
+export const mockContentCheckNoneValues: Record<string, boolean> = {
   check_h1: false,
   check_h2: false,
   check_h3: false,
@@ -35,13 +56,19 @@ export const mockContentCheckNoneValues = {
   check_table: false,
 };
 
-export const initialMockContentValues = {
+export const initialMockContentValues: MockContentValues = {
   ...mockContentOutputValues,
   ...mockContentCheckAllValues,
   check_p: true,
 };
 
-export const mockContentElements = [
+export interface MockContentElement {
+  name: string;
+  label: string;
+  isSelectAll?: boolean;
+}
+
+export const mockContentElements: MockContentElement[] = [
   {
     name: "check_all",
     label: "Select all",

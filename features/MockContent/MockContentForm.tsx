@@ -2,9 +2,25 @@ import FeedIcon from "@mui/icons-material/Feed";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Grid, Stack } from "@mui/material";
 
-import { mockContentElements } from "../../constants/mockContent";
+import { mockContentElements, MockContentValues } from "../../constants/mockContent";
 
-const MockContentForm = ({ values, checkAll, handleChange, handleCheckAll, handleReset, handleSubmit }) => {
+interface MockContentFormProps {
+  values: MockContentValues;
+  checkAll: boolean;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleCheckAll: () => void;
+  handleReset: () => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+}
+
+const MockContentForm = ({
+  values,
+  checkAll,
+  handleChange,
+  handleCheckAll,
+  handleReset,
+  handleSubmit,
+}: MockContentFormProps) => {
   return (
     <Grid item xs={12} md={5}>
       <Box
@@ -15,7 +31,7 @@ const MockContentForm = ({ values, checkAll, handleChange, handleCheckAll, handl
         <FormControl fullWidth component="fieldset" variant="outlined">
           <FormLabel component="legend">Elements</FormLabel>
           <FormGroup>
-            <Grid container display="grid" gridTemplateColumns={{ xs: "1fr", md: "repeat(2, 1fr)" }} gapx={1}>
+            <Grid container display="grid" gridTemplateColumns={{ xs: "1fr", md: "repeat(2, 1fr)" }} rowGap={1}>
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 {mockContentElements
                   .slice(0, 5)
