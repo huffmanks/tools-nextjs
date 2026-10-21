@@ -2,7 +2,7 @@ import { GLOBAL_SITE_LS_KEY_PREFIX } from "./global";
 
 export const EMAIL_SIGNATURE_LS_KEY = `${GLOBAL_SITE_LS_KEY_PREFIX}_email-signature`;
 
-export const initialValues = {
+export const initialEmailSignatureValues = {
   fullName: "",
   email: "",
   phone: "",

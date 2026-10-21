@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 
-import { useGlobalState } from "../../hooks/useContext";
+import { useGlobalState } from "../../hooks/useGlobalState";
 
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import Snackbar, { SnackbarCloseReason } from "@mui/material/Snackbar";

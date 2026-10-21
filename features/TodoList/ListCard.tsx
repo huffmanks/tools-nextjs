@@ -1,4 +1,4 @@
-import { useLists } from "../../hooks/useContext";
+import { useLists } from "../../context/TodoContext";
 
 import { green, pink } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";

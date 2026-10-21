@@ -1,7 +1,7 @@
 import CloseIcon from "@mui/icons-material/Close";
 import { Backdrop, Box, Fade, IconButton, Modal, Typography } from "@mui/material";
 
-import { useGlobalState } from "../../hooks/useContext";
+import { useGlobalState } from "../../hooks/useGlobalState";
 
 interface GlobalModalProps {
   title: string;

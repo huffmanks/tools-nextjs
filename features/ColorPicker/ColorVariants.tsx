@@ -1,4 +1,4 @@
-import { variantRadios } from "../../constants/colorPicker";
+import { variantColorPickerRadios } from "../../constants/colorPicker";
 
 import { Box, FormControl, FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { ConvertedColors } from "./ColorForm";
@@ -15,7 +15,7 @@ const ColorVariants = ({ convertedColors, tintType, handleTintType }: ColorVaria
     <>
       <FormControl component="fieldset" sx={{ marginBottom: 3 }}>
         <RadioGroup row defaultValue="hex" name="selectedType" value={tintType} onChange={handleTintType}>
-          {variantRadios.map(({ value, label }, index) => (
+          {variantColorPickerRadios.map(({ value, label }, index) => (
             <FormControlLabel
               key={index}
               value={value}

@@ -6,12 +6,12 @@ import { usePopoverColorPicker } from "../../../hooks/usePopoverColorPicker";
 import PageTitle from "../../../components/common/PageTitle";
 import SEO from "../../../components/common/SEO";
 
-import { initialValues } from "../../../constants/popoverColorPicker";
+import { initialPopoverColorPickerValues } from "../../../constants/popoverColorPicker";
 import ScrollbarForm from "../../../features/CSSScrollbar/ScrollbarForm";
 import ScrollbarOutput from "../../../features/CSSScrollbar/ScrollbarOutput";
 
 const CSSScrollbar = () => {
-  const { colors, handleBlur } = usePopoverColorPicker(initialValues);
+  const { colors, handleBlur } = usePopoverColorPicker(initialPopoverColorPickerValues);
   const { values, handleChange } = useCSSScrollbarFormControls();
 
   return (

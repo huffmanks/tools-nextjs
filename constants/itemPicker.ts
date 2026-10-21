@@ -14,7 +14,7 @@ export interface ItemPickerValues {
   output: string[];
 }
 
-export const initialValues: ItemPickerValues = {
+export const initialItemPickerValues: ItemPickerValues = {
   total: 1,
   listType: "upload",
   selectedRows: [],
@@ -26,7 +26,7 @@ export const initialValues: ItemPickerValues = {
   output: [],
 };
 
-export const itemRadios = [
+export const itemPickerRadios = [
   {
     value: "upload",
     label: "Upload",

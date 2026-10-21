@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import { useMemo, useState } from "react";
 
-import { initialValues, measurements } from "../../constants/unitCalculator";
+import { initialUnitCalculatorValues, unitCalculatorMeasurements } from "../../constants/unitCalculator";
 
-type FormValues = typeof initialValues;
-type Measurement = (typeof measurements)[number];
+type FormValues = typeof initialUnitCalculatorValues;
+type Measurement = (typeof unitCalculatorMeasurements)[number];
 
 type FormState = {
   queryKey: string | null;
@@ -34,7 +34,7 @@ export function useUnitCalculatorFormControls() {
   const queryResult = useMemo(() => {
     if (!typeQuery) return null;
 
-    const level = measurements.find(
+    const level = unitCalculatorMeasurements.find(
       (item) => item.type.startsWith(typeQuery) || Number.parseInt(typeQuery, 10) === item.id,
     );
 
@@ -60,9 +60,9 @@ export function useUnitCalculatorFormControls() {
 
     return {
       values: {
-        measurement: levelType ?? initialValues.measurement,
+        measurement: levelType ?? initialUnitCalculatorValues.measurement,
         numInput: numQuery != null && !Number.isNaN(Number.parseInt(String(numQuery), 10)) ? numQuery : "",
-        unitSelection: unitTemp ?? levelUnits?.[0].unit ?? initialValues.unitSelection,
+        unitSelection: unitTemp ?? levelUnits?.[0].unit ?? initialUnitCalculatorValues.unitSelection,
       },
       currentUnits: levelUnits,
     };
@@ -70,8 +70,8 @@ export function useUnitCalculatorFormControls() {
 
   const [formState, setFormState] = useState<FormState>({
     queryKey: null,
-    values: initialValues,
-    currentUnits: measurements[0].units,
+    values: initialUnitCalculatorValues,
+    currentUnits: unitCalculatorMeasurements[0].units,
   });
 
   if (queryKey !== null && formState.queryKey !== queryKey) {
@@ -87,14 +87,16 @@ export function useUnitCalculatorFormControls() {
 
     setFormState((previous) => {
       if (name === "measurement") {
-        const newOptions = measurements.filter((item) => item.type === value).flatMap((item) => item.units);
+        const newOptions = unitCalculatorMeasurements
+          .filter((item) => item.type === value)
+          .flatMap((item) => item.units);
 
         return {
           ...previous,
           values: {
             measurement: value,
             numInput: "",
-            unitSelection: newOptions[0]?.unit ?? initialValues.unitSelection,
+            unitSelection: newOptions[0]?.unit ?? initialUnitCalculatorValues.unitSelection,
           },
           currentUnits: newOptions,
         };

@@ -1,5 +1,5 @@
-import { useGlobalState } from "../../hooks/useContext";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
+import { useGlobalState } from "../../hooks/useGlobalState";
 
 import { Box } from "@mui/material";
 

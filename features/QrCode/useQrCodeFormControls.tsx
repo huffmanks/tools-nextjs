@@ -2,12 +2,12 @@ import { useCallback, useRef, useState, type ChangeEvent, type SyntheticEvent } 
 
 import QRCode from "easyqrcodejs";
 
-import { initialColors, initialValues, QR_CODE_LS_KEY } from "../../constants/qrCode";
+import { initialQrCodeColors, initialQrCodeValues, QR_CODE_LS_KEY } from "../../constants/qrCode";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 const combinedInitialValues = {
-  ...initialValues,
-  colors: initialColors,
+  ...initialQrCodeValues,
+  colors: initialQrCodeColors,
 };
 
 type FormValues = typeof combinedInitialValues;
@@ -42,7 +42,7 @@ export const useQrCodeFormControls = () => {
   const [downloadUrl, setDownloadUrl] = useState("");
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
-  const colors = values.colors || initialColors;
+  const colors = values.colors || initialQrCodeColors;
 
   const validate = useCallback(
     (currentValues: FormValues = values) => {
@@ -58,7 +58,7 @@ export const useQrCodeFormControls = () => {
 
     const { websiteLink, outputSize, correctLevel, logoUpload, logoBackgroundTransparent } = currentValues;
 
-    const activeColors = currentValues.colors || initialColors;
+    const activeColors = currentValues.colors || initialQrCodeColors;
     if (!codeRef.current) return;
 
     const options = {
@@ -138,11 +138,11 @@ export const useQrCodeFormControls = () => {
     }
   };
 
-  const handleColorChange = (name: keyof typeof initialColors, colorValue: string) => {
+  const handleColorChange = (name: keyof typeof initialQrCodeColors, colorValue: string) => {
     const nextValues = {
       ...values,
       colors: {
-        ...(values.colors || initialColors),
+        ...(values.colors || initialQrCodeColors),
         [name]: colorValue,
       },
     };

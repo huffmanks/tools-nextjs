@@ -323,7 +323,7 @@ export const cards = [
 
 // END REMOVE
 
-export const initialValues = {
+export const initialCodeFormatterValues = {
   action: "",
   format: "",
   codeInput: "",

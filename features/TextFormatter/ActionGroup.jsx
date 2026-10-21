@@ -1,4 +1,4 @@
-import { cards } from "../../constants/textFormatter";
+import { textFormatterCards } from "../../constants/textFormatter";
 
 import DeleteIcon from "@mui/icons-material/Delete";
 import {
@@ -92,7 +92,7 @@ const ActionGroup = ({
               control={<Checkbox checked={checkAll} onChange={handleCheckAll} name="check_all" />}
               label="Select all"
             />
-            {cards.map((box) => (
+            {textFormatterCards.map((box) => (
               <FormControlLabel
                 key={box.name}
                 control={

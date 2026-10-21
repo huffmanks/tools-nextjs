@@ -1,20 +1,20 @@
 import { useRef, useState } from "react";
 import * as XLSX from "xlsx";
 
-import { useGlobalState } from "../../hooks/useContext";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
+import { useGlobalState } from "../../hooks/useGlobalState";
 
 import { generateRandomNumbers } from "../../utilities/generateRandomNumbers";
 import { generateSeparatedStrings } from "./generateSeparatedStrings";
 
 import { SelectChangeEvent } from "@mui/material";
-import { ITEM_PICKER_LS_KEY, ItemPickerValues, initialValues } from "../../constants/itemPicker";
+import { ITEM_PICKER_LS_KEY, ItemPickerValues, initialItemPickerValues } from "../../constants/itemPicker";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 type SpreadsheetRow = unknown[];
 
 export const useItemPickerFormControls = () => {
-  const [values, setValues] = useLocalStorage<ItemPickerValues>(ITEM_PICKER_LS_KEY, initialValues);
+  const [values, setValues] = useLocalStorage<ItemPickerValues>(ITEM_PICKER_LS_KEY, initialItemPickerValues);
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const { addToast } = useGlobalState();
@@ -155,7 +155,7 @@ export const useItemPickerFormControls = () => {
   };
 
   const handleReset = () => {
-    setValues(initialValues);
+    setValues(initialItemPickerValues);
     if (fileRef.current) {
       fileRef.current.value = "";
     }

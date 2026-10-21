@@ -1,4 +1,4 @@
-export const outputValues = {
+const mockContentOutputValues = {
   output: { html: "", markdown: "", plaintext: "" },
   h1: "",
   h2: "",
@@ -11,7 +11,7 @@ export const outputValues = {
   table: "",
 };
 
-export const checkAllValues = {
+export const mockContentCheckAllValues = {
   check_h1: true,
   check_h2: true,
   check_h3: true,
@@ -23,7 +23,7 @@ export const checkAllValues = {
   check_table: true,
 };
 
-export const checkNoneValues = {
+export const mockContentCheckNoneValues = {
   check_h1: false,
   check_h2: false,
   check_h3: false,
@@ -35,13 +35,13 @@ export const checkNoneValues = {
   check_table: false,
 };
 
-export const initialValues = {
-  ...outputValues,
-  ...checkNoneValues,
+export const initialMockContentValues = {
+  ...mockContentOutputValues,
+  ...mockContentCheckAllValues,
   check_p: true,
 };
 
-export const elements = [
+export const mockContentElements = [
   {
     name: "check_all",
     label: "Select all",

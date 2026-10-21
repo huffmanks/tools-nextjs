@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
-import { initialValues } from "../../constants/codeFormatter";
+import { initialCodeFormatterValues } from "../../constants/codeFormatter";
 import { codeTransformer, detectFormat } from "./codeTransformer";
 
 export const useCodeFormatterFormControls = () => {
-  const [values, setValues] = useState(initialValues);
+  const [values, setValues] = useState(initialCodeFormatterValues);
   const [errors, setErrors] = useState({});
 
   const isManualOverride = useRef(false);

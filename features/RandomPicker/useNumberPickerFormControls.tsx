@@ -1,8 +1,13 @@
 import { useRef, useState } from "react";
 
-import { initialValues, megaMillionsValues, NumberPickerValues, powerballValues } from "../../constants/numberPicker";
-import { useGlobalState } from "../../hooks/useContext";
+import {
+  initialNumberPickerValues,
+  megaMillionsValues,
+  NumberPickerValues,
+  powerballValues,
+} from "../../constants/numberPicker";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
+import { useGlobalState } from "../../hooks/useGlobalState";
 import { generateRandomNumbers } from "../../utilities/generateRandomNumbers";
 
 export const useNumberPickerFormControls = () => {
@@ -11,7 +16,7 @@ export const useNumberPickerFormControls = () => {
   const { addToast } = useGlobalState();
   const [copy] = useCopyToClipboard(true);
 
-  const [values, setValues] = useState<NumberPickerValues>(initialValues);
+  const [values, setValues] = useState<NumberPickerValues>(initialNumberPickerValues);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const target = e.target as HTMLInputElement;
@@ -101,7 +106,7 @@ export const useNumberPickerFormControls = () => {
   };
 
   const handleReset = () => {
-    setValues(initialValues);
+    setValues(initialNumberPickerValues);
   };
 
   return {

@@ -9,7 +9,7 @@ export type InitialCssScrollbarValues = {
   thumbBorderWidth: number;
 };
 
-export const initialValues: InitialCssScrollbarValues = {
+export const initialCssScrollbarValues: InitialCssScrollbarValues = {
   axis: "y",
   widthFirefox: "auto",
   thickness: 18,

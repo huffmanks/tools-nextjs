@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { useGlobalState } from "../../hooks/useContext";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
+import { useGlobalState } from "../../hooks/useGlobalState";
 
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { IconButton, InputAdornment, TextField } from "@mui/material";

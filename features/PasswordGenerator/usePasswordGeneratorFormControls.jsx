@@ -1,60 +1,67 @@
-import { useState } from 'react'
-import { generateKey } from '../../utilities/generateKey'
-import { initialValues } from '../../constants/passwordGenerator'
+import { useState } from "react";
+import { initialPasswordGeneratorValues } from "../../constants/passwordGenerator";
+import { generateKey } from "../../utilities/generateKey";
 
-import { generatePassword } from './generatePassword'
+import { generatePassword } from "./generatePassword";
 
 export const usePasswordGeneratorFormControls = () => {
-    const [values, setValues] = useState(initialValues)
+  const [values, setValues] = useState(initialPasswordGeneratorValues);
 
-    const handleChange = (e) => {
-        const { name, value, type, checked } = e.target
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
 
-        setValues({
-            ...values,
-            [name]: type === 'checkbox' ? checked : value,
-        })
+    setValues({
+      ...values,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
+  const handleSlider = (e, newValue) => {
+    setValues({
+      ...values,
+      slider: Number(newValue),
+    });
+  };
+
+  const handleClick = () => {
+    if (values.passwordType === "password") {
+      const password = generatePassword(
+        values.symbols,
+        values.numbers,
+        values.lowerCase,
+        values.upperCase,
+        values.excludeSimilar,
+        values.slider,
+      );
+
+      setValues({
+        ...values,
+        password,
+      });
     }
 
-    const handleSlider = (e, newValue) => {
-        setValues({
-            ...values,
-            slider: Number(newValue),
-        })
+    if (values.passwordType === "keygen") {
+      const keygen = generateKey();
+
+      setValues({
+        ...values,
+        keygen,
+      });
     }
+  };
 
-    const handleClick = () => {
-        if (values.passwordType === 'password') {
-            const password = generatePassword(values.symbols, values.numbers, values.lowerCase, values.upperCase, values.excludeSimilar, values.slider)
+  const handleShowPassword = () => {
+    setValues((prev) => ({
+      ...values,
+      showPassword: !prev.showPassword,
+    }));
+  };
 
-            setValues({
-                ...values,
-                password,
-            })
-        }
-
-        if (values.passwordType === 'keygen') {
-            const keygen = generateKey()
-
-            setValues({
-                ...values,
-                keygen,
-            })
-        }
-    }
-
-    const handleShowPassword = () => {
-        setValues((prev) => ({
-            ...values,
-            showPassword: !prev.showPassword,
-        }))
-    }
-
-    return {
-        values,
-        handleChange,
-        handleSlider,
-        handleClick,
-        handleShowPassword,
-    }
-}
+  return {
+    values,
+    handleChange,
+    handleSlider,
+    handleClick,
+    handleShowPassword,
+  };
+};

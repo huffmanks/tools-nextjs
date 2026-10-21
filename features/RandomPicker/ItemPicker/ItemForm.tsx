@@ -2,7 +2,7 @@ import { FormControl, FormControlLabel, Grid, Radio, RadioGroup } from "@mui/mat
 
 import ActionGroup from "../ActionGroup";
 
-import { ItemPickerValues, itemRadios } from "../../../constants/itemPicker";
+import { ItemPickerValues, itemPickerRadios } from "../../../constants/itemPicker";
 import TextForm from "./TextForm";
 import TextOutput from "./TextOutput";
 import UploadForm from "./UploadForm";
@@ -48,7 +48,7 @@ const ItemForm = ({
           name="listType"
           value={values?.listType || "upload"}
           onChange={handleChange}>
-          {itemRadios.map(({ value, label }, index) => (
+          {itemPickerRadios.map(({ value, label }, index) => (
             <FormControlLabel
               key={index}
               value={value}

@@ -1,5 +1,5 @@
-import { useGlobalState } from "../../hooks/useContext";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
+import { useGlobalState } from "../../hooks/useGlobalState";
 
 import { aspectOutput } from "../../constants/aspectRatio";
 
@@ -57,7 +57,10 @@ const AspectValues = ({ values, errors }) => {
                 endAdornment: (
                   <InputAdornment position="end">
                     {values[output.name] && (
-                      <IconButton aria-label="copy value to clipboard" onClick={() => handleCopy(values[output.name])} edge="end">
+                      <IconButton
+                        aria-label="copy value to clipboard"
+                        onClick={() => handleCopy(values[output.name])}
+                        edge="end">
                         <ContentCopyIcon />
                       </IconButton>
                     )}

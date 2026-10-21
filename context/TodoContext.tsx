@@ -1,8 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 import { TODO_LISTS_LS_KEY } from "../constants/todoList";
-import { useGlobalState } from "../hooks/useContext";
 import { useCopyToClipboard } from "../hooks/useCopyToClipboard";
+import { useGlobalState } from "../hooks/useGlobalState";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { getTimestamp } from "../utilities/getTimestamp";
 import { uniqueId } from "../utilities/uniqueId";
@@ -200,6 +200,10 @@ const TodoStateProvider = ({ children }: TodoStateProviderProps) => {
   };
 
   return <TodoStateContext.Provider value={contextValue}>{children}</TodoStateContext.Provider>;
+};
+
+export const useLists = () => {
+  return useContext(TodoStateContext);
 };
 
 export default TodoStateProvider;

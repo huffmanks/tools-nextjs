@@ -3,7 +3,7 @@ import { HexColorInput, HexColorPicker } from "react-colorful";
 
 import { Box, InputAdornment, Stack, TextField, Typography } from "@mui/material";
 
-import { initialValues } from "../../constants/popoverColorPicker";
+import { initialPopoverColorPickerValues } from "../../constants/popoverColorPicker";
 import { useClickOutside } from "../../hooks/useClickOutside";
 
 type HexColorInputCustomProps = {
@@ -45,13 +45,13 @@ type PopoverColorPickerProps = {
 function PopoverColorPicker({ label, name, value, helperText, handleBlur }: PopoverColorPickerProps) {
   const popover = useRef<HTMLDivElement>(null);
 
-  const [color, setColor] = useState(value || initialValues[name] || "#5b21b6");
+  const [color, setColor] = useState(value || initialPopoverColorPickerValues[name] || "#5b21b6");
   const [prevValue, setPrevValue] = useState(value);
   const [isOpen, toggle] = useState(false);
 
   if (value !== prevValue) {
     setPrevValue(value);
-    setColor(value || initialValues[name] || "#5b21b6");
+    setColor(value || initialPopoverColorPickerValues[name] || "#5b21b6");
   }
 
   const close = useCallback(() => toggle(false), []);

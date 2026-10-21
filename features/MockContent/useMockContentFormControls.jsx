@@ -1,12 +1,16 @@
 import { useState } from "react";
 
-import { useGlobalState } from "../../hooks/useContext";
+import { useGlobalState } from "../../hooks/useGlobalState";
 
-import { checkAllValues, checkNoneValues, initialValues } from "../../constants/mockContent";
+import {
+  initialMockContentValues,
+  mockContentCheckAllValues,
+  mockContentCheckNoneValues,
+} from "../../constants/mockContent";
 import { generateFormats, getCheckedElements } from "./generate-formats";
 
 export const useMockContentFormControls = () => {
-  const [values, setValues] = useState(initialValues);
+  const [values, setValues] = useState(initialMockContentValues);
   const [checkAll, setCheckAll] = useState(false);
 
   const { addToast } = useGlobalState();
@@ -24,7 +28,7 @@ export const useMockContentFormControls = () => {
     setCheckAll((prev) => !prev);
     setValues((prev) => ({
       ...prev,
-      ...(!checkAll ? checkAllValues : checkNoneValues),
+      ...(!checkAll ? mockContentCheckAllValues : mockContentCheckNoneValues),
     }));
   };
 

@@ -2,7 +2,7 @@ import { GLOBAL_SITE_LS_KEY_PREFIX } from "./global";
 
 export const TEXT_FORMATTER_LS_KEY = `${GLOBAL_SITE_LS_KEY_PREFIX}_text-formatter`;
 
-export const outputValues = {
+export const textFormatterOutputValues = {
   output: "",
   selectedId: "",
   lowerCase: "",
@@ -16,7 +16,7 @@ export const outputValues = {
   saved: [],
 };
 
-export const checkAllValues = {
+export const textFormatterCheckAllValues = {
   check_lowerCase: true,
   check_upperCase: true,
   check_capitalCase: true,
@@ -27,7 +27,7 @@ export const checkAllValues = {
   check_constantCase: true,
 };
 
-export const checkNoneValues = {
+export const textFormatterCheckNoneValues = {
   check_lowerCase: false,
   check_upperCase: false,
   check_capitalCase: false,
@@ -38,14 +38,14 @@ export const checkNoneValues = {
   check_constantCase: false,
 };
 
-export const initialValues = {
-  ...outputValues,
-  ...checkNoneValues,
+export const initialTextFormatterValues = {
+  ...textFormatterOutputValues,
+  ...textFormatterCheckNoneValues,
   check_capitalCase: true,
   check_headerCase: true,
 };
 
-export const cards = [
+export const textFormatterCards = [
   {
     name: "lowerCase",
     label: "Lowercase",

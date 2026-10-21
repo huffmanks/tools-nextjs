@@ -1,8 +1,7 @@
 import { useState, type RefObject } from "react";
 
-import { initialErrors, initialValues } from "../../constants/todoList";
-import { TodoItem, TodoList } from "../../context/TodoContext";
-import { useLists } from "../../hooks/useContext";
+import { initialTodoListErrors, initialTodoListValues } from "../../constants/todoList";
+import { TodoItem, TodoList, useLists } from "../../context/TodoContext";
 import { uniqueId } from "../../utilities/uniqueId";
 
 export type TodoListForm = Omit<TodoList, "id" | "createdAt" | "updatedAt" | "isFavorite" | "items"> & {
@@ -40,12 +39,12 @@ export const useTodoListFormControls = () => {
     }
 
     return {
-      ...initialValues,
+      ...initialTodoListValues,
       items: [],
     };
   });
   const [items, setItems] = useState<TodoItem[]>([]);
-  const [errors, setErrors] = useState<FormErrors>(initialErrors);
+  const [errors, setErrors] = useState<FormErrors>(initialTodoListErrors);
   const [formIsValid, setFormIsValid] = useState(false);
 
   const validate = (name: string, value: string): void => {
@@ -68,7 +67,7 @@ export const useTodoListFormControls = () => {
       return;
     }
 
-    setErrors(initialErrors);
+    setErrors(initialTodoListErrors);
 
     if (list.title && list.items.length > 0 && list.items.every((item) => item.text.length > 0)) {
       setFormIsValid(true);
@@ -175,7 +174,7 @@ export const useTodoListFormControls = () => {
 
     if (screen === "create") {
       addList({ list, items });
-      setList({ ...initialValues, items: [] });
+      setList({ ...initialTodoListValues, items: [] });
       setItems([]);
       setFormIsValid(false);
     } else if (list.id) {

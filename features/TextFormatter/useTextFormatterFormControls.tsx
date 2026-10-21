@@ -1,10 +1,15 @@
 import { useMemo, useState } from "react";
 
-import { useGlobalState } from "../../hooks/useContext";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
+import { useGlobalState } from "../../hooks/useGlobalState";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
-import { TEXT_FORMATTER_LS_KEY, checkAllValues, checkNoneValues, initialValues } from "../../constants/textFormatter";
+import {
+  initialTextFormatterValues,
+  TEXT_FORMATTER_LS_KEY,
+  textFormatterCheckAllValues,
+  textFormatterCheckNoneValues,
+} from "../../constants/textFormatter";
 import { uniqueId } from "../../utilities/uniqueId";
 import { formatTextCases } from "./helpers";
 
@@ -15,7 +20,7 @@ interface SavedItem {
 }
 
 export const useTextFormatterFormControls = () => {
-  const [values, setValues] = useLocalStorage(TEXT_FORMATTER_LS_KEY, initialValues);
+  const [values, setValues] = useLocalStorage(TEXT_FORMATTER_LS_KEY, initialTextFormatterValues);
   const [checkAll, setCheckAll] = useState(false);
 
   const uid = uniqueId();
@@ -62,7 +67,7 @@ export const useTextFormatterFormControls = () => {
     setCheckAll((prev) => !prev);
     setValues((prev) => ({
       ...prev,
-      ...(!checkAll ? checkAllValues : checkNoneValues),
+      ...(!checkAll ? textFormatterCheckAllValues : textFormatterCheckNoneValues),
     }));
   };
 
@@ -75,7 +80,7 @@ export const useTextFormatterFormControls = () => {
   };
 
   const handleReset = () => {
-    setValues(initialValues);
+    setValues(initialTextFormatterValues);
   };
 
   const handleSave = () => {

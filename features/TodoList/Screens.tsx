@@ -1,5 +1,5 @@
-import { navItems } from "../../constants/todoList";
-import { useLists } from "../../hooks/useContext";
+import { todoListNavItems } from "../../constants/todoList";
+import { useLists } from "../../context/TodoContext";
 
 import Skelly from "../../components/common/Skelly";
 import SkellyGroup from "../../components/common/SkellyGroup";
@@ -15,7 +15,7 @@ const Screens = () => {
     <BottomMenu
       screen={screen}
       handleScreen={changeScreen}
-      navItems={navItems}
+      navItems={todoListNavItems}
       isFocused={isFocused}
       activeListId={activeListId}>
       {screen === "" && (

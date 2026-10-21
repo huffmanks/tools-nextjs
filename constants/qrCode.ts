@@ -2,7 +2,7 @@ import { GLOBAL_SITE_LS_KEY_PREFIX } from "./global";
 
 export const QR_CODE_LS_KEY = `${GLOBAL_SITE_LS_KEY_PREFIX}_qr-code`;
 
-export const initialValues = {
+export const initialQrCodeValues = {
   qrCodeName: "",
   websiteLink: "",
   outputSize: 600,
@@ -12,7 +12,7 @@ export const initialValues = {
   logoName: "",
 };
 
-export const initialColors = {
+export const initialQrCodeColors = {
   dotColor: "#5b21b6",
   backgroundColor: "#fff",
   ringOuter: "#222",

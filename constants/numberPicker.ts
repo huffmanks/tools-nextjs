@@ -12,7 +12,7 @@ export interface NumberPickerValues {
   resultIsCentered: boolean;
 }
 
-export const initialValues: NumberPickerValues = {
+export const initialNumberPickerValues: NumberPickerValues = {
   total: 1,
   unique: true,
   sorted: true,
@@ -27,13 +27,13 @@ export const initialValues: NumberPickerValues = {
 };
 
 export const powerballValues: NumberPickerValues = {
-  ...initialValues,
+  ...initialNumberPickerValues,
   total: 5,
   end: 69,
 };
 
 export const megaMillionsValues: NumberPickerValues = {
-  ...initialValues,
+  ...initialNumberPickerValues,
   total: 5,
   end: 70,
 };

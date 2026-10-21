@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import { EMAIL_SIGNATURE_LS_KEY, initialValues } from "../../constants/emailSignature";
+import { EMAIL_SIGNATURE_LS_KEY, initialEmailSignatureValues } from "../../constants/emailSignature";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 export const useEmailSignatureFormControls = () => {
-  const [values, setValues] = useLocalStorage(EMAIL_SIGNATURE_LS_KEY, initialValues);
+  const [values, setValues] = useLocalStorage(EMAIL_SIGNATURE_LS_KEY, initialEmailSignatureValues);
   const [errors, setErrors] = useState({});
   const [formSubmitted, setFormSubmitted] = useState(false);
 

@@ -1,10 +1,10 @@
 import type { ChangeEvent, FocusEvent } from "react";
 import { useState } from "react";
 
-import { initialValues } from "../../constants/aspectRatio";
+import { initialAspectRatioValues } from "../../constants/aspectRatio";
 import { getAspectNumbers } from "./getAspectNumbers";
 
-type AspectRatioValues = typeof initialValues;
+type AspectRatioValues = typeof initialAspectRatioValues;
 type AspectRatioField = keyof AspectRatioValues;
 type AspectRatioErrors = Partial<Record<AspectRatioField, string>>;
 
@@ -16,7 +16,7 @@ type CalculatedLowerBounds = {
 type AspectRatioChangeEvent = ChangeEvent<HTMLInputElement | HTMLSelectElement>;
 
 export const useAspectRatioFormControls = () => {
-  const [values, setValues] = useState<AspectRatioValues>(initialValues);
+  const [values, setValues] = useState<AspectRatioValues>(initialAspectRatioValues);
   const [errors, setErrors] = useState<AspectRatioErrors>({});
 
   const validate = (

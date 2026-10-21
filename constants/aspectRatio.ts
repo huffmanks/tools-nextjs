@@ -1,4 +1,4 @@
-export const initialValues = {
+export const initialAspectRatioValues = {
   originalWidth: "",
   originalHeight: "",
   selectedType: "width",

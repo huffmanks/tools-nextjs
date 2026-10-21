@@ -12,7 +12,7 @@ export type InitialColors = {
   thumbBgHover: string;
 };
 
-export const initialValues: InitialColors = {
+export const initialPopoverColorPickerValues: InitialColors = {
   dotColor: "#5b21b6",
   backgroundColor: "#fff",
   ringOuter: "#222",

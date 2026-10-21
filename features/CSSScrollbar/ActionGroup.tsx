@@ -3,8 +3,8 @@ import { Box, Button } from "@mui/material";
 
 import { InitialCssScrollbarValues } from "../../constants/cssScrollbar";
 import { InitialColors } from "../../constants/popoverColorPicker";
-import { useGlobalState } from "../../hooks/useContext";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
+import { useGlobalState } from "../../hooks/useGlobalState";
 import { generateScrollbarStrings } from "../../utilities/generateScrollbarStrings";
 
 interface ActionGroupProps {
