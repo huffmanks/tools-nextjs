@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 
 import { TODO_LISTS_LS_KEY } from "../constants/todoList";
 import { useCopyToClipboard } from "../hooks/useCopyToClipboard";
@@ -200,10 +200,6 @@ const TodoStateProvider = ({ children }: TodoStateProviderProps) => {
   };
 
   return <TodoStateContext.Provider value={contextValue}>{children}</TodoStateContext.Provider>;
-};
-
-export const useLists = () => {
-  return useContext(TodoStateContext);
 };
 
 export default TodoStateProvider;

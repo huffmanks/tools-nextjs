@@ -1,4 +1,4 @@
-import { useLists } from "../../context/TodoContext";
+import { useLists } from "../../hooks/useLists";
 
 import { Stack, Typography } from "@mui/material";
 

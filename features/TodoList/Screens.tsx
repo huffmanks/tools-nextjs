@@ -1,5 +1,5 @@
 import { todoListNavItems } from "../../constants/todoList";
-import { useLists } from "../../context/TodoContext";
+import { useLists } from "../../hooks/useLists";
 
 import Skelly from "../../components/common/Skelly";
 import SkellyGroup from "../../components/common/SkellyGroup";

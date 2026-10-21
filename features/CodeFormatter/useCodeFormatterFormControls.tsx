@@ -1,15 +1,24 @@
 import { useEffect, useRef, useState } from "react";
 
-import { initialCodeFormatterValues } from "../../constants/codeFormatter";
+import { SelectChangeEvent } from "@mui/material";
+import { CodeFormatterValues, initialCodeFormatterValues } from "../../constants/codeFormatter";
 import { codeTransformer, detectFormat } from "./codeTransformer";
 
+export interface CodeFormatterErrors {
+  codeInput?: string;
+  action?: string;
+  format?: string;
+  codeOutput?: string;
+  [key: string]: string | undefined;
+}
+
 export const useCodeFormatterFormControls = () => {
-  const [values, setValues] = useState(initialCodeFormatterValues);
-  const [errors, setErrors] = useState({});
+  const [values, setValues] = useState<CodeFormatterValues>(initialCodeFormatterValues);
+  const [errors, setErrors] = useState<CodeFormatterErrors>({});
 
   const isManualOverride = useRef(false);
 
-  const isStringEmpty = (str) => !str || !/\S/.test(str);
+  const isStringEmpty = (str: string) => !str || !/\S/.test(str);
 
   useEffect(() => {
     if (isStringEmpty(values.codeInput) || isStringEmpty(values.action)) {
@@ -55,26 +64,13 @@ export const useCodeFormatterFormControls = () => {
     }
   }, [values.codeInput, values.format, values.action]);
 
-  const validate = () => {
-    let tempErrors = {};
-    const isLanguageRequired = ["minify", "un-minify"].includes(values.action);
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement, Element> | SelectChangeEvent<string>,
+  ) => {
+    const name = e.target.name as keyof CodeFormatterValues;
+    const value = e.target.value as string;
+    if (!name) return;
 
-    if (isStringEmpty(values.codeInput)) {
-      tempErrors.codeInput = "Code input is required.";
-    }
-    if (isStringEmpty(values.action)) {
-      tempErrors.action = "Please select an action.";
-    }
-    if (isLanguageRequired && isStringEmpty(values.format)) {
-      tempErrors.format = "Please select a code format.";
-    }
-
-    setErrors((prev) => ({ ...prev, ...tempErrors }));
-    return Object.keys(tempErrors).length === 0;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
     setErrors((prev) => ({ ...prev, [name]: "", codeOutput: "" }));
 
     if (name === "codeInput") {
@@ -94,7 +90,7 @@ export const useCodeFormatterFormControls = () => {
 
   const handleReset = () => {
     isManualOverride.current = false;
-    setValues(initialValues);
+    setValues(initialCodeFormatterValues);
     setErrors({});
   };
 

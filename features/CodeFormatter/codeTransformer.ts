@@ -1,4 +1,7 @@
-export function detectFormat(input) {
+export type CodeFormat = "plaintext" | "json" | "html" | "css" | "js";
+export type CodeAction = "decode" | "encode" | "minify" | "un-minify" | "stringify" | "un-stringify";
+
+export function detectFormat(input: string): CodeFormat {
   const code = input.trim();
   if (!code) return "plaintext";
 
@@ -25,7 +28,7 @@ export function detectFormat(input) {
   return "plaintext";
 }
 
-function scoreJavaScript(code) {
+function scoreJavaScript(code: string): number {
   let score = 0;
 
   const strongSignals = [
@@ -56,7 +59,13 @@ function scoreJavaScript(code) {
   return score;
 }
 
-export const codeTransformer = ({ codeInput, format, action }) => {
+interface TransformerParams {
+  codeInput: string;
+  format: string;
+  action: string;
+}
+
+export const codeTransformer = ({ codeInput, format, action }: TransformerParams): string => {
   if (!codeInput || !/\S/.test(codeInput)) return "";
 
   if (action === "encode") return encodeURIComponent(codeInput);
@@ -89,7 +98,7 @@ export const codeTransformer = ({ codeInput, format, action }) => {
   return codeInput;
 };
 
-function extractProtected(code, patterns) {
+function extractProtected(code: string, patterns: RegExp[]) {
   const store = [];
   let out = code;
   for (const re of patterns) {
@@ -101,7 +110,7 @@ function extractProtected(code, patterns) {
   }
   return {
     code: out,
-    restore: (str) => str.replace(/\u0000(\d+)\u0000/g, (_, i) => store[Number(i)]),
+    restore: (str: string) => str.replace(/\u0000(\d+)\u0000/g, (_, i) => store[Number(i)]),
   };
 }
 
@@ -115,11 +124,11 @@ const JS_PROTECT_PATTERNS = [
 
 const CSS_PROTECT_PATTERNS = [/\/\*[\s\S]*?\*\//g, /"(?:\\.|[^"\\])*"/g, /'(?:\\.|[^'\\])*'/g];
 
-function safePlusMinusSpacing(str) {
+function safePlusMinusSpacing(str: string): string {
   return str.replace(/\s*([+\-](?:\s*[+\-])*)\s*/g, (_, run) => (/\s/.test(run) ? run.replace(/\s+/g, " ") : run));
 }
 
-function tryParseJson(code) {
+function tryParseJson(code: string): { ok: boolean; value: any } {
   try {
     return { ok: true, value: JSON.parse(code) };
   } catch {}
@@ -136,7 +145,7 @@ function tryParseJson(code) {
   }
 }
 
-const handleMinification = ({ codeInput, format }) => {
+const handleMinification = ({ codeInput, format }: { codeInput: string; format: string }) => {
   const code = codeInput.trim();
   if (!code) return code;
 
@@ -177,7 +186,7 @@ const handleMinification = ({ codeInput, format }) => {
   }
 };
 
-export const handleBeautify = ({ codeInput, format }) => {
+export const handleBeautify = ({ codeInput, format }: { codeInput: string; format: string }) => {
   const code = codeInput.trim();
   if (!code) return code;
 

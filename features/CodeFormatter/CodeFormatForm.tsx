@@ -1,6 +1,8 @@
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import RefreshIcon from "@mui/icons-material/Refresh";
 import {
   Box,
+  Button,
   FormControl,
   Grid,
   IconButton,
@@ -8,6 +10,7 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  SelectChangeEvent,
   TextField,
   Typography,
   useMediaQuery,
@@ -16,9 +19,24 @@ import {
 
 import { codeActionSelect, codeFormatSelect } from "../../constants/codeFormatter";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
+import { CodeFormatterErrors } from "./useCodeFormatterFormControls";
 
-const CodeFormatForm = ({ values, errors, handleChange, handleReset }) => {
-  const [copy] = useCopyToClipboard();
+interface CodeFormatFormProps {
+  values: {
+    action: string;
+    format: string;
+    codeInput: string;
+    codeOutput: string;
+  };
+  errors: CodeFormatterErrors;
+  handleChange: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement, Element> | SelectChangeEvent<string>,
+  ) => void;
+  handleReset: () => void;
+}
+
+const CodeFormatForm = ({ values, errors, handleChange, handleReset }: CodeFormatFormProps) => {
+  const [copy] = useCopyToClipboard(false);
   const theme = useTheme();
 
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
@@ -164,7 +182,7 @@ const CodeFormatForm = ({ values, errors, handleChange, handleReset }) => {
                         backgroundColor: "primary.main",
                       },
                     }}>
-                    <ContentCopyIcon fontSize="1rem" />
+                    <ContentCopyIcon fontSize="small" />
                   </IconButton>
                 </InputAdornment>
               ),
@@ -180,6 +198,11 @@ const CodeFormatForm = ({ values, errors, handleChange, handleReset }) => {
               },
             }}
           />
+        </Grid>
+        <Grid item xs={12} display="flex" gap={2} justifyContent="flex-end">
+          <Button variant="contained" onClick={handleReset} startIcon={<RefreshIcon />}>
+            Reset
+          </Button>
         </Grid>
       </Grid>
     </Box>

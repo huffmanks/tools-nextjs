@@ -3,7 +3,7 @@ import { Box, Button, Grid, IconButton, InputAdornment, Stack, TextField, Typogr
 import AddIcon from "@mui/icons-material/Add";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 
-import { useLists } from "../../context/TodoContext";
+import { useLists } from "../../hooks/useLists";
 
 import OutputMessage from "../../components/common/OutputMessage";
 import ListType from "./ListType";
