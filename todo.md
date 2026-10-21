@@ -1,7 +1,3 @@
-## Issues
-
-- [ ] /generate/css-scrollbar Minified React error # 418;
-
 ## Global changes
 
 - [ ] Bundle analyzer remove unused code

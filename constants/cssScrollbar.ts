@@ -5,10 +5,8 @@ export type InitialCssScrollbarValues = {
   isTrackTransparent: boolean;
   trackRadius: number;
   trackBorderWidth: number;
-  trackBorderStyle: string;
   thumbRadius: number;
   thumbBorderWidth: number;
-  thumbBorderStyle: string;
 };
 
 export const initialValues: InitialCssScrollbarValues = {
@@ -18,10 +16,8 @@ export const initialValues: InitialCssScrollbarValues = {
   isTrackTransparent: true,
   trackRadius: 8,
   trackBorderWidth: 1,
-  trackBorderStyle: "solid",
   thumbRadius: 50,
   thumbBorderWidth: 1,
-  thumbBorderStyle: "solid",
 };
 
 export const directionRadios = [
@@ -58,36 +54,5 @@ export const firefoxWidthSelect = [
   {
     value: "none",
     label: "None",
-  },
-];
-
-export const borderStyleSelect = [
-  {
-    value: "solid",
-    label: "Solid",
-  },
-  {
-    value: "dashed",
-    label: "Dashed",
-  },
-  {
-    value: "dotted",
-    label: "Dotted",
-  },
-  {
-    value: "double",
-    label: "Double",
-  },
-  {
-    value: "groove",
-    label: "Groove",
-  },
-  {
-    value: "outset",
-    label: "Outset",
-  },
-  {
-    value: "ridge",
-    label: "Ridge",
   },
 ];

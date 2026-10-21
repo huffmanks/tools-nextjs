@@ -15,12 +15,12 @@ export const generateScrollbarStrings = (values: InitialCssScrollbarValues, colo
 
   const trackRadius = !values.isTrackTransparent ? `\n    border-radius: ${values.trackRadius}px;` : "";
   const trackBorder = !values.isTrackTransparent
-    ? `\n    border: ${values.trackBorderWidth}px ${values.trackBorderStyle} ${colors.trackBorderColor};`
+    ? `\n    border: ${values.trackBorderWidth}px solid ${colors.trackBorderColor};`
     : "";
   const thumbBgClip = values.isTrackTransparent ? `\n    background-clip: content-box;` : "";
   const thumbBorder = values.isTrackTransparent
     ? `\n    border: ${Math.floor(values.thickness / 3)}px solid transparent;`
-    : `\n    border: ${values.thumbBorderWidth}px ${values.thumbBorderStyle} ${colors.thumbBorderColor};`;
+    : `\n    border: ${values.thumbBorderWidth}px solid ${colors.thumbBorderColor};`;
 
   const thickness = values.axis === "y" ? `width: ${values.thickness}px;` : `height: ${values.thickness}px;`;
 
