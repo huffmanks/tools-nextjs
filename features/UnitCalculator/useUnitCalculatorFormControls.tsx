@@ -1,8 +1,7 @@
-// features/UnitCalculator/useUnitCalculatorFormControls.tsx
-
 import { useRouter } from "next/router";
 import { useMemo, useState } from "react";
 
+import { SelectChangeEvent } from "@mui/material";
 import {
   initialUnitCalculatorValues,
   unitCalculatorMeasurements,
@@ -86,7 +85,7 @@ export function useUnitCalculatorFormControls() {
     }));
   }
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent) => {
     const { name, value } = event.target;
 
     setFormState((previous) => {

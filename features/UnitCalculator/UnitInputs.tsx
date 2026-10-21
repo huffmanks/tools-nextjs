@@ -1,12 +1,19 @@
-import { unitCalculatorMeasurements } from "../../constants/unitCalculator";
+import { unitCalculatorMeasurements, UnitCalculatorValues, UnitItems } from "../../constants/unitCalculator";
 
-import { MenuItem, TextField } from "@mui/material";
+import { MenuItem, SelectChangeEvent, TextField } from "@mui/material";
 
 import InputContainer from "./InputContainer";
 import NumberInput from "./NumberInput";
 import UnitSelect from "./UnitSelect";
 
-const UnitInputs = ({ values, currentUnits, handleChange, handleFocus }) => {
+interface UnitInputsProps {
+  values: UnitCalculatorValues;
+  currentUnits: UnitItems;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent) => void;
+  handleFocus: (event: React.FocusEvent<HTMLInputElement>) => void;
+}
+
+const UnitInputs = ({ values, currentUnits, handleChange, handleFocus }: UnitInputsProps) => {
   return (
     <>
       <InputContainer
