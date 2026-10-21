@@ -1,9 +1,15 @@
 import { Chip, Grid } from "@mui/material";
 
+import { AspectRatioErrors, AspectRatioValues } from "../../constants/aspectRatio";
 import AspectPreview from "./AspectPreview";
 import AspectValues from "./AspectValues";
 
-const AspectOutput = ({ values, errors }) => {
+interface AspectOutputProps {
+  values: AspectRatioValues;
+  errors: AspectRatioErrors;
+}
+
+const AspectOutput = ({ values, errors }: AspectOutputProps) => {
   return (
     <Grid item container spacing={2} md={6}>
       <Grid item xs={12}>

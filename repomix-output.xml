@@ -1,0 +1,687 @@
+i need help porting jsx to tsx here is current code. i dont need you to change logic, functions or features just fix ts and lint errors and add interfaces/types:
+
+This file is a merged representation of a subset of the codebase, containing specifically included files, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of a subset of the repository's contents that is considered the most important context.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Only files matching these patterns are included: pages/calculate/aspect-ratio/index.tsx, features/AspectRatio/**, constants/aspectRatio.ts
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+constants/
+  aspectRatio.ts
+features/
+  AspectRatio/
+    AspectForm.tsx
+    AspectInputs.tsx
+    AspectOutput.tsx
+    AspectPreview.tsx
+    AspectValues.tsx
+    getAspectNumbers.ts
+    useAspectRatioFormControls.tsx
+pages/
+  calculate/
+    aspect-ratio/
+      index.tsx
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="features/AspectRatio/AspectForm.tsx">
+import { Chip, Grid } from "@mui/material";
+
+import AspectInputs from "./AspectInputs";
+
+const AspectForm = ({ values, errors, handleFocus, handleChange, handleBlur }) => {
+  return (
+    <Grid item container spacing={2} md={6} component="form">
+      <Grid item xs={12}>
+        <Chip label="Original" color="primary" component="div" sx={{ marginBottom: "2rem" }} />
+      </Grid>
+
+      <AspectInputs
+        values={values}
+        errors={errors}
+        handleFocus={handleFocus}
+        handleChange={handleChange}
+        handleBlur={handleBlur}
+      />
+    </Grid>
+  );
+};
+
+export default AspectForm;
+</file>
+
+<file path="features/AspectRatio/AspectInputs.tsx">
+import { Fragment } from "react";
+
+import { aspectInputs } from "../../constants/aspectRatio";
+
+import { Chip, Divider, FormControl, FormControlLabel, Grid, Radio, RadioGroup, TextField } from "@mui/material";
+
+const AspectInputs = ({ values, errors, handleFocus, handleChange, handleBlur }) => {
+  return (
+    <>
+      {aspectInputs.map((input, index) => (
+        <Fragment key={index}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              fullWidth
+              variant="outlined"
+              label={
+                input.isDynamic
+                  ? values.selectedType.charAt(0).toUpperCase() + values.selectedType.slice(1)
+                  : input.label
+              }
+              placeholder={input.placeholder}
+              name={input.name}
+              value={values[input.name]}
+              onFocus={handleFocus}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={!!errors[input.name]}
+              helperText={errors[input.name]}
+              autoComplete="none"
+            />
+          </Grid>
+
+          {index === 1 && (
+            <>
+              <Grid item xs={12}>
+                <Divider sx={{ margin: "2rem 0" }} />
+              </Grid>
+              <Grid item xs={12}>
+                <Chip label="New" color="primary" component="div" sx={{ marginBottom: "2rem" }} />
+              </Grid>
+
+              <Grid item xs={12} sm={6}>
+                <FormControl component="fieldset">
+                  <RadioGroup
+                    defaultValue="width"
+                    name="selectedType"
+                    value={values.selectedType}
+                    onChange={handleChange}>
+                    <FormControlLabel value="width" control={<Radio color="primary" />} label="Width" />
+                    <FormControlLabel value="height" control={<Radio color="primary" />} label="Height" />
+                  </RadioGroup>
+                </FormControl>
+              </Grid>
+            </>
+          )}
+        </Fragment>
+      ))}
+    </>
+  );
+};
+
+export default AspectInputs;
+</file>
+
+<file path="features/AspectRatio/AspectOutput.tsx">
+import { Chip, Grid } from "@mui/material";
+
+import AspectPreview from "./AspectPreview";
+import AspectValues from "./AspectValues";
+
+const AspectOutput = ({ values, errors }) => {
+  return (
+    <Grid item container spacing={2} md={6}>
+      <Grid item xs={12}>
+        <Chip label="Output" color="primary" component="div" sx={{ marginBottom: "2rem" }} />
+      </Grid>
+
+      <AspectValues values={values} errors={errors} />
+
+      <AspectPreview values={values} />
+    </Grid>
+  );
+};
+
+export default AspectOutput;
+</file>
+
+<file path="features/AspectRatio/AspectPreview.tsx">
+import { Box, Grid, Stack } from "@mui/material";
+
+const AspectPreview = ({ values }) => {
+  const dimensions = values?.dimensions ?? "";
+
+  return (
+    <>
+      <Grid item xs={12}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            minWidth: "125px",
+            maxWidth: "100%",
+            minHeight: "50px",
+            maxHeight: "400px",
+            margin: "0 auto",
+            aspectRatio: values.aspectMultiplier !== "" ? values.aspectMultiplier : "1920 / 1080",
+            backgroundColor: "background.altTwo",
+            borderRadius: "4px",
+          }}>
+          <Stack spacing={1} justifyContent="center" alignItems="center">
+            <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
+              {dimensions}
+            </Stack>
+            <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
+              {values.aspectRatio !== "" ? values.aspectRatio : "16:9"}
+            </Stack>
+          </Stack>
+        </Box>
+      </Grid>
+    </>
+  );
+};
+
+export default AspectPreview;
+</file>
+
+<file path="features/AspectRatio/AspectValues.tsx">
+import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
+import { useGlobalState } from "../../hooks/useGlobalState";
+
+import { aspectOutput } from "../../constants/aspectRatio";
+
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { Divider, Grid, IconButton, InputAdornment, TextField, Typography } from "@mui/material";
+import { Fragment } from "react";
+
+const AspectValues = ({ values, errors }) => {
+  const { addToast } = useGlobalState();
+  const [copy] = useCopyToClipboard(false);
+
+  const handleCopy = async (name) => {
+    const copySuccess = await copy(name);
+
+    if (copySuccess) {
+      addToast("Copied to clipboard!");
+    }
+  };
+
+  return (
+    <>
+      {aspectOutput.map((output, index) => (
+        <Fragment key={output.name}>
+          {index === 4 && (
+            <Grid item xs={12}>
+              <Divider component="div" role="presentation">
+                <Typography>Suggested Rounded Dimensions</Typography>
+              </Divider>
+            </Grid>
+          )}
+
+          <Grid item sm={6} xs={12}>
+            <TextField
+              fullWidth
+              focused
+              variant="outlined"
+              inputProps={{
+                readOnly: true,
+              }}
+              sx={{
+                ...(!!errors[output.name] && {
+                  "& input::placeholder": {
+                    color: "#f44336",
+                    opacity: 1,
+                    fontSize: 14,
+                  },
+                }),
+              }}
+              label={output.label}
+              name={output.name}
+              placeholder={!!errors[output.name] ? errors[output.name] : output.placeholder}
+              value={values[output.name]}
+              autoComplete="none"
+              error={!!errors[output.name]}
+              InputProps={{
+                readOnly: true,
+                endAdornment: (
+                  <InputAdornment position="end">
+                    {values[output.name] && (
+                      <IconButton
+                        aria-label="copy value to clipboard"
+                        onClick={() => handleCopy(values[output.name])}
+                        edge="end">
+                        <ContentCopyIcon />
+                      </IconButton>
+                    )}
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Grid>
+        </Fragment>
+      ))}
+    </>
+  );
+};
+
+export default AspectValues;
+</file>
+
+<file path="features/AspectRatio/getAspectNumbers.ts">
+export const getAspectNumbers = (values) => {
+  const newOtherSize =
+    values.newSize === ""
+      ? ""
+      : values.selectedType === "width"
+        ? Math.round((values.originalHeight / values.originalWidth) * values.newSize * 100) / 100
+        : Math.round((values.originalWidth / values.originalHeight) * values.newSize * 100) / 100;
+
+  const newWidth = values.selectedType === "width" ? values.newSize : newOtherSize;
+  const newHeight = values.selectedType === "height" ? values.newSize : newOtherSize;
+
+  const hasDimensions = !!newWidth && !!newHeight && !!values.originalWidth && !!values.originalHeight ? true : false;
+
+  const dimensions = hasDimensions ? `${newWidth} x ${newHeight}` : "";
+
+  const aspectGCD = getAspectGCD(parseInt(values.originalWidth), parseInt(values.originalHeight));
+  const aspectMultiplier = (values.originalWidth / values.originalHeight).toFixed(2);
+  const aspectRatio = `${values.originalWidth / aspectGCD}:${values.originalHeight / aspectGCD}`;
+
+  const { lower, higher } = suggestNearestIntegerDimensions(
+    Number(values.originalWidth),
+    Number(values.originalHeight),
+    Number(values.newSize),
+    values.selectedType,
+  );
+
+  const suggestedValues = {
+    suggestedLowerWidth: lower?.width !== undefined && lower?.width !== "" ? String(lower.width) : "",
+    suggestedLowerHeight: lower?.height !== undefined && lower?.height !== "" ? String(lower.height) : "",
+    suggestedHigherWidth: higher?.width !== undefined && higher?.width !== "" ? String(higher.width) : "",
+    suggestedHigherHeight: higher?.height !== undefined && higher?.height !== "" ? String(higher.height) : "",
+  };
+
+  return { newWidth, newHeight, ...suggestedValues, aspectMultiplier, aspectRatio, dimensions };
+};
+
+function getAspectGCD(...arr) {
+  const gcd = (x, y) => (!y ? x : getAspectGCD(y, x % y));
+  return [...arr].reduce((a, b) => gcd(a, b));
+}
+
+function suggestNearestIntegerDimensions(originalWidth, originalHeight, target, selectedType) {
+  const aspectRatio = originalHeight / originalWidth;
+
+  if (selectedType === "width") {
+    const lower = findNearestFromWidth(target, aspectRatio, "down");
+    const higher = findNearestFromWidth(target, aspectRatio, "up");
+    return { lower, higher };
+  }
+
+  if (selectedType === "height") {
+    const lower = findNearestFromHeight(target, aspectRatio, "down");
+    const higher = findNearestFromHeight(target, aspectRatio, "up");
+    return { lower, higher };
+  }
+
+  return {
+    lower: { width: "", height: "" },
+    higher: { width: "", height: "" },
+  };
+}
+
+function findNearestFromWidth(baseWidth, aspectRatio, direction) {
+  let width = baseWidth + (direction === "up" ? 1 : -1);
+  const step = direction === "up" ? 1 : -1;
+
+  while (width > 0) {
+    const height = width * aspectRatio;
+    if (Math.abs(height - Math.round(height)) < 0.000001) {
+      return { width, height: Math.round(height) };
+    }
+    width += step;
+  }
+
+  return { width: "", height: "" };
+}
+
+function findNearestFromHeight(baseHeight, aspectRatio, direction) {
+  let height = baseHeight + (direction === "up" ? 1 : -1);
+  const step = direction === "up" ? 1 : -1;
+
+  while (height > 0) {
+    const width = height / aspectRatio;
+    if (Math.abs(width - Math.round(width)) < 0.000001) {
+      return { width: Math.round(width), height };
+    }
+    height += step;
+  }
+
+  return { width: "", height: "" };
+}
+</file>
+
+<file path="constants/aspectRatio.ts">
+export const initialAspectRatioValues = {
+  originalWidth: "",
+  originalHeight: "",
+  selectedType: "width",
+  newSize: "",
+  newWidth: "",
+  newHeight: "",
+  suggestedLowerWidth: "",
+  suggestedLowerHeight: "",
+  suggestedHigherWidth: "",
+  suggestedHigherHeight: "",
+  aspectRatio: "",
+  aspectMultiplier: "",
+  dimensions: "",
+};
+
+export const aspectInputs = [
+  {
+    name: "originalWidth",
+    label: "Width",
+    placeholder: "1920",
+  },
+  {
+    name: "originalHeight",
+    label: "Height",
+    placeholder: "1080",
+  },
+  {
+    name: "newSize",
+    label: "Width",
+    placeholder: "500",
+    isDynamic: true,
+  },
+];
+
+export const aspectOutput = [
+  {
+    name: "newWidth",
+    label: "New Width",
+    placeholder: "800",
+  },
+  {
+    name: "newHeight",
+    label: "New Height",
+    placeholder: "450",
+  },
+  {
+    name: "aspectRatio",
+    label: "Aspect Ratio",
+    placeholder: "16:9",
+  },
+  {
+    name: "aspectMultiplier",
+    label: "Aspect Multiplier",
+    placeholder: "1.78",
+  },
+  {
+    name: "suggestedLowerWidth",
+    label: "Lower Width",
+    placeholder: "400",
+  },
+  {
+    name: "suggestedLowerHeight",
+    label: "Lower Height",
+    placeholder: "225",
+  },
+  {
+    name: "suggestedHigherWidth",
+    label: "Higher Width",
+    placeholder: "1200",
+  },
+  {
+    name: "suggestedHigherHeight",
+    label: "Higher Height",
+    placeholder: "675",
+  },
+];
+</file>
+
+<file path="pages/calculate/aspect-ratio/index.tsx">
+import { useAspectRatioFormControls } from "../../../features/AspectRatio/useAspectRatioFormControls";
+
+import { Grid, Typography } from "@mui/material";
+
+import PageTitle from "../../../components/common/PageTitle";
+import SEO from "../../../components/common/SEO";
+
+import AspectForm from "../../../features/AspectRatio/AspectForm";
+import AspectOutput from "../../../features/AspectRatio/AspectOutput";
+
+const AspectRatio = () => {
+  const { values, errors, handleFocus, handleChange, handleBlur } = useAspectRatioFormControls();
+
+  return (
+    <>
+      <SEO
+        description="Calculate the aspect ratio."
+        title="Aspect Ratio Calculator"
+        url="/calculate/aspect-ratio"
+        imageUrl="/aspect-ratio.png"
+      />
+
+      <PageTitle>Aspect Ratio Calculator</PageTitle>
+
+      <Typography paragraph mb={5}>
+        Calculate the aspect ratio.
+      </Typography>
+
+      <Grid container spacing={5} alignItems="start">
+        <AspectForm
+          values={values}
+          errors={errors}
+          handleFocus={handleFocus}
+          handleChange={handleChange}
+          handleBlur={handleBlur}
+        />
+
+        <AspectOutput values={values} errors={errors} />
+      </Grid>
+    </>
+  );
+};
+
+export default AspectRatio;
+</file>
+
+<file path="features/AspectRatio/useAspectRatioFormControls.tsx">
+import type { ChangeEvent, FocusEvent } from "react";
+import { useState } from "react";
+
+import { initialAspectRatioValues } from "../../constants/aspectRatio";
+import { getAspectNumbers } from "./getAspectNumbers";
+
+type AspectRatioValues = typeof initialAspectRatioValues;
+type AspectRatioField = keyof AspectRatioValues;
+type AspectRatioErrors = Partial<Record<AspectRatioField, string>>;
+
+type CalculatedLowerBounds = {
+  width: string;
+  height: string;
+};
+
+type AspectRatioChangeEvent = ChangeEvent<HTMLInputElement | HTMLSelectElement>;
+
+export const useAspectRatioFormControls = () => {
+  const [values, setValues] = useState<AspectRatioValues>(initialAspectRatioValues);
+  const [errors, setErrors] = useState<AspectRatioErrors>({});
+
+  const validate = (
+    fieldValues: Partial<AspectRatioValues> = values,
+    calculatedLowerBounds: CalculatedLowerBounds | null = null,
+  ): boolean => {
+    const temp: AspectRatioErrors = { ...errors };
+
+    if (fieldValues.originalWidth !== undefined) {
+      temp.originalWidth =
+        fieldValues.originalWidth.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.originalWidth === ""
+          ? ""
+          : "Must be a number.";
+    }
+
+    if (fieldValues.originalHeight !== undefined) {
+      temp.originalHeight =
+        fieldValues.originalHeight.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.originalHeight === ""
+          ? ""
+          : "Must be a number.";
+    }
+
+    if (fieldValues.newSize !== undefined) {
+      temp.newSize =
+        fieldValues.newSize.match(/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/) || fieldValues.newSize === ""
+          ? ""
+          : "Must be a number.";
+    }
+
+    if (calculatedLowerBounds !== null) {
+      const { width, height } = calculatedLowerBounds;
+      const currentNewSize = fieldValues.newSize !== undefined ? fieldValues.newSize : values.newSize;
+
+      if (currentNewSize !== "" && (!width || !height)) {
+        temp.suggestedLowerWidth = "Result below zero.";
+        temp.suggestedLowerHeight = "Result below zero.";
+      } else {
+        temp.suggestedLowerWidth = "";
+        temp.suggestedLowerHeight = "";
+      }
+    }
+
+    setErrors(temp);
+
+    return !temp.originalWidth && !temp.originalHeight && !temp.newSize;
+  };
+
+  const handleFocus = (event: FocusEvent<HTMLInputElement>): void => {
+    event.target.select();
+  };
+
+  const handleChange = (event: AspectRatioChangeEvent): void => {
+    const { name, value } = event.target;
+    const field = name as AspectRatioField;
+
+    if (name === "selectedType" && values.newSize) {
+      const calculated = getAspectNumbers({ ...values, selectedType: value });
+
+      setValues({
+        ...values,
+        selectedType: value,
+        ...calculated,
+      });
+    } else if (name === "originalWidth" || name === "originalHeight" || name === "newSize") {
+      setErrors((prev) => ({
+        ...prev,
+        suggestedLowerWidth: "",
+        suggestedLowerHeight: "",
+      }));
+
+      const isValid = validate({ [field]: value });
+
+      if (!isNaN(Number(value)) && isValid) {
+        const hasValue = value !== "";
+
+        const currentUpdatedValues = {
+          ...values,
+          [field]: value,
+        };
+
+        const hasNewSize = !!currentUpdatedValues.newSize && !isNaN(Number(currentUpdatedValues.newSize));
+        const hasOriginalDims = !!currentUpdatedValues.originalWidth && !!currentUpdatedValues.originalHeight;
+        const isCalculable = hasValue && hasNewSize && hasOriginalDims;
+
+        if (isCalculable) {
+          const calculated = getAspectNumbers(currentUpdatedValues);
+
+          validate(currentUpdatedValues, {
+            width: calculated.suggestedLowerWidth,
+            height: calculated.suggestedLowerHeight,
+          });
+
+          setValues({
+            ...currentUpdatedValues,
+            ...calculated,
+          });
+        } else {
+          if (!hasValue) {
+            setErrors((prev) => ({ ...prev, [field]: "" }));
+          }
+
+          setValues({
+            ...currentUpdatedValues,
+            newWidth: "",
+            newHeight: "",
+            suggestedLowerWidth: "",
+            suggestedLowerHeight: "",
+            suggestedHigherWidth: "",
+            suggestedHigherHeight: "",
+            aspectRatio: "",
+            aspectMultiplier: "",
+            dimensions: "",
+          });
+        }
+      } else {
+        setValues((prev) => ({
+          ...values,
+          [field]: prev[field],
+        }));
+      }
+    } else {
+      setValues({
+        ...values,
+        [field]: value,
+      });
+    }
+  };
+
+  const handleBlur = (): void => {
+    setErrors({});
+  };
+
+  return {
+    values,
+    errors,
+    handleFocus,
+    handleChange,
+    handleBlur,
+  };
+};
+</file>
+
+</files>

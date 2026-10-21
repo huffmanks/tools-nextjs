@@ -1,15 +1,20 @@
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
 import { useGlobalState } from "../../hooks/useGlobalState";
 
-import { aspectOutput } from "../../constants/aspectRatio";
+import { aspectOutput, AspectRatioErrors, AspectRatioValues } from "../../constants/aspectRatio";
 
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Divider, Grid, IconButton, InputAdornment, TextField, Typography } from "@mui/material";
 import { Fragment } from "react";
 
-const AspectValues = ({ values, errors }) => {
+interface AspectValuesProps {
+  values: AspectRatioValues;
+  errors: AspectRatioErrors;
+}
+
+const AspectValues = ({ values, errors }: AspectValuesProps) => {
   const { addToast } = useGlobalState();
-  const [copy] = useCopyToClipboard();
+  const [copy] = useCopyToClipboard(false);
 
   const handleCopy = async (name) => {
     const copySuccess = await copy(name);
@@ -35,8 +40,10 @@ const AspectValues = ({ values, errors }) => {
             <TextField
               fullWidth
               focused
-              readOnly
               variant="outlined"
+              inputProps={{
+                readOnly: true,
+              }}
               sx={{
                 ...(!!errors[output.name] && {
                   "& input::placeholder": {

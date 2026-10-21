@@ -1,17 +1,15 @@
 import type { ChangeEvent, FocusEvent } from "react";
 import { useState } from "react";
 
-import { initialAspectRatioValues } from "../../constants/aspectRatio";
+import { AspectRatioErrors, AspectRatioValues, initialAspectRatioValues } from "../../constants/aspectRatio";
 import { getAspectNumbers } from "./getAspectNumbers";
 
-type AspectRatioValues = typeof initialAspectRatioValues;
 type AspectRatioField = keyof AspectRatioValues;
-type AspectRatioErrors = Partial<Record<AspectRatioField, string>>;
 
-type CalculatedLowerBounds = {
+interface CalculatedLowerBounds {
   width: string;
   height: string;
-};
+}
 
 type AspectRatioChangeEvent = ChangeEvent<HTMLInputElement | HTMLSelectElement>;
 

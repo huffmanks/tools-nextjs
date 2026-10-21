@@ -1,10 +1,18 @@
 import { Fragment } from "react";
 
-import { aspectInputs } from "../../constants/aspectRatio";
+import { aspectInputs, AspectRatioErrors, AspectRatioValues } from "../../constants/aspectRatio";
 
 import { Chip, Divider, FormControl, FormControlLabel, Grid, Radio, RadioGroup, TextField } from "@mui/material";
 
-const AspectInputs = ({ values, errors, handleFocus, handleChange, handleBlur }) => {
+interface AspectInputsProps {
+  values: AspectRatioValues;
+  errors: AspectRatioErrors;
+  handleFocus: (event: React.FocusEvent<HTMLInputElement>) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement, Element>) => void;
+  handleBlur: () => void;
+}
+
+const AspectInputs = ({ values, errors, handleFocus, handleChange, handleBlur }: AspectInputsProps) => {
   return (
     <>
       {aspectInputs.map((input, index) => (
@@ -13,7 +21,11 @@ const AspectInputs = ({ values, errors, handleFocus, handleChange, handleBlur })
             <TextField
               fullWidth
               variant="outlined"
-              label={input.isDynamic ? values.selectedType.charAt(0).toUpperCase() + values.selectedType.slice(1) : input.label}
+              label={
+                input.isDynamic
+                  ? values.selectedType.charAt(0).toUpperCase() + values.selectedType.slice(1)
+                  : input.label
+              }
               placeholder={input.placeholder}
               name={input.name}
               value={values[input.name]}
@@ -37,7 +49,11 @@ const AspectInputs = ({ values, errors, handleFocus, handleChange, handleBlur })
 
               <Grid item xs={12} sm={6}>
                 <FormControl component="fieldset">
-                  <RadioGroup defaultValue="width" name="selectedType" value={values.selectedType} onChange={handleChange}>
+                  <RadioGroup
+                    defaultValue="width"
+                    name="selectedType"
+                    value={values.selectedType}
+                    onChange={handleChange}>
                     <FormControlLabel value="width" control={<Radio color="primary" />} label="Width" />
                     <FormControlLabel value="height" control={<Radio color="primary" />} label="Height" />
                   </RadioGroup>

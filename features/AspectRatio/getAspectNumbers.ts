@@ -1,21 +1,35 @@
-export const getAspectNumbers = (values) => {
+import { AspectRatioValues } from "../../constants/aspectRatio";
+
+interface DimensionResult {
+  width: number | string;
+  height: number | string;
+}
+
+interface SuggestedDimensionsResult {
+  lower: DimensionResult;
+  higher: DimensionResult;
+}
+
+export const getAspectNumbers = (values: AspectRatioValues) => {
   const newOtherSize =
     values.newSize === ""
       ? ""
       : values.selectedType === "width"
-        ? Math.round((values.originalHeight / values.originalWidth) * values.newSize * 100) / 100
-        : Math.round((values.originalWidth / values.originalHeight) * values.newSize * 100) / 100;
+        ? Math.round((Number(values.originalHeight) / Number(values.originalWidth)) * Number(values.newSize) * 100) /
+          100
+        : Math.round((Number(values.originalWidth) / Number(values.originalHeight)) * Number(values.newSize) * 100) /
+          100;
 
-  const newWidth = values.selectedType === "width" ? values.newSize : newOtherSize;
-  const newHeight = values.selectedType === "height" ? values.newSize : newOtherSize;
+  const newWidth = values.selectedType === "width" ? values.newSize : String(newOtherSize);
+  const newHeight = values.selectedType === "height" ? values.newSize : String(newOtherSize);
 
   const hasDimensions = !!newWidth && !!newHeight && !!values.originalWidth && !!values.originalHeight ? true : false;
 
   const dimensions = hasDimensions ? `${newWidth} x ${newHeight}` : "";
 
   const aspectGCD = getAspectGCD(parseInt(values.originalWidth), parseInt(values.originalHeight));
-  const aspectMultiplier = (values.originalWidth / values.originalHeight).toFixed(2);
-  const aspectRatio = `${values.originalWidth / aspectGCD}:${values.originalHeight / aspectGCD}`;
+  const aspectMultiplier = (Number(values.originalWidth) / Number(values.originalHeight)).toFixed(2);
+  const aspectRatio = `${Number(values.originalWidth) / aspectGCD}:${Number(values.originalHeight) / aspectGCD}`;
 
   const { lower, higher } = suggestNearestIntegerDimensions(
     Number(values.originalWidth),
@@ -34,12 +48,17 @@ export const getAspectNumbers = (values) => {
   return { newWidth, newHeight, ...suggestedValues, aspectMultiplier, aspectRatio, dimensions };
 };
 
-function getAspectGCD(...arr) {
-  const gcd = (x, y) => (!y ? x : getAspectGCD(y, x % y));
+function getAspectGCD(...arr: number[]): number {
+  const gcd = (x: number, y: number): number => (!y ? x : gcd(y, x % y));
   return [...arr].reduce((a, b) => gcd(a, b));
 }
 
-function suggestNearestIntegerDimensions(originalWidth, originalHeight, target, selectedType) {
+function suggestNearestIntegerDimensions(
+  originalWidth: number,
+  originalHeight: number,
+  target: number,
+  selectedType: string,
+): SuggestedDimensionsResult {
   const aspectRatio = originalHeight / originalWidth;
 
   if (selectedType === "width") {
@@ -60,7 +79,7 @@ function suggestNearestIntegerDimensions(originalWidth, originalHeight, target, 
   };
 }
 
-function findNearestFromWidth(baseWidth, aspectRatio, direction) {
+function findNearestFromWidth(baseWidth: number, aspectRatio: number, direction: "up" | "down"): DimensionResult {
   let width = baseWidth + (direction === "up" ? 1 : -1);
   const step = direction === "up" ? 1 : -1;
 
@@ -75,7 +94,7 @@ function findNearestFromWidth(baseWidth, aspectRatio, direction) {
   return { width: "", height: "" };
 }
 
-function findNearestFromHeight(baseHeight, aspectRatio, direction) {
+function findNearestFromHeight(baseHeight: number, aspectRatio: number, direction: "up" | "down"): DimensionResult {
   let height = baseHeight + (direction === "up" ? 1 : -1);
   const step = direction === "up" ? 1 : -1;
 

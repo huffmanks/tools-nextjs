@@ -1,6 +1,11 @@
 import { Box, Grid, Stack } from "@mui/material";
+import { AspectRatioValues } from "../../constants/aspectRatio";
 
-const AspectPreview = ({ values }) => {
+interface AspectPreviewProps {
+  values: AspectRatioValues;
+}
+
+const AspectPreview = ({ values }: AspectPreviewProps) => {
   const dimensions = values?.dimensions ?? "";
 
   return (
