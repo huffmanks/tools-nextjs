@@ -81,7 +81,7 @@ export const useMockContentFormControls = () => {
       return;
     }
 
-    const generatedBundle = generateFormats(activeElements);
+    const generatedBundle = generateFormats(activeElements, values);
     setValues((prev) => ({ ...prev, output: generatedBundle }));
   }
 

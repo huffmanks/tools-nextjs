@@ -7,6 +7,4 @@
 
 - [ ] Image resizer using sharpjs. Take a photo and generate hero, thumb, etc. [High performance Node.js image processing](https://sharp.pixelplumbing.com)
 - [ ] Take a list and perform action, e.g. alphabetize,reverse list,remove duplicates, etc.
-- [x] [Mock Content](features/MockContent)
-  - [ ] Add bold, italics and links.
 - [ ] Convert everything, json > csv, csv > xlsx, xlsx > html table, html table > markdown, etc.

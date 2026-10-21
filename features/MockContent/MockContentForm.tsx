@@ -31,6 +31,10 @@ const MockContentForm = ({
   handleReset,
   handleSubmit,
 }: MockContentFormProps) => {
+  const selectAllItem = mockContentElements[0];
+  const blockElements = mockContentElements.slice(1, 10);
+  const inlineElements = mockContentElements.slice(10);
+
   return (
     <Grid item xs={12} md={5}>
       <Box
@@ -38,70 +42,45 @@ const MockContentForm = ({
         onSubmit={handleSubmit}
         autoComplete="off"
         sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+        <FormControlLabel
+          control={<Checkbox checked={checkAll} onChange={handleCheckAll} name="check_all" />}
+          label={selectAllItem.label}
+        />
         <FormControl fullWidth component="fieldset" variant="outlined">
           <FormLabel component="legend">Elements</FormLabel>
-          <FormGroup>
-            <Grid
-              container
-              display="grid"
-              gridTemplateColumns={{ xs: "1fr", md: "repeat(2, 1fr)" }}
-              rowGap={1}>
-              <Box sx={{ display: "flex", flexDirection: "column" }}>
-                {mockContentElements
-                  .slice(0, 5)
-                  .map((box) =>
-                    box.isSelectAll ? (
-                      <FormControlLabel
-                        key="check_all"
-                        control={
-                          <Checkbox checked={checkAll} onChange={handleCheckAll} name="check_all" />
-                        }
-                        label={box.label}
-                      />
-                    ) : (
-                      <FormControlLabel
-                        key={box.name}
-                        control={
-                          <Checkbox
-                            checked={values[`check_${box.name}`]}
-                            onChange={handleChange}
-                            name={`check_${box.name}`}
-                          />
-                        }
-                        label={box.label}
-                      />
-                    )
-                  )}
-              </Box>
+          <FormGroup sx={{ flexDirection: { xs: "column", sm: "row" } }}>
+            {blockElements.map((box) => (
+              <FormControlLabel
+                key={box.name}
+                control={
+                  <Checkbox
+                    checked={values[`check_${box.name}`]}
+                    onChange={handleChange}
+                    name={`check_${box.name}`}
+                  />
+                }
+                label={box.label}
+              />
+            ))}
+          </FormGroup>
+        </FormControl>
 
-              <Box sx={{ display: "flex", flexDirection: "column" }}>
-                {mockContentElements
-                  .slice(5, 10)
-                  .map((box) =>
-                    box.isSelectAll ? (
-                      <FormControlLabel
-                        key="check_all"
-                        control={
-                          <Checkbox checked={checkAll} onChange={handleCheckAll} name="check_all" />
-                        }
-                        label={box.label}
-                      />
-                    ) : (
-                      <FormControlLabel
-                        key={box.name}
-                        control={
-                          <Checkbox
-                            checked={values[`check_${box.name}`]}
-                            onChange={handleChange}
-                            name={`check_${box.name}`}
-                          />
-                        }
-                        label={box.label}
-                      />
-                    )
-                  )}
-              </Box>
-            </Grid>
+        <FormControl fullWidth component="fieldset" variant="outlined">
+          <FormLabel component="legend">Inline Formatting</FormLabel>
+          <FormGroup sx={{ flexDirection: { xs: "column", sm: "row" } }}>
+            {inlineElements.map((box) => (
+              <FormControlLabel
+                key={box.name}
+                control={
+                  <Checkbox
+                    checked={values[`check_${box.name}`]}
+                    onChange={handleChange}
+                    name={`check_${box.name}`}
+                  />
+                }
+                label={box.label}
+              />
+            ))}
           </FormGroup>
         </FormControl>
 
