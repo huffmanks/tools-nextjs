@@ -34,7 +34,7 @@ export const generateSeparatedStrings = (items: SeparatedStringsProps): string[]
   return values;
 };
 
-export interface GenerateRandomNumbersProps {
+interface GenerateRandomNumbersProps {
   total: number;
   lowerNumber: number;
   higherNumber: number;

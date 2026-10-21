@@ -85,24 +85,3 @@ export const passwordGeneratorOptions: PasswordGeneratorOption[] = [
     name: "excludeSimilar",
   },
 ];
-
-export const passwordGeneratorIncludedItems = [
-  "a",
-  "c",
-  "e",
-  "f",
-  "g",
-  "h",
-  "j",
-  "k",
-  "m",
-  "n",
-  "p",
-  "r",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-];

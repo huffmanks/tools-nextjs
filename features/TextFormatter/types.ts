@@ -40,9 +40,3 @@ export interface TextFormatterCardInfo {
   name: TextFormatterCardName;
   label: string;
 }
-
-export interface SavedItem {
-  id: string;
-  value: string;
-  label: string;
-}

@@ -1,8 +1,27 @@
 import crypto from "crypto";
 
-import { passwordGeneratorIncludedItems } from "@/features/PasswordGenerator/constants";
-
 type RandomGeneratorFunc = (excludeSimilar: boolean) => string | number;
+
+const passwordGeneratorIncludedItems = [
+  "a",
+  "c",
+  "e",
+  "f",
+  "g",
+  "h",
+  "j",
+  "k",
+  "m",
+  "n",
+  "p",
+  "r",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+];
 
 export const generateKey = () => {
   const secret = "5874bd2e4ff57ccb71812481e8028e1";
