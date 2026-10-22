@@ -23,6 +23,7 @@ const nextConfigExport = async (phase) => {
           "/fallback": { page: "/fallback" },
           "/calculate/aspect-ratio/index": { page: "/calculate/aspect-ratio" },
           "/calculate/units/index": { page: "/calculate/units" },
+          "/convert/files/index": { page: "/convert/files" },
           "/format/code/index": { page: "/format/code" },
           "/format/text/index": { page: "/format/text" },
           "/generate/css-scrollbar/index": { page: "/generate/css-scrollbar" },

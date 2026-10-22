@@ -1,12 +1,11 @@
-// Page icons
 import type { JSX } from "react/jsx-runtime";
 
 import AspectRatioIcon from "@mui/icons-material/AspectRatio";
-// Group icons
 import CalculateIcon from "@mui/icons-material/Calculate";
 import CodeIcon from "@mui/icons-material/Code";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
+import DifferenceIcon from "@mui/icons-material/Difference";
 import FactoryIcon from "@mui/icons-material/Factory";
 import FeedIcon from "@mui/icons-material/Feed";
 import FormatPaintIcon from "@mui/icons-material/FormatPaint";
@@ -19,6 +18,7 @@ import QrCodeIcon from "@mui/icons-material/QrCode";
 import ScaleIcon from "@mui/icons-material/Scale";
 import SelectAllIcon from "@mui/icons-material/SelectAll";
 import ShuffleIcon from "@mui/icons-material/Shuffle";
+import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import TagIcon from "@mui/icons-material/Tag";
 import TextFieldsIcon from "@mui/icons-material/TextFields";
 
@@ -66,6 +66,17 @@ export const calculateRoutes: RouteItem[] = [
     key: "unit-calculator",
     icon: <ScaleIcon />,
     description: "Calculate different unit types.",
+  },
+];
+
+export const convertRoutes: RouteItem[] = [
+  {
+    path: "/convert/files",
+    name: "File Converter",
+    homeName: "File Converter",
+    key: "file-converter",
+    icon: <DifferenceIcon />,
+    description: "Convert files between common formats.",
   },
 ];
 
@@ -177,6 +188,7 @@ export const pickerRoutes: RouteItem[] = [
 
 export const navItems: NavItem[] = [
   { routes: calculateRoutes, label: "Calculate", value: "calculate", icon: <CalculateIcon /> },
+  { routes: convertRoutes, label: "Convert", value: "convert", icon: <SwapHorizIcon /> },
   { routes: formatRoutes, label: "Format", value: "format", icon: <FormatPaintIcon /> },
   { routes: generateRoutes, label: "Generate", value: "generate", icon: <FactoryIcon /> },
   { routes: pickerRoutes, label: "Picker", value: "picker", icon: <SelectAllIcon /> },
