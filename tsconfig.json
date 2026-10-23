@@ -9,6 +9,7 @@
     "incremental": true,
     "module": "esnext",
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,

@@ -22,16 +22,16 @@ import {
 import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 
 import { conversionActionSelect } from "@/features/FileConverter/constants";
-import type { FileConverterErrors } from "@/features/FileConverter/types";
+import type {
+  ConversionWarning,
+  FileConverterErrors,
+  FileConverterValues,
+} from "@/features/FileConverter/types";
 
 interface FileConverterFormProps {
-  values: {
-    action: string;
-    inputData: string;
-    outputData: string;
-    fileName: string;
-  };
+  values: FileConverterValues & { outputData: string };
   errors: FileConverterErrors;
+  warnings: ConversionWarning[];
   handleChange: (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>
   ) => void;
@@ -43,6 +43,7 @@ interface FileConverterFormProps {
 const FileConverterForm = ({
   values,
   errors,
+  warnings,
   handleChange,
   handleFileUpload,
   handleDownload,
@@ -171,6 +172,16 @@ const FileConverterForm = ({
           </Button>
         </Grid>
       </Grid>
+
+      {warnings.length > 0 && (
+        <Grid item xs={12}>
+          {warnings.map((warning, index) => (
+            <Typography key={index} variant="body2" color="warning.main" sx={{ mt: 1 }}>
+              ⚠️ {warning.message}
+            </Typography>
+          ))}
+        </Grid>
+      )}
     </Box>
   );
 };

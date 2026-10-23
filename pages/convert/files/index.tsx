@@ -7,7 +7,7 @@ import PageTitle from "@/components/common/PageTitle";
 import SEO from "@/components/common/SEO";
 
 const FileConverter = () => {
-  const { values, errors, handleChange, handleDownload, handleFileUpload, handleReset } =
+  const { values, errors, warnings, handleChange, handleDownload, handleFileUpload, handleReset } =
     useFileConverterFormControls();
 
   return (
@@ -29,6 +29,7 @@ const FileConverter = () => {
         <FileConverterForm
           values={values}
           errors={errors}
+          warnings={warnings}
           handleChange={handleChange}
           handleFileUpload={handleFileUpload}
           handleDownload={handleDownload}
