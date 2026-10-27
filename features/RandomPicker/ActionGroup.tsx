@@ -45,9 +45,11 @@ const ActionGroup = ({
   return (
     <Stack
       direction={{ xs: "column", xms: "row" }}
-      gap={2}
-      mt={{ sm: !isUpload ? 3 : 0, md: !isUpload ? 6.5 : 0 }}
-      mb={3}>
+      sx={{
+        gap: 2,
+        marginBlockStart: { sm: !isUpload ? 3 : 0, md: !isUpload ? 6.5 : 0 },
+        marginBlockEnd: 3,
+      }}>
       <Button
         variant="contained"
         size="large"

@@ -39,7 +39,7 @@ const ActionGroup = ({
 }: ActionGroupProps) => {
   return (
     <>
-      <Grid item lg={9} md={7} xs={12}>
+      <Grid size={{ xs: 12, md: 7, lg: 9 }}>
         <TextField
           fullWidth
           select
@@ -48,8 +48,10 @@ const ActionGroup = ({
           name="selectedId"
           value={values?.selectedId || ""}
           onChange={handleChange}
-          SelectProps={{
-            MenuProps: { className: "saved-items-dropdown" },
+          slotProps={{
+            select: {
+              MenuProps: { className: "saved-items-dropdown" },
+            },
           }}
           sx={{
             "& .MuiIconButton-root": {
@@ -79,7 +81,7 @@ const ActionGroup = ({
           ))}
         </TextField>
       </Grid>
-      <Grid item lg={3} md={5} xs={12}>
+      <Grid size={{ xs: 12, md: 5, lg: 3 }}>
         <ButtonGroup fullWidth variant="contained" sx={{ height: "100%" }}>
           <Button
             sx={{ height: "100%" }}
@@ -99,7 +101,7 @@ const ActionGroup = ({
           </Button>
         </ButtonGroup>
       </Grid>
-      <Grid item xs={12}>
+      <Grid size={{ xs: 12 }}>
         <FormControl fullWidth component="fieldset" variant="outlined">
           <FormLabel component="legend">Select formats</FormLabel>
           <FormGroup row>

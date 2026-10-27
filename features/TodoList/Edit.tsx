@@ -47,7 +47,9 @@ const Edit = () => {
           <Typography
             component="div"
             variant="subtitle2"
-            mb={5}>{`Last updated: ${list.updatedAt.date} ${list.updatedAt.time}`}</Typography>
+            sx={{
+              marginBlockEnd: 5,
+            }}>{`Last updated: ${list.updatedAt.date} ${list.updatedAt.time}`}</Typography>
         </>
       )}
 
@@ -75,7 +77,7 @@ const Edit = () => {
         />
       </div>
 
-      <Stack ref={itemsRef} direction="column" gap={3} mt={3}>
+      <Stack ref={itemsRef} direction="column" sx={{ gap: 3, marginBlockStart: 3 }}>
         {list?.items?.map((item, index) => (
           <TextField
             key={item.id}
@@ -98,33 +100,35 @@ const Edit = () => {
                 error: true,
                 helperText: "One item is required.",
               })}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start" sx={{ "& span": { paddingLeft: 0 } }}>
-                  <Checkbox
-                    name={`check_${item.id}`}
-                    checked={item.completed ?? false}
-                    onChange={(e) => handleCompleted(e, item.id)}
-                    inputProps={{ "aria-label": "item completed checkbox" }}
-                  />
-                </InputAdornment>
-              ),
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    disabled={!list.items[1]}
-                    edge="start"
-                    aria-label="remove item"
-                    onClick={() => handleRemoveItem(item.id)}
-                    sx={{
-                      "&:hover": {
-                        backgroundColor: "primary.main",
-                      },
-                    }}>
-                    <DeleteIcon />
-                  </IconButton>
-                </InputAdornment>
-              ),
+            slotProps={{
+              input: {
+                startAdornment: (
+                  <InputAdornment position="start" sx={{ "& span": { paddingLeft: 0 } }}>
+                    <Checkbox
+                      name={`check_${item.id}`}
+                      checked={item.completed ?? false}
+                      onChange={(e) => handleCompleted(e, item.id)}
+                      slotProps={{ input: { "aria-label": "item completed checkbox" } }}
+                    />
+                  </InputAdornment>
+                ),
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      disabled={!list.items[1]}
+                      edge="start"
+                      aria-label="remove item"
+                      onClick={() => handleRemoveItem(item.id)}
+                      sx={{
+                        "&:hover": {
+                          backgroundColor: "primary.main",
+                        },
+                      }}>
+                      <DeleteIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              },
             }}
           />
         ))}

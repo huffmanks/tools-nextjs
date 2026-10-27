@@ -20,7 +20,7 @@ const CodeFormatter = () => {
 
       <PageTitle>Code Formatter</PageTitle>
 
-      <Typography paragraph mb={5}>
+      <Typography component="p" sx={{ marginBlockEnd: 5 }}>
         Minify, escape and encode data.
       </Typography>
 

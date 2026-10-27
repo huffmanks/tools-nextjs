@@ -25,7 +25,7 @@ const NumberPicker = () => {
 
       <PageTitle>Number Picker</PageTitle>
 
-      <Typography paragraph mb={5}>
+      <Typography component="p" sx={{ marginBlockEnd: 5 }}>
         Get a random number from a range.
       </Typography>
 

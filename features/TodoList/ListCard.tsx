@@ -99,7 +99,7 @@ const ListCard = ({ list }: ListCardProps) => {
                   ))}
                 </div>
 
-                <Typography component="div" variant="caption" mt={3}>
+                <Typography component="div" variant="caption" sx={{ marginBlockStart: 3 }}>
                   {`Updated: ${list.updatedAt.date} ${list.updatedAt.time}`}
                 </Typography>
               </Box>

@@ -47,7 +47,9 @@ const EmailForm = ({
           handleBlur={handleColorChange}
         />
 
-        <Stack direction={{ xs: "column", sm: "row" }} gap={2} mb={5} mt={5}>
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          sx={{ gap: 2, marginBlockStart: 5, marginBlockEnd: 5 }}>
           <Button
             fullWidth
             type="submit"

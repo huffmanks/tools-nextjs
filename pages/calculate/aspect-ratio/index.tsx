@@ -21,11 +21,11 @@ const AspectRatio = () => {
 
       <PageTitle>Aspect Ratio Calculator</PageTitle>
 
-      <Typography paragraph mb={5}>
+      <Typography component="p" sx={{ marginBlockEnd: 5 }}>
         Calculate the aspect ratio.
       </Typography>
 
-      <Grid container spacing={5} alignItems="start">
+      <Grid container spacing={5} sx={{ alignItems: "start" }}>
         <AspectForm
           values={values}
           errors={errors}

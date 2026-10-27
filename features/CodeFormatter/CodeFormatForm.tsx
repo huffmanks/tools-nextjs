@@ -48,8 +48,8 @@ const CodeFormatForm = ({ values, errors, handleChange, handleReset }: CodeForma
   return (
     <Box component="form" autoComplete="off" sx={{ width: "100%", paddingLeft: 3, paddingTop: 3 }}>
       <Grid container spacing={3}>
-        <Grid item container spacing={3}>
-          <Grid item xs={12} sm={6} md={3}>
+        <Grid container spacing={3}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <FormControl fullWidth error={!!errors[codeActionSelect.name]}>
               <InputLabel id={`${codeActionSelect.name}-label`} shrink>
                 {codeActionSelect.label}
@@ -82,7 +82,7 @@ const CodeFormatForm = ({ values, errors, handleChange, handleReset }: CodeForma
             </FormControl>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <FormControl
               fullWidth
               disabled={!isLanguageRequired}
@@ -129,7 +129,7 @@ const CodeFormatForm = ({ values, errors, handleChange, handleReset }: CodeForma
           </Grid>
         </Grid>
 
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <TextField
             id="codeInput"
             className="global-scrollbar"
@@ -148,7 +148,7 @@ const CodeFormatForm = ({ values, errors, handleChange, handleReset }: CodeForma
           />
         </Grid>
 
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <TextField
             id="codeOutput"
             className="global-scrollbar"
@@ -163,34 +163,39 @@ const CodeFormatForm = ({ values, errors, handleChange, handleReset }: CodeForma
             value={values.codeOutput || ""}
             error={!!errors.codeOutput}
             helperText={errors.codeOutput}
-            InputProps={{
-              readOnly: true,
-              disabled: values.codeOutput ? false : true,
-              sx: {
-                alignItems: "flex-start",
+            slotProps={{
+              htmlInput: {
+                readOnly: true,
               },
-              endAdornment: (
-                <InputAdornment
-                  position="end"
-                  sx={{
-                    mt: -0.5,
-                    mr: -0.5,
-                  }}>
-                  <IconButton
-                    aria-label="copy output"
-                    onClick={() => copy(values.codeOutput)}
-                    disabled={!values.codeOutput}
-                    size="small"
-                    edge="end"
+              input: {
+                readOnly: true,
+                disabled: values.codeOutput ? false : true,
+                sx: {
+                  alignItems: "flex-start",
+                },
+                endAdornment: (
+                  <InputAdornment
+                    position="end"
                     sx={{
-                      "&:hover": {
-                        backgroundColor: "primary.main",
-                      },
+                      mt: -0.5,
+                      mr: -0.5,
                     }}>
-                    <ContentCopyIcon fontSize="small" />
-                  </IconButton>
-                </InputAdornment>
-              ),
+                    <IconButton
+                      aria-label="copy output"
+                      onClick={() => copy(values.codeOutput)}
+                      disabled={!values.codeOutput}
+                      size="small"
+                      edge="end"
+                      sx={{
+                        "&:hover": {
+                          backgroundColor: "primary.main",
+                        },
+                      }}>
+                      <ContentCopyIcon fontSize="small" />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              },
             }}
             sx={{
               "& .MuiInputBase-input": {
@@ -204,7 +209,7 @@ const CodeFormatForm = ({ values, errors, handleChange, handleReset }: CodeForma
             }}
           />
         </Grid>
-        <Grid item xs={12} display="flex" gap={2} justifyContent="flex-end">
+        <Grid size={{ xs: 12 }} sx={{ display: "flex", justifyContent: "flex-end", gap: 2 }}>
           <Button variant="contained" onClick={handleReset} startIcon={<RefreshIcon />}>
             Reset
           </Button>

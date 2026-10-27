@@ -33,7 +33,7 @@ const AspectInputs = ({
     <>
       {aspectInputs.map((input, index) => (
         <Fragment key={index}>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <TextField
               fullWidth
               variant="outlined"
@@ -56,14 +56,14 @@ const AspectInputs = ({
 
           {index === 1 && (
             <>
-              <Grid item xs={12}>
+              <Grid size={{ xs: 12 }}>
                 <Divider sx={{ margin: "2rem 0" }} />
               </Grid>
-              <Grid item xs={12}>
+              <Grid size={{ xs: 12 }}>
                 <Chip label="New" color="primary" component="div" sx={{ marginBottom: "2rem" }} />
               </Grid>
 
-              <Grid item xs={12} sm={6}>
+              <Grid size={{ xs: 12, sm: 6 }}>
                 <FormControl component="fieldset">
                   <RadioGroup
                     defaultValue="width"

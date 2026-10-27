@@ -40,12 +40,12 @@ const AppBarLogo = ({ logoSize, textSize, open }: AppBarLogoProps) => {
         </Box>
 
         <Typography
-          fontFamily={`'Lato', sans-serif`}
-          fontWeight={700}
-          letterSpacing={2}
           sx={{
-            paddingBottom: "5px",
+            paddingBlockEnd: "5px",
             fontSize: textSize,
+            fontWeight: 700,
+            fontFamily: "'Lato', sans-serif",
+            letterSpacing: 2,
           }}>
           stratools
         </Typography>

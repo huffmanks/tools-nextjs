@@ -71,7 +71,7 @@ const ${toolNamePascal} = () => {
 
       <PageTitle>${toolNamePascal}</PageTitle>
 
-      <Typography paragraph mb={5}>
+      <Typography paragraph sx={{ marginBlockEnd: 5 }}>
         Description...
       </Typography>
 
@@ -117,14 +117,14 @@ const ${toolNamePascal}Form = ({ values, errors, handleChange, handleReset }: ${
   return (
     <Box component="form" autoComplete="off" sx={{ width: "100%", paddingLeft: 3, paddingTop: 3 }}>
       <Grid container spacing={3}>
-        <Grid item container spacing={3}>
-          <Grid item xs={12} sm={6} md={3}>
+        <Grid container spacing={3}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <FormControl fullWidth error={!!errors[${toolNamePascal}_FIELD_NAME_Select.name]}>
             {/* Input/Select etc. */}
             </FormControl>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <FormControl
               fullWidth
               error={!!errors[${toolNamePascal}_FIELD_NAME_Input.name]}>
@@ -133,7 +133,7 @@ const ${toolNamePascal}Form = ({ values, errors, handleChange, handleReset }: ${
           </Grid>
         </Grid>
 
-        <Grid item xs={12} display="flex" gap={2} justifyContent="flex-end">
+        <Grid size={{ xs: 12 }} sx={{ display: "flex", justifyContent: "flex-end", gap: 2 }}>
           <Button variant="contained" onClick={handleReset} startIcon={<RefreshIcon />}>
             Reset
           </Button>

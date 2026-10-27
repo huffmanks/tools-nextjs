@@ -33,7 +33,7 @@ const NumberForm = ({
   return (
     <>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={7}>
+        <Grid size={{ xs: 12, md: 7 }}>
           <NumberOptions
             values={values}
             handleChange={handleChange}
@@ -45,7 +45,7 @@ const NumberForm = ({
 
           <NumberRange values={values} handleChange={handleChange} />
         </Grid>
-        <Grid item xs={12} md={5}>
+        <Grid size={{ xs: 12, md: 5 }}>
           <ActionGroup
             isCopyDisabled={!values?.randomNumber?.length}
             generateAria="generate random numbers"
@@ -56,12 +56,14 @@ const NumberForm = ({
 
           <Stack
             ref={resultRef}
-            flexDirection="row"
-            justifyContent={values.resultIsCentered ? "center" : "flex-start"}
-            flexWrap="wrap"
-            gap={2}
-            mt={5}
-            mb={2}>
+            sx={{
+              flexDirection: "row",
+              justifyContent: values.resultIsCentered ? "center" : "flex-start",
+              flexWrap: "wrap",
+              gap: 2,
+              marginBlockStart: 5,
+              marginBlockEnd: 2,
+            }}>
             {values.randomNumber.length > 0 ? (
               <>
                 {values.randomNumber.map((number, index) => (

@@ -22,17 +22,17 @@ const ColorPicker = () => {
       />
       <PageTitle>Color Picker</PageTitle>
 
-      <Typography paragraph mb={5}>
+      <Typography component="p" sx={{ marginBlockEnd: 5 }}>
         Choose a color in HEX, RGB or HSL.
       </Typography>
 
       <Grid container spacing={5}>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Colord color={color} onChange={setColor} />
 
           <ColorForm convertedColors={convertedColors} handleColor={handleColor} />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Typography
             variant="h4"
             component="h2"

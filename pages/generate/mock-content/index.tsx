@@ -22,7 +22,7 @@ const MockContent = () => {
 
       <PageTitle>Mock Content</PageTitle>
 
-      <Typography paragraph mb={5}>
+      <Typography component="p" sx={{ marginBlockEnd: 5 }}>
         Placeholder text in many formats.
       </Typography>
 

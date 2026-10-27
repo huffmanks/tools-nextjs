@@ -17,7 +17,7 @@ interface TextDelimitersProps {
 
 const TextDelimiters = ({ values, handleChange }: TextDelimitersProps) => {
   return (
-    <Stack direction={{ xs: "column", xms: "row" }} gap={2} sx={{ flex: 1, maxWidth: "100%" }}>
+    <Stack direction={{ xs: "column", xms: "row" }} spacing={2} sx={{ flex: 1, maxWidth: "100%" }}>
       {delimiterSelects.map((select) => (
         <FormControl key={select.label} variant="outlined" sx={{ width: "100%" }}>
           <InputLabel>{select.label}</InputLabel>

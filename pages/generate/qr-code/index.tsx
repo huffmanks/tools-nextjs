@@ -29,7 +29,7 @@ const QrCode = () => {
 
       <PageTitle>QR Code Generator</PageTitle>
 
-      <Typography paragraph mb={5}>
+      <Typography component="p" sx={{ marginBlockEnd: 5 }}>
         Create a QR code.
       </Typography>
 

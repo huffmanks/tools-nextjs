@@ -11,7 +11,7 @@ const AspectPreview = ({ values }: AspectPreviewProps) => {
 
   return (
     <>
-      <Grid item xs={12}>
+      <Grid size={{ xs: 12 }}>
         <Box
           sx={{
             display: "flex",
@@ -27,11 +27,17 @@ const AspectPreview = ({ values }: AspectPreviewProps) => {
             backgroundColor: "background.altTwo",
             borderRadius: "4px",
           }}>
-          <Stack spacing={1} justifyContent="center" alignItems="center">
-            <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
+          <Stack spacing={1} sx={{ justifyContent: "center", alignItems: "center" }}>
+            <Stack
+              direction="row"
+              spacing={2}
+              sx={{ justifyContent: "center", alignItems: "center" }}>
               {dimensions}
             </Stack>
-            <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
+            <Stack
+              direction="row"
+              spacing={2}
+              sx={{ justifyContent: "center", alignItems: "center" }}>
               {values.aspectRatio !== "" ? values.aspectRatio : "16:9"}
             </Stack>
           </Stack>

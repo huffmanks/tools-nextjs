@@ -14,7 +14,7 @@ const EmailInputs = ({ values, errors, handleChange, handleBlur }: EmailInputsPr
   return (
     <>
       {emailInputs.map((field) => (
-        <Grid key={field.name} item sm={field.gridSm} xs={12}>
+        <Grid key={field.name} size={{ sm: field.gridSm, xs: 12 }}>
           <TextField
             id={field.name}
             fullWidth

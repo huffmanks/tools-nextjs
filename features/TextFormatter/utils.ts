@@ -1,4 +1,4 @@
-import { camelCase, constantCase, headerCase, sentenceCase, snakeCase } from "change-case";
+import { camelCase, constantCase, sentenceCase, snakeCase, trainCase } from "change-case";
 
 const SMALL_WORDS =
   /\b(?:an?d?|a[st]|because|but|or|of|is|by|en|for|i[fn]|neither|nor|o[fnr]|only|over|per|so|some|tha[tn]|the|to|up|upon|vs?\.?|versus|via|when|with|without|yet)\b/i;
@@ -37,6 +37,6 @@ export const formatTextCases = (text: string) => ({
   sentenceCase: sentenceCase(text),
   camelCase: camelCase(text),
   snakeCase: snakeCase(text),
-  headerCase: headerCase(text).toLowerCase(),
+  trainCase: trainCase(text).toLowerCase(),
   constantCase: constantCase(text),
 });

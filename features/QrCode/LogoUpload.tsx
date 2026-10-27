@@ -15,9 +15,7 @@ const LogoUpload = ({ logoBackgroundTransparent, logoName, handleChange }: LogoU
       </Typography>
       <Stack
         direction={{ xs: "column", sm: "row" }}
-        alignItems={{ xs: "start", sm: "center" }}
-        gap={2}
-        mb={2}>
+        sx={{ gap: 2, marginBlockEnd: 2, alignItems: { xs: "start", sm: "center" } }}>
         <Button
           component="label"
           variant="outlined"

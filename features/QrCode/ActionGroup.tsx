@@ -14,7 +14,7 @@ interface ActionGroupProps {
 const ActionGroup = ({ values, downloadUrl, handleReset }: ActionGroupProps) => {
   return (
     <>
-      <Stack direction={{ xs: "column", sm: "row" }} gap={2} mb={5}>
+      <Stack direction={{ xs: "column", sm: "row" }} sx={{ gap: 2, marginBlockEnd: 5 }}>
         <Button
           fullWidth
           type="submit"

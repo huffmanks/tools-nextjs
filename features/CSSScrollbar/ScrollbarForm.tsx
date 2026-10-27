@@ -28,12 +28,12 @@ interface ScrollbarFormProps {
 const ScrollbarForm = ({ values, colors, handleBlur, handleChange }: ScrollbarFormProps) => {
   return (
     <>
-      <Grid item xs={12} md={5}>
+      <Grid size={{ xs: 12, md: 5 }}>
         <Demo values={values} colors={colors} />
-        <Typography variant="subtitle1" mb={2}>
+        <Typography variant="subtitle1" sx={{}}>
           Scrollbar Styles
         </Typography>
-        <Stack direction={{ xs: "column", lg: "row" }} columnGap={4} rowGap={1}>
+        <Stack direction={{ xs: "column", lg: "row" }} sx={{ columnGap: 4, rowGap: 1 }}>
           <ScrollbarRadios
             radioGroup="directionRadios"
             groupLabel="Direction"
@@ -54,7 +54,7 @@ const ScrollbarForm = ({ values, colors, handleBlur, handleChange }: ScrollbarFo
           />
         </Stack>
 
-        <Stack direction={{ xs: "column", sm: "row" }} gap={4} mt={2}>
+        <Stack direction={{ xs: "column", sm: "row" }} sx={{ gap: 4, marginBlockStart: 2 }}>
           <ScrollbarSelect
             selectGroup="firefoxWidthSelect"
             groupLabel="Firefox width"
@@ -76,9 +76,12 @@ const ScrollbarForm = ({ values, colors, handleBlur, handleChange }: ScrollbarFo
         {!values.isTrackTransparent && (
           <Stack
             direction={{ xs: "column", sm: "row", md: "column", lg: "row" }}
-            alignItems={{ xs: "start", sm: "center", md: "start", lg: "center" }}
-            gap={4}
-            mt={4}>
+
+            sx={{
+              gap: 4,
+              marginBlockStart: 4,
+              alignItems: { xs: "start", sm: "center", md: "start", lg: "center" },
+            }}>
             <Box sx={{ display: "grid", alignItems: "end", gap: 3 }}>
               {scrollbarTrackPickers.map((picker) => (
                 <PopoverColorPicker
@@ -90,8 +93,8 @@ const ScrollbarForm = ({ values, colors, handleBlur, handleChange }: ScrollbarFo
                 />
               ))}
             </Box>
-
-            <Stack gap={3} pt={{ xs: 0, sm: 5, md: 0, lg: 5 }}>
+            4
+            <Stack sx={{ gap: 3, paddingBlockStart: { xs: 0, sm: 5, md: 0, lg: 5 } }}>
               <PixelInput
                 inputLabel="Border radius"
                 inputName="trackRadius"
@@ -110,9 +113,11 @@ const ScrollbarForm = ({ values, colors, handleBlur, handleChange }: ScrollbarFo
 
         <Stack
           direction={{ xs: "column", sm: "row", md: "column", lg: "row" }}
-          alignItems={{ xs: "start", sm: "center", md: "start", lg: "center" }}
-          gap={4}
-          mt={4}>
+          sx={{
+            gap: 4,
+            marginBlockStart: 4,
+            alignItems: { xs: "start", sm: "center", md: "start", lg: "center" },
+          }}>
           <Box sx={{ display: "grid", alignItems: "end", gap: 3 }}>
             {values.isTrackTransparent
               ? scrollbarThumbPickers
@@ -137,7 +142,7 @@ const ScrollbarForm = ({ values, colors, handleBlur, handleChange }: ScrollbarFo
                 ))}
           </Box>
 
-          <Stack gap={3} pt={{ xs: 0, sm: 5, md: 0, lg: 5 }}>
+          <Stack sx={{ gap: 3, paddingBlockStart: { xs: 0, sm: 5, md: 0, lg: 5 } }}>
             <PixelInput
               inputLabel="Border radius"
               inputName="thumbRadius"

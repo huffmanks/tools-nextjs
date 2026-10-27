@@ -25,13 +25,13 @@ const Create = () => {
 
   return (
     <>
-      <Typography paragraph mb={5}>
+      <Typography component="p" sx={{ marginBlockEnd: 5 }}>
         Create a todo list.
       </Typography>
       <ListType list={list} handleChange={handleChange} />
 
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
           <TextField
             required
             fullWidth
@@ -52,7 +52,7 @@ const Create = () => {
             })}
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
           <TextField
             fullWidth
             variant="outlined"
@@ -73,31 +73,32 @@ const Create = () => {
               error: true,
               helperText: "One item is required.",
             })}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    id="addItemButton"
-                    edge="start"
-                    aria-label="add item"
-                    onClick={handleAddItem}
-                    sx={{
-                      "&:hover": {
-                        backgroundColor: "primary.main",
-                      },
-                    }}>
-                    <AddIcon />
-                  </IconButton>
-                </InputAdornment>
-              ),
+            slotProps={{
+              input: {
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      id="addItemButton"
+                      edge="start"
+                      aria-label="add item"
+                      onClick={handleAddItem}
+                      sx={{
+                        "&:hover": {
+                          backgroundColor: "primary.main",
+                        },
+                      }}>
+                      <AddIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              },
             }}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <Stack
             direction={{ xs: "column", sm: "row" }}
-            flexWrap="wrap"
-            sx={{ maxWidth: { md: "calc(66.666666% - 10px)" }, gap: 2 }}>
+            sx={{ maxWidth: { md: "calc(66.666666% - 10px)" }, gap: 2, flexWrap: "wrap" }}>
             {items.length ? (
               items.map((item) => (
                 <Box
@@ -116,7 +117,7 @@ const Create = () => {
             )}
           </Stack>
         </Grid>
-        <Grid item xs={12} sm={4} md={3} lg={2}>
+        <Grid size={{ xs: 12, sm: 4, md: 3, lg: 2 }}>
           <Button
             fullWidth
             variant="contained"

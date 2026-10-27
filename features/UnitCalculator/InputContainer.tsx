@@ -9,29 +9,23 @@ interface InputContainerProps {
 const InputContainer = ({ top, center, bottom }: InputContainerProps) => {
   return (
     <>
-      <Grid container sx={{ marginBottom: 5 }}>
+      <Grid container sx={{ marginBlockEnd: 5 }}>
         <Grid
-          item
-          xs={12}
-          md={3}
+          size={{ xs: 12, md: 3 }}
           sx={{
-            marginBottom: {
+            marginBlockEnd: {
               xs: 3,
               md: 0,
             },
-            paddingRight: {
+            paddingInlineEnd: {
               xs: 0,
               md: 5,
             },
           }}>
           {top}
         </Grid>
-        <Grid item xs={12} md={3}>
-          {center}
-        </Grid>
-        <Grid item xs={12} md={3}>
-          {bottom}
-        </Grid>
+        <Grid size={{ xs: 12, md: 3 }}>{center}</Grid>
+        <Grid size={{ xs: 12, md: 3 }}>{bottom}</Grid>
       </Grid>
     </>
   );

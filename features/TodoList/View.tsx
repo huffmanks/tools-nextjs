@@ -11,7 +11,11 @@ const View = () => {
 
   return (
     <>
-      <Typography paragraph mb={5}>
+      <Typography
+        component="p"
+        sx={{
+          marginBlockEnd: 5,
+        }}>
         {lists?.length ? "View or edit a list below." : "Created lists will appear here."}
       </Typography>
 
@@ -19,7 +23,12 @@ const View = () => {
 
       {lists?.length > 0 ? (
         <>
-          <Stack direction={{ xs: "column", md: "row" }} flexWrap="wrap" gap={3}>
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            sx={{
+              gap: 3,
+              flexWrap: "wrap",
+            }}>
             {lists.map((list) => (
               <ListCard key={list.id} list={list} />
             ))}

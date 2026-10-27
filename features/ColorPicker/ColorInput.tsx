@@ -53,14 +53,16 @@ const ColorInput = ({ inputLabel, inputName, colorType }: ColorInputProps) => {
         onChange={handleChange}
         onBlur={handleBlur}
         autoComplete="none"
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <IconButton aria-label="copy value to clipboard" onClick={handleCopy} edge="end">
-                <ContentCopyIcon />
-              </IconButton>
-            </InputAdornment>
-          ),
+        slotProps={{
+          input: {
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton aria-label="copy value to clipboard" onClick={handleCopy} edge="end">
+                  <ContentCopyIcon />
+                </IconButton>
+              </InputAdornment>
+            ),
+          },
         }}
       />
     </>

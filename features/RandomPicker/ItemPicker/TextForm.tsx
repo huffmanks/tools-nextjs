@@ -26,13 +26,16 @@ const TextForm = ({
   handleIncrease,
 }: TextFormProps) => {
   return (
-    <Grid item xs={12} md={7}>
+    <Grid size={{ xs: 12, md: 7 }}>
       <FieldsetContainer
         title="Result options"
         size="large"
         isFullWidth
         helperText={`There will be ${values?.total} item${values?.total > 1 ? "s" : ""} selected from the list.`}>
-        <Stack direction={{ xs: "column", md: "row" }} gap={{ xs: 0, sm: 2 }} mb={1}>
+        <Stack
+          direction={{ xs: "column", md: "row" }}
+          spacing={{ xs: 0, sm: 2 }}
+          sx={{ marginBlockEnd: 1 }}>
           <Counter
             values={values}
             handleChange={handleChange}

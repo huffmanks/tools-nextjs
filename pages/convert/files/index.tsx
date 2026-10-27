@@ -21,7 +21,7 @@ const FileConverter = () => {
 
       <PageTitle>Data Converter</PageTitle>
 
-      <Typography paragraph mb={5}>
+      <Typography component="p" sx={{ marginBlockEnd: 5 }}>
         Convert files between common formats.
       </Typography>
 

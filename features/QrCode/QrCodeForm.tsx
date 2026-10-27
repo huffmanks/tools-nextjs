@@ -67,7 +67,7 @@ const QrCodeForm = ({
         {qrCodeSelects.map((input) => (
           <FormControl key={input.name} fullWidth>
             <InputLabel id={`${input.name}-label`}>{input.label}</InputLabel>
-            <Select
+            <Select<string | number>
               labelId={`${input.name}-label`}
               id={input.name}
               variant="outlined"

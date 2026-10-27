@@ -14,7 +14,7 @@ interface ScrollbarOutputProps {
 const ScrollbarOutput = ({ values, colors }: ScrollbarOutputProps) => {
   return (
     <>
-      <Grid item xs={12} md={7}>
+      <Grid size={{ xs: 12, md: 7 }}>
         <Box sx={{ position: "relative" }}>
           <ActionGroup values={values} colors={colors} />
 

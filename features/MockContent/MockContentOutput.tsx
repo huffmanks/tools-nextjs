@@ -21,7 +21,7 @@ const MockContentOutput = ({ values, handleCopy }: MockContentOutputProps) => {
   const currentDisplayContent = values.output?.[activeTab] || "";
 
   return (
-    <Grid item xs={12} md={7}>
+    <Grid size={{ xs: 12, md: 7 }}>
       <Paper
         variant="outlined"
         sx={{

@@ -33,7 +33,7 @@ const TextFormatter = () => {
 
       <PageTitle>Text Formatter</PageTitle>
 
-      <Typography paragraph mb={5}>
+      <Typography component="p" sx={{ marginBlockEnd: 5 }}>
         Format text to any case.
       </Typography>
 

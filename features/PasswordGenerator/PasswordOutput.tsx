@@ -46,25 +46,30 @@ const PasswordOutput = ({ password, showPassword, handleShowPassword }: Password
             fontSize: 18,
           },
         }}
-        InputProps={{
-          readOnly: true,
-          startAdornment: (
-            <InputAdornment position="start">
-              <IconButton
-                aria-label="toggle password visibility"
-                onClick={handleShowPassword}
-                edge="start">
-                {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
-              </IconButton>
-            </InputAdornment>
-          ),
-          endAdornment: (
-            <InputAdornment position="end">
-              <IconButton aria-label="copy value to clipboard" onClick={handleCopy} edge="end">
-                <ContentCopyIcon />
-              </IconButton>
-            </InputAdornment>
-          ),
+        slotProps={{
+          htmlInput: {
+            readOnly: true,
+          },
+          input: {
+            readOnly: true,
+            startAdornment: (
+              <InputAdornment position="start">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleShowPassword}
+                  edge="start">
+                  {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                </IconButton>
+              </InputAdornment>
+            ),
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton aria-label="copy value to clipboard" onClick={handleCopy} edge="end">
+                  <ContentCopyIcon />
+                </IconButton>
+              </InputAdornment>
+            ),
+          },
         }}
       />
     </FormGroup>

@@ -14,7 +14,7 @@ const UploadForm = ({
   handleIncrease,
 }) => {
   return (
-    <Grid item xs={12} md={7}>
+    <Grid size={{ xs: 12, md: 7 }}>
       <div>
         <FieldsetContainer
           title="Result options"
@@ -23,9 +23,7 @@ const UploadForm = ({
           helperText={`There will be ${values.total} item${values.total > 1 ? "s" : ""} selected from the spreadsheet.`}>
           <Stack
             direction={{ xs: "column", sm: "row" }}
-            alignItems={{ xs: "start", sm: "center" }}
-            gap={2}
-            mb={2}>
+            sx={{ gap: 2, marginBlockEnd: 2, alignItems: { xs: "start", sm: "center" } }}>
             <Counter
               values={values}
               handleChange={handleChange}

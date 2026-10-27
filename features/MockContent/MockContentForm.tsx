@@ -37,7 +37,7 @@ const MockContentForm = ({
   const inlineElements = mockContentElements.slice(10);
 
   return (
-    <Grid item xs={12} md={5}>
+    <Grid size={{ xs: 12, md: 5 }}>
       <Box
         component="form"
         onSubmit={handleSubmit}
@@ -85,7 +85,7 @@ const MockContentForm = ({
           </FormGroup>
         </FormControl>
 
-        <Stack direction={{ xs: "column", sm: "row" }} gap={2} mb={2}>
+        <Stack direction={{ xs: "column", sm: "row" }} sx={{ marginBlockEnd: 2, gap: 2 }}>
           <Button
             fullWidth
             type="submit"

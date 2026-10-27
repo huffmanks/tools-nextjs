@@ -13,8 +13,8 @@ interface AspectFormProps {
 
 const AspectForm = ({ values, errors, handleFocus, handleChange, handleBlur }: AspectFormProps) => {
   return (
-    <Grid item container spacing={2} md={6} component="form">
-      <Grid item xs={12}>
+    <Grid container spacing={2} size={{ md: 6 }} component="form">
+      <Grid size={{ xs: 12 }}>
         <Chip label="Original" color="primary" component="div" sx={{ marginBottom: "2rem" }} />
       </Grid>
 

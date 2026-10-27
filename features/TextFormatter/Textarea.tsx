@@ -10,7 +10,7 @@ interface TextareaProps {
 const Textarea = ({ output, handleChange, handleClear }: TextareaProps) => {
   return (
     <>
-      <Grid item xs={12}>
+      <Grid size={{ xs: 12 }}>
         <TextField
           fullWidth
           variant="filled"
@@ -19,14 +19,16 @@ const Textarea = ({ output, handleChange, handleClear }: TextareaProps) => {
           value={output}
           onFocus={(e) => e.target.select()}
           onChange={handleChange}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton aria-label="clear input" onClick={handleClear} edge="start">
-                  <ClearIcon />
-                </IconButton>
-              </InputAdornment>
-            ),
+          slotProps={{
+            input: {
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton aria-label="clear input" onClick={handleClear} edge="start">
+                    <ClearIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            },
           }}
         />
       </Grid>

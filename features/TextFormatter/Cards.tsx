@@ -18,7 +18,7 @@ const Cards = ({ values, checkedCards, handleCopy }: CardsProps) => {
       {textFormatterCards.map((card) => (
         <Fragment key={card.name}>
           {checkedCards.includes(card.name) && (
-            <Grid item lg={3} md={6} xs={12}>
+            <Grid size={{ xs: 12, md: 6, lg: 3 }}>
               <Card variant="outlined">
                 <CardHeader
                   title={card.label}

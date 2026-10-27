@@ -27,7 +27,7 @@ const PasswordGenerator = () => {
 
       <PageTitle>Password Generator</PageTitle>
 
-      <Typography paragraph mb={5}>
+      <Typography component="p" sx={{ marginBlockEnd: 5 }}>
         Create a strong password or a random keygen.
       </Typography>
 

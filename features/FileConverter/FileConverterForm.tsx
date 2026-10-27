@@ -56,8 +56,8 @@ const FileConverterForm = ({
   return (
     <Box component="form" autoComplete="off" sx={{ width: "100%", paddingLeft: 3, paddingTop: 3 }}>
       <Grid container spacing={3}>
-        <Grid item container spacing={3} alignItems="center">
-          <Grid item xs={12} sm={6} md={4}>
+        <Grid container spacing={3} sx={{ alignItems: "center" }}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
             <FormControl fullWidth error={!!errors[conversionActionSelect.name]}>
               <InputLabel id={`${conversionActionSelect.name}-label`} shrink>
                 {conversionActionSelect.label}
@@ -85,7 +85,7 @@ const FileConverterForm = ({
             </FormControl>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
             <Button
               variant="outlined"
               component="label"
@@ -98,7 +98,7 @@ const FileConverterForm = ({
           </Grid>
         </Grid>
 
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <TextField
             id="inputData"
             className="global-scrollbar"
@@ -117,7 +117,7 @@ const FileConverterForm = ({
           />
         </Grid>
 
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <TextField
             id="outputData"
             className="global-scrollbar"
@@ -132,23 +132,28 @@ const FileConverterForm = ({
             value={values.outputData || ""}
             error={!!errors.outputData}
             helperText={errors.outputData}
-            InputProps={{
-              readOnly: true,
-              disabled: !values.outputData,
-              sx: { alignItems: "flex-start" },
-              endAdornment: (
-                <InputAdornment position="end" sx={{ mt: -0.5, mr: -0.5 }}>
-                  <IconButton
-                    aria-label="copy output"
-                    onClick={() => copy(values.outputData)}
-                    disabled={!values.outputData}
-                    size="small"
-                    edge="end"
-                    sx={{ "&:hover": { backgroundColor: "primary.main" } }}>
-                    <ContentCopyIcon fontSize="small" />
-                  </IconButton>
-                </InputAdornment>
-              ),
+            slotProps={{
+              htmlInput: {
+                readOnly: true,
+              },
+              input: {
+                readOnly: true,
+                disabled: !values.outputData,
+                sx: { alignItems: "flex-start" },
+                endAdornment: (
+                  <InputAdornment position="end" sx={{ mt: -0.5, mr: -0.5 }}>
+                    <IconButton
+                      aria-label="copy output"
+                      onClick={() => copy(values.outputData)}
+                      disabled={!values.outputData}
+                      size="small"
+                      edge="end"
+                      sx={{ "&:hover": { backgroundColor: "primary.main" } }}>
+                      <ContentCopyIcon fontSize="small" />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              },
             }}
             sx={{
               "& .MuiFilledInput-root": {
@@ -158,7 +163,7 @@ const FileConverterForm = ({
           />
         </Grid>
 
-        <Grid item xs={12} display="flex" gap={2} justifyContent="flex-end">
+        <Grid size={{ xs: 12 }} sx={{ display: "flex", justifyContent: "flex-end", gap: 2 }}>
           <Button
             variant="contained"
             color="secondary"
@@ -174,7 +179,7 @@ const FileConverterForm = ({
       </Grid>
 
       {warnings.length > 0 && (
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           {warnings.map((warning, index) => (
             <Typography key={index} variant="body2" color="warning.main" sx={{ mt: 1 }}>
               ⚠️ {warning.message}

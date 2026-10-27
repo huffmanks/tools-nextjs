@@ -11,8 +11,8 @@ interface AspectOutputProps {
 
 const AspectOutput = ({ values, errors }: AspectOutputProps) => {
   return (
-    <Grid item container spacing={2} md={6}>
-      <Grid item xs={12}>
+    <Grid container spacing={2} size={{ md: 6 }}>
+      <Grid size={{ xs: 12 }}>
         <Chip label="Output" color="primary" component="div" sx={{ marginBottom: "2rem" }} />
       </Grid>
 

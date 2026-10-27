@@ -11,15 +11,19 @@ const PixelInput = ({ inputLabel, inputName, inputValue, handleChange }: PixelIn
   return (
     <>
       <TextField
-        inputProps={{ maxLength: 2 }}
         variant="outlined"
         label={inputLabel}
         name={inputName}
         value={inputValue}
         onChange={handleChange}
         autoComplete="none"
-        InputProps={{
-          endAdornment: <InputAdornment position="end">px</InputAdornment>,
+        slotProps={{
+          htmlInput: {
+            maxLength: 2,
+          },
+          input: {
+            endAdornment: <InputAdornment position="end">px</InputAdornment>,
+          },
         }}
         sx={{ width: "100%" }}
         helperText="2 digits"

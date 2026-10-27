@@ -29,7 +29,7 @@ const Home = () => {
 
       <PageTitle>Home</PageTitle>
 
-      <Typography paragraph mb={5}>
+      <Typography component="p" sx={{ marginBlockEnd: 5 }}>
         List of tools to help speed web development.
       </Typography>
 

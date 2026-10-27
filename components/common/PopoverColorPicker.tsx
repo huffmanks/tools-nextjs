@@ -72,12 +72,12 @@ function PopoverColorPicker({
   return (
     <div>
       {label && (
-        <Typography variant="subtitle1" mb={1} mt={2}>
+        <Typography variant="subtitle1" sx={{ marginBlockEnd: 1, marginBlockStart: 2 }}>
           {label}
         </Typography>
       )}
 
-      <Stack flexDirection="row" alignItems="center" sx={{ position: "relative", gap: 2 }}>
+      <Stack sx={{ position: "relative", flexDirection: "row", alignItems: "center", gap: 2 }}>
         <Box
           role="button"
           tabIndex={0}
@@ -122,9 +122,11 @@ function PopoverColorPicker({
           helperText={helperText}
           onChange={(event) => setColor(event.target.value)}
           onBlur={handleColorBlur}
-          InputProps={{
-            inputComponent: HexColorInputCustom,
-            startAdornment: <InputAdornment position="start">#</InputAdornment>,
+          slotProps={{
+            input: {
+              inputComponent: HexColorInputCustom,
+              startAdornment: <InputAdornment position="start">#</InputAdornment>,
+            },
           }}
         />
       </Stack>

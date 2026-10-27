@@ -87,7 +87,7 @@ const ItemForm = ({
             handleIncrease={handleIncrease}
           />
         )}
-        <Grid item xs={12} md={!isUpload ? 5 : 12}>
+        <Grid size={{ xs: 12, md: !isUpload ? 5 : 12 }}>
           <ActionGroup
             isCopyDisabled={!isUpload && !values?.output?.length}
             isGenerateDisabled={

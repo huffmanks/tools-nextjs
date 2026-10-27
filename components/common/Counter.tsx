@@ -40,41 +40,43 @@ const Counter = ({
             textAlign: "center",
           },
         }}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <IconButton
-                aria-label="decrement one"
-                onClick={handleDecrease}
-                disabled={(typeof values?.total === "number" && values?.total <= 1) || isDisabled}
-                size="small"
-                edge="end"
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "primary.main",
-                  },
-                }}>
-                <RemoveIcon fontSize="small" />
-              </IconButton>
-            </InputAdornment>
-          ),
-          endAdornment: (
-            <InputAdornment position="end">
-              <IconButton
-                aria-label="increment one"
-                onClick={handleIncrease}
-                disabled={isDisabled}
-                size="small"
-                edge="start"
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "primary.main",
-                  },
-                }}>
-                <AddIcon fontSize="small" />
-              </IconButton>
-            </InputAdornment>
-          ),
+        slotProps={{
+          input: {
+            startAdornment: (
+              <InputAdornment position="start">
+                <IconButton
+                  aria-label="decrement one"
+                  onClick={handleDecrease}
+                  disabled={(typeof values?.total === "number" && values?.total <= 1) || isDisabled}
+                  size="small"
+                  edge="end"
+                  sx={{
+                    "&:hover": {
+                      backgroundColor: "primary.main",
+                    },
+                  }}>
+                  <RemoveIcon fontSize="small" />
+                </IconButton>
+              </InputAdornment>
+            ),
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="increment one"
+                  onClick={handleIncrease}
+                  disabled={isDisabled}
+                  size="small"
+                  edge="start"
+                  sx={{
+                    "&:hover": {
+                      backgroundColor: "primary.main",
+                    },
+                  }}>
+                  <AddIcon fontSize="small" />
+                </IconButton>
+              </InputAdornment>
+            ),
+          },
         }}
       />
     </>
