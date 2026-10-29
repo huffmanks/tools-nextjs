@@ -8,7 +8,7 @@ import { useColorPickerFormControls } from "@/features/ColorPicker/useColorPicke
 import PageTitle from "@/components/common/PageTitle";
 import SEO from "@/components/common/SEO";
 
-const ColorPicker = () => {
+export default function ColorPicker() {
   const { color, convertedColors, tintType, setColor, handleColor, handleTintType } =
     useColorPickerFormControls();
 
@@ -26,7 +26,7 @@ const ColorPicker = () => {
         Choose a color in HEX, RGB or HSL.
       </Typography>
 
-      <Grid container spacing={5}>
+      <Grid container spacing={5} sx={{ paddingBlockEnd: 8 }}>
         <Grid size={{ xs: 12, md: 6 }}>
           <Colord color={color} onChange={setColor} />
 
@@ -60,6 +60,4 @@ const ColorPicker = () => {
       </Grid>
     </>
   );
-};
-
-export default ColorPicker;
+}

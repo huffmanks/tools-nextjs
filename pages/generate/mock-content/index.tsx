@@ -7,7 +7,7 @@ import { useMockContentFormControls } from "@/features/MockContent/useMockConten
 import PageTitle from "@/components/common/PageTitle";
 import SEO from "@/components/common/SEO";
 
-const MockContent = () => {
+export default function MockContent() {
   const { values, checkAll, handleChange, handleCheckAll, handleCopy, handleReset, handleSubmit } =
     useMockContentFormControls();
 
@@ -26,7 +26,7 @@ const MockContent = () => {
         Placeholder text in many formats.
       </Typography>
 
-      <Grid container spacing={5}>
+      <Grid container spacing={5} sx={{ paddingBlockEnd: 8 }}>
         <MockContentForm
           values={values}
           checkAll={checkAll}
@@ -40,6 +40,4 @@ const MockContent = () => {
       </Grid>
     </>
   );
-};
-
-export default MockContent;
+}

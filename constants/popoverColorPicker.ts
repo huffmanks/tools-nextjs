@@ -1,4 +1,4 @@
-export interface InitialColors {
+export type InitialColors = {
   dotColor: string;
   backgroundColor: string;
   ringOuter: string;
@@ -10,7 +10,7 @@ export interface InitialColors {
   thumbBg: string;
   thumbBorderColor: string;
   thumbBgHover: string;
-}
+};
 
 export const initialPopoverColorPickerValues: InitialColors = {
   dotColor: "#5b21b6",

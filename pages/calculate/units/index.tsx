@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import InputContainer from "@/features/UnitCalculator/InputContainer";
 import UnitInputs from "@/features/UnitCalculator/UnitInputs";
@@ -10,7 +10,7 @@ import SEO from "@/components/common/SEO";
 import Skelly from "@/components/common/Skelly";
 import SkellyGroup from "@/components/common/SkellyGroup";
 
-const UnitCalculator = () => {
+export default function UnitCalculator() {
   const { isLoading, values, currentUnits, handleChange, handleFocus } =
     useUnitCalculatorFormControls();
 
@@ -29,30 +29,30 @@ const UnitCalculator = () => {
         Calculate different unit types.
       </Typography>
 
-      {!isLoading ? (
-        <>
-          <UnitInputs
-            values={values}
-            currentUnits={currentUnits}
-            handleChange={handleChange}
-            handleFocus={handleFocus}
-          />
+      <Box sx={{ paddingBlockEnd: 8 }}>
+        {!isLoading ? (
+          <>
+            <UnitInputs
+              values={values}
+              currentUnits={currentUnits}
+              handleChange={handleChange}
+              handleFocus={handleFocus}
+            />
 
-          <UnitOutput values={values} currentUnits={currentUnits} />
-        </>
-      ) : (
-        <>
-          <InputContainer
-            top={<Skelly type="input" />}
-            center={<Skelly type="input" />}
-            bottom={<Skelly type="input" />}
-          />
+            <UnitOutput values={values} currentUnits={currentUnits} />
+          </>
+        ) : (
+          <>
+            <InputContainer
+              top={<Skelly type="input" />}
+              center={<Skelly type="input" />}
+              bottom={<Skelly type="input" />}
+            />
 
-          <SkellyGroup type="input" skellyAmount={3} gapSize={4} />
-        </>
-      )}
+            <SkellyGroup type="input" skellyAmount={3} gapSize={4} />
+          </>
+        )}
+      </Box>
     </>
   );
-};
-
-export default UnitCalculator;
+}

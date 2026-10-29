@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
 import { useLists } from "@/hooks/useLists";
 
@@ -10,7 +10,7 @@ const View = () => {
   const { lists } = useLists();
 
   return (
-    <>
+    <Box sx={{ paddingBlockEnd: 8 }}>
       <Typography
         component="p"
         sx={{
@@ -37,7 +37,7 @@ const View = () => {
       ) : (
         <OutputMessage message="No lists to show." />
       )}
-    </>
+    </Box>
   );
 };
 

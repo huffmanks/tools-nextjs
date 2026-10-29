@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import { useCounter } from "@/hooks/useCounter";
 
@@ -8,7 +8,7 @@ import { useNumberPickerFormControls } from "@/features/RandomPicker/NumberPicke
 import PageTitle from "@/components/common/PageTitle";
 import SEO from "@/components/common/SEO";
 
-const NumberPicker = () => {
+export default function NumberPicker() {
   const { resultRef, values, setValues, handleChange, handleClick, handleCopy, handleReset } =
     useNumberPickerFormControls();
 
@@ -29,18 +29,18 @@ const NumberPicker = () => {
         Get a random number from a range.
       </Typography>
 
-      <NumberForm
-        resultRef={resultRef}
-        values={values}
-        handleChange={handleChange}
-        handleClick={handleClick}
-        handleCopy={handleCopy}
-        handleReset={handleReset}
-        handleDecrease={handleDecrease}
-        handleIncrease={handleIncrease}
-      />
+      <Box sx={{ paddingBlockEnd: 8 }}>
+        <NumberForm
+          resultRef={resultRef}
+          values={values}
+          handleChange={handleChange}
+          handleClick={handleClick}
+          handleCopy={handleCopy}
+          handleReset={handleReset}
+          handleDecrease={handleDecrease}
+          handleIncrease={handleIncrease}
+        />
+      </Box>
     </>
   );
-};
-
-export default NumberPicker;
+}

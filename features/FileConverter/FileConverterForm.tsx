@@ -54,50 +54,49 @@ const FileConverterForm = ({
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
-    <Box component="form" autoComplete="off" sx={{ width: "100%", paddingLeft: 3, paddingTop: 3 }}>
-      <Grid container spacing={3}>
-        <Grid container spacing={3} sx={{ alignItems: "center" }}>
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <FormControl fullWidth error={!!errors[conversionActionSelect.name]}>
-              <InputLabel id={`${conversionActionSelect.name}-label`} shrink>
-                {conversionActionSelect.label}
-              </InputLabel>
-              <Select
-                labelId={`${conversionActionSelect.name}-label`}
-                id={conversionActionSelect.name}
-                variant="outlined"
-                label={conversionActionSelect.label}
-                name={conversionActionSelect.name}
-                value={values[conversionActionSelect.name] || ""}
-                onChange={handleChange}
-                displayEmpty>
-                <MenuItem value="" disabled>
-                  <Typography variant="body2" color="text.secondary">
-                    {conversionActionSelect.placeholder}
-                  </Typography>
-                </MenuItem>
-                {conversionActionSelect.options.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Grid>
-
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-            <Button
+    <Box component="form" autoComplete="off" sx={{ width: "100%", paddingTop: 3 }}>
+      <Grid container spacing={3} sx={{ marginBlockEnd: 3 }}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+          <FormControl fullWidth error={!!errors[conversionActionSelect.name]}>
+            <InputLabel id={`${conversionActionSelect.name}-label`} shrink>
+              {conversionActionSelect.label}
+            </InputLabel>
+            <Select
+              labelId={`${conversionActionSelect.name}-label`}
+              id={conversionActionSelect.name}
               variant="outlined"
-              component="label"
-              fullWidth
-              startIcon={<FileUploadIcon />}
-              sx={{ height: 56 }}>
-              Upload Source File
-              <input type="file" hidden onChange={handleFileUpload} />
-            </Button>
-          </Grid>
+              label={conversionActionSelect.label}
+              name={conversionActionSelect.name}
+              value={values[conversionActionSelect.name] || ""}
+              onChange={handleChange}
+              displayEmpty>
+              <MenuItem value="" disabled>
+                <Typography variant="body2" color="text.secondary">
+                  {conversionActionSelect.placeholder}
+                </Typography>
+              </MenuItem>
+              {conversionActionSelect.options.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Grid>
 
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+          <Button
+            variant="outlined"
+            component="label"
+            sx={{ height: "100%" }}
+            fullWidth
+            startIcon={<FileUploadIcon />}>
+            Upload
+            <input type="file" hidden onChange={handleFileUpload} />
+          </Button>
+        </Grid>
+      </Grid>
+      <Grid container spacing={3}>
         <Grid size={{ xs: 12, md: 6 }}>
           <TextField
             id="inputData"
@@ -170,7 +169,7 @@ const FileConverterForm = ({
             onClick={handleDownload}
             disabled={!values.outputData}
             startIcon={<DownloadIcon />}>
-            Download File
+            Download
           </Button>
           <Button variant="contained" onClick={handleReset} startIcon={<RefreshIcon />}>
             Reset

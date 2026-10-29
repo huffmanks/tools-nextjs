@@ -46,89 +46,88 @@ const CodeFormatForm = ({ values, errors, handleChange, handleReset }: CodeForma
   const isLanguageRequired = ["minify", "un-minify"].includes(values.action);
 
   return (
-    <Box component="form" autoComplete="off" sx={{ width: "100%", paddingLeft: 3, paddingTop: 3 }}>
-      <Grid container spacing={3}>
-        <Grid container spacing={3}>
-          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-            <FormControl fullWidth error={!!errors[codeActionSelect.name]}>
-              <InputLabel id={`${codeActionSelect.name}-label`} shrink>
-                {codeActionSelect.label}
-              </InputLabel>
-              <Select
-                labelId={`${codeActionSelect.name}-label`}
-                id={codeActionSelect.name}
-                variant="outlined"
-                label={codeActionSelect.label}
-                name={codeActionSelect.name}
-                value={values[codeActionSelect.name] || ""}
-                onChange={handleChange}
-                displayEmpty>
-                <MenuItem value="" disabled>
-                  <Typography variant="body2" color="text.secondary">
-                    {codeActionSelect.placeholder}
-                  </Typography>
+    <Box component="form" autoComplete="off" sx={{ width: "100%", paddingTop: 3 }}>
+      <Grid container spacing={3} sx={{ marginBlockEnd: 3 }}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+          <FormControl fullWidth error={!!errors[codeActionSelect.name]}>
+            <InputLabel id={`${codeActionSelect.name}-label`} shrink>
+              {codeActionSelect.label}
+            </InputLabel>
+            <Select
+              labelId={`${codeActionSelect.name}-label`}
+              id={codeActionSelect.name}
+              variant="outlined"
+              label={codeActionSelect.label}
+              name={codeActionSelect.name}
+              value={values[codeActionSelect.name] || ""}
+              onChange={handleChange}
+              displayEmpty>
+              <MenuItem value="" disabled>
+                <Typography variant="body2" color="text.secondary">
+                  {codeActionSelect.placeholder}
+                </Typography>
+              </MenuItem>
+              {codeActionSelect.options.map((option) => (
+                <MenuItem key={option.label} value={option.value}>
+                  {option.label}
                 </MenuItem>
-                {codeActionSelect.options.map((option) => (
-                  <MenuItem key={option.label} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </Select>
-              {errors[codeActionSelect.name] && (
-                <Typography variant="caption" color="error" sx={{ mt: 0.5 }}>
-                  {errors[codeActionSelect.name]}
-                </Typography>
-              )}
-            </FormControl>
-          </Grid>
-
-          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-            <FormControl
-              fullWidth
-              disabled={!isLanguageRequired}
-              error={!!errors[codeFormatSelect.name]}>
-              <InputLabel id={`${codeFormatSelect.name}-label`} shrink>
-                {codeFormatSelect.label}
-              </InputLabel>
-              <Select
-                labelId={`${codeFormatSelect.name}-label`}
-                id={codeFormatSelect.name}
-                variant="outlined"
-                label={codeFormatSelect.label}
-                name={codeFormatSelect.name}
-                value={values[codeFormatSelect.name] || ""}
-                onChange={handleChange}
-                displayEmpty>
-                {!isLanguageRequired ? (
-                  <MenuItem value="">
-                    <Typography variant="caption" color="text.secondary">
-                      Not required for this action
-                    </Typography>
-                  </MenuItem>
-                ) : (
-                  [
-                    <MenuItem value="" disabled key="placeholder">
-                      <Typography variant="body2" color="text.secondary">
-                        {codeFormatSelect.placeholder}
-                      </Typography>
-                    </MenuItem>,
-                    ...codeFormatSelect.options.map((option) => (
-                      <MenuItem key={option.label} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    )),
-                  ]
-                )}
-              </Select>
-              {errors[codeFormatSelect.name] && (
-                <Typography variant="caption" color="error" sx={{ mt: 0.5 }}>
-                  {errors[codeFormatSelect.name]}
-                </Typography>
-              )}
-            </FormControl>
-          </Grid>
+              ))}
+            </Select>
+            {errors[codeActionSelect.name] && (
+              <Typography variant="caption" color="error" sx={{ marginBlockStart: 0.5 }}>
+                {errors[codeActionSelect.name]}
+              </Typography>
+            )}
+          </FormControl>
         </Grid>
 
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+          <FormControl
+            fullWidth
+            disabled={!isLanguageRequired}
+            error={!!errors[codeFormatSelect.name]}>
+            <InputLabel id={`${codeFormatSelect.name}-label`} shrink>
+              {codeFormatSelect.label}
+            </InputLabel>
+            <Select
+              labelId={`${codeFormatSelect.name}-label`}
+              id={codeFormatSelect.name}
+              variant="outlined"
+              label={codeFormatSelect.label}
+              name={codeFormatSelect.name}
+              value={values[codeFormatSelect.name] || ""}
+              onChange={handleChange}
+              displayEmpty>
+              {!isLanguageRequired ? (
+                <MenuItem value="">
+                  <Typography variant="caption" color="text.secondary">
+                    Not required for this action
+                  </Typography>
+                </MenuItem>
+              ) : (
+                [
+                  <MenuItem value="" disabled key="placeholder">
+                    <Typography variant="body2" color="text.secondary">
+                      {codeFormatSelect.placeholder}
+                    </Typography>
+                  </MenuItem>,
+                  ...codeFormatSelect.options.map((option) => (
+                    <MenuItem key={option.label} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  )),
+                ]
+              )}
+            </Select>
+            {errors[codeFormatSelect.name] && (
+              <Typography variant="caption" color="error" sx={{ mt: 0.5 }}>
+                {errors[codeFormatSelect.name]}
+              </Typography>
+            )}
+          </FormControl>
+        </Grid>
+      </Grid>
+      <Grid container spacing={3}>
         <Grid size={{ xs: 12, md: 6 }}>
           <TextField
             id="codeInput"

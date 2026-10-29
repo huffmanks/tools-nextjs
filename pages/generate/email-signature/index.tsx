@@ -1,3 +1,5 @@
+import { Box } from "@mui/material";
+
 import EmailForm from "@/features/EmailSignature/EmailForm";
 import EmailOutput from "@/features/EmailSignature/EmailOutput";
 import IntroParagraph from "@/features/EmailSignature/IntroParagraph";
@@ -7,7 +9,7 @@ import OutputMessage from "@/components/common/OutputMessage";
 import PageTitle from "@/components/common/PageTitle";
 import SEO from "@/components/common/SEO";
 
-const EmailSignature = () => {
+export default function EmailSignature() {
   const {
     values,
     errors,
@@ -44,13 +46,13 @@ const EmailSignature = () => {
         handleSubmit={handleSubmit}
       />
 
-      {formSubmitted ? (
-        <EmailOutput values={values} />
-      ) : (
-        <OutputMessage message="Email signature will appear here." extraMb />
-      )}
+      <Box sx={{ paddingBlockEnd: 6 }}>
+        {formSubmitted ? (
+          <EmailOutput values={values} />
+        ) : (
+          <OutputMessage message="Email signature will appear here." extraMb />
+        )}
+      </Box>
     </>
   );
-};
-
-export default EmailSignature;
+}

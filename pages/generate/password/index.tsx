@@ -12,7 +12,7 @@ import { usePasswordGeneratorFormControls } from "@/features/PasswordGenerator/u
 import PageTitle from "@/components/common/PageTitle";
 import SEO from "@/components/common/SEO";
 
-const PasswordGenerator = () => {
+export default function PasswordGenerator() {
   const { values, handleChange, handleSlider, handleClick, handleShowPassword } =
     usePasswordGeneratorFormControls();
 
@@ -62,6 +62,4 @@ const PasswordGenerator = () => {
       </Button>
     </>
   );
-};
-
-export default PasswordGenerator;
+}

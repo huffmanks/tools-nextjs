@@ -92,7 +92,6 @@ const ActionGroup = ({
           </Button>
           <Button
             fullWidth
-            variant="contained"
             sx={{ height: "100%" }}
             onClick={handleReset}
             aria-label="reset form"

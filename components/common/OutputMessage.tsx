@@ -5,7 +5,7 @@ interface OutputMessageProps {
   extraMb?: boolean;
 }
 
-const OutputMessage = ({ message, extraMb }: OutputMessageProps) => {
+export default function OutputMessage({ message, extraMb }: OutputMessageProps) {
   return (
     <Box
       sx={{
@@ -18,6 +18,4 @@ const OutputMessage = ({ message, extraMb }: OutputMessageProps) => {
       {message}
     </Box>
   );
-};
-
-export default OutputMessage;
+}

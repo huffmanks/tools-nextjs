@@ -21,7 +21,11 @@ const CodeBlock = ({ values, colors }: CodeBlockProps) => {
     <Box sx={{ marginBottom: "40px", fontSize: 14 }}>
       <SyntaxHighlighter
         language="css"
-        customStyle={{ margin: 0, padding: "20px 10px" }}
+        className="global-scrollbar"
+        customStyle={{
+          margin: 0,
+          padding: "20px 10px",
+        }}
         style={oneDark}
         wrapLines={true}
         showLineNumbers={true}>

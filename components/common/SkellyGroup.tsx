@@ -8,7 +8,7 @@ interface SkellyGroupProps {
   gapSize: number | string;
 }
 
-const SkellyGroup = ({ type, skellyAmount, gapSize }: SkellyGroupProps) => {
+export default function SkellyGroup({ type, skellyAmount, gapSize }: SkellyGroupProps) {
   const itemDynamicWidth = {
     xs: "100%",
     ...(skellyAmount === 2 && {
@@ -43,6 +43,4 @@ const SkellyGroup = ({ type, skellyAmount, gapSize }: SkellyGroupProps) => {
       ))}
     </Box>
   );
-};
-
-export default SkellyGroup;
+}

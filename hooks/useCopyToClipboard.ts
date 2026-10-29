@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useCopyToClipboard = (isElement: boolean, isRich?: boolean) => {
+export function useCopyToClipboard(isElement: boolean, isRich?: boolean) {
   const [copiedText, setCopiedText] = useState<string | null>(null);
 
   const copy = async (element: HTMLElement | string): Promise<boolean> => {
@@ -38,4 +38,4 @@ export const useCopyToClipboard = (isElement: boolean, isRich?: boolean) => {
   };
 
   return [copy, copiedText] as const;
-};
+}

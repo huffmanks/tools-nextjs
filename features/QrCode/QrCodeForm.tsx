@@ -41,7 +41,7 @@ const QrCodeForm = ({
   handleReset,
 }: QrCodeFormProps) => {
   return (
-    <Container maxWidth="sm" disableGutters sx={{ margin: 0 }}>
+    <Container maxWidth="sm" disableGutters sx={{ margin: 0, paddingBlockEnd: 4 }}>
       <Box
         component="form"
         onSubmit={handleSubmit}

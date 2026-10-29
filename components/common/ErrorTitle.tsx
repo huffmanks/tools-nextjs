@@ -9,14 +9,14 @@ interface ErrorTitleProps {
   isFallback?: boolean;
 }
 
-const ErrorTitle = ({
+export default function ErrorTitle({
   errorCode,
   errorMessage,
   errorFontSize,
   buttonText,
   buttonAction,
   isFallback,
-}: ErrorTitleProps) => {
+}: ErrorTitleProps) {
   const fontStyle = {
     xs: isFallback ? 20 : errorFontSize - 10,
     sm: isFallback ? 20 : errorFontSize,
@@ -72,6 +72,4 @@ const ErrorTitle = ({
       )}
     </Box>
   );
-};
-
-export default ErrorTitle;
+}

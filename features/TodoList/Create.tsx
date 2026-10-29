@@ -30,7 +30,7 @@ const Create = () => {
       </Typography>
       <ListType list={list} handleChange={handleChange} />
 
-      <Grid container spacing={3}>
+      <Grid container spacing={3} sx={{ paddingBlockEnd: 8 }}>
         <Grid size={{ xs: 12, sm: 6, md: 4 }}>
           <TextField
             required

@@ -91,7 +91,7 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+export default function Layout({ children }: LayoutProps) {
   const router = useRouter();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
@@ -178,6 +178,4 @@ const Layout = ({ children }: LayoutProps) => {
       </Box>
     </Box>
   );
-};
-
-export default Layout;
+}

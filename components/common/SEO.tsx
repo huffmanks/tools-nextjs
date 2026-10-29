@@ -7,7 +7,7 @@ interface SEOProps {
   imageUrl?: string;
 }
 
-const SEO = ({ description, title, url, imageUrl }: SEOProps) => {
+export default function SEO({ description, title, url, imageUrl }: SEOProps) {
   const baseUrl = "https://tools.huffmanks.com";
   const pageUrl = `${baseUrl}${url}`;
   const image = imageUrl
@@ -50,6 +50,4 @@ const SEO = ({ description, title, url, imageUrl }: SEOProps) => {
       <meta name="twitter:data1" property="twitter:data1" content="https://tools.huffmanks.com" />
     </Head>
   );
-};
-
-export default SEO;
+}

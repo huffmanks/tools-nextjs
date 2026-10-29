@@ -1,15 +1,10 @@
-import { forwardRef } from "react";
-
-import MuiAlert, { type AlertProps } from "@mui/material/Alert";
 import Snackbar, { type SnackbarCloseReason } from "@mui/material/Snackbar";
 
 import { useGlobalState } from "@/hooks/useGlobalState";
 
-const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+import Alert from "@/components/common/Alert";
 
-const Toast = () => {
+export default function Toast() {
   const { toastOpen, toastMessage, removeToast } = useGlobalState();
 
   const handleClose = (_event: React.SyntheticEvent | Event, reason?: SnackbarCloseReason) => {
@@ -39,6 +34,4 @@ const Toast = () => {
       </Snackbar>
     </>
   );
-};
-
-export default Toast;
+}

@@ -28,14 +28,24 @@ const ActionGroup = ({ values, colors }: ActionGroupProps) => {
   };
 
   return (
-    <Box sx={{ position: "absolute", top: 20, right: 20 }}>
+    <Box sx={{ position: "absolute", top: 10, right: 8 }}>
       <Button
         variant="contained"
         aria-label="copy"
         size="large"
         onClick={handleCopy}
-        endIcon={<ContentCopyIcon fontSize="inherit" />}>
-        Copy
+        endIcon={<ContentCopyIcon fontSize="inherit" />}
+        sx={{
+          gap: 1,
+          minWidth: { xs: "auto", sm: 8 },
+          paddingInline: { xs: 1, sm: 2.75 },
+          "& .MuiButton-endIcon": {
+            marginInline: { xs: 0 },
+          },
+        }}>
+        <Box component="span" sx={{ display: { xs: "none", sm: "inline" } }}>
+          Copy
+        </Box>
       </Button>
     </Box>
   );

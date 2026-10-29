@@ -17,7 +17,14 @@ interface NavItemProps {
   isHomePage?: boolean;
 }
 
-const NavItem = ({ router, routes, open, setOpen, label, isHomePage }: NavItemProps) => {
+export default function NavItem({
+  router,
+  routes,
+  open,
+  setOpen,
+  label,
+  isHomePage,
+}: NavItemProps) {
   return (
     <>
       {!isHomePage && <NavDivider open={open} label={label} />}
@@ -69,6 +76,4 @@ const NavItem = ({ router, routes, open, setOpen, label, isHomePage }: NavItemPr
       </List>
     </>
   );
-};
-
-export default NavItem;
+}

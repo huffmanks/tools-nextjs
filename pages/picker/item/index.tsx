@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import { useCounter } from "@/hooks/useCounter";
 
@@ -8,7 +8,7 @@ import { useItemPickerFormControls } from "@/features/RandomPicker/ItemPicker/us
 import PageTitle from "@/components/common/PageTitle";
 import SEO from "@/components/common/SEO";
 
-const ItemPicker = () => {
+export default function ItemPicker() {
   const {
     fileRef,
     resultRef,
@@ -38,21 +38,21 @@ const ItemPicker = () => {
         Get a random item from a list.
       </Typography>
 
-      <ItemForm
-        fileRef={fileRef}
-        resultRef={resultRef}
-        values={values}
-        handleChange={handleChange}
-        handleFileUpload={handleFileUpload}
-        handleRandomSelection={handleRandomSelection}
-        handleClick={handleClick}
-        handleCopy={handleCopy}
-        handleReset={handleReset}
-        handleDecrease={handleDecrease}
-        handleIncrease={handleIncrease}
-      />
+      <Box sx={{ paddingBlockEnd: 8 }}>
+        <ItemForm
+          fileRef={fileRef}
+          resultRef={resultRef}
+          values={values}
+          handleChange={handleChange}
+          handleFileUpload={handleFileUpload}
+          handleRandomSelection={handleRandomSelection}
+          handleClick={handleClick}
+          handleCopy={handleCopy}
+          handleReset={handleReset}
+          handleDecrease={handleDecrease}
+          handleIncrease={handleIncrease}
+        />
+      </Box>
     </>
   );
-};
-
-export default ItemPicker;
+}

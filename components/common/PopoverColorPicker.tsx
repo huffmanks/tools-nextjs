@@ -1,49 +1,22 @@
-import { forwardRef, useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 import { Box, InputAdornment, Stack, TextField, Typography } from "@mui/material";
-import { HexColorInput, HexColorPicker } from "react-colorful";
+import { HexColorPicker } from "react-colorful";
 
 import { initialPopoverColorPickerValues } from "@/constants/popoverColorPicker";
 import { useClickOutside } from "@/hooks/useClickOutside";
 
-type HexColorInputCustomProps = {
-  value?: string;
-  name?: string;
-  className?: string;
-  style?: React.CSSProperties;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  onBlur?: React.FocusEventHandler<HTMLInputElement>;
-  disabled?: boolean;
-  placeholder?: string;
-};
+import HexColorInputCustom from "@/components/common/HexColorInputCustom";
 
-const HexColorInputCustom = forwardRef<HTMLInputElement, HexColorInputCustomProps>(
-  function HexColorInputCustom({ value, onChange, ...props }, ref) {
-    return (
-      <HexColorInput
-        {...props}
-        color={value ?? ""}
-        onChange={(newColor) => {
-          onChange?.({
-            target: { value: newColor, name: props.name ?? "" },
-          } as React.ChangeEvent<HTMLInputElement>);
-        }}
-        // @ts-expect-error - react-colorful types omit internal ref forwarding prop
-        inputRef={ref}
-      />
-    );
-  }
-);
-
-type PopoverColorPickerProps = {
+interface PopoverColorPickerProps {
   label?: string;
   name?: string;
   value?: string;
   helperText?: string;
   handleBlur?: (name?: string, color?: string) => void;
-};
+}
 
-function PopoverColorPicker({
+export default function PopoverColorPicker({
   label,
   name,
   value,
@@ -133,5 +106,3 @@ function PopoverColorPicker({
     </div>
   );
 }
-
-export default PopoverColorPicker;

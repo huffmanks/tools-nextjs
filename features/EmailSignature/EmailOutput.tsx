@@ -33,7 +33,7 @@ const EmailOutput = ({ values }: EmailOutputProps) => {
         sx={{
           position: "relative",
           maxWidth: 375,
-          marginBottom: 6,
+          marginBlockEnd: 6,
           padding: 3,
           backgroundColor: "rgba(255, 255, 255, 0.8)",
           color: "background.default",

@@ -13,13 +13,13 @@ interface CounterProps {
   handleIncrease: () => void;
 }
 
-const Counter = ({
+export default function Counter({
   isDisabled,
   values,
   handleChange,
   handleDecrease,
   handleIncrease,
-}: CounterProps) => {
+}: CounterProps) {
   return (
     <>
       <TextField
@@ -81,6 +81,4 @@ const Counter = ({
       />
     </>
   );
-};
-
-export default Counter;
+}

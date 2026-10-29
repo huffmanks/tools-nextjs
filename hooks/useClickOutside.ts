@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 
-export const useClickOutside = <T extends HTMLElement = HTMLElement>(
+export function useClickOutside<T extends HTMLElement = HTMLElement>(
   ref: React.RefObject<T | null>,
   handler: (event: MouseEvent | TouchEvent) => void
-) => {
+) {
   useEffect(() => {
     let startedInside = false;
     let startedWhenMounted = false;
@@ -34,4 +34,4 @@ export const useClickOutside = <T extends HTMLElement = HTMLElement>(
       document.removeEventListener("click", listener as EventListener);
     };
   }, [ref, handler]);
-};
+}

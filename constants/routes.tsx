@@ -5,7 +5,6 @@ import CalculateIcon from "@mui/icons-material/Calculate";
 import CodeIcon from "@mui/icons-material/Code";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
-import DifferenceIcon from "@mui/icons-material/Difference";
 import FactoryIcon from "@mui/icons-material/Factory";
 import FeedIcon from "@mui/icons-material/Feed";
 import FormatPaintIcon from "@mui/icons-material/FormatPaint";
@@ -69,17 +68,6 @@ export const calculateRoutes: RouteItem[] = [
   },
 ];
 
-export const convertRoutes: RouteItem[] = [
-  {
-    path: "/convert/files",
-    name: "File Converter",
-    homeName: "File Converter",
-    key: "file-converter",
-    icon: <DifferenceIcon />,
-    description: "Convert files between common formats.",
-  },
-];
-
 export const formatRoutes: RouteItem[] = [
   {
     path: "/format/code",
@@ -88,6 +76,14 @@ export const formatRoutes: RouteItem[] = [
     key: "code-formatter",
     icon: <CodeIcon />,
     description: "Minify, escape and encode data.",
+  },
+  {
+    path: "/format/file-converter",
+    name: "File Converter",
+    homeName: "File Converter",
+    key: "file-converter",
+    icon: <SwapHorizIcon />,
+    description: "Convert files between common formats.",
   },
   {
     path: "https://diff.huffmanks.com/",
@@ -188,7 +184,6 @@ export const pickerRoutes: RouteItem[] = [
 
 export const navItems: NavItem[] = [
   { routes: calculateRoutes, label: "Calculate", value: "calculate", icon: <CalculateIcon /> },
-  { routes: convertRoutes, label: "Convert", value: "convert", icon: <SwapHorizIcon /> },
   { routes: formatRoutes, label: "Format", value: "format", icon: <FormatPaintIcon /> },
   { routes: generateRoutes, label: "Generate", value: "generate", icon: <FactoryIcon /> },
   { routes: pickerRoutes, label: "Picker", value: "picker", icon: <SelectAllIcon /> },

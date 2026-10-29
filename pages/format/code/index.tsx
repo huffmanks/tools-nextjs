@@ -6,7 +6,7 @@ import { useCodeFormatterFormControls } from "@/features/CodeFormatter/useCodeFo
 import PageTitle from "@/components/common/PageTitle";
 import SEO from "@/components/common/SEO";
 
-const CodeFormatter = () => {
+export default function CodeFormatter() {
   const { values, errors, handleChange, handleReset } = useCodeFormatterFormControls();
 
   return (
@@ -24,7 +24,7 @@ const CodeFormatter = () => {
         Minify, escape and encode data.
       </Typography>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={3} sx={{ paddingBlockEnd: 8 }}>
         <CodeFormatForm
           values={values}
           errors={errors}
@@ -34,6 +34,4 @@ const CodeFormatter = () => {
       </Grid>
     </>
   );
-};
-
-export default CodeFormatter;
+}

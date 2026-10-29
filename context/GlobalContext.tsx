@@ -11,6 +11,10 @@ interface GlobalStateContextType {
   toasts: ToastState;
 }
 
+interface GlobalStateProviderProps {
+  children: React.ReactNode;
+}
+
 export const GlobalStateContext = createContext<GlobalStateContextType>({
   toasts: {
     toastOpen: false,
@@ -20,11 +24,7 @@ export const GlobalStateContext = createContext<GlobalStateContextType>({
   },
 });
 
-interface GlobalStateProviderProps {
-  children: React.ReactNode;
-}
-
-const GlobalStateProvider = ({ children }: GlobalStateProviderProps) => {
+export default function GlobalStateProvider({ children }: GlobalStateProviderProps) {
   const [toastOpen, setToastOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
 
@@ -48,6 +48,4 @@ const GlobalStateProvider = ({ children }: GlobalStateProviderProps) => {
   };
 
   return <GlobalStateContext.Provider value={contextValue}>{children}</GlobalStateContext.Provider>;
-};
-
-export default GlobalStateProvider;
+}

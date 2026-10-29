@@ -6,7 +6,7 @@ interface SkellyProps {
   type: SkellyType;
 }
 
-const Skelly = ({ type }: SkellyProps) => {
+export default function Skelly({ type }: SkellyProps) {
   const styles = {
     text: {
       width: 250,
@@ -27,6 +27,4 @@ const Skelly = ({ type }: SkellyProps) => {
   };
 
   return <Skeleton animation="wave" variant="rectangular" sx={styles[type]} />;
-};
-
-export default Skelly;
+}

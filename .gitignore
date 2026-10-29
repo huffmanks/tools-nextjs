@@ -20,6 +20,9 @@
 *.pem
 .fallow
 repomix-output.xml
+*.tsbuildinfo
+public/sw.js
+public/sitemap*.xml
 
 # debug
 npm-debug.log*

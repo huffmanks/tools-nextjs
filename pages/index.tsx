@@ -4,7 +4,6 @@ import { Typography } from "@mui/material";
 
 import {
   calculateRoutes,
-  convertRoutes,
   formatRoutes,
   generateRoutes,
   navItems,
@@ -35,8 +34,6 @@ const Home = () => {
 
       <BottomMenu screen={screen} handleScreen={handleScreen} navItems={navItems}>
         {screen === "calculate" && <CardLinks routes={calculateRoutes} />}
-
-        {screen === "convert" && <CardLinks routes={convertRoutes} />}
 
         {screen === "format" && <CardLinks routes={formatRoutes} />}
 

@@ -46,6 +46,7 @@ const ListCard = ({ list }: ListCardProps) => {
         <Card
           sx={{
             width: 300,
+            maxWidth: "100%",
             height: "100%",
             backgroundColor: "background.alt",
             backgroundImage: "none",

@@ -7,7 +7,7 @@ import { useAspectRatioFormControls } from "@/features/AspectRatio/useAspectRati
 import PageTitle from "@/components/common/PageTitle";
 import SEO from "@/components/common/SEO";
 
-const AspectRatio = () => {
+export default function AspectRatio() {
   const { values, errors, handleFocus, handleChange, handleBlur } = useAspectRatioFormControls();
 
   return (
@@ -25,7 +25,7 @@ const AspectRatio = () => {
         Calculate the aspect ratio.
       </Typography>
 
-      <Grid container spacing={5} sx={{ alignItems: "start" }}>
+      <Grid container spacing={5} sx={{ alignItems: "start", paddingBlockEnd: 8 }}>
         <AspectForm
           values={values}
           errors={errors}
@@ -38,6 +38,4 @@ const AspectRatio = () => {
       </Grid>
     </>
   );
-};
-
-export default AspectRatio;
+}

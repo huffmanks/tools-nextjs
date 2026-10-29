@@ -13,14 +13,14 @@ interface BottomMenuProps {
   children: React.ReactNode;
 }
 
-const BottomMenu = ({
+export default function BottomMenu({
   screen,
   handleScreen,
   navItems,
   isFocused,
   activeListId,
   children,
-}: BottomMenuProps) => {
+}: BottomMenuProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -58,6 +58,4 @@ const BottomMenu = ({
       </Paper>
     </Box>
   );
-};
-
-export default BottomMenu;
+}

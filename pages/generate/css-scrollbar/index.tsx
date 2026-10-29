@@ -10,7 +10,7 @@ import { useCSSScrollbarFormControls } from "@/features/CSSScrollbar/useCSSScrol
 import PageTitle from "@/components/common/PageTitle";
 import SEO from "@/components/common/SEO";
 
-const CSSScrollbar = () => {
+export default function CSSScrollbar() {
   const { colors, handleBlur } = usePopoverColorPicker(initialPopoverColorPickerValues);
   const { values, handleChange } = useCSSScrollbarFormControls();
 
@@ -29,7 +29,7 @@ const CSSScrollbar = () => {
         Customize a CSS scrollbar.
       </Typography>
 
-      <Grid container spacing={5}>
+      <Grid container spacing={5} sx={{ paddingBlockEnd: 4 }}>
         <ScrollbarForm
           values={values}
           colors={colors}
@@ -41,6 +41,4 @@ const CSSScrollbar = () => {
       </Grid>
     </>
   );
-};
-
-export default CSSScrollbar;
+}

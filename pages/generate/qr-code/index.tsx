@@ -6,7 +6,7 @@ import { useQrCodeFormControls } from "@/features/QrCode/useQrCodeFormControls";
 import PageTitle from "@/components/common/PageTitle";
 import SEO from "@/components/common/SEO";
 
-const QrCode = () => {
+export default function QrCode() {
   const {
     codeRef,
     values,
@@ -59,6 +59,4 @@ const QrCode = () => {
         }}></Box>
     </>
   );
-};
-
-export default QrCode;
+}

@@ -32,10 +32,7 @@ const TextForm = ({
         size="large"
         isFullWidth
         helperText={`There will be ${values?.total} item${values?.total > 1 ? "s" : ""} selected from the list.`}>
-        <Stack
-          direction={{ xs: "column", md: "row" }}
-          spacing={{ xs: 0, sm: 2 }}
-          sx={{ marginBlockEnd: 1 }}>
+        <Stack direction={{ xs: "column", md: "row" }} spacing={2} sx={{ marginBlockEnd: 1 }}>
           <Counter
             values={values}
             handleChange={handleChange}

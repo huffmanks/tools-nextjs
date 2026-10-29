@@ -85,7 +85,7 @@ const MockContentForm = ({
           </FormGroup>
         </FormControl>
 
-        <Stack direction={{ xs: "column", sm: "row" }} sx={{ marginBlockEnd: 2, gap: 2 }}>
+        <Stack direction={{ xs: "column", sm: "row" }} sx={{ gap: 2 }}>
           <Button
             fullWidth
             type="submit"

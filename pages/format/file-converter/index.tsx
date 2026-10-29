@@ -6,7 +6,7 @@ import { useFileConverterFormControls } from "@/features/FileConverter/useFileCo
 import PageTitle from "@/components/common/PageTitle";
 import SEO from "@/components/common/SEO";
 
-const FileConverter = () => {
+export default function FileConverter() {
   const { values, errors, warnings, handleChange, handleDownload, handleFileUpload, handleReset } =
     useFileConverterFormControls();
 
@@ -15,17 +15,17 @@ const FileConverter = () => {
       <SEO
         description="Convert files between common formats."
         title="File Converter"
-        url="/convert/files"
+        url="/format/file-converter"
         imageUrl="/file-converter.png"
       />
 
-      <PageTitle>Data Converter</PageTitle>
+      <PageTitle>File Converter</PageTitle>
 
       <Typography component="p" sx={{ marginBlockEnd: 5 }}>
         Convert files between common formats.
       </Typography>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={3} sx={{ paddingBlockEnd: 8 }}>
         <FileConverterForm
           values={values}
           errors={errors}
@@ -38,6 +38,4 @@ const FileConverter = () => {
       </Grid>
     </>
   );
-};
-
-export default FileConverter;
+}

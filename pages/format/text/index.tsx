@@ -8,7 +8,7 @@ import { useTextFormatterFormControls } from "@/features/TextFormatter/useTextFo
 import PageTitle from "@/components/common/PageTitle";
 import SEO from "@/components/common/SEO";
 
-const TextFormatter = () => {
+export default function TextFormatter() {
   const {
     values,
     checkedCards,
@@ -37,7 +37,7 @@ const TextFormatter = () => {
         Format text to any case.
       </Typography>
 
-      <Grid container spacing={5}>
+      <Grid container spacing={5} sx={{ paddingBlockEnd: 8 }}>
         <Textarea output={values.output} handleChange={handleChange} handleClear={handleClear} />
 
         <ActionGroup
@@ -54,6 +54,4 @@ const TextFormatter = () => {
       </Grid>
     </>
   );
-};
-
-export default TextFormatter;
+}

@@ -7,7 +7,7 @@ interface AppBarLogoProps {
   open?: boolean;
 }
 
-const AppBarLogo = ({ logoSize, textSize, open }: AppBarLogoProps) => {
+export default function AppBarLogo({ logoSize, textSize, open }: AppBarLogoProps) {
   return (
     <>
       <Box
@@ -52,6 +52,4 @@ const AppBarLogo = ({ logoSize, textSize, open }: AppBarLogoProps) => {
       </Box>
     </>
   );
-};
-
-export default AppBarLogo;
+}

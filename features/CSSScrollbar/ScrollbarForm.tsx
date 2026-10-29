@@ -93,7 +93,6 @@ const ScrollbarForm = ({ values, colors, handleBlur, handleChange }: ScrollbarFo
                 />
               ))}
             </Box>
-            4
             <Stack sx={{ gap: 3, paddingBlockStart: { xs: 0, sm: 5, md: 0, lg: 5 } }}>
               <PixelInput
                 inputLabel="Border radius"

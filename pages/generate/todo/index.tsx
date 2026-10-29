@@ -4,7 +4,7 @@ import TodoStateProvider from "@/features/TodoList/TodoContext";
 import PageTitle from "@/components/common/PageTitle";
 import SEO from "@/components/common/SEO";
 
-const TodoList = () => {
+export default function TodoList() {
   return (
     <TodoStateProvider>
       <SEO
@@ -19,6 +19,4 @@ const TodoList = () => {
       <Screens />
     </TodoStateProvider>
   );
-};
-
-export default TodoList;
+}

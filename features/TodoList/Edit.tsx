@@ -147,7 +147,7 @@ const Edit = () => {
         </Button>
       </Box>
 
-      <Box>
+      <Box sx={{ paddingBlockEnd: 8 }}>
         <Button
           variant="contained"
           size="large"
