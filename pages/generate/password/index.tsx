@@ -1,5 +1,5 @@
 import KeyIcon from "@mui/icons-material/Key";
-import { Button, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
 import PasswordContainer from "@/features/PasswordGenerator/PasswordContainer";
 import PasswordOptions from "@/features/PasswordGenerator/PasswordOptions";
@@ -33,33 +33,39 @@ export default function PasswordGenerator() {
 
       <PasswordType values={values} handleChange={handleChange} />
 
-      {values.passwordType === "keygen" ? (
-        <PasswordContainer
-          left={
-            <>
-              <RandomKeyGens values={values} />
-            </>
-          }
-        />
-      ) : (
-        <PasswordContainer
-          left={
-            <>
-              <PasswordOutput
-                password={values.password}
-                showPassword={values.showPassword}
-                handleShowPassword={handleShowPassword}
-              />
+      <Box sx={{ paddingBlockEnd: 8 }}>
+        {values.passwordType === "keygen" ? (
+          <PasswordContainer
+            left={
+              <>
+                <RandomKeyGens values={values} />
+              </>
+            }
+          />
+        ) : (
+          <PasswordContainer
+            left={
+              <>
+                <PasswordOutput
+                  password={values.password}
+                  showPassword={values.showPassword}
+                  handleShowPassword={handleShowPassword}
+                />
 
-              <SliderInput slider={values.slider} handleSlider={handleSlider} />
-            </>
-          }
-          right={<PasswordOptions values={values} handleChange={handleChange} />}
-        />
-      )}
-      <Button variant="contained" onClick={handleClick} endIcon={<KeyIcon />} sx={{ fontSize: 16 }}>
-        Generate
-      </Button>
+                <SliderInput slider={values.slider} handleSlider={handleSlider} />
+              </>
+            }
+            right={<PasswordOptions values={values} handleChange={handleChange} />}
+          />
+        )}
+        <Button
+          variant="contained"
+          onClick={handleClick}
+          endIcon={<KeyIcon />}
+          sx={{ fontSize: 16 }}>
+          Generate
+        </Button>
+      </Box>
     </>
   );
 }
