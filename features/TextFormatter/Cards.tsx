@@ -19,7 +19,7 @@ const Cards = ({ values, checkedCards, handleCopy }: CardsProps) => {
         <Fragment key={card.name}>
           {checkedCards.includes(card.name) && (
             <Grid size={{ xs: 12, md: 6, lg: 3 }}>
-              <Card variant="outlined">
+              <Card variant="outlined" sx={{ minWidth: 0 }}>
                 <CardHeader
                   title={card.label}
                   action={
@@ -36,8 +36,8 @@ const Cards = ({ values, checkedCards, handleCopy }: CardsProps) => {
                 />
 
                 {values?.output && (
-                  <CardContent>
-                    <Typography variant="body2" color="text.secondary">
+                  <CardContent sx={{ minWidth: 0 }}>
+                    <Typography variant="body2" color="text.secondary" noWrap>
                       {values[card.name]}
                     </Typography>
                   </CardContent>
